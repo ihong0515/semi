@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-INDEX VERSION 1.4+C:\NCS\workspace(semiProject)\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-931642793.index
-267988515.index
-2858827098.index
-1297629778.index
-1590439790.index
-=======
-INDEX VERSION 1.4+C:\NCS\workspace(project)\semi\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2745170213.index
-931642793.index
-3426033082.index
-1507017829.index
-47191646.index
->>>>>>> 586456f240294ffe232375c532e94446b15792d0
+INDEX VERSION 1.4+C:\Users\hongjaeyoung\Desktop\semi\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+166158126.index
+3551794639.index
+3935275078.index
+2954575597.index
