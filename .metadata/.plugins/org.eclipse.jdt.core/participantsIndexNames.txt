@@ -1,5 +1,11 @@
 INDEX VERSION 1.131
+<<<<<<< HEAD
+C:\NCS\workspace(semiProject)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2817463838.index
+\00_SemiProject\src
+C:\NCS\workspace(semiProject)\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\381773310.index
+=======
 C:\NCS\workspace(project)\semi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2817463838.index
 \00_SemiProject\src
 C:\NCS\workspace(project)\semi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\381773310.index
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 \00_SemiProject\src

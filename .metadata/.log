@@ -551,6 +551,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 16:03:36.474
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+<<<<<<< HEAD
+!SESSION 2023-03-21 16:58:00.306 -----------------------------------------------
+=======
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 17:04:05.519
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
@@ -582,22 +585,35 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 !ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 17:04:11.706
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
 !SESSION 2023-03-21 17:08:33.282 -----------------------------------------------
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 eclipse.buildId=4.16.0.I20200604-0540
 java.version=11.0.17
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
 Framework arguments:  -product org.eclipse.epp.package.jee.product
+<<<<<<< HEAD
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2023-03-21 16:58:04.385
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-21 16:58:04.385
+=======
 Command-line arguments:  -data C:\NCS\workspace(project)\semi -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
 !ENTRY org.eclipse.jface 2 0 2023-03-21 17:08:38.037
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
 !SUBENTRY 1 org.eclipse.jface 2 0 2023-03-21 17:08:38.037
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
 		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+<<<<<<< HEAD
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3305897c,
+=======
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4bd39edc,
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
@@ -605,12 +621,20 @@ Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
 		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+<<<<<<< HEAD
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@53945f9c,
+=======
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3ba50851,
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.ui 4 4 2023-03-21 16:58:08.041
+=======
 !ENTRY org.eclipse.ui 4 4 2023-03-21 17:08:41.976
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 !MESSAGE Unable to create part
 !STACK 1
 org.eclipse.ui.PartInitException: Cannot determine URI for '/00_SemiProject/WebContent/index.jsp'.
@@ -755,7 +779,11 @@ Caused by: org.eclipse.core.runtime.CoreException: Cannot determine URI for '/00
 	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2320)
 	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3196)
 	... 126 more
+<<<<<<< HEAD
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2023-03-21 16:58:08.041
+=======
 !SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2023-03-21 17:08:41.978
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 !MESSAGE Cannot determine URI for '/00_SemiProject/WebContent/index.jsp'.
 !STACK 1
 org.eclipse.core.runtime.CoreException: Cannot determine URI for '/00_SemiProject/WebContent/index.jsp'.
@@ -897,16 +925,42 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/00_SemiProjec
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1447)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1420)
+<<<<<<< HEAD
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2023-03-21 16:58:08.041
+!MESSAGE Cannot determine URI for '/00_SemiProject/WebContent/index.jsp'.
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-03-21 16:58:09.712
+=======
 !SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2023-03-21 17:08:41.979
 !MESSAGE Cannot determine URI for '/00_SemiProject/WebContent/index.jsp'.
 
 !ENTRY org.eclipse.egit.ui 2 0 2023-03-21 17:08:43.745
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\user1'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 16:58:44.812
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 16:58:44.814
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 16:58:44.819
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2023-03-21 16:58:52.294
+!MESSAGE The specified Tomcat installation directory does not exist.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2023-03-21 16:59:02.251
+!MESSAGE The specified Tomcat installation directory does not exist.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2023-03-21 17:01:29.420
+!MESSAGE Port 8080 required by Tomcat v9.0 Server at localhost is already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+=======
 !ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 17:12:23.438
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
 
@@ -915,3 +969,4 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2023-03-21 17:12:23.445
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+>>>>>>> 586456f240294ffe232375c532e94446b15792d0
