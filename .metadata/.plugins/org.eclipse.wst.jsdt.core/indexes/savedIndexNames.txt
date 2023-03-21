@@ -1,9 +1,6 @@
-INDEX VERSION 1.4+C:\NCS\workspace_semi\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-381773310.index
-592658850.index
-2869910219.index
-3710777382.index
+INDEX VERSION 1.4+C:\NCS\workspace(project)\semi\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2745170213.index
 931642793.index
-1274611158.index
-4124369859.index
-381773310.index
+3426033082.index
+1507017829.index
+47191646.index
