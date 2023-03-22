@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 INDEX VERSION 1.4+C:\NCS\workspace(semiProject)\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 931642793.index
@@ -13,3 +14,12 @@ INDEX VERSION 1.4+C:\NCS\workspace(project)\semi\.metadata\.plugins\org.eclipse.
 1507017829.index
 47191646.index
 >>>>>>> 586456f240294ffe232375c532e94446b15792d0
+=======
+INDEX VERSION 1.4+C:\NCS\workspace_semi\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+931642793.index
+2869910219.index
+1274611158.index
+3710777382.index
+592658850.index
+4124369859.index
+>>>>>>> Stashed changes
