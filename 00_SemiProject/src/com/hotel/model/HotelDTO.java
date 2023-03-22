@@ -1,78 +1,99 @@
 package com.hotel.model;
 
 public class HotelDTO {
-	private int HOTELID;
-	private String HOTELNAME;
-	private String HOTELPHONE;
-	private int HOTELSTAR;
-	private int HOTELPOINT;
-	private String WIFI;
-	private String RESTAURANT;
-	private String PARKING;
+	private int hotelId;
+	private String hotelName;
+	private String hotelPhone;
+	private int hotelStar;
+	private int hotelPoint;
+	private String wifi;
+	private String restaurant;
+	private String parking;
+	private int price;
+	private String location;
 	
 	public HotelDTO() {	}
 
-	public int getHOTELID() {
-		return HOTELID;
+	public int getHotelId() {
+		return hotelId;
 	}
 
-	public void setHOTELID(int hOTELID) {
-		HOTELID = hOTELID;
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
 	}
 
-	public String getHOTELNAME() {
-		return HOTELNAME;
+	public String getHotelName() {
+		return hotelName;
 	}
 
-	public void setHOTELNAME(String hOTELNAME) {
-		HOTELNAME = hOTELNAME;
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
 	}
 
-	public String getHOTELPHONE() {
-		return HOTELPHONE;
+	public String getHotelPhone() {
+		return hotelPhone;
 	}
 
-	public void setHOTELPHONE(String hOTELPHONE) {
-		HOTELPHONE = hOTELPHONE;
+	public void setHotelPhone(String hotelPhone) {
+		this.hotelPhone = hotelPhone;
 	}
 
-	public int getHOTELSTAR() {
-		return HOTELSTAR;
+	public int getHotelStar() {
+		return hotelStar;
 	}
 
-	public void setHOTELSTAR(int hOTELSTAR) {
-		HOTELSTAR = hOTELSTAR;
+	public void setHotelStar(int hotelStar) {
+		this.hotelStar = hotelStar;
 	}
 
-	public int getHOTELPOINT() {
-		return HOTELPOINT;
+	public int getHotelPoint() {
+		return hotelPoint;
 	}
 
-	public void setHOTELPOINT(int hOTELPOINT) {
-		HOTELPOINT = hOTELPOINT;
+	public void setHotelPoint(int hotelPoint) {
+		this.hotelPoint = hotelPoint;
 	}
 
-	public String getWIFI() {
-		return WIFI;
+	public String getWifi() {
+		return wifi;
 	}
 
-	public void setWIFI(String wIFI) {
-		WIFI = wIFI;
+	public void setWifi(String wifi) {
+		this.wifi = wifi;
 	}
 
-	public String getRESTAURANT() {
-		return RESTAURANT;
+	public String getRestaurant() {
+		return restaurant;
 	}
 
-	public void setRESTAURANT(String rESTAURANT) {
-		RESTAURANT = rESTAURANT;
+	public void setRestaurant(String restaurant) {
+		this.restaurant = restaurant;
 	}
 
-	public String getPARKING() {
-		return PARKING;
+	public String getParking() {
+		return parking;
 	}
 
-	public void setPARKING(String pARKING) {
-		PARKING = pARKING;
+	public void setParking(String parking) {
+		this.parking = parking;
 	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	
+	
 }
