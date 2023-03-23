@@ -73,7 +73,7 @@ public class HotelDAO {
 			ps.setString(4, endDate);
 		
 			rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				HotelDTO dto = new HotelDTO();
 				dto.setHotel_No(rs.getInt("hotel_no"));
 				dto.setHotel_Name(rs.getString("hotel_name"));
@@ -105,20 +105,100 @@ public class HotelDAO {
 		ArrayList<RoomDTO> list = new ArrayList<>();
 		
 		try {
-			sql = "select * from room where room_hotelno = ?;";
+			sql = "select * from room where room_hotelno = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				RoomDTO dto = new RoomDTO();
-				
+				dto.setRoom_no(rs.getInt("room_no"));
+				dto.setRoom_hotelno(rs.getInt("room_hotelno"));
+				dto.setRoom_name(rs.getString("room_name"));
+				dto.setRoom_price(rs.getInt("room_price"));
+				dto.setRoom_bed(rs.getString("room_bed"));
+				dto.setRoom_size(rs.getString("room_size"));
+				dto.setRoom_people_min(rs.getInt("room_people_min"));
+				dto.setRoom_people_max(rs.getInt("room_people_max"));
+				dto.setRoom_photo_folder(rs.getString("room_photo_folder"));
+				dto.setRoom_checkin(rs.getString("room_checkin"));
+				dto.setRoom_checkout(rs.getString("room_checkout"));
+				dto.setRoom_breakfast(rs.getString("room_breakfast"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		return list;
+	}
+
+	public HotelDTO getHotelContent(int hotel_no) {
+		HotelDTO dto = null;
+		
+		try {
+			sql = "select * from hotel where hotel_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, hotel_no);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto = new HotelDTO();
+				dto.setHotel_No(rs.getInt("hotel_no"));
+				dto.setHotel_Name(rs.getString("hotel_name"));
+				dto.setHotel_Phone(rs.getString("hotel_phone"));
+				dto.setHotel_Addr(rs.getString("hotel_addr"));
+				dto.setHotel_Location(rs.getString("hotel_location"));
+				dto.setHotel_Email(rs.getString("hotel_email"));
+				dto.setHotel_Room_Count(rs.getInt("hotel_room_count"));
+				dto.setHotel_Establish(rs.getInt("hotel_establish"));
+				dto.setHotel_Photo_Folder(rs.getString("hotel_photo_folder"));
+				dto.setHotel_price_Min(rs.getInt("hotel_price_min"));
+				dto.setHotel_price_Max(rs.getInt("hotel_price_max"));
+				dto.setHotel_People_Min(rs.getInt("hotel_people_min"));
+				dto.setHotel_People_Max(rs.getInt("hotel_people_max"));
+				dto.setHotel_Star(rs.getInt("hotel_star"));
+				dto.setHotel_Point(rs.getInt("hotel_point"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return dto;
+	}
+
+	public HotelPolicyDTO getHotelPolicyContent(int hotel_no) {
+		HotelPolicyDTO dto = null;
+		
+		try {
+			sql = "select * from hotelpolicy where hp_hotelno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, hotel_no);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto = new HotelPolicyDTO();
+				dto.setHp_HotelNo(rs.getInt("hp_hotelNo"));
+				dto.setHp_Wifi(rs.getString("hp_Wifi"));
+				dto.setHp_Parking(rs.getString("hp_Parking"));
+				dto.setHp_Tub(rs.getString("hp_Tub"));
+				dto.setHp_Pool(rs.getString("hp_Pool"));
+				dto.setHp_Restaurant(rs.getString("hp_Restaurant"));
+				dto.setHp_Fitness(rs.getString("hp_Fitness"));
+				dto.setHp_Bar(rs.getString("hp_Bar"));
+				dto.setHp_Terrace(rs.getString("hp_Terrace"));
+				dto.setHp_Sauna(rs.getString("hp_Sauna"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return dto;
 	}
 	
 	

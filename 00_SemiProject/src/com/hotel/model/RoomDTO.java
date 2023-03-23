@@ -32,7 +32,6 @@ public class RoomDTO {
 		return room_hotelno;
 	}
 
-
 	public void setRoom_hotelno(int room_hotelno) {
 		this.room_hotelno = room_hotelno;
 	}

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div id="header">
 		<h5>상단 네비바 1↑</h5>
 		<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
           <ul>
@@ -32,5 +33,6 @@
         </nav>
         
         <hr>
+	</div>
 </body>
 </html>
