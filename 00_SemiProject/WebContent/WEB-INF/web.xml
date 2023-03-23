@@ -21,10 +21,12 @@
   
   <servlet>
   	<servlet-name>FrontController</servlet-name>
+
   	<servlet-class>com.user.controller.FrontController</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.uo</url-pattern>
+
   </servlet-mapping>
 </web-app>
