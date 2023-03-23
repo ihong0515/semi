@@ -1,3 +1,4 @@
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,10 +32,10 @@
          		<select name="checkinDate">
             	<%
 	               // Get the current date
-	               java.util.Date currentDate = new java.util.Date();
+	                Date currentDate = new  Date();
 	               
 	               // Create a Calendar object
-	               java.util.Calendar cal = java.util.Calendar.getInstance();
+	                Calendar cal =  Calendar.getInstance();
 	               
 	               // Set the calendar to the current date
 	               cal.setTime(currentDate);
@@ -42,7 +43,7 @@
 	               // Loop through the next 30 days
 	               for (int i = 0; i < 30; i++) {
 	                  // Add one day to the calendar
-	                  cal.add(java.util.Calendar.DATE, 1);
+	                  cal.add( Calendar.DATE, 1);
 	                  
 	                  // Get the date in a format suitable for a select option
 	                  String optionValue = new java.text.SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
@@ -58,19 +59,19 @@
 	  				<label for="date">체크아웃:</label>
          		<select name="checkoutDate">
             	<%
-	               // Get the current date
-	               java.util.Date checkoutDate = new java.util.Date();
+	              /*  // Get the current date(체크인 시작 하루 이후로 조정 예정)
+	                Date checkoutDate = new  Date();
 	               
 	               // Create a Calendar object
-	               java.util.Calendar cal2 = java.util.Calendar.getInstance();
+	                Calendar cal2 =  Calendar.getInstance(); */
 	               
 	               // Set the calendar to the current date
-	               cal2.setTime(checkoutDate);
+	               cal.setTime(currentDate);
 	               
-	               // Loop through the next 30 days
+	               // Loop through the next 30 days(올해 남은 일수 만큼으로 조정 예정 )
 	               for (int i = 0; i < 30; i++) {
 	                  // Add one day to the calendar
-	                  cal2.add(java.util.Calendar.DATE, 1);
+	                  cal.add( Calendar.DATE, 1);
 	                  
 	                  // Get the date in a format suitable for a select option
 	                  String optionValue = new java.text.SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
