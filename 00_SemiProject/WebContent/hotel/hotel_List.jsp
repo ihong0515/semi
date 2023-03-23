@@ -11,18 +11,18 @@
 </head>
 <body>
 	<div id="container">
-		<%-- <jsp:include page="../include/header.jsp" /> --%>
+		<jsp:include page="../include/header.jsp" />
 		<div id="content">
 			<div id="sidebar">
-			
+				
 			</div>
 			<div id="main">
 				<nav>
 					<ul>
-						<li><a>인기 호텔</a></li>
-						<li><a>요금 순</a></li>
-						<li><a>성급</a></li>
-						<li><a>평점</a></li>
+						<li><a href="#">인기 호텔</a></li>
+						<li><a href="#">요금 순</a></li>
+						<li><a href="#">성급</a></li>
+						<li><a href="#">평점</a></li>
 					</ul>
 				</nav>
 				<c:if test="${!empty list }">
@@ -30,13 +30,13 @@
 						<div id="cnt">
 							<img alt="" src="../image/hotelsample.jpg" width="150px" height="150px">
 							<div>
-								${dto.getHotelName() } 
-								<c:forEach begin="1" end="${dto.getHOTELSTAR().length() }">
+								${dto.getHotel_Name() } 
+								<c:forEach begin="1" end="${dto.getHotel_Star().length() }">
 									★
 								</c:forEach>
-								${dto.getHOTELPOINT() }/10
-								${dto.getPrice() }원
-								<input type="button" onclick="location.href='<%=request.getContextPath() %>/getHotel_Content.do?no=${dto.getHotelId() }'">
+								${dto.getHotel_Point() }/10
+								${dto.getHotel_price_Min() }원
+								<input type="button" onclick="location.href='<%=request.getContextPath() %>/getHotel_Content.do?no=${dto.getHotel_No() }'">
 							</div>
 						</div>
 					</c:forEach>
@@ -48,7 +48,7 @@
 				</c:if>
 			</div>
 		</div>
-		<%-- <jsp:include page="../include/footer.jsp" /> --%>
+		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

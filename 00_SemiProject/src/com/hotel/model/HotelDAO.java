@@ -50,45 +50,47 @@ public class HotelDAO {
 			e.printStackTrace();
 		}
 	}
-
 	
-	private int getHotelPrice(int no) {
-		int price = 0;
-		
+	public ArrayList<HotelDTO> getHotelList(String Location, String keyword, String startDate, String endDate) {
+		ArrayList<HotelDTO> list = new ArrayList<HotelDTO>();
 		try {
-			sql = "select min(roomfee) from room where hotelid = ?";
+			sql = "select distinct a.* from hotel a join " + 
+					"(select r.* from room r, " + 
+					"(select reserv_roomno from reserv " + 
+					"where (reserv_start <= ? and ? < reserv_end) " + 
+					"or (reserv_start < ? and ? < reserv_end)) " + 
+					"where room_no != reserv_roomno " + 
+					"order by room_hotelno asc) b " + 
+					"on a.hotel_no = b.room_hotelno " + 
+					"where room_hotelno " + 
+					"in(select hotel_no from hotel where " + 
+					"hotel_location like '%"+keyword+"%' " + 
+					"or hotel_name like '%"+keyword+"%')";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, no);
-			if(rs.next()) {
-				price = rs.getInt(1);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return price;
-	}
-	
-	public HotelDTO getHotelCont(int no) {
-		HotelDTO dto = null;
+			ps.setString(1, startDate);
+			ps.setString(2, startDate);
+			ps.setString(3, endDate);
+			ps.setString(4, endDate);
 		
-		try {
-			sql = "select * from hotel a join hotelpolicy b on a.hotelid = b.hotelid where hotelid = ?";
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, no);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				dto = new HotelDTO();
-				dto.setHotelId(rs.getInt("hotelid"));
-				dto.setHotelName(rs.getString("hotelname"));
-				dto.setHotelPhone(rs.getString("hotelphone"));
-				dto.setHotelStar(rs.getInt("hotelstar"));
-				dto.setHotelPoint(rs.getInt("hotelpoint"));
-				dto.setWifi(rs.getString("wifi"));
-				dto.setRestaurant(rs.getString("restaurant"));
-				dto.setParking(rs.getString("parking"));
-				dto.setPrice(getHotelPrice(no));
-				dto.setLocation(rs.getString("loc"));
+				HotelDTO dto = new HotelDTO();
+				dto.setHotel_No(rs.getInt("hotel_no"));
+				dto.setHotel_Name(rs.getString("hotel_name"));
+				dto.setHotel_Phone(rs.getString("hotel_phone"));
+				dto.setHotel_Addr(rs.getString("hotel_addr"));
+				dto.setHotel_Location(rs.getString("hotel_location"));
+				dto.setHotel_Email(rs.getString("hotel_email"));
+				dto.setHotel_Room_Count(rs.getInt("hotel_room_count"));
+				dto.setHotel_Establish(rs.getInt("hotel_establish"));
+				dto.setHotel_Photo_Folder(rs.getString("hotel_photo_folder"));
+				dto.setHotel_price_Min(rs.getInt("hotel_price_min"));
+				dto.setHotel_price_Max(rs.getInt("hotel_price_max"));
+				dto.setHotel_People_Min(rs.getInt("hotel_people_min"));
+				dto.setHotel_People_Max(rs.getInt("hotel_people_max"));
+				dto.setHotel_Star(rs.getInt("hotel_star"));
+				dto.setHotel_Point(rs.getInt("hotel_point"));
+				list.add(dto);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -96,23 +98,20 @@ public class HotelDAO {
 		}finally {
 			close();
 		}
-		return dto;
+		return list;
 	}
 
 	public ArrayList<RoomDTO> getRoomCont(int no) {
 		ArrayList<RoomDTO> list = new ArrayList<>();
 		
 		try {
-			sql = "select * from room where hotelid = ?";
+			sql = "select * from room where room_hotelno = ?;";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				RoomDTO dto = new RoomDTO();
-				dto.setRoomId(rs.getInt("roomid"));
-				dto.setRoomFee(rs.getInt("roomfee"));
-				dto.setRoomGuest(rs.getInt("roomguest"));
-				dto.setRoomName(rs.getString("roomname"));
+				
 				list.add(dto);
 			}
 		} catch (SQLException e) {

@@ -1,12 +1,15 @@
 package com.hotel.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class HotelListAction implements Action {
+import com.hotel.model.HotelDAO;
+import com.hotel.model.HotelDTO;
+
+public class HotelSearchAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -14,12 +17,9 @@ public class HotelListAction implements Action {
 		String hotel_checkinDate = request.getParameter("checkinDate");
 		String hotel_checkoutDate = request.getParameter("checkoutDate");
 		String hotel_keyword = request.getParameter("keyword");
-	
-		PrintWriter out = response.getWriter();
 		
-		out.println(hotel_location);
-		out.println(hotel_checkinDate);
-		out.println(hotel_checkoutDate);
-		out.println(hotel_keyword);
+		ArrayList<HotelDTO> list = HotelDAO.getInstance().getHotelList(hotel_location, hotel_keyword, hotel_checkinDate, hotel_checkoutDate);
+	
+		request.setAttribute("List", list);
 	}
 }
