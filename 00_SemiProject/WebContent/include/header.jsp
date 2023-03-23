@@ -12,7 +12,7 @@
           <ul>
             <li><a href="">로그인</a></li>
             <li><a href="">비밀번호찾기</a></li>
-            <li><a href="">회원가입</a></li>
+            <li><a href="../user/user_join_normal.jsp">회원가입</a></li>
             <li><a href="">고객센터</a></li>
             
           </ul>
@@ -23,7 +23,7 @@
           <ul>
             <li><a href="">호텔검색</a></li>
             <li><a href="">업체등록페이지</a></li>
-            <li><a href="">마이페이지</a></li>
+            <li><a href="../user/user_myPage.jsp">마이페이지</a></li>
             <li><a href="">고객센터</a></li>
             
           </ul>
