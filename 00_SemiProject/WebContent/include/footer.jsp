@@ -7,6 +7,7 @@
 <title>main_footer</title>
 </head>
 <body>
+	<div id="footer">
 		<h5>하단 네비바</h5>
 		<nav><!--구현 기능접속 네비바  -->
           <ul>
@@ -16,6 +17,6 @@
             
           </ul>
         </nav>
-        
+	</div>
 </body>
 </html>

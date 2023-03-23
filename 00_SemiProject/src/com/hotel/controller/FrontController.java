@@ -29,6 +29,10 @@ public class FrontController extends HttpServlet{
 			action = new HotelSearchAction();
 			action.execute(request, response);
 			viewPage = "hotel/hotel_List.jsp";
+		}else if(command.equals("hotel_get_Content.do")) {
+			action = new HotelContentAction();
+			action.execute(request, response);
+			viewPage = "hotel/hotel_content.jsp";
 		}
 		
 		if(viewPage!=null) {
