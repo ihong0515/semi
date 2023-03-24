@@ -17,9 +17,12 @@
 		<div id="content">
 			<c:if test="${!empty hoDTO }">
 				<div>
-					${hoDTO.getHotel_Name() }의 호텔 정보
+					${hoDTO.getHotel_name() }의 호텔 정보
 					<c:forEach items="${roomList }" var="roDto" varStatus="i">
-					<div>${i.count }번째 방 : ${roDto.getRoom_name() }</div>
+						<div>${i.count }번째 방 : ${roDto.getRoom_name() }</div>
+						<div>
+							<input value="예약하기" type="button" onclick="location.href='hotel_payment.do?room_no=${roDto.getRoom_no()}&hotel_name=${hoDTO.getHotel_name() }'">
+						</div>
 					</c:forEach>
 				</div>
 			</c:if>

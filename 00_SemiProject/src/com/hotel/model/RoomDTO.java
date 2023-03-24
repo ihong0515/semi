@@ -14,9 +14,7 @@ public class RoomDTO {
 	private String room_checkout;
 	private String room_breakfast;
 	
-	
 	public RoomDTO() {	}
-
 
 	public int getRoom_no() {
 		return room_no;

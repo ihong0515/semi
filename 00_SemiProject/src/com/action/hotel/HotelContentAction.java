@@ -19,7 +19,7 @@ public class HotelContentAction implements Action {
 		
 		HotelDTO hDTO = HotelDAO.getInstance().getHotelContent(hotel_no);
 		HotelPolicyDTO pDTO = HotelDAO.getInstance().getHotelPolicyContent(hotel_no);
-		ArrayList<RoomDTO> roomList = HotelDAO.getInstance().getRoomCont(hotel_no);
+		ArrayList<RoomDTO> roomList = HotelDAO.getInstance().getRoomList(hotel_no);
 		
 		request.setAttribute("HotelDTO", hDTO);
 		request.setAttribute("HPDTO", pDTO);

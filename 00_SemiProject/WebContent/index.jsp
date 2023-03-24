@@ -12,33 +12,11 @@
 <body>
 	
 	<div id="container">
-	<jsp:include page="/include/header.jsp"/>
+		<jsp:include page="/include/header.jsp"/>
 
-		
-		
-		
-		
-		<h5>본문 컨텐츠</h5>
 		<jsp:include page="/include/hotel_main_content.jsp"/>
-		
-		
-		
-		
-		
-		
-		<hr>
+
 		<jsp:include page="/include/footer.jsp"/>
-	
-		
-	
-				
-			
-			
-		
-		
-			
-
-
 	</div>
 </body>
 </html>
