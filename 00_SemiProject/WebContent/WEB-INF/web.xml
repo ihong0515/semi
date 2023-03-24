@@ -19,22 +19,4 @@
 	  	<url-pattern>*.do</url-pattern>
 	  </servlet-mapping>
 	  
-	  <servlet>
-	  	<servlet-name>FrontControllerUs</servlet-name>
-	  	<servlet-class>com.user.controller.FrontController</servlet-class>
-	  </servlet>
-	  <servlet-mapping>
-	  	<servlet-name>FrontControllerUs</servlet-name>
-	  	<url-pattern>*.uo</url-pattern>
-	  </servlet-mapping>
-	  
-	  <servlet>
-	  	<servlet-name>FrontControllerBo</servlet-name>
-	  	<servlet-class>com.board.controller.FrontController</servlet-class>
-	  </servlet>
-	  <servlet-mapping>
-	  	<servlet-name>FrontControllerBo</servlet-name>
-	  	<url-pattern>*.bo</url-pattern>
-	  </servlet-mapping>
-	  
 </web-app>
