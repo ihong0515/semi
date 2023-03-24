@@ -30,7 +30,7 @@
 	  
 	  <servlet>
 	  	<servlet-name>FrontControllerBo</servlet-name>
-	  	<servlet-class>com.board.controller.FrontController</servlet-class>
+	  	<servlet-class>com.board.controller.FrontControllerBo</servlet-class>
 	  </servlet>
 	  <servlet-mapping>
 	  	<servlet-name>FrontControllerBo</servlet-name>
