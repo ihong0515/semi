@@ -1,10 +1,11 @@
-package com.user.action;
+package com.action.user;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.action.*;
 import com.user.model.UserDAO;
 import com.user.model.UserDTO;
 

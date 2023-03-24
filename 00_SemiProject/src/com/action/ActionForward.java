@@ -1,4 +1,4 @@
-package com.login.action;
+package com.action;
 
 public class ActionForward {
 	private boolean isRedirect;

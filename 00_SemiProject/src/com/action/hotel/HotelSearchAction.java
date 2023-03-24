@@ -1,4 +1,4 @@
-package com.hotel.action;
+package com.action.hotel;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.action.*;
 import com.hotel.model.HotelDAO;
 import com.hotel.model.HotelDTO;
 

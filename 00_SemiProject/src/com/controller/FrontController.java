@@ -1,4 +1,4 @@
-package com.hotel.controller;
+package com.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hotel.action.*;
+import com.action.*;
 
 public class FrontController extends HttpServlet{
 
@@ -30,7 +30,7 @@ public class FrontController extends HttpServlet{
 		ActionForward forward = null;
 		Properties prop = new Properties();
 		
-		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace_semi\\00_SemiProject\\src\\com\\hotel\\controller\\mapping.properties");
+		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace(project)\\semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
 		prop.load(fis);
 		String value = prop.getProperty(command);
 		
