@@ -1,4 +1,4 @@
-package com.login.action;
+package com.action;
 
 import java.io.IOException;
 

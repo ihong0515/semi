@@ -1,11 +1,13 @@
-package com.user.action;
+package com.action.user;
 
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.action.*;
 import com.user.model.UserDAO;
 import com.user.model.UserDTO;
 
@@ -17,6 +19,9 @@ public class UserListAction implements Action {
 		UserDAO dao = UserDAO.getInstance();
 		List<UserDTO> list = dao.getUserList();
 		request.setAttribute("List", list);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("id", "123");
 		
 		ActionForward fowrd = new ActionForward();
 		
