@@ -19,16 +19,16 @@
 				<form  method = "post" action="<%=request.getContextPath()%>/hotel_Search.do">
 					<!--지역선택 selectbox  -->
 					지역<select name = "location">
-							<option value = "seoul">서울</option>
-							<option value = "kyungki">경기</option>
-							<option value = "kwangwon">강원</option>
-							<option value = "jeonnam">전남</option>
-							<option value = "jeonbuk">전북</option>
-							<option value = "chungbuk">충북</option>
-							<option value = "chungnam">충남</option>
-							<option value = "kyungnam">경남</option>
-							<option value = "kyungbuk">경북</option>
-							<option value = "jeju">제주</option>
+							<option value = "서울">서울</option>
+							<option value = "경기">경기</option>
+							<option value = "강원">강원</option>
+							<option value = "전남">전남</option>
+							<option value = "전북">전북</option>
+							<option value = "충북">충북</option>
+							<option value = "충남">충남</option>
+							<option value = "경남">경남</option>
+							<option value = "경북">경북</option>
+							<option value = "제주">제주</option>
 					</select>
 					
 					<!--날짜선택 selectbox  -->
@@ -93,7 +93,7 @@
 			        
 			         	<br/>
 			         <%--지역이나, 호텔이름 관련 키워드로 입력 예정 --%>	
-			         <input type="text" value="검색어입력"name="keyword">&nbsp;&nbsp;<input type ="submit" value = "검색">			
+			         <input type="text" placeholder="검색어입력"name="keyword">&nbsp;&nbsp;<input type ="submit" value = "검색">			
 				</form>
 				<hr>
 		</div><!-- main content end -->
@@ -105,10 +105,6 @@
 		<section>
 			<table border = "1" cellspacing ="0" width="400">
 				<c:if test="${!empty hotel_Star_List}">
-					
-				
-				
-				
 				</c:if>
 				<%--등록된 업체가 없을경우 --%>
 				<c:if test="${empty hotel_Star_List}">
@@ -119,16 +115,8 @@
 					</tr>	
 				</c:if>
 			</table>	
-		</section>		
-				
-		
-		
+		</section>	
 		<hr>
-				
-				
-		
-		
-		
 		<%--지역별  랜덤 숙소 추천 --%>
 		<h5>지역별 무작위숙소 추천</h5>
 		<section>
@@ -160,15 +148,6 @@
 		
 	
 		<jsp:include page="/include/footer.jsp"/>
-	
-				
-			
-			
-		
-		
-			
-
-
 	</div>
 </body>
 </html>
