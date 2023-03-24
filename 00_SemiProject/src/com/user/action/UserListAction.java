@@ -12,10 +12,17 @@ import com.user.model.UserDTO;
 public class UserListAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		ActionForward fowrd = new ActionForward();
+		
 		UserDAO dao = UserDAO.getInstance();
 		List<UserDTO> list = dao.getUserList();
 		request.setAttribute("List", list);
+		
+		
+		fowrd.setRedirect(false);
+		fowrd.setPath("user/user_list.jsp");
+		return fowrd;
 	}
 
 }

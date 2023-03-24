@@ -11,7 +11,9 @@ import com.hotel.model.*;
 public class HotelContentAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		ActionForward fowrd = new ActionForward();
+		
 		int hotel_no = Integer.parseInt(request.getParameter("hotel_no").trim());
 		
 		HotelDTO hDTO = HotelDAO.getInstance().getHotelContent(hotel_no);
@@ -21,5 +23,9 @@ public class HotelContentAction implements Action {
 		request.setAttribute("HotelDTO", hDTO);
 		request.setAttribute("HPDTO", pDTO);
 		request.setAttribute("RoomList", roomList);
+		
+		fowrd.setRedirect(false);
+		fowrd.setPath("hotel/hotel_content.jsp");
+		return fowrd;
 	}
 }
