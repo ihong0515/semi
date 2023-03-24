@@ -106,6 +106,18 @@
 		
 		
 		<%--지역별 별점순(내림차순 정렬후) 숙소 추천  배너--%>
+		<%--form태그를 안 만들었을 때 어떻게 값들을 전송시킬건지 ? => 파라미터 값을 달아서 보내라 --%>
+		
+		
+		<%--지역 정보를 넘기고 해당 테이블에서 정보요청을 입력하는 란.--%>
+		<form name = "Hotel_Star_List_form" method = "post" action="hotelStarList.do">
+			<input type="hidden" name="Ho">
+		
+		
+		</form>
+		<%--별점 리스트 요청 폼 end --%>
+		
+		
 		<h5>인기 호텔</h5>
 		<section>
 			<table border = "1" cellspacing ="0" width="400">
