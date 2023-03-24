@@ -13,11 +13,6 @@
 	
 	<div id="container">
 	<jsp:include page="/include/header.jsp"/>
-	
-	
-	
-	
-	
 
 		<h5>본문 컨텐츠</h5>
 		<div align ="center">	<!-- main content start-->

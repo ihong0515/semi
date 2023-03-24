@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 const joinForm = document.joinForm;
 
 /*아이디*/

@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 public class UserJoinAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		return null;
 
 	}
 

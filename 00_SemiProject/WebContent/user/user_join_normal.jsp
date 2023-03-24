@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>user_join_normal.jsp</title>
-<script src="./user_join_function.js"/>
 </head>
 <body>
 	<div id="container">
@@ -15,7 +14,7 @@
       		<div align="center">
 				<h2>고객 회원가입</h2>
 				<br>
-				<form method="post" name="joinForm" action="<%=request.getContextPath()%>/user_join_ok.do" onsubmit="return join()">
+				<form method="post" name="joinForm" action="<%=request.getContextPath()%>/user_join_ok.do">
 					<table>
 					
 						<tr>

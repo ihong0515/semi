@@ -1,6 +1,10 @@
 package com.hotel.controller;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.util.Properties;
+import java.util.StringTokenizer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,21 +26,41 @@ public class FrontController extends HttpServlet{
 		String path = request.getContextPath();
 		String command = uri.substring(path.length()+1);
 		
-		String viewPage = null;
 		Action action = null;
+		ActionForward forward = null;
+		Properties prop = new Properties();
 		
-		if(command.equals("hotel_Search.do")) {
-			action = new HotelSearchAction();
-			action.execute(request, response);
-			viewPage = "hotel/hotel_List.jsp";
-		}else if(command.equals("hotel_get_Content.do")) {
-			action = new HotelContentAction();
-			action.execute(request, response);
-			viewPage = "hotel/hotel_content.jsp";
+		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace(semiProject)\\semi\\00_SemiProject\\src\\com\\hotel\\controller\\mapping.properties");
+		prop.load(fis);
+		String value = prop.getProperty(command);
+		
+		if(value.substring(0, 7).equals("execute")) {
+			StringTokenizer st = new StringTokenizer(value, "|");
+			st.nextToken(); // "execute"
+			String url_2 = st.nextToken(); // "com.reply.action.BbsListAction"
+			try {
+				Class url = Class.forName(url_2);
+				//action = (Action)url.newInstance();
+				Constructor constructor =  url.getConstructor();
+				action = (Action)constructor.newInstance();
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath(value);
 		}
 		
-		if(viewPage!=null) {
-			request.getRequestDispatcher(viewPage).forward(request, response);
+		if(forward != null) {
+			if(forward.isRedirect()) { //true인 경우
+				response.sendRedirect(forward.getPath());
+			}else {  //false인 경우
+				request.getRequestDispatcher(forward.getPath()).forward(request, response);
+			}
 		}
+		
 	}
 }

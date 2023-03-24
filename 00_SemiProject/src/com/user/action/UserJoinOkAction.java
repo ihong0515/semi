@@ -12,7 +12,8 @@ import com.user.model.UserDTO;
 public class UserJoinOkAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		ActionForward fowrd = new ActionForward();
 		
 		UserDTO dto = new UserDTO();
 		UserDAO dao = UserDAO.getInstance();
@@ -48,6 +49,10 @@ public class UserJoinOkAction implements Action {
 			out.println("history.back()");
 			out.println("</script>");
 		}
+		
+		fowrd.setRedirect(false);
+		fowrd.setPath("user/user_join_nomal.jsp");
+		return fowrd;
 
 	}
 

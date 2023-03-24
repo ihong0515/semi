@@ -11,13 +11,18 @@ import com.user.model.UserDTO;
 public class UserJoinInfoAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		ActionForward fowrd = new ActionForward();
+		
 		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
 		
 		UserDAO dao = UserDAO.getInstance();
 		UserDTO content = dao.getUserContent(user_no);
 		request.setAttribute("Content", content);
+		
+		fowrd.setRedirect(false);
+		fowrd.setPath("user/user_join_info.jsp");
+		return fowrd;
 		
 	}
 

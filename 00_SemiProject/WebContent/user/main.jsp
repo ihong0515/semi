@@ -8,8 +8,8 @@
 </head>
 <body>
 
-	<a href="<%=request.getContextPath() %>/user_list.uo">[전체 회원 목록]</a>
-	<a href="<%=request.getContextPath() %>/user_join_normal.uo">[회원가입]</a>
+	<a href="<%=request.getContextPath() %>/user_list.do">[전체 회원 목록]</a>
+	<a href="<%=request.getContextPath() %>/user_join_normal.do">[회원가입]</a>
 	
 </body>
 </html>
