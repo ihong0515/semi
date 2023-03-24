@@ -21,7 +21,7 @@
 	  
 	  <servlet>
 	  	<servlet-name>FrontControllerUs</servlet-name>
-	  	<servlet-class>com.user.controller.FrontController</servlet-class>
+	  	<servlet-class>com.user.controller.FrontControllerUs</servlet-class>
 	  </servlet>
 	  <servlet-mapping>
 	  	<servlet-name>FrontControllerUs</servlet-name>

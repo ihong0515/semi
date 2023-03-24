@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>고객|회원가입</title>
+<title>user_join_normal.jsp</title>
+<script src="./user_join_function.js"/>
 </head>
 <body>
 	<div id="container">
@@ -14,40 +15,47 @@
       		<div align="center">
 				<h2>고객 회원가입</h2>
 				<br>
-				<form method="post" action="<%=request.getContextPath()%>/user_join_ok.uo">
+				<form method="post" name="joinForm" action="<%=request.getContextPath()%>/user_join_ok.do" onsubmit="return join()">
 					<table>
+					
 						<tr>
 							<th>아이디</th>
 							<td>
-								<input type="text" name="id">
+								<input name="id">
 							</td>
 						</tr>
+						
 						<tr>
 							<th>비밀번호</th>
 							<td><input type="password" name="pwd"></td>
 						</tr>
+						
 						<tr>
 							<th>비밀번호 확인</th>
 							<td>
 								<input type="password" name="pwdCheck">
 							</td>
 						</tr>
+						
 						<tr>
 							<th>이름</th>
-							<td><input type="text" name="name"></td>
+							<td><input name="name"></td>
 						</tr>
+						
 						<tr>
 							<th>전화번호</th>
-							<td><input type="text" name="phone"></td>
+							<td><input name="phone"></td>
 						</tr>
+						
 						<tr>
 							<th>생년월일</th>
 							<td><input type="date" name="birth"></td>
 						</tr>
+						
 						<tr>
 							<th>이메일</th>
 							<td>
-								<input type="text" name="email">
+								<input name="email">
 								@
 								<select>
 									<option>naver.com</option>
@@ -57,6 +65,7 @@
 								</select>
 							</td>
 						</tr>
+						
 						<tr>
 							<th>선호 지역</th>
 							<td>

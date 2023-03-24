@@ -8,12 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.user.action.Action;
-import com.user.action.UserJoinOkAction;
-import com.user.action.UserJoinInfoAction;
-import com.user.action.UserListAction;
+import com.user.action.*;
 
-public class FrontController extends HttpServlet {
+public class FrontControllerUs extends HttpServlet {
 
 private static final long serialVersionUID = 1L;
 	
@@ -27,23 +24,6 @@ private static final long serialVersionUID = 1L;
 		
 		Action action = null;
 		String viewPage = null;
-		
-		if(command.equals("user_join.uo")) {
-			action = new UserJoinOkAction();
-			action.execute(request, response);
-			viewPage = "user/user_join_normal.jsp";
-			
-		} else if(command.equals("user_join_info.uo")) {
-			action = new UserJoinInfoAction();
-			action.execute(request, response);
-			viewPage = "user/user_join_info.jsp";
-			
-		} else if(command.equals("user_list.uo")) {
-			action = new UserListAction();
-			action.execute(request, response);
-			viewPage = "user/user_list.jsp";
-			
-		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPage);
 		rd.forward(request, response);
