@@ -14,7 +14,7 @@
       		<div align="center">
 				<h2>고객 회원가입</h2>
 				<br>
-				<form method="post" action="<%=request.getContextPath()%>/user_join_ok.uo">
+				<form method="post" action="<%=request.getContextPath()%>/user_join_ok.do">
 					<table>
 						<tr>
 							<th>아이디</th>
