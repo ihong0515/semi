@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -228,6 +229,36 @@ public class HotelDAO {
 		return dto;
 	}
 	
-	
+	public List<HotelDTO>getHotelStarSearch(String location) {
+		
+		List<HotelDTO>list = new ArrayList<HotelDTO>();
+		HotelDTO dto = null;
+		try {
+			connect();
+			sql = "select hotel_Photo_Folder,hotel_name,hotel_Star,hotel_min_price"
+					+ "from hotel"
+					+ "where hotel_Location = ?"
+					+ "order by hotel_star";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, location);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				dto =new  HotelDTO();
+				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
+				dto.setHotel_name(rs.getNString("hotel_name"));
+				dto.setHotel_star(rs.getInt("hotel_star"));
+				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
 	
 }
