@@ -19,7 +19,7 @@
 		
 		
 		<h5>본문 컨텐츠</h5>
-		<jsp:include page="/include/main_content.jsp"/>
+		<jsp:include page="/include/hotel_main_content.jsp"/>
 		
 		
 		

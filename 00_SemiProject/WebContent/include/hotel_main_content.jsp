@@ -14,16 +14,16 @@
 				<form  method = "post" action="<%=request.getContextPath()%>/hotel_Search.do">
 					<!--지역선택 selectbox  -->
 					지역<select name = "location">
-							<option value = "seoul">서울</option>
-							<option value = "kyungki">경기</option>
-							<option value = "kwangwon">강원</option>
-							<option value = "jeonnam">전남</option>
-							<option value = "jeonbuk">전북</option>
-							<option value = "chungbuk">충북</option>
-							<option value = "chungnam">충남</option>
-							<option value = "kyungnam">경남</option>
-							<option value = "kyungbuk">경북</option>
-							<option value = "jeju">제주</option>
+							<option value = "서울">서울</option>
+							<option value = "경기">경기</option>
+							<option value = "강원">강원</option>
+							<option value = "전남">전남</option>
+							<option value = "전북">전북</option>
+							<option value = "충북">충북</option>
+							<option value = "충남">충남</option>
+							<option value = "경남">경남</option>
+							<option value = "경북">경북</option>
+							<option value = "제주">제주</option>
 					</select>
 					
 					<!--날짜선택 selectbox  -->
@@ -88,28 +88,65 @@
 			        
 			         	<br/>
 			         <%--지역이나, 호텔이름 관련 키워드로 입력 예정 --%>	
-			         <input type="text" value="검색어입력"name="keyword">&nbsp;&nbsp;<input type ="submit" value = "검색">			
+			         <input type="text" placeholder="지역,숙소명 입력"name="keyword">&nbsp;&nbsp;<input type ="submit" >			
 				</form>
 				<hr>
 		</div><!-- main content end -->
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
 		<%--지역별 별점순(내림차순 정렬후) 숙소 추천  배너--%>
 		<%--form태그를 안 만들었을 때 어떻게 값들을 전송시킬건지 ? => 파라미터 값을 달아서 보내라 --%>
+		<h5>지역별 리스트 별점순 추천 페이징</h5>
+			<section>
+		<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
+          <ul>
+            <li><a href="">서울</a></li><%--클릭에 따라 요청 정보가 다르게 넘어가게.?하고 search.do 뒤로 
+            이게 셀렉트 박스 처럼 지역이 딱 잡혀야 하는데.--%>
+            <li><a href="">경기</a></li>
+            <li><a href="">강원</a></li>
+            <li><a href="">전남</a></li>
+            <li><a href="">전북</a></li>
+            <li><a href="">충북</a></li>
+            <li><a href="">충남</a></li>
+            <li><a href="">경남</a></li>
+            <li><a href="">경북</a></li>
+            <li><a href="">제주</a></li>
+          </ul>
+        </nav>
+        
+        
 		
-		
-		<%--지역 정보를 넘기고 해당 테이블에서 정보요청을 입력하는 란.--%>
-		<form name = "hotel_Star_List_form" method = "post" action="hotelStarList.do">
-			<input type="hidden" name="hotel_">
-		
-		
+		<%--지역 정보를 넘기고 해당 테이블에서 별점순 호텔정보를 입력하는 란.
+		일단 다 갖고 와서 랜덤 출력.
+		해당 지역에 있는 호텔 다 갖고 와야함.
+		갖고 와서 랜덤으로 뿌리기--%>
+		<form name = "hotel_Star_List_form" method = "post" action="hotel_StarSearch.do">
+			<input type="hidden" name="hotel_StarSearch_Location" value = "서울">
+			<%--버튼 누른 값이 이 구역의 value로 넘어 오게 설정.버튼에 따라서 value지역명이 바뀌도록 --%>
+			
 		</form>
-		<%--별점 리스트 요청 폼 end --%>
+		
+			
+				
 		
 		
-		<h5>인기 호텔</h5>
-		<section>
+	
+			
 			<table border = "1" cellspacing ="0" width="400">
 				<c:if test="${!empty hotel_Star_List}">
 					
@@ -127,18 +164,32 @@
 				</c:if>
 			</table>	
 		</section>		
-				
-		
-		
 		<hr>
-				
-				
 		
 		
-		
-		<%--지역별  랜덤 숙소 추천 --%>
 		<h5>지역별 무작위숙소 추천</h5>
 		<section>
+		<nav>
+          <ul><%--기본 커서는 서울에  가있어야 함. --%>
+            <li><a href="">서울</a></li><%--클릭에 따라 요청 정보가 다르게 넘어가게. --%>
+            <li><a href="">경기</a></li>
+            <li><a href="">강원</a></li>
+            <li><a href="">전남</a></li>
+            <li><a href="">전북</a></li>
+            <li><a href="">충북</a></li>
+            <li><a href="">충남</a></li>
+            <li><a href="">경남</a></li>
+            <li><a href="">경북</a></li>
+            <li><a href="">제주</a></li>
+          </ul>
+        </nav>
+        
+        <form name = "hotel_Random_List_form" method = "post" action="hotel_Randomsearch.do?">
+			<input type="hidden" name="hotel_RandomSearch">
+			<%--버튼 누른 값이 이 구역의 value로 넘어 오게 설정. --%>
+		</form>
+		<%--지역별  랜덤 숙소 추천 --%>
+	
 			<table border = "1" cellspacing ="0" width="400">		
 				<c:if test="${!empty hotel_Random_List}">
 					
@@ -156,6 +207,22 @@
 				</c:if>
 			</table>
 		</section>	
+		
+		
+		
+			
+		
+	
+				
+		
+		
+		<hr>
+				
+				
+		
+		
+		
+		
 			
 			
 			
