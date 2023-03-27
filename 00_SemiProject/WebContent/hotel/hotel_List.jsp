@@ -28,14 +28,14 @@
 				<c:if test="${!empty list }">
 					<c:forEach items="${list }" var="dto">
 						<div id="cnt">
-							<img alt="" src="<%=request.getContextPath() %>/image/${dto.getHotel_Photo_Folder() }/main.jpg" width="150px" height="150px">
+							<img alt="" src="<%=request.getContextPath() %>/image/${dto.getHotel_photo_folder() }/main.jpg" width="150px" height="150px">
 							<div>
-								호텔 이름 : ${dto.getHotel_Name() } <br>
-								<c:forEach begin="1" end="${dto.getHotel_Star() }">★</c:forEach>
+								호텔 이름 : ${dto.getHotel_name() } <br>
+								<c:forEach begin="1" end="${dto.getHotel_star() }">★</c:forEach>
 								 <br>
-								평점 : ${dto.getHotel_Point() }/10 <br>
-								최저가 : ${dto.getHotel_price_Min() }원
-								<input type="button" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_No() }'" value="예약하기">
+								평점 : ${dto.getHotel_point() }/10 <br>
+								최저가 : ${dto.getHotel_price_min() }원
+								<input type="button" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'" value="예약하기">
 							</div>
 						</div>
 					</c:forEach>

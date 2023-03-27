@@ -80,7 +80,6 @@
 							<th>아이디</th>
 							<td>
 								<input name="id" onkeydown="inputIdChk()">
-								<%-- onkeydown(KeyCode 값): 사용자가 키보드의 키 눌렀을 때 --%>
 								<button type="button" onclick="fn_dbCheckId()" name="dbCheckId" class="checkId">중복확인</button>
 								<input type="hidden" name="idDuplication" value="idUncheck">
 							</td>
