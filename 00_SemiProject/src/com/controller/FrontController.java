@@ -30,7 +30,7 @@ public class FrontController extends HttpServlet{
 		ActionForward forward = null;
 		Properties prop = new Properties();
 		
-		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace(semiProject)\\semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
+		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace_semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
 
 		prop.load(fis);
 		String value = prop.getProperty(command);
