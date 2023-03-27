@@ -30,26 +30,45 @@ public class FrontController extends HttpServlet{
 		ActionForward forward = null;
 		Properties prop = new Properties();
 		
-		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace(semiProject)\\semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
+		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace_semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
 
 		prop.load(fis);
+		
 		String value = prop.getProperty(command);
+		
 		
 		if(value.substring(0, 7).equals("execute")) {
 			StringTokenizer st = new StringTokenizer(value, "|");
-			st.nextToken(); // "execute"
-			String url_2 = st.nextToken(); // "com.reply.action.BbsListAction"
+			
+			st.nextToken(); 
+			
+			
+			String url_2 = st.nextToken(); 
+			
 			try {
 				Class url = Class.forName(url_2);
+				
+				
+				
 				//action = (Action)url.newInstance();
 				Constructor constructor =  url.getConstructor();
+				
+				
 				action = (Action)constructor.newInstance();
+				
+				
 				forward = action.execute(request, response);
+				
+			
+				
+				
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else {
+			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath(value);
