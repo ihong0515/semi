@@ -54,7 +54,8 @@ public class UserDAO {
 	public int insertUser(UserDTO dto) {
 		int result = 0, count = 0;
 		try {
-			sql = "select max(userNo) from user1";
+			connect();
+			sql = "select max(user_no) from user1";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
@@ -62,7 +63,7 @@ public class UserDAO {
 				count = rs.getInt(1);
 			}
 			
-			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, 'F', ?, ?)";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, count + 1);
 			ps.setString(2, dto.getUser_name());
@@ -70,9 +71,8 @@ public class UserDAO {
 			ps.setString(4, dto.getUser_birth());
 			ps.setString(5, dto.getUser_email());
 			ps.setString(6, dto.getUser_egion());
-			ps.setString(7, dto.getUser_reservation());
-			ps.setString(8, dto.getUser_pwd());
-			ps.setString(9, dto.getUser_id());
+			ps.setString(7, dto.getUser_pwd());
+			ps.setString(8, dto.getUser_id());
 			
 			result = ps.executeUpdate();
 			
@@ -87,6 +87,7 @@ public class UserDAO {
 	public UserDTO getUserContent(int no) {
 		UserDTO dto = null;
 		try {
+			connect();
 			sql = "select * from user1 where userNo = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
@@ -94,15 +95,15 @@ public class UserDAO {
 			
 			if(rs.next()) {
 				dto = new UserDTO();
-				dto.setUser_no(rs.getInt(1));
-				dto.setUser_name(rs.getString(2));
-				dto.setUser_phone(rs.getString(3));
-				dto.setUser_birth(rs.getString(4));
-				dto.setUser_email(rs.getString(5));
-				dto.setUser_egion(rs.getString(6));
-				dto.setUser_reservation(rs.getString(7));
-				dto.setUser_pwd(rs.getString(8));
-				dto.setUser_id(rs.getString(9));
+				dto.setUser_no(rs.getInt("user_no"));
+				dto.setUser_name(rs.getString("user_name"));
+				dto.setUser_phone(rs.getString("user_phone"));
+				dto.setUser_birth(rs.getString("user_birth"));
+				dto.setUser_email(rs.getString("user_email"));
+				dto.setUser_egion(rs.getString("user_egion"));
+				dto.setUser_reservation(rs.getString("user_reservation"));
+				dto.setUser_pwd(rs.getString("user_pwd"));
+				dto.setUser_id(rs.getString("user_id"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,22 +114,26 @@ public class UserDAO {
 	}
 	
 	public List<UserDTO> getUserList() {
+		
 		List<UserDTO> list = new ArrayList<UserDTO>();
+		
 		try {
-			sql = "select * from user1";
+			connect();
+			sql = "select * from user1 order by user_no";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
+			
 			while(rs.next()) {
 				UserDTO dto = new UserDTO();
-				dto.setUser_no(rs.getInt(1));
-				dto.setUser_name(rs.getString(2));
-				dto.setUser_phone(rs.getString(3));
-				dto.setUser_birth(rs.getString(4));
-				dto.setUser_email(rs.getString(5));
-				dto.setUser_egion(rs.getString(6));
-				dto.setUser_reservation(rs.getString(7));
-				dto.setUser_pwd(rs.getString(8));
-				dto.setUser_id(rs.getString(9));
+				dto.setUser_no(rs.getInt("user_no"));
+				dto.setUser_name(rs.getString("user_name"));
+				dto.setUser_phone(rs.getString("user_phone"));
+				dto.setUser_birth(rs.getString("user_birth"));
+				dto.setUser_email(rs.getString("user_email"));
+				dto.setUser_egion(rs.getString("user_egion"));
+				dto.setUser_reservation(rs.getString("user_reservation"));
+				dto.setUser_pwd(rs.getString("user_pwd"));
+				dto.setUser_id(rs.getString("user_id"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -137,6 +142,31 @@ public class UserDAO {
 			close();
 		}
 		return list;
+	}
+	
+	public int selectAllId(String id) {
+		int result = -1;
+		
+		try {
+			connect();
+			sql = "select user_id from user1 where id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+				System.out.println(result);
+			} else {
+				result = 0;
+				System.out.println(result);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
 	}
 	
 }

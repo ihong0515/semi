@@ -1,32 +1,32 @@
 package com.action.user;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.action.*;
+import com.action.Action;
+import com.action.ActionForward;
 import com.user.model.UserDAO;
-import com.user.model.UserDTO;
 
-public class UserListAction implements Action {
+public class UserMyPageAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		UserDAO dao = UserDAO.getInstance();
-		List<UserDTO> list = dao.getUserList();
-		request.setAttribute("List", list);
+		int user_no = Integer.parseInt(request.getParameter("no").trim());
 		
+		UserDAO dao = UserDAO.getInstance();
+		dao.getUserContent(user_no);
+
 		HttpSession session = request.getSession();
-		session.setAttribute("id", "123");
+		session.setAttribute("user_no", 1);
 		
 		ActionForward fowrd = new ActionForward();
-		
 		fowrd.setRedirect(false);
-		fowrd.setPath("user/user_list.jsp");
+		fowrd.setPath("user/user_info.jsp");
+		
 		return fowrd;
 	}
 

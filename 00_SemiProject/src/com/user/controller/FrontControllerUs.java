@@ -1,4 +1,4 @@
-package com.controller;
+package com.user.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.action.*;
+import com.action.Action;
+import com.action.ActionForward;
 
-public class FrontController extends HttpServlet{
+public class FrontControllerUs extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
-
-	@Override
+private static final long serialVersionUID = 1L;
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -31,44 +31,22 @@ public class FrontController extends HttpServlet{
 		Properties prop = new Properties();
 		
 		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace(semiProject)\\semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
-
 		prop.load(fis);
-		
 		String value = prop.getProperty(command);
-		
 		
 		if(value.substring(0, 7).equals("execute")) {
 			StringTokenizer st = new StringTokenizer(value, "|");
-			
-			st.nextToken(); 
-			
-			
-			String url_2 = st.nextToken(); 
-			
+			st.nextToken();
+			String url_2 = st.nextToken();
 			try {
 				Class url = Class.forName(url_2);
-				
-				
-				
-				//action = (Action)url.newInstance();
 				Constructor constructor =  url.getConstructor();
-				
-				
 				action = (Action)constructor.newInstance();
-				
-				
 				forward = action.execute(request, response);
-				
-			
-				
-				
-				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else {
-			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath(value);
@@ -81,6 +59,5 @@ public class FrontController extends HttpServlet{
 				request.getRequestDispatcher(forward.getPath()).forward(request, response);
 			}
 		}
-		
 	}
 }
