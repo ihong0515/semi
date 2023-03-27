@@ -9,8 +9,6 @@
 </head>
 <body>
 
-	${sessionScope.id }
-	
 	<div id="container">
       <jsp:include page="../include/header.jsp" />
     	<div id="content">

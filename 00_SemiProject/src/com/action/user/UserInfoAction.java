@@ -9,21 +9,22 @@ import com.action.*;
 import com.user.model.UserDAO;
 import com.user.model.UserDTO;
 
-public class UserJoinInfoAction implements Action {
+public class UserInfoAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		ActionForward fowrd = new ActionForward();
 		
-		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
+		int user_no = Integer.parseInt(request.getParameter("no").trim());
 		
 		UserDAO dao = UserDAO.getInstance();
-		UserDTO content = dao.getUserContent(user_no);
-		request.setAttribute("Content", content);
+		UserDTO cont = dao.getUserContent(user_no);
+		request.setAttribute("Content", cont);
+
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("user/user_info.jsp");
 		
-		fowrd.setRedirect(false);
-		fowrd.setPath("user/user_join_info.jsp");
-		return fowrd;
+		return forward;
 		
 	}
 
