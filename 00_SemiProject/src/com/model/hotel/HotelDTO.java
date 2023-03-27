@@ -1,4 +1,4 @@
-package com.hotel.model;
+package com.model.hotel;
 
 public class HotelDTO {
 	private int hotel_no;

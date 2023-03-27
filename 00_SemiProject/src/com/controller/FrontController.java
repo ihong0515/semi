@@ -30,27 +30,22 @@ public class FrontController extends HttpServlet{
 		ActionForward forward = null;
 		Properties prop = new Properties();
 		
-		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace(semiProject)\\semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
-
-<<<<<<< HEAD
 		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace_semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
-=======
->>>>>>> 83b2ca9cd1f46705a17f0910091439a039c6df0e
+
 		prop.load(fis);
+		
 		String value = prop.getProperty(command);
 		
 		if(value.substring(0, 7).equals("execute")) {
 			StringTokenizer st = new StringTokenizer(value, "|");
-			st.nextToken(); // "execute"
-			String url_2 = st.nextToken(); // "com.reply.action.BbsListAction"
+			st.nextToken(); 
+			String url_2 = st.nextToken(); 
 			try {
 				Class url = Class.forName(url_2);
-				//action = (Action)url.newInstance();
 				Constructor constructor =  url.getConstructor();
 				action = (Action)constructor.newInstance();
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else {
@@ -58,14 +53,12 @@ public class FrontController extends HttpServlet{
 			forward.setRedirect(false);
 			forward.setPath(value);
 		}
-		
 		if(forward != null) {
-			if(forward.isRedirect()) { //true인 경우
+			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
-			}else {  //false인 경우
+			}else {
 				request.getRequestDispatcher(forward.getPath()).forward(request, response);
 			}
 		}
-		
 	}
 }

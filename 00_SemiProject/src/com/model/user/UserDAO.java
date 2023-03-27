@@ -1,4 +1,4 @@
-package com.user.model;
+package com.model.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
