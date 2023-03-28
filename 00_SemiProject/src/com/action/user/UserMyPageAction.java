@@ -8,8 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.user.model.UserDAO;
-import com.user.model.UserDTO;
+
+import com.model.user.*;
 
 public class UserMyPageAction implements Action {
 

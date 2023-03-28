@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.action.*;
-import com.user.model.UserDAO;
-import com.user.model.UserDTO;
+import com.model.user.UserDAO;
+import com.model.user.UserDTO;
 
 public class UserListAction implements Action {
 

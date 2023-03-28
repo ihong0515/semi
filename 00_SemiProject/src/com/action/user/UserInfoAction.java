@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.action.*;
-import com.user.model.UserDAO;
-import com.user.model.UserDTO;
+import com.model.user.UserDAO;
+import com.model.user.UserDTO;
 
 public class UserInfoAction implements Action {
 
