@@ -36,7 +36,8 @@
 		<h5>검색창</h5>
 				<form  method = "post" action="<%=request.getContextPath()%>/hotel_Search.do">
 					<!--지역선택 selectbox  -->
-					지역<select name = "location">
+					지역<select name="location">
+							<option value="">:::</option>
 							<option value = "서울">서울</option>
 							<option value = "경기">경기</option>
 							<option value = "강원">강원</option>

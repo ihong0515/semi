@@ -16,7 +16,7 @@ import com.action.*;
 public class FrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-
+	@SuppressWarnings("all")
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -31,7 +31,7 @@ public class FrontController extends HttpServlet{
 		Properties prop = new Properties();
 		
 		
-		FileInputStream fis = new FileInputStream("C:\\Users\\hongjaeyoung\\Desktop\\semi\\semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
+		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace_semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
 
 		prop.load(fis);
 		
