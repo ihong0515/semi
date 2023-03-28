@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <script type="text/javascript">
 	//날짜 기본 선택창 날짜 오늘 날짜로 설정.
 	window.onload = function() {
@@ -16,7 +15,6 @@
 				.setDate(new Date().getDate() + 1)).toISOString().slice(0, 10);
 	}
 </script>
-
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -25,22 +23,22 @@
 		<div align ="center">
 		<h5>상단 네비바 1↑</h5>
 
-		<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
-          <ul>
-            <c:if test="${empty login}">
-                     <a href="<%=request.getContextPath()%>/user/main.jsp">로그인</a>
-                  </c:if>
-                  <c:if test="${!empty login}">
-                     <a href="">마이페이지</a>
-                  </c:if>
-            <li><a href="">비밀번호찾기</a></li>
-            <li><a href="../user/user_join_normal.jsp">회원가입</a></li>
-            <li><a href="">고객센터</a></li>
-            
-          </ul>
-        </nav>
-
-			
+				<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
+		          <ul>
+		            <li>
+		            <c:if test="${empty login}">
+		            	<a href="<%=request.getContextPath()%>/user/main.jsp">로그인</a>
+		            </c:if>
+		            <c:if test="${!empty login}">
+		            	<a href="">마이페이지</a>
+		            </c:if>
+		            
+		            </li>
+		            <li><a href="<%=request.getContextPath()%>/index.jsp">메인홈</a></li>            
+		            <li><a href="<%=request.getContextPath()%>/user/user_join_normal.jsp">회원가입</a></li>
+		            <li><a href="../user/user_myPage.jsp">마이페이지</a></li>
+		          </ul>
+		        </nav>
 		<hr>
 	
 		<h5>검색창</h5>
