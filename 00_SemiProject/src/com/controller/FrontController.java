@@ -29,9 +29,8 @@ public class FrontController extends HttpServlet{
 		Action action = null;
 		ActionForward forward = null;
 		Properties prop = new Properties();
-		
-		
-		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace_semi\\00_SemiProject\\src\\com\\controller\\mapping.properties");
+    
+		FileInputStream fis = new FileInputStream("C:\\NCS\\workspace(semiProject)\\00_SemiProject\\src\\com\\controller\\mapping.properties");
 
 		prop.load(fis);
 		
