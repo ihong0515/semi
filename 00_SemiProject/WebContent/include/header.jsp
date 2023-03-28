@@ -22,6 +22,7 @@
 	<div id="header">
 		<div align ="center">
 		<h5>상단 네비바 1↑</h5>
+
 				<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 		          <ul>
 		            <li>
@@ -37,13 +38,13 @@
 		            <li><a href="<%=request.getContextPath()%>/">프로모션</a></li>            
 		          </ul>
 		        </nav>
-			
 		<hr>
 	
 		<h5>검색창</h5>
 				<form  method = "post" action="<%=request.getContextPath()%>/hotel_Search.do">
 					<!--지역선택 selectbox  -->
-					지역<select name = "location">
+					지역<select name="location">
+							<option value="">:::</option>
 							<option value = "서울">서울</option>
 							<option value = "경기">경기</option>
 							<option value = "강원">강원</option>
