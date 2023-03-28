@@ -235,10 +235,7 @@ public class HotelDAO {
 		HotelDTO dto = null;
 		try {
 			connect();
-			sql = "select hotel_Photo_Folder,hotel_name,hotel_Star,hotel_min_price"
-					+ "from hotel"
-					+ "where hotel_Location = ?"
-					+ "order by hotel_star";
+			sql = "select * from hotel where hotel_location = ? order by hotel_star";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, location);
 			
