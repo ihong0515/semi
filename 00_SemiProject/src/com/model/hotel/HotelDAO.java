@@ -64,6 +64,7 @@ public class HotelDAO {
 			if(keyword != null) {
 				sql += " and (hotel_location like '%"+keyword+"%' or hotel_name like '%"+keyword+"%')";
 			}
+			sql += " order by hotel_point desc";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, startDate);
 			ps.setString(2, startDate);
@@ -79,6 +80,7 @@ public class HotelDAO {
 				dto.setHotel_addr(rs.getString("hotel_addr"));
 				dto.setHotel_location(rs.getString("hotel_location"));
 				dto.setHotel_email(rs.getString("hotel_email"));
+				dto.setHotel_info(rs.getString("hotel_info"));
 				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
 				dto.setHotel_establish(rs.getInt("hotel_establish"));
 				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
@@ -103,7 +105,7 @@ public class HotelDAO {
 		ArrayList<RoomDTO> list = new ArrayList<>();
 		
 		try {
-			sql = "select * from room where room_hotelno = ?";
+			sql = "select * from room where room_hotelno = ? order by room_price";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			rs = ps.executeQuery();
@@ -148,6 +150,7 @@ public class HotelDAO {
 				dto.setHotel_addr(rs.getString("hotel_addr"));
 				dto.setHotel_location(rs.getString("hotel_location"));
 				dto.setHotel_email(rs.getString("hotel_email"));
+				dto.setHotel_info(rs.getString("hotel_info"));
 				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
 				dto.setHotel_establish(rs.getInt("hotel_establish"));
 				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
@@ -195,11 +198,10 @@ public class HotelDAO {
 		}finally {
 			close();
 		}
-		
 		return dto;
 	}
 
-	public RoomDTO getRoomCont(int room_no) {
+	public RoomDTO getRoomContent(int room_no) {
 		RoomDTO dto = null;
 		
 		try {
@@ -218,6 +220,7 @@ public class HotelDAO {
 				dto.setRoom_people_min(rs.getInt("room_people_min"));
 				dto.setRoom_people_max(rs.getInt("room_people_max"));
 				dto.setRoom_photo_folder(rs.getString("room_photo_folder"));
+				dto.setRoom_photo_folder_size(rs.getInt("room_photo_folder_size"));
 				dto.setRoom_checkin(rs.getString("room_checkin"));
 				dto.setRoom_checkout(rs.getString("room_checkout"));
 				dto.setRoom_breakfast(rs.getString("room_breakfast"));
@@ -225,6 +228,8 @@ public class HotelDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		return dto;
 	}
@@ -234,15 +239,14 @@ public class HotelDAO {
 		List<HotelDTO>list = new ArrayList<HotelDTO>();
 		HotelDTO dto = null;
 		try {
-			connect();
-			sql = "select * from hotel where hotel_location = ? order by hotel_star";
+			sql = "select * from hotel where hotel_location = ? order by hotel_star desc";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, location);
 			
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				dto =new  HotelDTO();
+				dto = new  HotelDTO();
 				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
 				dto.setHotel_name(rs.getNString("hotel_name"));
 				dto.setHotel_star(rs.getInt("hotel_star"));
@@ -258,13 +262,11 @@ public class HotelDAO {
 		return list;
 	}//hotelStarList end
 	
-	
 	public List<HotelDTO> getHotelLowPriceSearch(String location){
 		//main 에 최저가 에 맞춰 호텔 리스트를 보여주는 메서드
 		List<HotelDTO>list = new ArrayList<HotelDTO>();
 		HotelDTO dto = null;
 		try {
-			connect();
 			sql = "select * from hotel where hotel_location = ? order by hotel_price_min asc";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, location);
@@ -286,13 +288,6 @@ public class HotelDAO {
 			close();
 		}
 		return list;
-		
-		
-		
-		
-		
-		
-		
 	}//hotel lowprice list end
 
 	public ArrayList<HotelDTO> getHotelDetailList(int price_min, int price_max, int people, String[] list, String point,
@@ -317,6 +312,7 @@ public class HotelDAO {
 			if(point!=null) {
 				sql += " and hotel_point >= '"+point+"'";
 			}
+			sql += " order by hotel_point desc";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -327,6 +323,7 @@ public class HotelDAO {
 				dto.setHotel_addr(rs.getString("hotel_addr"));
 				dto.setHotel_location(rs.getString("hotel_location"));
 				dto.setHotel_email(rs.getString("hotel_email"));
+				dto.setHotel_info(rs.getString("hotel_info"));
 				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
 				dto.setHotel_establish(rs.getInt("hotel_establish"));
 				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
@@ -345,59 +342,6 @@ public class HotelDAO {
 			close();
 		}
 		return detail_list;
-	}
-
-	public ArrayList<HotelDTO> getHotelListSort(String Location, String keyword, String startDate,
-			String endDate, String field) {
-		ArrayList<HotelDTO> list = new ArrayList<HotelDTO>();
-		try {
-			sql = "select * from hotel where hotel_no "
-					+ "in(select room_hotelno from room where room_no "
-					+ "not in(select reserv_roomno from reserv "
-					+ "where (reserv_start <= ? and ? < reserv_end) "
-					+ "or (reserv_start < ? and ? < reserv_end)))"
-					+ "and hotel_location = '"+Location+"'";
-			if(keyword != null) {
-				sql += " and (hotel_location like '%"+keyword+"%' or hotel_name like '%"+keyword+"%')";
-			}
-			if(field.equals("hotel_price_min")) {
-				sql += " order by "+field+" asc";
-			}else {
-				sql += " order by "+field+" desc";
-			}
-			ps = con.prepareStatement(sql);
-			ps.setString(1, startDate);
-			ps.setString(2, startDate);
-			ps.setString(3, endDate);
-			ps.setString(4, endDate);
-			
-			rs = ps.executeQuery();
-			while(rs.next()) {
-				HotelDTO dto = new HotelDTO();
-				dto.setHotel_no(rs.getInt("hotel_no"));
-				dto.setHotel_name(rs.getString("hotel_name"));
-				dto.setHotel_phone(rs.getString("hotel_phone"));
-				dto.setHotel_addr(rs.getString("hotel_addr"));
-				dto.setHotel_location(rs.getString("hotel_location"));
-				dto.setHotel_email(rs.getString("hotel_email"));
-				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
-				dto.setHotel_establish(rs.getInt("hotel_establish"));
-				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
-				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
-				dto.setHotel_price_max(rs.getInt("hotel_price_max"));
-				dto.setHotel_people_min(rs.getInt("hotel_people_min"));
-				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
-				dto.setHotel_star(rs.getInt("hotel_star"));
-				dto.setHotel_point(rs.getInt("hotel_point"));
-				list.add(dto);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		return list;
 	}
 	
 }

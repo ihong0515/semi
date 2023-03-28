@@ -16,7 +16,7 @@ public class HotelPaymentAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ActionForward forward = new ActionForward();
 		
-		RoomDTO room = HotelDAO.getInstance().getRoomCont(Integer.parseInt(request.getParameter("room_no").trim()));
+		RoomDTO room = HotelDAO.getInstance().getRoomContent(Integer.parseInt(request.getParameter("room_no").trim()));
 		String hn = request.getParameter("hotel_name");
 		
 		request.setAttribute("hotel_name", hn);

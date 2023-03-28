@@ -18,9 +18,7 @@ public class HotelLowPriceSearchAction implements Action {
 		ActionForward fowrd = new ActionForward();
 		String location = request.getParameter("Location");
 		
-		
-		HotelDAO dao = HotelDAO.getInstance();
-		List<HotelDTO>list = dao.getHotelLowPriceSearch(location);
+		List<HotelDTO>list = HotelDAO.getInstance().getHotelLowPriceSearch(location);
 		
 		request.setAttribute("hotel_LowPrice_List", list);
 		

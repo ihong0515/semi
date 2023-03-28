@@ -10,6 +10,7 @@ public class RoomDTO {
 	private int room_people_min;
 	private int room_people_max;
 	private String room_photo_folder;
+	private int room_photo_folder_size;
 	private String room_checkin;
 	private String room_checkout;
 	private String room_breakfast;
@@ -103,12 +104,18 @@ public class RoomDTO {
 	public void setRoom_photo_folder(String room_photo_folder) {
 		this.room_photo_folder = room_photo_folder;
 	}
+	
+	public int getRoom_photo_folder_size() {
+		return room_photo_folder_size;
+	}
 
+	public void setRoom_photo_folder_size(int room_photo_folder_size) {
+		this.room_photo_folder_size = room_photo_folder_size;
+	}
 
 	public String getRoom_checkin() {
 		return room_checkin;
 	}
-
 
 	public void setRoom_checkin(String room_checkin) {
 		this.room_checkin = room_checkin;
@@ -133,6 +140,4 @@ public class RoomDTO {
 	public void setRoom_breakfast(String room_breakfast) {
 		this.room_breakfast = room_breakfast;
 	}
-
-	
 }

@@ -29,7 +29,7 @@
 							</tr>
 							<tr>
 								<th>아이디</th>
-								<td><input name="user_id" value="${dto.getUser_id()}"</td>
+								<td><input name="user_id" value="${dto.getUser_id()}"></td>
 							</tr>
 							<tr>
 								<th>비밀번호</th>

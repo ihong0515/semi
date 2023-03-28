@@ -17,7 +17,6 @@
 	<div id="container">
 		<jsp:include page="/include/header.jsp" />
 		
-		
 		<%--main content --%>
 		<%-- 기본 커서 서울에 잡혀 있게 할 예정. --%>
 		<%--지역별 별점순(내림차순 정렬후) 숙소 추천  배너--%>
@@ -143,7 +142,6 @@
 		</section>
 		<hr>
 		<%--main contentend --%>
-		
 		
 		<jsp:include page="/include/footer.jsp" />
 	</div>
