@@ -17,7 +17,7 @@ public class HotelStarSearchAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ActionForward fowrd = new ActionForward();
-		String location = request.getParameter("hotel_StarSearch_Location");
+		String location = request.getParameter("Location");
 		
 		
 		HotelDAO dao = HotelDAO.getInstance();
@@ -26,7 +26,7 @@ public class HotelStarSearchAction implements Action {
 		request.setAttribute("hotel_Star_List", list);
 		
 		fowrd.setRedirect(false);
-		fowrd.setPath("include/hotel_main_content.jsp");
+		fowrd.setPath("index.jsp");
 		return fowrd;
 		
 		
