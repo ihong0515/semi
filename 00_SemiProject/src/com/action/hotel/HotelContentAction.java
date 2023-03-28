@@ -13,7 +13,7 @@ public class HotelContentAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		ActionForward fowrd = new ActionForward();
+		ActionForward forward = new ActionForward();
 		
 		int hotel_no = Integer.parseInt(request.getParameter("hotel_no").trim());
 		
@@ -25,8 +25,8 @@ public class HotelContentAction implements Action {
 		request.setAttribute("HPDTO", pDTO);
 		request.setAttribute("RoomList", roomList);
 		
-		fowrd.setRedirect(false);
-		fowrd.setPath("hotel/hotel_content.jsp");
-		return fowrd;
+		forward.setRedirect(false);
+		forward.setPath("hotel/hotel_content.jsp");
+		return forward;
 	}
 }

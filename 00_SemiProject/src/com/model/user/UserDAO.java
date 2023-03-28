@@ -26,7 +26,6 @@ public class UserDAO {
 		if(instance == null) {
 			instance = new UserDAO();
 		}
-		instance.connect();
 		return instance;
 	}
 	
@@ -173,6 +172,40 @@ public class UserDAO {
 			close();
 		}
 		return dto;
+	}
+	
+	public int updateUser(UserDTO dto) {
+		int result = 0;
+		try {
+			connect();
+			sql = "select * from user1 where user_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, dto.getUser_no());
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				if(dto.getUser_pwd().equals(rs.getString("user_no"))) {
+					sql = "update user1 set user_name = ?, user_id = ?, user_pwd = ?, user_phone = ?, user_birth = ?, user_email = ?, user_location = ? where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setString(1, dto.getUser_name());
+					ps.setString(2, dto.getUser_id());
+					ps.setString(3, dto.getUser_pwd());
+					ps.setString(4, dto.getUser_phone());
+					ps.setString(5, dto.getUser_birth());
+					ps.setString(6, dto.getUser_email());
+					ps.setString(7, dto.getUser_egion());
+					ps.setInt(8, dto.getUser_no());
+					result = ps.executeUpdate();
+				} else {
+					result = -1;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
 	}
 	
 }

@@ -20,14 +20,11 @@ public class UserListAction implements Action {
 		List<UserDTO> list = dao.getUserList();
 		request.setAttribute("List", list);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("id", "123");
+		ActionForward forward = new ActionForward();
 		
-		ActionForward fowrd = new ActionForward();
-		
-		fowrd.setRedirect(false);
-		fowrd.setPath("user/user_list.jsp");
-		return fowrd;
+		forward.setRedirect(false);
+		forward.setPath("user/user_list.jsp");
+		return forward;
 	}
 
 }
