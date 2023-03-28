@@ -33,9 +33,8 @@
 		            </c:if>
 		            
 		            </li>
-		            <li><a href="<%=request.getContextPath()%>/index.jsp">메인홈</a></li>            
-		            <li><a href="<%=request.getContextPath()%>/user/user_join_normal.jsp">회원가입</a></li>
-		            <li><a href="../user/user_myPage.jsp">마이페이지</a></li>
+		            <li><a href="<%=request.getContextPath()%>/index.jsp">메인홈</a></li>
+		            <li><a href="<%=request.getContextPath()%>/">프로모션</a></li>            
 		          </ul>
 		        </nav>
 			
