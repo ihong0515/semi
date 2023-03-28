@@ -22,6 +22,7 @@
 	<div id="header">
 		<div align ="center">
 		<h5>상단 네비바 1↑</h5>
+
 				<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 		          <ul>
 		            <li>
@@ -38,7 +39,6 @@
 		            <li><a href="../user/user_myPage.jsp">마이페이지</a></li>
 		          </ul>
 		        </nav>
-			
 		<hr>
 	
 		<h5>검색창</h5>
