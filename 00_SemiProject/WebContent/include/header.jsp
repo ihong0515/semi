@@ -30,11 +30,11 @@
 		            </c:if>
 		            <c:if test="${!empty dto}">
 		            	<a href="">마이페이지</a>
-		            	
 		            </c:if>
-		            
 		            </li>
+		            
 		            <li><a href="<%=request.getContextPath()%>/index.jsp">메인홈</a></li>
+		            <li><a href="<%=request.getContextPath()%>/">프로모션</a></li>
 		          </ul>
 		        </nav>
 		<hr>
