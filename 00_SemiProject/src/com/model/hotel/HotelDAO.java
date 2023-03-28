@@ -1,4 +1,4 @@
-package com.hotel.model;
+package com.model.hotel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -247,6 +247,111 @@ public class HotelDAO {
 				dto.setHotel_name(rs.getNString("hotel_name"));
 				dto.setHotel_star(rs.getInt("hotel_star"));
 				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+
+	public ArrayList<HotelDTO> getHotelDetailList(int price_min, int price_max, int people, String[] list, String point,
+			String bed) {
+		ArrayList<HotelDTO> detail_list = new ArrayList<HotelDTO>();
+		
+		try {
+			sql = "select * from hotel where hotel_price_min >= '"+price_min+"' and hotel_price_max <= '"+price_max+"'";
+			if(people!=0) {
+				sql += " and hotel_people_min >= '"+people+"' and hotel_people_max <= '"+people+"'";
+			}
+			if(list!=null) {
+				sql += " and(";
+				for(int i=0;i<list.length;i++) {
+					sql += "hotel_star = '"+list[i]+"'";
+					if(i<list.length-1) {
+						sql += " or ";
+					}
+				}
+				sql += ")";
+			}
+			if(point!=null) {
+				sql += " and hotel_point >= '"+point+"'";
+			}
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				HotelDTO dto = new HotelDTO();
+				dto.setHotel_no(rs.getInt("hotel_no"));
+				dto.setHotel_name(rs.getString("hotel_name"));
+				dto.setHotel_phone(rs.getString("hotel_phone"));
+				dto.setHotel_addr(rs.getString("hotel_addr"));
+				dto.setHotel_location(rs.getString("hotel_location"));
+				dto.setHotel_email(rs.getString("hotel_email"));
+				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
+				dto.setHotel_establish(rs.getInt("hotel_establish"));
+				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
+				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
+				dto.setHotel_price_max(rs.getInt("hotel_price_max"));
+				dto.setHotel_people_min(rs.getInt("hotel_people_min"));
+				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
+				dto.setHotel_star(rs.getInt("hotel_star"));
+				dto.setHotel_point(rs.getInt("hotel_point"));
+				detail_list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return detail_list;
+	}
+
+	public ArrayList<HotelDTO> getHotelListSort(String Location, String keyword, String startDate,
+			String endDate, String field) {
+		ArrayList<HotelDTO> list = new ArrayList<HotelDTO>();
+		try {
+			sql = "select * from hotel where hotel_no "
+					+ "in(select room_hotelno from room where room_no "
+					+ "not in(select reserv_roomno from reserv "
+					+ "where (reserv_start <= ? and ? < reserv_end) "
+					+ "or (reserv_start < ? and ? < reserv_end)))"
+					+ "and hotel_location = '"+Location+"'";
+			if(keyword != null) {
+				sql += " and (hotel_location like '%"+keyword+"%' or hotel_name like '%"+keyword+"%')";
+			}
+			if(field.equals("hotel_price_min")) {
+				sql += " order by "+field+" asc";
+			}else {
+				sql += " order by "+field+" desc";
+			}
+			ps = con.prepareStatement(sql);
+			ps.setString(1, startDate);
+			ps.setString(2, startDate);
+			ps.setString(3, endDate);
+			ps.setString(4, endDate);
+			
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				HotelDTO dto = new HotelDTO();
+				dto.setHotel_no(rs.getInt("hotel_no"));
+				dto.setHotel_name(rs.getString("hotel_name"));
+				dto.setHotel_phone(rs.getString("hotel_phone"));
+				dto.setHotel_addr(rs.getString("hotel_addr"));
+				dto.setHotel_location(rs.getString("hotel_location"));
+				dto.setHotel_email(rs.getString("hotel_email"));
+				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
+				dto.setHotel_establish(rs.getInt("hotel_establish"));
+				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
+				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
+				dto.setHotel_price_max(rs.getInt("hotel_price_max"));
+				dto.setHotel_people_min(rs.getInt("hotel_people_min"));
+				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
+				dto.setHotel_star(rs.getInt("hotel_star"));
+				dto.setHotel_point(rs.getInt("hotel_point"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {

@@ -11,16 +11,15 @@
 	<div id="container">
       <jsp:include page="../include/header.jsp" />
     	<div id="content">
+    		<c:set var="dto" value="${sessionScope.loginUser }" />
       		<div>
-      			
 				<h2>고객 정보 수정</h2>
-				<br>
 				<ul>
-					<li><a href="<%=request.getContextPath() %>/user_info.do?no=${dto.getUser_no() }">회원가입 정보</a></li>
-					<li><a href="<%=request.getContextPath() %>/user_payment.do">결제 수단 등록</a></li>
+					<li><a href="<%=request.getContextPath() %>/user_info.do?no=${dto.getUser_no() }">${dto.getUser_name() }님의 회원정보</a></li>
 					<li><a href="<%=request.getContextPath() %>/user_reservation.do">예약 내역 확인</a></li>
+					<li><a href="<%=request.getContextPath() %>/user_jjim.do">찜 목록</a></li>
 					<li><a href="<%=request.getContextPath() %>/user_q&a.do">1:1 문의 내역 확인</a></li>
-					<li><a href="<%=request.getContextPath() %>/user_review.do">작성한 리뷰 확인</a></li>
+					<li><a href="<%=request.getContextPath() %>/user_coupon.do">보유 쿠폰</a></li>
 				</ul>
 			</div>
     	</div>

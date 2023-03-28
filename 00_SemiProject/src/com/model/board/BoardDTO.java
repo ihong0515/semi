@@ -1,4 +1,4 @@
-package com.board.model;
+package com.model.board;
 
 public class BoardDTO {
 	

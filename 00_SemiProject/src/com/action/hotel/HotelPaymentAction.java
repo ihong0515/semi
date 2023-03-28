@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.hotel.model.HotelDAO;
-import com.hotel.model.RoomDTO;
+import com.model.hotel.HotelDAO;
+import com.model.hotel.RoomDTO;
 
 public class HotelPaymentAction implements Action {
 

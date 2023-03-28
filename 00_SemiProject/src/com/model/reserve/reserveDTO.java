@@ -1,4 +1,4 @@
-package com.reserve.model;
+package com.model.reserve;
 
 public class reserveDTO {
 	private int reserv_no;

@@ -4,14 +4,12 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.action.Action;
-import com.action.ActionForward;
+import com.action.*;
+import com.model.user.UserDAO;
+import com.model.user.UserDTO;
 
-import com.model.user.*;
-
-public class UserMyPageAction implements Action {
+public class UserInfoAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -22,14 +20,12 @@ public class UserMyPageAction implements Action {
 		UserDTO cont = dao.getUserContent(user_no);
 		request.setAttribute("Content", cont);
 
-		HttpSession session = request.getSession();
-		session.setAttribute("user_no", 1);
-		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("user/user_myPage.jsp");
+		forward.setPath("user/user_info.jsp");
 		
 		return forward;
+		
 	}
 
 }

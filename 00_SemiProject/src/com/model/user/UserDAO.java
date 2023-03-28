@@ -1,4 +1,4 @@
-package com.user.model;
+package com.model.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -88,7 +88,7 @@ public class UserDAO {
 		UserDTO dto = null;
 		try {
 			connect();
-			sql = "select * from user1 where userNo = ?";
+			sql = "select * from user1 where user_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			rs = ps.executeQuery();
@@ -144,29 +144,35 @@ public class UserDAO {
 		return list;
 	}
 	
-	public int selectAllId(String id) {
-		int result = -1;
+	public UserDTO loginUser(String id, String pwd) {
+		UserDTO dto = null;
 		
 		try {
 			connect();
-			sql = "select user_id from user1 where id = ?";
+			sql = "select * from user1 where user_id = ? and user_pwd = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
+			ps.setString(2, pwd);
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				result = 1;
-				System.out.println(result);
-			} else {
-				result = 0;
-				System.out.println(result);
+				dto = new UserDTO();
+				dto.setUser_no(rs.getInt("user_no"));
+				dto.setUser_name(rs.getString("user_name"));
+				dto.setUser_phone(rs.getString("user_phone"));
+				dto.setUser_birth(rs.getString("user_birth"));
+				dto.setUser_email(rs.getString("user_email"));
+				dto.setUser_egion(rs.getString("user_egion"));
+				dto.setUser_reservation(rs.getString("user_reservation"));
+				dto.setUser_pwd(rs.getString("user_pwd"));
+				dto.setUser_id(rs.getString("user_id"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return result;
+		return dto;
 	}
 	
 }

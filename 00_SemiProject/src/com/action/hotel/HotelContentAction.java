@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.action.*;
-import com.hotel.model.*;
+import com.model.hotel.*;
 
 public class HotelContentAction implements Action {
 

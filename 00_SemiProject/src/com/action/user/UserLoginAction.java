@@ -8,22 +8,23 @@ import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.model.user.UserDAO;
+import com.model.user.UserDTO;
 
-import com.model.user.*;
-
-public class UserMyPageAction implements Action {
+public class UserLoginAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
-		int user_no = Integer.parseInt(request.getParameter("no").trim());
+
+		String user_id = request.getParameter("id").trim();
+		String user_pwd = request.getParameter("pwd").trim();
 		
 		UserDAO dao = UserDAO.getInstance();
-		UserDTO cont = dao.getUserContent(user_no);
+		UserDTO cont = dao.loginUser(user_id, user_pwd);
 		request.setAttribute("Content", cont);
-
+		
 		HttpSession session = request.getSession();
-		session.setAttribute("user_no", 1);
+		session.setAttribute("loginUser", cont);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
