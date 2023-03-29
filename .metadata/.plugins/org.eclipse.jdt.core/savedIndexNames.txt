@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+C:\Users\hongjaeyoung\Desktop\semi\.metadata\.plugins\org.eclipse.jdt.core
-623334914.index
-234881750.index
-931642793.index
