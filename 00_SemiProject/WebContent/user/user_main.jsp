@@ -14,7 +14,6 @@
     	<div id="content" align="center">
 			<h2>고객 로그인</h2>
 			<br>
-			
 			<c:if test="${empty dto}">
 				<fieldset style="width:500px;">
 					<legend>로그인 페이지</legend>

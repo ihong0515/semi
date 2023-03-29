@@ -1,42 +1,48 @@
 package com.action.hotel;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.model.hotel.HotelDAO;
-import com.model.hotel.HotelDTO;
+import com.model.hotel.*;
 
 public class HotelSearchSortAction implements Action {
 
+	@SuppressWarnings("all")
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		ActionForward fowrd = new ActionForward();
+		ActionForward forward = new ActionForward();
 		
-		String hotel_location = request.getParameter("hotel_location").trim();
-		String hotel_checkinDate = request.getParameter("hotel_checkinDate").trim();
-		String hotel_checkoutDate = request.getParameter("hotel_checkoutDate").trim();
-		String hotel_keyword = request.getParameter("hotel_keyword").trim();
-		String hotel_field = request.getParameter("field").trim();
-
-		System.out.println(hotel_checkinDate);
-		System.out.println(hotel_checkoutDate);
-
-		ArrayList<HotelDTO> list = HotelDAO.getInstance().getHotelListSort(hotel_location, hotel_keyword, hotel_checkinDate, hotel_checkoutDate, hotel_field);
-	
+		String[] hotel_list = request.getParameterValues("hotel_list");
+		ArrayList<HotelDTO> list = new ArrayList<HotelDTO>();
+		
+		for(int i =0; i<hotel_list.length;i++) {
+			HotelDTO dto = HotelDAO.getInstance().getHotelContent(Integer.parseInt(hotel_list[i]));
+			list.add(dto);
+		}
+		
+		String field = request.getParameter("field");
+		
+		try {
+			Class sortFiled = Class.forName("com.action.hotel."+field);
+			Constructor constructor =  sortFiled.getConstructor();
+			Collections.sort(list, (Comparator<HotelDTO>)constructor.newInstance());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		request.setAttribute("List", list);
-		request.setAttribute("hotel_location", hotel_location);
-		request.setAttribute("hotel_checkinDate", hotel_checkinDate);
-		request.setAttribute("hotel_checkoutDate", hotel_checkoutDate);
-		request.setAttribute("hotel_keyword", hotel_keyword);
 		
-		fowrd.setRedirect(false);
-		fowrd.setPath("hotel/hotel_list.jsp");
-		return fowrd;
+		forward.setRedirect(false);
+		forward.setPath("hotel/hotel_list.jsp");
+		return forward;
 	}
-
 }

@@ -23,11 +23,11 @@
 					<div id="price_search">
 						<div class="range_slider">
 							<span>
-								<input class="range_number" type="number" value="0" min="0" max="300000" name="price_min">
-								<input class="range_number" type="number" value="300000" min="0" max="300000" name="price_max">
+								<input class="range_number" type="number" value="0" min="0" max="1000000" name="price_min">~
+								<input class="range_number" type="number" value="1000000" min="0" max="1000000" name="price_max">
 							</span>
-							<input class="range_range" value=0 min="0" max="300000" step="500" type="range"/>
-							<input class="range_range" value="300000" min="0" max="300000" step="500" type="range"/>
+							<input class="range_range" value=0 min="0" max="1000000" step="500" type="range">
+							<input class="range_range" value="1000000" min="0" max="1000000" step="500" type="range">
 						</div>
 					</div>
 					<div id="people_search">
@@ -88,15 +88,14 @@
 			<div id="main">
 				<nav>
 					<form method="post">
-						<input type="hidden" value="${hotel_location }" name="hotel_location">
-						<input type="hidden" value="${hotel_checkinDate }" name="hotel_checkinDate">
-						<input type="hidden" value="${hotel_checkoutDate }" name="hotel_checkoutDate">
-						<input type="hidden" value="${hotel_keyword }" name="hotel_keyword">
+						<c:forEach items="${list }" var="dto">
+							<input type="hidden" name="hotel_list" value="${dto.getHotel_no() }">
+						</c:forEach>
 						<ul>
-							<li><input type="submit" value="가격 낮은 순" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=hotel_price_min"></li>
-							<li><input type="submit" value="가격 높은 순" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=hotel_price_max"></li>
-							<li><input type="submit" value="성급" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=hotel_star"></li>
-							<li><input type="submit" value="평점" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=hotel_point"></li>
+							<li><input type="submit" value="가격 낮은 순" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=HotelSortPriceMin"></li>
+							<li><input type="submit" value="가격 높은 순" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=HotelSortPriceMax"></li>
+							<li><input type="submit" value="성급" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=HotelSortStar"></li>
+							<li><input type="submit" value="평점" formaction="<%=request.getContextPath() %>/hotel_search_sort.do?field=HotelSortPoint"></li>
 						</ul>
 					</form>
 				</nav>

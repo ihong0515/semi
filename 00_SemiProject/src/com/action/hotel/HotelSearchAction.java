@@ -14,7 +14,7 @@ public class HotelSearchAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		ActionForward fowrd = new ActionForward();
+		ActionForward forwrd = new ActionForward();
 		
 		String hotel_location = request.getParameter("location").trim();
 		String hotel_checkinDate = request.getParameter("checkinDate").trim();
@@ -29,8 +29,8 @@ public class HotelSearchAction implements Action {
 		request.setAttribute("hotel_checkoutDate", hotel_checkoutDate);
 		request.setAttribute("hotel_keyword", hotel_keyword);
 		
-		fowrd.setRedirect(false);
-		fowrd.setPath("hotel/hotel_list.jsp");
-		return fowrd;
+		forwrd.setRedirect(false);
+		forwrd.setPath("hotel/hotel_list.jsp");
+		return forwrd;
 	}
 }

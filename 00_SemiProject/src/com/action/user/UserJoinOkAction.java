@@ -36,16 +36,16 @@ public class UserJoinOkAction implements Action {
 		
 		int check = dao.insertUser(dto);
 		
-		ActionForward forwd = new ActionForward();
+		ActionForward forward = new ActionForward();
 		
 		if(check > 0) {
-			forwd.setRedirect(true);
-			forwd.setPath("user_list.do");
+			forward.setRedirect(true);
+			forward.setPath("user_list.do");
 		} else {
-			forwd.setRedirect(false);
-			forwd.setPath("user/user_join_normal.jsp");
+			forward.setRedirect(false);
+			forward.setPath("user/user_join_normal.jsp");
 		}
-		return forwd;
+		return forward;
 	}
 
 }

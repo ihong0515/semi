@@ -26,7 +26,6 @@ public class UserDAO {
 		if(instance == null) {
 			instance = new UserDAO();
 		}
-		instance.connect();
 		return instance;
 	}
 	

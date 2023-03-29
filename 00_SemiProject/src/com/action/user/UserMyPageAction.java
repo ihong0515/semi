@@ -22,9 +22,6 @@ public class UserMyPageAction implements Action {
 		UserDTO cont = dao.getUserContent(user_no);
 		request.setAttribute("Content", cont);
 
-		HttpSession session = request.getSession();
-		session.setAttribute("user_no", 1);
-		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("user/user_myPage.jsp");
