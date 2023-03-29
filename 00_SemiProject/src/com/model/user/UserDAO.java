@@ -69,7 +69,7 @@ public class UserDAO {
 			ps.setString(3, dto.getUser_phone());
 			ps.setString(4, dto.getUser_birth());
 			ps.setString(5, dto.getUser_email());
-			ps.setString(6, dto.getUser_egion());
+			ps.setString(6, dto.getUser_region());
 			ps.setString(7, dto.getUser_pwd());
 			ps.setString(8, dto.getUser_id());
 			
@@ -99,8 +99,7 @@ public class UserDAO {
 				dto.setUser_phone(rs.getString("user_phone"));
 				dto.setUser_birth(rs.getString("user_birth"));
 				dto.setUser_email(rs.getString("user_email"));
-				dto.setUser_egion(rs.getString("user_egion"));
-				dto.setUser_reservation(rs.getString("user_reservation"));
+				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
 			}
@@ -129,8 +128,7 @@ public class UserDAO {
 				dto.setUser_phone(rs.getString("user_phone"));
 				dto.setUser_birth(rs.getString("user_birth"));
 				dto.setUser_email(rs.getString("user_email"));
-				dto.setUser_egion(rs.getString("user_egion"));
-				dto.setUser_reservation(rs.getString("user_reservation"));
+				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
 				list.add(dto);
@@ -161,8 +159,7 @@ public class UserDAO {
 				dto.setUser_phone(rs.getString("user_phone"));
 				dto.setUser_birth(rs.getString("user_birth"));
 				dto.setUser_email(rs.getString("user_email"));
-				dto.setUser_egion(rs.getString("user_egion"));
-				dto.setUser_reservation(rs.getString("user_reservation"));
+				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
 			}
@@ -184,17 +181,15 @@ public class UserDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				if(dto.getUser_pwd().equals(rs.getString("user_no"))) {
-					sql = "update user1 set user_name = ?, user_id = ?, user_pwd = ?, user_phone = ?, user_birth = ?, user_email = ?, user_location = ? where user_no = ?";
+				if(dto.getUser_pwd().equals(rs.getString("user_pwd"))) {
+					sql = "update user1 set user_phone = ?, user_birth = ?, user_email = ?, user_region = ? where user_no = ?";
 					ps = con.prepareStatement(sql);
-					ps.setString(1, dto.getUser_name());
-					ps.setString(2, dto.getUser_id());
-					ps.setString(3, dto.getUser_pwd());
-					ps.setString(4, dto.getUser_phone());
-					ps.setString(5, dto.getUser_birth());
-					ps.setString(6, dto.getUser_email());
-					ps.setString(7, dto.getUser_egion());
-					ps.setInt(8, dto.getUser_no());
+		
+					ps.setString(1, dto.getUser_phone());
+					ps.setString(2, dto.getUser_birth());
+					ps.setString(3, dto.getUser_email());
+					ps.setString(4, dto.getUser_region());
+					ps.setInt(5, dto.getUser_no());
 					result = ps.executeUpdate();
 				} else {
 					result = -1;
@@ -206,6 +201,26 @@ public class UserDAO {
 			close();
 		}
 		return result;
+	}
+	
+	public int duplicateId(String id) {
+		int cnt = 0;
+		try {
+			connect();
+			sql = "select count(user_id) as cnt from user1 where user_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				cnt = rs.getInt("count");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
 	}
 	
 }

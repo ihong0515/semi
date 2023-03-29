@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="dto" value="${sessionScope.loginUser }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,6 @@
 		<jsp:include page="../include/header.jsp" />
 	    	<div id="content">
 				<div align="center">
-					<c:set var="dto" value="${sessionScope.loginUser }" />
 					<hr width="50%" color="tomato">
 					<h3>${dto.getUser_name() }님 회원 정보</h3>
 					<hr width="50%" color="tomato">
@@ -58,7 +58,7 @@
 						
 						<tr>
 							<th>선호지역</th>
-							<td>${dto.getUser_egion() }</td>
+							<td>${dto.getUser_region() }</td>
 						</tr>
 						
 						<c:if test="${empty dto }">
@@ -72,7 +72,7 @@
 					</table>
 					<br>
 					
-					<input type="button" value="회원 정보 수정" onclick="location.href='user_modify.do?no=${dto.getUser_no()}'">&nbsp;
+					<input type="button" value="회원 정보 수정" onclick="location.href='user_modify.do'">&nbsp;
 					<input type="button" value="결제 수단 등록" onclick="location.href='user_pay.do?no=${dto.getUser_no()}'">&nbsp;
 					<input type="button" value="회원 탈퇴" onclick="location.href='user_quit.do?no=${dto.getUser_no()}'">
 				</div>
