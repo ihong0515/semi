@@ -15,9 +15,6 @@ public class reserveDTO {
 	private String reserv_request;
 	private String reserv_date;
 	
-	
-	
-	
 	public int getReserv_no() {
 		return reserv_no;
 	}
