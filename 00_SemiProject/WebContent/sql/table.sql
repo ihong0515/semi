@@ -74,6 +74,7 @@ create table user1(
     primary key(user_no)
 );
 
+
 create table owner(
     owner_no number(10) primary key,
     owner_name varchar2(30) not null,

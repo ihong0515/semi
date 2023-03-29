@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 public class BoardDAO {
 	
-	// DB와 연동하는 객체.
+			// DB와 연동하는 객체.
 			Connection con = null;
 			
 			// DB에 SQL문을 전송하는 객체.
