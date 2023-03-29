@@ -75,6 +75,7 @@ public class HotelDAO {
 			while(rs.next()) {
 				HotelDTO dto = new HotelDTO();
 				dto.setHotel_no(rs.getInt("hotel_no"));
+				dto.setHotel_ownerNo(rs.getInt("hotel_ownerno"));
 				dto.setHotel_name(rs.getString("hotel_name"));
 				dto.setHotel_phone(rs.getString("hotel_phone"));
 				dto.setHotel_addr(rs.getString("hotel_addr"));
@@ -120,6 +121,7 @@ public class HotelDAO {
 				dto.setRoom_people_min(rs.getInt("room_people_min"));
 				dto.setRoom_people_max(rs.getInt("room_people_max"));
 				dto.setRoom_photo_folder(rs.getString("room_photo_folder"));
+				dto.setRoom_photo_folder_size(rs.getInt("room_photo_folder_size"));
 				dto.setRoom_checkin(rs.getString("room_checkin"));
 				dto.setRoom_checkout(rs.getString("room_checkout"));
 				dto.setRoom_breakfast(rs.getString("room_breakfast"));
@@ -145,6 +147,7 @@ public class HotelDAO {
 			if(rs.next()) {
 				dto = new HotelDTO();
 				dto.setHotel_no(rs.getInt("hotel_no"));
+				dto.setHotel_ownerNo(rs.getInt("hotel_ownerno"));
 				dto.setHotel_name(rs.getString("hotel_name"));
 				dto.setHotel_phone(rs.getString("hotel_phone"));
 				dto.setHotel_addr(rs.getString("hotel_addr"));
@@ -182,15 +185,15 @@ public class HotelDAO {
 			if(rs.next()) {
 				dto = new HotelPolicyDTO();
 				dto.setHp_HotelNo(rs.getInt("hp_hotelNo"));
-				dto.setHp_Wifi(rs.getString("hp_Wifi"));
-				dto.setHp_Parking(rs.getString("hp_Parking"));
-				dto.setHp_Tub(rs.getString("hp_Tub"));
-				dto.setHp_Pool(rs.getString("hp_Pool"));
-				dto.setHp_Restaurant(rs.getString("hp_Restaurant"));
-				dto.setHp_Fitness(rs.getString("hp_Fitness"));
-				dto.setHp_Bar(rs.getString("hp_Bar"));
-				dto.setHp_Terrace(rs.getString("hp_Terrace"));
-				dto.setHp_Sauna(rs.getString("hp_Sauna"));
+				dto.setHp_Wifi(rs.getInt("hp_Wifi")!=0);
+				dto.setHp_Parking(rs.getInt("hp_Parking")!=0);
+				dto.setHp_Tub(rs.getInt("hp_Tub")!=0);
+				dto.setHp_Pool(rs.getInt("hp_Pool")!=0);
+				dto.setHp_Restaurant(rs.getInt("hp_Restaurant")!=0);
+				dto.setHp_Fitness(rs.getInt("hp_Fitness")!=0);
+				dto.setHp_Bar(rs.getInt("hp_Bar")!=0);
+				dto.setHp_Terrace(rs.getInt("hp_Terrace")!=0);
+				dto.setHp_Sauna(rs.getInt("hp_Sauna")!=0);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -318,6 +321,7 @@ public class HotelDAO {
 			while(rs.next()) {
 				HotelDTO dto = new HotelDTO();
 				dto.setHotel_no(rs.getInt("hotel_no"));
+				dto.setHotel_ownerNo(rs.getInt("hotel_ownerno"));
 				dto.setHotel_name(rs.getString("hotel_name"));
 				dto.setHotel_phone(rs.getString("hotel_phone"));
 				dto.setHotel_addr(rs.getString("hotel_addr"));

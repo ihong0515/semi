@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	//날짜 기본 선택창 날짜 오늘 날짜로 설정.
 	window.onload = function() {

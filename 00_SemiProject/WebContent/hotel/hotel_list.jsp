@@ -11,6 +11,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_list.js" ></script>
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_list.css" rel="stylesheet">
+<style type="text/css">
+div{
+	border: 1px solid black;
+}
+</style>
 </head>
 <body>
 	<div id="container">

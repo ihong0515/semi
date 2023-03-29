@@ -2,6 +2,7 @@ package com.model.hotel;
 
 public class HotelDTO {
 	private int hotel_no;
+	private int hotel_ownerNo;
 	private String hotel_name;
 	private String hotel_phone;
 	private String hotel_addr;
@@ -146,6 +147,14 @@ public class HotelDTO {
 
 	public void setHotel_point(int hotel_point) {
 		this.hotel_point = hotel_point;
+	}
+
+	public int getHotel_ownerNo() {
+		return hotel_ownerNo;
+	}
+
+	public void setHotel_ownerNo(int hotel_ownerNo) {
+		this.hotel_ownerNo = hotel_ownerNo;
 	}
 
 	
