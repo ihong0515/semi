@@ -75,6 +75,7 @@ create table reserv(
     reserv_date date
 );
 
+
 create table owner(
     owner_no number(10) primary key,
     owner_name varchar2(30) not null,
