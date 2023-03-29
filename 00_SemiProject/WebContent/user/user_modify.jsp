@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="dto" value="${sessionScope.loginUser }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +20,7 @@
 					<br>
 					
 					<form method="post" action="<%=request.getContextPath() %>/user_modify_ok.do">
-						<c:set var="dto" value="${sessionScope.loginUser }" />
 						<input type="hidden" name="user_no" value="${dto.getUser_no() }">
-						<input type="hidden" name="db_pwd" value="${dto.getUser_pwd() }">
 						<table border="1" cellspacing="0" width="400">
 							<tr> 
 								<th>이름</th>
@@ -59,7 +58,7 @@
 							<tr>
 								<th>선호지역</th>
 								<td>
-									<select name = "user_location" value="${dto.getUser_egion()}">
+									<select name = "user_region" value="${dto.getUser_region()}">
 						               <option value = "seoul">서울</option>
 						               <option value = "jeju">경기</option>
 						               <option value = "kwangwon">강원</option>

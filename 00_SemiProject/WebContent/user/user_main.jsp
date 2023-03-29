@@ -19,20 +19,14 @@
 					<legend>로그인 페이지</legend>
 					<form method="post" action="<%=request.getContextPath() %>/user_login.do">
 						<table>
-							<tr>
-								<th>ID</th>
-								<td><input type="text" name="id"></td>
-							</tr>
-							<tr>
-								<th>PW</th>
-								<td><input type="password" name="pwd"></td>
-							</tr>
-							<tr>
+							<tr> <th>ID</th> <td><input type="text" name="id"></td> </tr>
+							<tr> <th>PW</th> <td><input type="password" name="pwd"></td> </tr>
+							<tr> 
 								<td colspan="2" align="center">
-									<input type="submit" value="로그인">
-									<input type="reset" value="취소">
-									<input type="button" value="회원가입" onclick="location.href='<%=request.getContextPath() %>/user_join.do'">
-								</td>
+								 	<input type="submit" value="로그인">
+								 	<input type="reset" value="취소">
+								 	<input type="button" value="회원가입" onclick="location.href='<%=request.getContextPath() %>/user_join.do'">
+								</td> 
 							</tr>
 						</table>
 					</form>

@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
@@ -24,26 +25,30 @@ public class UserModifyOkAction implements Action {
 		String user_phone = request.getParameter("user_phone").trim();
 		String user_birth = request.getParameter("user_birth").trim();
 		String user_email = request.getParameter("user_email").trim();
-		String user_location = request.getParameter("user_location").trim();
+		String user_region = request.getParameter("user_region").trim();
 		
 		UserDTO dto = new UserDTO();
+		dto.setUser_no(user_no);
 		dto.setUser_name(user_name);
 		dto.setUser_id(user_id);
 		dto.setUser_pwd(user_pwd);
 		dto.setUser_phone(user_phone);
 		dto.setUser_birth(user_birth);
 		dto.setUser_email(user_email);
-		dto.setUser_egion(user_location);
+		dto.setUser_region(user_region);
 		
 		UserDAO dao = UserDAO.getInstance();
 		int check = dao.updateUser(dto);
 		
 		PrintWriter out = response.getWriter();
 		
+		HttpSession session = request.getSession();
+		session.setAttribute("loginUser", dto);
+		
 		if(check > 0) {
 			out.println("<script>");
-			out.println("alert('게시글 수정 성공')");
-			out.println("location.href='user_info.do?no="+user_no+"'");
+			out.println("alert('회원정보 수정 성공')");
+			out.println("location.href='user_info.do?no="+dto.getUser_no()+"'");
 			out.println("</script>");
 		} else if(check == -1) {
 			out.println("<script>");
@@ -52,7 +57,7 @@ public class UserModifyOkAction implements Action {
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('게시글 수정 실패')");
+			out.println("alert('회원정보 수정 실패')");
 			out.println("history.back()");
 			out.println("</script>");
 		}
