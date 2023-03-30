@@ -14,6 +14,15 @@ public class reserveDTO {
 	private int reserv_people;
 	private String reserv_request;
 	private String reserv_date;
+	private int reserve_promno;
+	private int reserve_coupno;
+	private int reserve_nomalprice;
+	private int reserve_realprice;
+	private String reserve_usecheck;
+	private int reserve_payment;
+	private int reserve_ins;
+	
+	
 	
 	public int getReserv_no() {
 		return reserv_no;
@@ -93,5 +102,55 @@ public class reserveDTO {
 	public void setReserv_date(String reserv_date) {
 		this.reserv_date = reserv_date;
 	}
+	public int getReserve_promno() {
+		return reserve_promno;
+	}
+	public void setReserve_promno(int reserve_promno) {
+		this.reserve_promno = reserve_promno;
+	}
+	public int getReserve_coupno() {
+		return reserve_coupno;
+	}
+	public void setReserve_coupno(int reserve_coupno) {
+		this.reserve_coupno = reserve_coupno;
+	}
+	public int getReserve_nomalprice() {
+		return reserve_nomalprice;
+	}
+	public void setReserve_nomalprice(int reserve_nomalprice) {
+		this.reserve_nomalprice = reserve_nomalprice;
+	}
+	public int getReserve_realprice() {
+		return reserve_realprice;
+	}
+	public void setReserve_realprice(int reserve_realprice) {
+		this.reserve_realprice = reserve_realprice;
+	}
+	public String getReserve_usecheck() {
+		return reserve_usecheck;
+	}
+	public void setReserve_usecheck(String reserve_usecheck) {
+		this.reserve_usecheck = reserve_usecheck;
+	}
+	public int getReserve_payment() {
+		return reserve_payment;
+	}
+	public void setReserve_payment(int reserve_payment) {
+		this.reserve_payment = reserve_payment;
+	}
+	public int getReserve_ins() {
+		return reserve_ins;
+	}
+	public void setReserve_ins(int reserve_ins) {
+		this.reserve_ins = reserve_ins;
+	}	
+	
+	
+	
+		
+	
+	
+	
+	
 	
 }
