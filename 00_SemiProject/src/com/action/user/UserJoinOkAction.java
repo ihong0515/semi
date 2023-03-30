@@ -20,7 +20,7 @@ public class UserJoinOkAction implements Action {
 		String user_phone = request.getParameter("phone").trim();
 		String user_birth = request.getParameter("birth").trim();
 		String user_email = request.getParameter("email").trim();
-		String user_region = request.getParameter("location").trim();
+		String user_region = request.getParameter("region").trim();
 		
 		UserDTO dto = new UserDTO();
 		
@@ -30,7 +30,7 @@ public class UserJoinOkAction implements Action {
 		dto.setUser_phone(user_phone);
 		dto.setUser_birth(user_birth);
 		dto.setUser_email(user_email);
-		dto.setUser_egion(user_region);
+		dto.setUser_region(user_region);
 		
 		UserDAO dao = UserDAO.getInstance();
 		

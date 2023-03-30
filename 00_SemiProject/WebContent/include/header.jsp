@@ -27,10 +27,10 @@
 		          <ul>
 		            <li>
 		            <c:if test="${empty dto}">
-		            	<a href="<%=request.getContextPath()%>/user/main.jsp">로그인</a>
+		            	<a href="<%=request.getContextPath()%>/user/user_main.jsp">로그인</a>
 		            </c:if>
 		            <c:if test="${!empty dto}">
-		            	<a href="">마이페이지</a>
+		            	<a href="<%=request.getContextPath()%>/user/user_myPage.jsp">마이페이지</a>
 		            </c:if>
 		            </li>
 		            

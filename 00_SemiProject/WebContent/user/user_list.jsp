@@ -21,8 +21,7 @@
 						<th>user_phone</th>
 						<th>user_birth</th>
 						<th>user_email</th>
-						<th>user_egion</th>
-						<th>user_reservation</th>
+						<th>user_region</th>
 						<th>user_pwd</th>
 						<th>user_id</th>
 					</tr>
@@ -35,8 +34,7 @@
 								<td> ${dto.getUser_phone() } </td>
 								<td> ${dto.getUser_birth() } </td>
 								<td> ${dto.getUser_email() } </td>
-								<td> ${dto.getUser_egion() } </td>
-								<td> ${dto.getUser_reservation() } </td>
+								<td> ${dto.getUser_region() } </td>
 								<td> ${dto.getUser_pwd() } </td>
 								<td> ${dto.getUser_id() } </td>
 							</tr>
