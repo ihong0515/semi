@@ -1,74 +1,74 @@
 package com.model.hotel;
 
 public class HotelPolicyDTO {
-	private int hp_HotelNo;
-	private boolean hp_Wifi;
-	private boolean hp_Parking;
-	private boolean hp_Tub;
-	private boolean hp_Pool;
-	private boolean hp_Restaurant;
-	private boolean hp_Fitness;
-	private boolean hp_Bar;
-	private boolean hp_Terrace;
-	private boolean hp_Sauna;
-	public int getHp_HotelNo() {
-		return hp_HotelNo;
+	private int hp_hotelNo;
+	private boolean hp_wifi;
+	private boolean hp_parking;
+	private boolean hp_tub;
+	private boolean hp_pool;
+	private boolean hp_restaurant;
+	private boolean hp_fitness;
+	private boolean hp_bar;
+	private boolean hp_terrace;
+	private boolean hp_sauna;
+	public int getHp_hotelNo() {
+		return hp_hotelNo;
 	}
-	public void setHp_HotelNo(int hp_HotelNo) {
-		this.hp_HotelNo = hp_HotelNo;
+	public void setHp_hotelNo(int hp_hotelNo) {
+		this.hp_hotelNo = hp_hotelNo;
 	}
-	public boolean isHp_Wifi() {
-		return hp_Wifi;
+	public boolean isHp_wifi() {
+		return hp_wifi;
 	}
-	public void setHp_Wifi(boolean hp_Wifi) {
-		this.hp_Wifi = hp_Wifi;
+	public void setHp_wifi(boolean hp_wifi) {
+		this.hp_wifi = hp_wifi;
 	}
-	public boolean isHp_Parking() {
-		return hp_Parking;
+	public boolean isHp_parking() {
+		return hp_parking;
 	}
-	public void setHp_Parking(boolean hp_Parking) {
-		this.hp_Parking = hp_Parking;
+	public void setHp_parking(boolean hp_parking) {
+		this.hp_parking = hp_parking;
 	}
-	public boolean isHp_Tub() {
-		return hp_Tub;
+	public boolean isHp_tub() {
+		return hp_tub;
 	}
-	public void setHp_Tub(boolean hp_Tub) {
-		this.hp_Tub = hp_Tub;
+	public void setHp_tub(boolean hp_tub) {
+		this.hp_tub = hp_tub;
 	}
-	public boolean isHp_Pool() {
-		return hp_Pool;
+	public boolean isHp_pool() {
+		return hp_pool;
 	}
-	public void setHp_Pool(boolean hp_Pool) {
-		this.hp_Pool = hp_Pool;
+	public void setHp_pool(boolean hp_pool) {
+		this.hp_pool = hp_pool;
 	}
-	public boolean isHp_Restaurant() {
-		return hp_Restaurant;
+	public boolean isHp_restaurant() {
+		return hp_restaurant;
 	}
-	public void setHp_Restaurant(boolean hp_Restaurant) {
-		this.hp_Restaurant = hp_Restaurant;
+	public void setHp_restaurant(boolean hp_restaurant) {
+		this.hp_restaurant = hp_restaurant;
 	}
-	public boolean isHp_Fitness() {
-		return hp_Fitness;
+	public boolean isHp_fitness() {
+		return hp_fitness;
 	}
-	public void setHp_Fitness(boolean hp_Fitness) {
-		this.hp_Fitness = hp_Fitness;
+	public void setHp_fitness(boolean hp_fitness) {
+		this.hp_fitness = hp_fitness;
 	}
-	public boolean isHp_Bar() {
-		return hp_Bar;
+	public boolean isHp_bar() {
+		return hp_bar;
 	}
-	public void setHp_Bar(boolean hp_Bar) {
-		this.hp_Bar = hp_Bar;
+	public void setHp_bar(boolean hp_bar) {
+		this.hp_bar = hp_bar;
 	}
-	public boolean isHp_Terrace() {
-		return hp_Terrace;
+	public boolean isHp_terrace() {
+		return hp_terrace;
 	}
-	public void setHp_Terrace(boolean hp_Terrace) {
-		this.hp_Terrace = hp_Terrace;
+	public void setHp_terrace(boolean hp_terrace) {
+		this.hp_terrace = hp_terrace;
 	}
-	public boolean isHp_Sauna() {
-		return hp_Sauna;
+	public boolean isHp_sauna() {
+		return hp_sauna;
 	}
-	public void setHp_Sauna(boolean hp_Sauna) {
-		this.hp_Sauna = hp_Sauna;
+	public void setHp_sauna(boolean hp_sauna) {
+		this.hp_sauna = hp_sauna;
 	}
 }

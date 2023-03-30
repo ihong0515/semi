@@ -11,11 +11,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_list.js" ></script>
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_list.css" rel="stylesheet">
-<style type="text/css">
-div{
-	border: 1px solid black;
-}
-</style>
 </head>
 <body>
 	<div id="container">
@@ -108,7 +103,7 @@ div{
 				<c:if test="${!empty list }">
 					<c:forEach items="${list }" var="dto">
 						<div id="cnt">
-							<img alt="" src="<%=request.getContextPath() %>/image/${dto.getHotel_photo_folder() }/main.jpg" width="150px" height="150px">
+							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder() }/main.jpg" width="150px" height="150px">
 							<div>
 								호텔 이름 : ${dto.getHotel_name() } <br>
 								<c:forEach begin="1" end="${dto.getHotel_star() }">★</c:forEach>

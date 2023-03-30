@@ -47,7 +47,7 @@
 
 						<tr><%--이미지 출력 --%>
 							<td>
-							<img src="<%=request.getContextPath() %>/image/${dto.getHotel_photo_folder()}/main.jpg"
+							<img src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder()}/main.jpg"
 								width="150px" height="150px">
 							</td>
 						</tr>
@@ -108,7 +108,7 @@
 
 						<tr><%--이미지 출력 --%>
 							<td>
-							<img src="<%=request.getContextPath() %>/image/${dto.getHotel_photo_folder()}/main.jpg"
+							<img src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder()}/main.jpg"
 								width="150px" height="150px">
 							</td>
 						</tr>
