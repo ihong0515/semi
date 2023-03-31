@@ -13,6 +13,14 @@ public class BoardExampleAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		return null;
+		
+		ActionForward forward = new ActionForward();
+		
+		forward.setRedirect(false);
+		
+		forward.setPath("board/board_content.jsp");
+		
+		return forward;
+		
 	}
 }
