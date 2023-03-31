@@ -7,6 +7,30 @@
 <head>
 <meta charset="UTF-8">
 <title>user_modify.jsp</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+
+	function autoEmail(a,b){
+		
+	    var mailId = b.split('@');
+	    var mailList = ['naver.com','gmail.com','daum.net','hanmail.net'];
+	    var availableCity = new Array;
+	    
+	    for(var i=0; i < mailList.length; i++ ){
+	        availableCity.push( mailId[0] +'@'+ mailList[i] );
+	    }
+	    
+	    $("#"+a).autocomplete({
+	        source: availableCity,
+	        focus: function(event, ui) {
+	            return false;
+	        }
+	    });
+	}
+	
+</script>
 </head>
 <body>
 	
@@ -40,20 +64,17 @@
 							</tr>
 							<tr>
 								<th>생년월일</th>
-								<td><input name="user_birth" value="${dto.getUser_birth()}"></td>
+								<td><input type="date" name="user_birth" value="${dto.getUser_birth()}"></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td>
-									<input name="user_email" value="${dto.getUser_email()}">
-									@
-									<select>
-										<option>naver.com</option>
-										<option>gmail.com</option>
-										<option>hanmail.net</option>
-										<option>nate.com</option>
-									</select>
-								</td>
+								<div class="ui-widget">
+									<td>
+										<input name="user_email" id="user_email" onkeyup="autoEmail('user_email',this.value)" autocomplete="off" required oninvalid="this.setCustomValidity('필수 입력 항목입니다.')">
+										<br>
+										<span id="nullcheck"></span>
+									</td>
+								</div>
 							</tr>
 							<tr>
 								<th>선호지역</th>
