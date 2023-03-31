@@ -4,7 +4,6 @@
 <html>
 
 <head>
-<script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <title>main_footer</title>
 </head>

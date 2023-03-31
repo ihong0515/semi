@@ -4,8 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.core.ApplicationFilterFactory;
 
 import com.action.Action;
 import com.action.ActionForward;
@@ -20,7 +24,8 @@ public class HotelStarSearchAction implements Action {
 		String location = request.getParameter("Location");
 		
 		List<HotelDTO>list = HotelDAO.getInstance().getHotelStarSearch(location);
-		
+		HttpSession session = request.getSession();
+		session.setAttribute("hotel_Star_List", list);
 		request.setAttribute("hotel_Star_List", list);
 		
 		forward.setRedirect(false);
