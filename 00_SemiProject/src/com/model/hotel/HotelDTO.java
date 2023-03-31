@@ -156,6 +156,4 @@ public class HotelDTO {
 	public void setHotel_ownerNo(int hotel_ownerNo) {
 		this.hotel_ownerNo = hotel_ownerNo;
 	}
-
-	
 }

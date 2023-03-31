@@ -102,10 +102,10 @@
 				
 				<c:if test="${!empty list }">
 					<c:forEach items="${list }" var="dto">
-						<div id="cnt">
-							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder() }/main.jpg" width="150px" height="150px">
+						<div class="cnt">
+							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder() }/main.jpg" width="150px" height="150px" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'">
 							<div>
-								호텔 이름 : ${dto.getHotel_name() } <br>
+								호텔 이름 : <a href="<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }">${dto.getHotel_name() }</a> <br>
 								<c:forEach begin="1" end="${dto.getHotel_star() }">★</c:forEach>
 								 <br>
 								평점 : ${dto.getHotel_point() }/10 <br>

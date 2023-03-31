@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div id="container">
 		<jsp:include page="include/header.jsp" />
 		

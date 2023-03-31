@@ -2,6 +2,7 @@ package com.action.board;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,18 @@ public class ReviewDeleteAction implements Action {
 				String fileFolder = "C:\\NCS\\workspace_semi\\00_SemiProject\\WebContent\\image\\review\\";
 				File file = new File(fileFolder+fileName);
 				file.delete();
+				StringTokenizer st = new StringTokenizer(fileName, "/");
+				String hotel_name = st.nextToken();
+				String writer_name = st.nextToken();
+				File wr_file = new File(fileFolder+hotel_name+"/"+writer_name);
+				File ho_file = new File(fileFolder+hotel_name);
+				if(ho_file!=null) {
+					if(wr_file!=null) {
+						wr_file.delete();
+					}
+					ho_file.delete();
+				}
+				
 			}
 			
 			ActionForward forward = new ActionForward();

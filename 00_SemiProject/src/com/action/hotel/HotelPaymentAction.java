@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.action.Action;
 import com.action.ActionForward;
 import com.model.hotel.HotelDAO;
+import com.model.hotel.HotelDTO;
 import com.model.hotel.RoomDTO;
 
 public class HotelPaymentAction implements Action {
@@ -17,10 +18,10 @@ public class HotelPaymentAction implements Action {
 		ActionForward forward = new ActionForward();
 		
 		RoomDTO room = HotelDAO.getInstance().getRoomContent(Integer.parseInt(request.getParameter("room_no").trim()));
-		String hn = request.getParameter("hotel_name");
+		HotelDTO hotel = HotelDAO.getInstance().getHotelContent(Integer.parseInt(request.getParameter("hotel_no").trim()));
 		
-		request.setAttribute("hotel_name", hn);
-		request.setAttribute("room", room);
+		request.setAttribute("HotelDTO", hotel);
+		request.setAttribute("RoomDTO", room);
 		
 		forward.setRedirect(false);
 		forward.setPath("hotel/hotel_payment.jsp");
