@@ -62,16 +62,16 @@ public class UserDAO {
 				count = rs.getInt(1);
 			}
 			
-			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, 'F', ?, ?)";
+			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, count + 1);
-			ps.setString(2, dto.getUser_name());
-			ps.setString(3, dto.getUser_phone());
-			ps.setString(4, dto.getUser_birth());
-			ps.setString(5, dto.getUser_email());
-			ps.setString(6, dto.getUser_region());
-			ps.setString(7, dto.getUser_pwd());
-			ps.setString(8, dto.getUser_id());
+			ps.setString(2, dto.getUser_id());
+			ps.setString(3, dto.getUser_pwd());
+			ps.setString(4, dto.getUser_name());
+			ps.setString(5, dto.getUser_phone());
+			ps.setString(6, dto.getUser_birth());
+			ps.setString(7, dto.getUser_email());
+			ps.setString(8, dto.getUser_region());
 			
 			result = ps.executeUpdate();
 			
@@ -221,6 +221,29 @@ public class UserDAO {
 			close();
 		}
 		return cnt;
+	}
+	
+	public int checkUserId(String id) {
+		
+		int result = 0; 
+		
+		try {
+			connect();
+			sql = "select * from user1 where user_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = -1;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
 	}
 	
 }

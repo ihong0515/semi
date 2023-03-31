@@ -184,16 +184,16 @@ public class HotelDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto = new HotelPolicyDTO();
-				dto.setHp_HotelNo(rs.getInt("hp_hotelNo"));
-				dto.setHp_Wifi(rs.getInt("hp_Wifi")!=0);
-				dto.setHp_Parking(rs.getInt("hp_Parking")!=0);
-				dto.setHp_Tub(rs.getInt("hp_Tub")!=0);
-				dto.setHp_Pool(rs.getInt("hp_Pool")!=0);
-				dto.setHp_Restaurant(rs.getInt("hp_Restaurant")!=0);
-				dto.setHp_Fitness(rs.getInt("hp_Fitness")!=0);
-				dto.setHp_Bar(rs.getInt("hp_Bar")!=0);
-				dto.setHp_Terrace(rs.getInt("hp_Terrace")!=0);
-				dto.setHp_Sauna(rs.getInt("hp_Sauna")!=0);
+				dto.setHp_hotelNo(rs.getInt("hp_hotelNo"));
+				dto.setHp_wifi(rs.getInt("hp_Wifi")!=0);
+				dto.setHp_parking(rs.getInt("hp_Parking")!=0);
+				dto.setHp_tub(rs.getInt("hp_Tub")!=0);
+				dto.setHp_pool(rs.getInt("hp_Pool")!=0);
+				dto.setHp_restaurant(rs.getInt("hp_Restaurant")!=0);
+				dto.setHp_fitness(rs.getInt("hp_Fitness")!=0);
+				dto.setHp_bar(rs.getInt("hp_Bar")!=0);
+				dto.setHp_terrace(rs.getInt("hp_Terrace")!=0);
+				dto.setHp_sauna(rs.getInt("hp_Sauna")!=0);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

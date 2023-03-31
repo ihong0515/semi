@@ -14,13 +14,13 @@ public class UserJoinOkAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		String user_id = request.getParameter("id").trim();
-		String user_pwd = request.getParameter("pwd").trim();
-		String user_name = request.getParameter("name").trim();
-		String user_phone = request.getParameter("phone").trim();
-		String user_birth = request.getParameter("birth").trim();
-		String user_email = request.getParameter("email").trim();
-		String user_region = request.getParameter("region").trim();
+		String user_id = request.getParameter("user_id").trim();
+		String user_pwd = request.getParameter("user_pwd").trim();
+		String user_name = request.getParameter("user_name").trim();
+		String user_phone = request.getParameter("user_phone").trim();
+		String user_birth = request.getParameter("user_birth").trim();
+		String user_region = request.getParameter("user_region").trim();
+		String user_email = request.getParameter("user_email").trim();
 		
 		UserDTO dto = new UserDTO();
 		

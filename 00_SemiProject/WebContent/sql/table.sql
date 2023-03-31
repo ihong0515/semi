@@ -272,3 +272,50 @@ create table hotelpolicy(
     hp_terrace varchar2(10) default 0 check(hp_terrace in(1,0)),
     hp_sauna varchar2(10) default 0 check(hp_sauna in(1,0))
 );
+
+CREATE TABLE review (
+	review_no	number(10)		NOT NULL,
+	review_userno	number(10)		NOT NULL,
+	review_hotelno	number(10)		NOT NULL,
+	review_roomno	number(10)		NOT NULL,
+	review_reservno	number(10)		NOT NULL,
+	review_writer	varchar2(50)		NOT NULL,
+	review_content	varchar2(2000)		NOT NULL,
+	review_date	date		NOT NULL,
+	review_update	date	DEFAULT null	NULL,
+	review_photo	varchar2(1000)		NULL,
+	review_checkindate	date	not null,
+	review_point number(2) default 0 not null
+);
+
+ALTER TABLE review ADD CONSTRAINT "PK_REVIEW" PRIMARY KEY (
+	review_no
+);
+
+ALTER TABLE review ADD CONSTRAINT "FK_user1_TO_review_1" FOREIGN KEY (
+	review_userno
+)
+REFERENCES user1 (
+	user_no
+) ON DELETE CASCADE;
+
+ALTER TABLE review ADD CONSTRAINT "FK_hotel_TO_review_1" FOREIGN KEY (
+	review_hotelno
+)
+REFERENCES hotel (
+	hotel_no
+) ON DELETE CASCADE;
+
+ALTER TABLE review ADD CONSTRAINT "FK_reserv_TO_review_1" FOREIGN KEY (
+	review_reservno
+)
+REFERENCES reserv (
+	reserv_no
+) ON DELETE CASCADE;
+
+ALTER TABLE review ADD CONSTRAINT "FK_room_TO_review_1" FOREIGN KEY (
+	review_roomno
+)
+REFERENCES room (
+	room_no
+) ON DELETE CASCADE;
