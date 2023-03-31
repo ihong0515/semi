@@ -1,17 +1,18 @@
+/* 기본  ----------------------------------------------------------------------------- */
 $(function () {
 	
-	/* 아이디 input에 한글 입력 불가능 ---------------------------------------------------------------- */
+	/* 아이디 input에 한글 입력 불가능 */
 	$("#user_id").on("blur keyup", function() {
 		$(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '') );
 	});
 	
-	/* 아이디 중복확인 버튼 클릭시 수행  ----------------------------------------------------------------- */
-	$("#idcheck_btn").click (function() {
+	/* 아이디 중복확인 버튼 클릭시 수행  */
+	$("#user_id").blur (function() {
 		$("#idcheck").hide(); // span 태그 영역 숨기기
 		let userId = $("#user_id").val(); // id 값 가져오기
 		
 		/* 아이디 입력 길이 체크  */
-		if($.trim(userId).length < 4 || $.trim(userId).length > 16) {
+		if($.trim(userId).length < 8 || $.trim(userId).length > 20) {
 			$("#idcheck").text(""); // span 태그 영역 초기화
 			$("#idcheck").show();
 			$("#idcheck").append('<font color="red">8 ~ 20 자리 이내의 아이디를 입력해주세요.</font>');
@@ -43,18 +44,17 @@ $(function () {
 		});
 	});
 	
-	/* 비밀번호 input에 한글 입력 불가능 ---------------------------------------------------------------- */
+	/* 비밀번호 input에 한글 입력 불가능  */
 	$("#user_pwd").on("blur keyup", function() {
 		$(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '') );
 	});
 	
-	$("#user_pwd").change(function() { // change() => 값 변화시 이벤트 적용
+	/* 비밀번호 유효성 검사 */
+	$("#user_pwd").change(function() {
 	    checkPwd($('#user_pwd').val(), $('#user_id').val());
 	});
 	
-	/* 비밀번호 유효성 검사 */
 	function checkPwd(pwd, id) {
-		
 	    if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
 			$("#pwdcheck").text("");
 			$("#pwdcheck").show();
@@ -70,7 +70,7 @@ $(function () {
 			$("#pwdcheck").show();
 			$("#pwdcheck").append('<font color="red">비밀번호에 아이디가 포함되었습니다.</font>');
 			$('#user_pwd').val('').focus();
-	    } else {
+		} else {
 			$("#pwdcheck").text("");
 			$("#pwdcheck").show();
 			$("#pwdcheck").append('<font color="blue">사용가능한 비밀번호입니다.</font>');
@@ -96,18 +96,75 @@ $(function () {
 			}
 		}
 	});
-
 	
-	$("#nullcheck").hide();
-	$("joinForm").find('input[type="text"]').each(function() {
-		if($(this.val()) == "") {
-			$("#nullcheck").text("");
-			$("#nullcheck").show();
-			$("#nullcheck").append('<font color="red">필수 입력 요소입니다.</font>');
-		}
+	/* 약관 동의 체크(전체, 부분 선택) */
+	const agreeChkAll = document.querySelector('input[name=agree_all]');
+	
+    agreeChkAll.addEventListener('change', (e) => {
+	    let agreeChk = document.querySelectorAll('input[name=agree]');
+	    for(let i = 0; i < agreeChk.length; i++){
+	      agreeChk[i].checked = e.target.checked;
+	    }
 	});
 	
 });
+
+/* 회원가입 버튼 클릭 결과 ----------------------------------------------------------------------------- */
+function joinFormCheck() {
+	if($('#user_id').val() == "") {
+		$("#idcheck").text("");
+		$("#idcheck").show();
+		$("#idcheck").append('<font color="red">아이디를 입력해주세요.</font>');
+		$('#user_id').val('').focus();
+	} 
+	if($('#user_pwd').val() == "") {
+		$("#pwdcheck").text("");
+		$("#pwdcheck").show();
+		$("#pwdcheck").append('<font color="red">비밀번호를 입력해주세요.</font>');
+		$('#user_pwd').val('').focus();
+	} 
+	if($('#user_repwd').val() == "") {
+		$("#repwdcheck").text("");
+		$("#repwdcheck").show();
+		$("#repwdcheck").append('<font color="red">비밀번호 확인을 입력해주세요.</font>');
+		$('#user_repwd').val('').focus();
+	} 
+	if($('#user_name').val() == "") {
+		$("#namecheck").text("");
+		$("#namecheck").show();
+		$("#namecheck").append('<font color="red">이름을 입력해주세요.</font>');
+		$('#user_name').val('').focus();
+	} 
+	if($('#user_phone').val() == "") {
+		$("#phonecheck").text("");
+		$("#phonecheck").show();
+		$("#phonecheck").append('<font color="red">전화번호를 입력해주세요.</font>');
+		$('#user_phone').val('').focus();
+	} 
+	if($('#user_birth').val() == "") {
+		$("#birthcheck").text("");
+		$("#birthcheck").show();
+		$("#birthcheck").append('<font color="red">생년월일을 입력해주세요.</font>');
+		$('#user_birth').val('').focus();
+	} 
+	if($('#user_region').val() == "") {
+		$("#regioncheck").text("");
+		$("#regioncheck").show();
+		$("#regioncheck").append('<font color="red">선호 지역을 입력해주세요.</font>');
+		$('#user_region').val('').focus();
+	} 
+	if($('#user_email').val() == "") {
+		$("#emailcheck").text("");
+		$("#emailcheck").show();
+		$("#emailcheck").append('<font color="red">이메일 주소를 입력해주세요.</font>');
+		$('#user_email').val('').focus();
+	} 
+	
+	if($('#essential').is(':checked')) {
+		alert("필수 항목에 모두 동의해주세요.");
+	}
+	
+}
 
 
 
