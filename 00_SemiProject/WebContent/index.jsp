@@ -3,9 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +12,7 @@
 <body>
 
 	<div id="container">
-		<jsp:include page="/include/header.jsp" />
+		<jsp:include page="include/header.jsp" />
 		
 		<%--main content --%>
 		<%-- 기본 커서 서울에 잡혀 있게 할 예정. --%>
@@ -25,7 +22,7 @@
 			<nav>
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
-					<li><a href="hotel_StarSearch.do?Location=서울">서울</a></li>
+					<li><a id = "first_starbtn" href="hotel_StarSearch.do?Location=서울">서울</a></li>
 					<%--클릭에 따라 요청 정보가 다르게 넘어가게.?하고 search.do 뒤로 
             		이게 셀렉트 박스 처럼 지역이 딱 잡혀야 하는데.--%>
 					<li><a href="hotel_StarSearch.do?Location=경기">경기</a></li>
@@ -39,7 +36,7 @@
 					<li><a href="hotel_StarSearch.do?Location=제주">제주</a></li>
 				</ul>
 			</nav>
-			<table border="1" cellspacing="0" width="150">
+			<table  border="1" cellspacing="0" width="150">
 				<c:set var="list" value="${hotel_Star_List}" />
 				<c:if test="${!empty list }">
 
@@ -88,7 +85,7 @@
 			<nav>
 				<ul>
 					<%--기본 커서는 서울에  가있어야 함. --%>
-					<li><a href="hotel_lowPriceSearch.do?Location=서울">서울</a></li>
+					<li><a id = "first_lowbtn" href="hotel_lowPriceSearch.do?Location=서울">서울</a></li>
 					<%--클릭에 따라 요청 정보가 다르게 넘어가게. --%>
 					<li><a href="hotel_lowPriceSearch.do?Location=경기">경기</a></li>
 					<li><a href="hotel_lowPriceSearch.do?Location=강원">강원</a></li>
@@ -101,7 +98,7 @@
 					<li><a href="hotel_lowPriceSearch.do?Location=서울">제주</a></li>
 				</ul>
 			</nav>
-			<table border="1" cellspacing="0" width="400">
+			<table  border="1" cellspacing="0" width="400">
 				<c:set var="list" value="${hotel_LowPrice_List}" />
 				<c:if test="${!empty hotel_LowPrice_List}">
 					<c:forEach items="${list}" var="dto" begin="1" end="3">
@@ -142,8 +139,8 @@
 		</section>
 		<hr>
 		<%--main contentend --%>
-		
 		<jsp:include page="/include/footer.jsp" />
+		
 	</div>
 </body>
 </html>

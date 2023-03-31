@@ -5,15 +5,38 @@
 <html>
 <head>
 <script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script type="text/javascript">
 	//날짜 기본 선택창 날짜 오늘 날짜로 설정.
-	window.onload = function() {
-		document.getElementById('checkIn').value = new Date().toISOString()
-				.slice(0, 10);
+	$(function(){
+		 // 날짜 셀렉트 박스 
+		 $("#checkIn").val(new Date().toISOString().slice(0, 10));
+		  $("#checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
+		/* 
+		  //초기 화면에 서울 지역 추천 리스트 출력 함수.
+		  
+		  $("#first_starbtn").on("click", function(){
 
-		document.getElementById("checkOut").value = new Date(new Date()
-				.setDate(new Date().getDate() + 1)).toISOString().slice(0, 10);
-	}
+		      location.href="hotel_Search.do?location=서울"; 
+
+		  });
+		  
+		  
+		  $("#first_lowbtn").on("click", function(){
+
+			  location.href="hotel_Search.do?location=서울"; 
+
+		  });
+		  
+		  
+		  
+		  $("#first_starbtn").get(0).click();
+		  $("#first_lowbtn").get(0).click();
+		 */
+		
+	});
+	
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -21,7 +44,7 @@
 <body>
 	<div id="header">
 		<div align ="center">
-		<h5>상단 네비바 1↑</h5>
+		<h1><a href="<%=request.getContextPath()%>/index.jsp"><i class="fa fa-home" aria-hidden="true"></i></a></h1>
 			<c:set var="dto" value="${sessionScope.loginUser }" />
 				<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 		          <ul>
@@ -31,10 +54,13 @@
 		            </c:if>
 		            <c:if test="${!empty dto}">
 		            	<a href="<%=request.getContextPath()%>/user/user_myPage.jsp">마이페이지</a>
+						<%--로그아웃 --%>		            	
+		            	<br>
+		            	<input type = "button" value = "로그아웃"
+						onclick = "if(confirm('로그아웃 진행하십니까?')){location.href='user_logout.do'}else{return;}">
+						
 		            </c:if>
 		            </li>
-		            
-		            <li><a href="<%=request.getContextPath()%>/index.jsp">메인홈</a></li>
 		            <li><a href="<%=request.getContextPath()%>/">프로모션</a></li>
 		          </ul>
 		        </nav>
@@ -69,5 +95,3 @@
 		</div><!-- div center end -->
 	</div><!--header div end  -->
 	<hr>
-</body>
-</html>

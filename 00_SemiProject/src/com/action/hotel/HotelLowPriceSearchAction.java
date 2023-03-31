@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
@@ -19,6 +20,9 @@ public class HotelLowPriceSearchAction implements Action {
 		String location = request.getParameter("Location");
 		
 		List<HotelDTO>list = HotelDAO.getInstance().getHotelLowPriceSearch(location);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("hotel_LowPrice_List", list);
 		
 		request.setAttribute("hotel_LowPrice_List", list);
 		
