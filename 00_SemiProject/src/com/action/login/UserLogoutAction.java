@@ -1,4 +1,4 @@
-package com.action.user;
+package com.action.login;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ public class UserLogoutAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 로그아웃 세션 종료 기능
 		HttpSession session = request.getSession();
-		session.removeAttribute("loginUser");
+		session.invalidate();
 		
 		ActionForward forward = new ActionForward();
 		 

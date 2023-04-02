@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="list" value="${List }" />
+<c:set var="hotel_list" value="${Hotel_List }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,7 +88,7 @@
 			<div id="main">
 				<nav>
 					<form method="post">
-						<c:forEach items="${list }" var="dto">
+						<c:forEach items="${hotel_list }" var="dto">
 							<input type="hidden" name="hotel_list" value="${dto.getHotel_no() }">
 						</c:forEach>
 						<ul>
@@ -100,8 +100,8 @@
 					</form>
 				</nav>
 				
-				<c:if test="${!empty list }">
-					<c:forEach items="${list }" var="dto">
+				<c:if test="${!empty hotel_list }">
+					<c:forEach items="${hotel_list }" var="dto">
 						<div class="cnt">
 							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder() }/main.jpg" width="150px" height="150px" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'">
 							<div>
@@ -115,7 +115,7 @@
 						</div>
 					</c:forEach>
 				</c:if>
-				<c:if test="${empty list }">
+				<c:if test="${empty hotel_list }">
 					<div>
 						<h4>조건에 맞는 호텔 리스트가 없습니다.</h4>
 					</div>

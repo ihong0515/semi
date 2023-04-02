@@ -1,6 +1,12 @@
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+@SuppressWarnings("all")
+ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +17,12 @@
 	//날짜 기본 선택창 날짜 오늘 날짜로 설정.
 	$(function(){
 		 // 날짜 셀렉트 박스 
-		 $("#checkIn").val(new Date().toISOString().slice(0, 10));
-		  $("#checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
+		 if(<%=checkDate==null %>){
+			 $(".checkIn").val(new Date().toISOString().slice(0, 10));
+			 $(".checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
+		 }
+		 
+		 
 		/* 
 		  //초기 화면에 서울 지역 추천 리스트 출력 함수.
 		  
@@ -83,9 +93,15 @@
 					</select>
 					
 					<!--날짜선택 selectbox  -->
-						
-						<input type="date" id="checkIn" name="checkinDate" value="">
-			            <input type="date" id="checkOut" name="checkoutDate" value="">
+						<c:if test="${!empty sessionScope.CheckDate }">
+							<c:set var="checkDate" value="${sessionScope.CheckDate }" />
+							<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
+							<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
+							<input type="date" value="${checkin }" class="checkIn" name="checkinDate">~<input type="date" value="${checkout }" class="checkOut" name="checkoutDate">
+						</c:if>
+						<c:if test="${empty sessionScope.CheckDate }">
+							<input type="date" value="" class="checkIn" name="checkinDate">~<input type="date" value="" class="checkOut" name="checkoutDate">
+						</c:if>
 			            <!--체크아웃 셀렉트 박스 end  -->
 			        
 			         	<br/>
