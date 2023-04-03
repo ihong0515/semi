@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/index/index.js"></script>
 </head>
 <body>
 	<div id="container">
