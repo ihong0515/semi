@@ -237,10 +237,9 @@ public class HotelDAO {
 		return dto;
 	}
 	
-	public List<HotelDTO>getHotelStarSearch(String location) {
+	public synchronized String getHotelStarSearch(String location) {
 		
-		List<HotelDTO>list = new ArrayList<HotelDTO>();
-		HotelDTO dto = null;
+		String list = "";
 		try {
 			sql = "select * from hotel where hotel_location = ? order by hotel_star desc";
 			ps = con.prepareStatement(sql);
@@ -248,14 +247,19 @@ public class HotelDAO {
 			
 			rs = ps.executeQuery();
 			
+			list += "<hotels>";
+			
 			while(rs.next()) {
-				dto = new  HotelDTO();
-				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
-				dto.setHotel_name(rs.getNString("hotel_name"));
-				dto.setHotel_star(rs.getInt("hotel_star"));
-				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
-				list.add(dto);
+				
+				list += "<hotel>";
+				list += "<hotel_photo_folder>" + rs.getString("hotel_photo_folder") + "</Hotel_photo_folder>";
+				list += "<hotel_name>" + rs.getNString("hotel_name") + "</hotel_name>";
+				list += "<hotel_star>" + rs.getInt("hotel_star") + "</hotel_star>";
+				list += "<hotel_price_min>" + rs.getInt("hotel_price_min") + "</hotel_price_min>";
+				list += "<hotel_info>" + rs.getString("hotel_info") + "</hotel_info>";
+				list += "</hotel>";
 			}
+			list += "</hotels>";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -265,25 +269,27 @@ public class HotelDAO {
 		return list;
 	}//hotelStarList end
 	
-	public List<HotelDTO> getHotelLowPriceSearch(String location){
+	public synchronized String getHotelLowPriceSearch(String location){
 		//main 에 최저가 에 맞춰 호텔 리스트를 보여주는 메서드
-		List<HotelDTO>list = new ArrayList<HotelDTO>();
-		HotelDTO dto = null;
+		
+		String list = "";
 		try {
 			sql = "select * from hotel where hotel_location = ? order by hotel_price_min asc";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, location);
 			
 			rs = ps.executeQuery();
-			
+			list += "<hotels>";
 			while(rs.next()) {
-				dto =new  HotelDTO();
-				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
-				dto.setHotel_name(rs.getNString("hotel_name"));
-				dto.setHotel_star(rs.getInt("hotel_star"));
-				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
-				list.add(dto);
+				list += "<hotel>";
+				list += "<hotel_photo_folder>" + rs.getString("hotel_photo_folder") + "</hotel_photo_folder>";
+				list += "<hotel_name>" + rs.getNString("hotel_name") + "</hotel_name>";
+				list += "<hotel_star>" + rs.getInt("hotel_star") + "</hotel_star>";
+				list += "<hotel_price_min>" + rs.getInt("hotel_price_min") + "</hotel_price_min>";
+				list += "<hotel_info>" + rs.getString("hotel_info") + "</hotel_info>";
+				list += "</hotel>";
 			}
+			list += "</hotels>";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
