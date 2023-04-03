@@ -6,7 +6,7 @@ $(function () {
 		$(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '') );
 	});
 	
-	/* 아이디 중복확인 버튼 클릭시 수행  */
+	/* 아이디 중복확인 수행  */
 	$("#user_id").blur (function() {
 		$("#idcheck").hide(); // span 태그 영역 숨기기
 		let userId = $("#user_id").val(); // id 값 가져오기
@@ -38,7 +38,7 @@ $(function () {
 					$("#idcheck").append('<font color="blue">사용가능한 아이디입니다.</font>');
 				}
 			},
-			error : function(data) {
+			error : function() {
 				alert("데이터 통신 오류");
 			}
 		});
@@ -97,16 +97,8 @@ $(function () {
 		}
 	});
 	
-	/* 약관 동의 체크(전체, 부분 선택) */
-	const agreeChkAll = document.querySelector('input[name=agree_all]');
 	
-    agreeChkAll.addEventListener('change', (e) => {
-	    let agreeChk = document.querySelectorAll('input[name=agree]');
-	    for(let i = 0; i < agreeChk.length; i++){
-	      agreeChk[i].checked = e.target.checked;
-	    }
-	});
-	
+
 });
 
 /* 회원가입 버튼 클릭 결과 ----------------------------------------------------------------------------- */
@@ -135,11 +127,17 @@ function joinFormCheck() {
 		$("#namecheck").append('<font color="red">이름을 입력해주세요.</font>');
 		$('#user_name').val('').focus();
 	} 
-	if($('#user_phone').val() == "") {
+	if($('#user_phone_mid').val() == "") {
 		$("#phonecheck").text("");
 		$("#phonecheck").show();
 		$("#phonecheck").append('<font color="red">전화번호를 입력해주세요.</font>');
-		$('#user_phone').val('').focus();
+		$('#user_phone_mid').val('').focus();
+	} 
+	if($('#user_phone_end').val() == "") {
+		$("#phonecheck").text("");
+		$("#phonecheck").show();
+		$("#phonecheck").append('<font color="red">전화번호를 입력해주세요.</font>');
+		$('#user_phone_end').val('').focus();
 	} 
 	if($('#user_birth').val() == "") {
 		$("#birthcheck").text("");
@@ -163,28 +161,20 @@ function joinFormCheck() {
 	if($('#essential').is(':checked')) {
 		alert("필수 항목에 모두 동의해주세요.");
 	}
-	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 이메일 자동완성 기능 */
+function autoEmail(a,b){
+    var mailId = b.split('@');
+    var mailList = ['naver.com','gmail.com','daum.net','hanmail.net'];
+    var mailArr = new Array;
+    for(var i=0; i < mailList.length; i++ ){
+    	mailArr.push( mailId[0] +'@'+ mailList[i] );
+    }
+    $("#"+a).autocomplete({
+        source: mailArr,
+        focus: function(event, ui) {
+            return false;
+        }
+    });
+}
