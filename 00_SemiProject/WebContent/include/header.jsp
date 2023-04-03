@@ -16,37 +16,11 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <script type="text/javascript">
 	//날짜 기본 선택창 날짜 오늘 날짜로 설정.
 	$(function(){
-		 // 날짜 셀렉트 박스 
 		 if(<%=checkDate==null %>){
 			 $(".checkIn").val(new Date().toISOString().slice(0, 10));
 			 $(".checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
 		 }
-		 
-		 
-		/* 
-		  //초기 화면에 서울 지역 추천 리스트 출력 함수.
-		  
-		  $("#first_starbtn").on("click", function(){
-
-		      location.href="hotel_Search.do?location=서울"; 
-
-		  });
-		  
-		  
-		  $("#first_lowbtn").on("click", function(){
-
-			  location.href="hotel_Search.do?location=서울"; 
-
-		  });
-		  
-		  
-		  
-		  $("#first_starbtn").get(0).click();
-		  $("#first_lowbtn").get(0).click();
-		 */
-		
 	});
-	
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -111,3 +85,5 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 		</div><!-- div center end -->
 	</div><!--header div end  -->
 	<hr>
+</body>
+</html>

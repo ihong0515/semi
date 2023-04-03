@@ -21,6 +21,8 @@ if(checkDate!=null){
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_payment.js"></script>
+<link href="<%=request.getContextPath() %>/css/hotel/hotel_payment.css" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -29,7 +31,10 @@ function saleCheck() {
 	$.ajax({
 		type: "post",
 		url: "coupon_get_SalePrice.do",
-		data: {coup_no:$('#prom_code_txt').val(), price: ${roDTO.getRoom_price() * inoutDay} },
+		data: {
+			coup_no:$('#prom_code_txt').val(),
+			price: ${roDTO.getRoom_price() * inoutDay}
+		},
 		datatype: "xml",
 		success: function(data){
 			alert('쿠폰 등록 성공!');
@@ -157,10 +162,67 @@ function saleCheck() {
 							</tr>
 						</table>
 					</div>
+					<div id="payment_terms">
+						해당 예약 요청 시, <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">이용 약관</a>, <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">개인정보 처리방침</a>, <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">공급업체 서비스 약관</a> 및 <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">세금 명세 약관</a>을 읽었으며 이에 동의합니다.
+					</div>
+					<div id="modal_1" class="modal-overlay">
+				        <div class="modal-window">
+				            <div class="title">
+				                <h2>이용 약관</h2>
+				            </div>
+				            <div class="close-area">X</div>
+				            <div class="content">
+				                <p>가나다라마바사 아자차카타파하</p>
+				            </div>
+				        </div>
+				    </div>
+				    <div id="modal_2" class="modal-overlay">
+				        <div class="modal-window">
+				            <div class="title">
+				                <h2>개인정보 처리방침</h2>
+				            </div>
+				            <div class="close-area">X</div>
+				            <div class="content">
+				                <p>가나다라마바사 아자차카타파하</p>
+				            </div>
+				        </div>
+				    </div>
+				    <div id="modal_3" class="modal-overlay">
+				        <div class="modal-window">
+				            <div class="title">
+				                <h2>공급업체 서비스 약관</h2>
+				            </div>
+				            <div class="close-area">X</div>
+				            <div class="content">
+				                <p>가나다라마바사 아자차카타파하</p>
+				            </div>
+				        </div>
+				    </div>
+				    <div id="modal_4" class="modal-overlay">
+				        <div class="modal-window">
+				            <div class="title">
+				                <h2>세금 명세 약관</h2>
+				            </div>
+				            <div class="close-area">X</div>
+				            <div class="content">
+				                <p>가나다라마바사 아자차카타파하</p>
+				            </div>
+				        </div>
+				    </div>
+					<div id="payment_submit">
+						<input type="submit" value="다음 단계 : 최종 확정 >">
+					</div>
 				</div>
 			</form>
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
+	
+<script>
+	function modal_click() {
+		fetch("https://baconipsum.com/api/?type=all-meat&paras=200&format=html").then(response => response.text()).then(result => loremIpsum.innerHTML = result);
+	}
+</script>
+
 </body>
 </html>
