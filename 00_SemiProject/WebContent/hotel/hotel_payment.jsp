@@ -18,6 +18,8 @@ if(checkDate!=null){
 <c:set var="hoDTO" value="${HotelDTO }" />
 <c:set var="roDTO" value="${RoomDTO }" />
 <c:set var="inoutDay" value="<%=inoutday %>" />
+<c:set var="usDTO" value="${sessionScope.loginUser }" />
+<c:set var="cardList" value="${CardList }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +29,6 @@ if(checkDate!=null){
 <title>Insert title here</title>
 <script type="text/javascript">
 function saleCheck() {
-	
 	$.ajax({
 		type: "post",
 		url: "coupon_get_SalePrice.do",
@@ -50,6 +51,8 @@ function saleCheck() {
 				$('#coupon_name').text(name +" / "+ sale+" % 할인");
 				$('#salePrice').text("₩"+resultSale);
 				$('#realPrice').text("₩"+resultPrice);
+				$('#coup_no').val($("coup_no", this).text());
+				$('#prom_no').val($("prom_no", this).text());
 			});
 		},
 		error: function(data){
@@ -63,8 +66,8 @@ function saleCheck() {
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 		<div id="content">
-			<form>
-				<div id="payment">
+			<div id="payment">
+				<form method="post" action="<%=request.getContextPath() %>/hotel_reserve.do" onsubmit="return check_payment()">
 					<div id="payment_hotel">
 						<div id="payment_hotel_img">
 							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="100px" height="100px">
@@ -80,42 +83,43 @@ function saleCheck() {
 								<c:set var="checkDate" value="${sessionScope.CheckDate }" />
 								<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
 								<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-								<input type="date" value="${checkin }" class="checkIn" name="checkinDate">~<input type="date" value="${checkout }" class="checkOut" name="checkoutDate">
+								<input type="date" value="${checkin }" class="checkIn" name="payment_hotel_indate" >~<input type="date" value="${checkout }" class="checkOut" name="payment_hotel_outdate">
 							</c:if>
 							<c:if test="${empty sessionScope.CheckDate }">
-								<input type="date" value="" class="checkIn">~<input type="date" value="" class="checkOut">
+								<input type="date" value="" class="checkIn" name="payment_hotel_indate">~<input type="date" value="" class="checkOut" name="payment_hotel_outdate">
 							</c:if>
+							인원 : <input type="number" name="reserv_people" min="${roDTO.getRoom_people_min() }" max="${roDTO.getRoom_people_max() }" value="${roDTO.getRoom_people_min() }">
 						</div>
 						<div id="payment_hotel_userInfo">
 							<fieldset>
 								<legend>
 									성
 								</legend>
-								<input type="text">
+								<input type="text" id="userFirstName" name="userFirstName">
 							</fieldset>
 							<fieldset>
 								<legend>
 									이름
 								</legend>
-								<input type="text">
+								<input type="text" id="userLastName" name="userLastName">
 							</fieldset>
 							<fieldset>
 								<legend>
 									이메일 주소
 								</legend>
-								<input type="text">
+								<input type="text" value="${usDTO.getUser_email() }" readonly="readonly">
 							</fieldset>
 							<fieldset>
 								<legend>
 									휴대폰 번호
 								</legend>
-								<select>
-									<option>010</option>
-									<option>011</option>
-									<option>017</option>
-									<option>019</option>
+								<select name="userPhone_head">
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="017">017</option>
+									<option value="019">019</option>
 								</select>
-								<input type="text" placeholder="휴대폰 번호">
+								<input type="text" placeholder="휴대폰 번호" id="userPhone_body" name="userPhone_body">
 							</fieldset>
 						</div>
 						<div id="payment_hotel_userReq">
@@ -123,7 +127,7 @@ function saleCheck() {
 								<legend>
 									요청 사항 (선택사항)
 								</legend>
-								<textarea rows="5" cols="40" placeholder="호텔에 요청하실 사항이 있으면 적어주세요."></textarea>
+								<textarea rows="5" cols="40" placeholder="호텔에 요청하실 사항이 있으면 적어주세요." name="payment_hotel_userReq"></textarea>
 							</fieldset>
 						</div>
 						<div id="payment_hotel_promotion">
@@ -141,7 +145,7 @@ function saleCheck() {
 									<fmt:formatNumber value="${roDTO.getRoom_price() }" type="currency"/> X ${inoutDay }박
 								</th>
 								<td>
-									<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />
+									<span name="nomalPrice"><fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" /></span>
 								</td>
 							</tr>
 							<tr>
@@ -157,72 +161,100 @@ function saleCheck() {
 									바로 결제
 								</th>
 								<td id="realPrice">
-									<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay-(roDTO.getRoom_price()*inoutDay*salePrice/100) }" type="currency" />
+									<span name="realPrice"><fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" /></span>
 								</td>
 							</tr>
 						</table>
 					</div>
 					<div id="payment_terms">
-						해당 예약 요청 시, <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">이용 약관</a>, <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">개인정보 처리방침</a>, <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">공급업체 서비스 약관</a> 및 <input type="checkbox" disabled><a onclick="modal_click()" class="terms_btn">세금 명세 약관</a>을 읽었으며 이에 동의합니다.
+						해당 예약 요청 시, <input type="checkbox" class="use_terms" disabled><a href="#modal" onclick="modal_click(this)" class="use_terms">이용 약관</a>, <input type="checkbox" disabled class="privat_terms"><a href="#modal" onclick="modal_click(this)" class="privat_terms">개인정보 처리방침</a>, <input type="checkbox" disabled class="servies_terms"><a href="#modal" onclick="modal_click(this)" class="servies_terms">공급업체 서비스 약관</a> 및 <input type="checkbox" disabled class="tex_terms"><a href="#modal" onclick="modal_click(this)" class="tex_terms">세금 명세 약관</a>을 읽었으며 이에 동의합니다.
 					</div>
-					<div id="modal_1" class="modal-overlay">
-				        <div class="modal-window">
+					<div id="modal" class="modal-overlay">
+				        <div class="modal-window use_terms">
 				            <div class="title">
 				                <h2>이용 약관</h2>
+				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="close-area">X</div>
 				            <div class="content">
-				                <p>가나다라마바사 아자차카타파하</p>
+								<jsp:include page="../terms/use_terms" />
 				            </div>
+				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
+				            
 				        </div>
-				    </div>
-				    <div id="modal_2" class="modal-overlay">
-				        <div class="modal-window">
+				        <div class="modal-window privat_terms">
 				            <div class="title">
 				                <h2>개인정보 처리방침</h2>
+				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="close-area">X</div>
 				            <div class="content">
-				                <p>가나다라마바사 아자차카타파하</p>
+				                <jsp:include page="../terms/privat_terms" />
 				            </div>
+				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
 				        </div>
-				    </div>
-				    <div id="modal_3" class="modal-overlay">
-				        <div class="modal-window">
+				        <div class="modal-window servies_terms">
 				            <div class="title">
 				                <h2>공급업체 서비스 약관</h2>
+				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="close-area">X</div>
 				            <div class="content">
-				                <p>가나다라마바사 아자차카타파하</p>
+				                <jsp:include page="../terms/servies_terms" />
 				            </div>
+				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
 				        </div>
-				    </div>
-				    <div id="modal_4" class="modal-overlay">
-				        <div class="modal-window">
+				        <div class="modal-window tex_terms">
 				            <div class="title">
 				                <h2>세금 명세 약관</h2>
+				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="close-area">X</div>
 				            <div class="content">
-				                <p>가나다라마바사 아자차카타파하</p>
+				               <jsp:include page="../terms/tex_terms" />
 				            </div>
+				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
 				        </div>
 				    </div>
+				    <div id="payment_usercard">
+						${dto.getUser_name() }
+						<c:if test="${empty usDTO }">
+							<a href='<%=request.getContextPath()%>/user_login_page.do'>로그인을 하세요.</a>
+						</c:if>
+						<c:if test="${!empty usDTO }">
+							<div id="payment_usercard_select">
+								<span>결제하실 카드를 선택하세요.</span>
+								<select name="userCard" id="userCard" onchange="payment_getno()">
+											<option value="">::카드선택::</option>
+										<c:forEach items="${cardList }" var="cardDTO">
+											<option value="${cardDTO.getPay_no() }">${cardDTO.getPay_name() }</option>
+										</c:forEach>
+								</select>
+							</div>
+							<div id="payment_usercard_view">
+								<p></p>
+							</div>
+						</c:if>
+					</div>
 					<div id="payment_submit">
+						<input type="hidden" name="card_no" value="${cardDTO.getPay_no() }">
+						<input type="hidden" name="coup_no" id="coup_no">
+						<input type="hidden" name="prom_no" id="prom_no">
+						<input type="hidden" name="user_no" value="${usDTO.getUser_no() }">
+						<input type="hidden" name="inoutDay" value="${inoutDay }">
+						<input type="hidden" name="hotel_no" value="${hoDTO.getHotel_name() }">
+						<input type="hidden" name="hotel_name" value="${hoDTO.getHotel_no() }">
+						<input type="hidden" name="room_no" value="${roDTO.getRoom_name() }">
+						<input type="hidden" name="room_name" value="${roDTO.getRoom_no() }">
 						<input type="submit" value="다음 단계 : 최종 확정 >">
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
 	
-<script>
-	function modal_click() {
-		fetch("https://baconipsum.com/api/?type=all-meat&paras=200&format=html").then(response => response.text()).then(result => loremIpsum.innerHTML = result);
-	}
-</script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_payment.js"></script>
 
 </body>
 </html>

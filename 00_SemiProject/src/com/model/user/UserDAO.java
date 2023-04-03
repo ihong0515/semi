@@ -245,5 +245,64 @@ public class UserDAO {
 		}
 		return result;
 	}
+
+	public ArrayList<PaymentDTO> getPaymentList(int user_no) {
+		ArrayList<PaymentDTO> list = new ArrayList<PaymentDTO>();
+		
+		try {
+			connect();
+			sql = "select * from payment where pay_userno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				PaymentDTO dto = new PaymentDTO();
+				dto.setPay_no(rs.getInt("pay_no"));
+				dto.setPay_userno(rs.getInt("pay_userno"));
+				dto.setPay_name(rs.getString("pay_name"));
+				dto.setPay_cardno(rs.getString("pay_cardno"));
+				dto.setPay_cardcom(rs.getString("pay_cardcom"));
+				dto.setPay_cvc(rs.getInt("pay_cvc"));
+				dto.setPay_pwd(rs.getString("pay_pwd"));
+				dto.setPay_date(rs.getString("pay_date"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+
+	public PaymentDTO getPaymentContent(int card_no) {
+		PaymentDTO dto = null;
+		
+		try {
+			connect();
+			sql = "select * from payment where pay_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, card_no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				dto = new PaymentDTO();
+				dto.setPay_no(rs.getInt("pay_no"));
+				dto.setPay_userno(rs.getInt("pay_userno"));
+				dto.setPay_name(rs.getString("pay_name"));
+				dto.setPay_cardno(rs.getString("pay_cardno"));
+				dto.setPay_cardcom(rs.getString("pay_cardcom"));
+				dto.setPay_cvc(rs.getInt("pay_cvc"));
+				dto.setPay_pwd(rs.getString("pay_pwd"));
+				dto.setPay_date(rs.getString("pay_date"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return dto;
+	}
 	
 }

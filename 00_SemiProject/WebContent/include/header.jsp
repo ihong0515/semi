@@ -21,8 +21,8 @@ $(function () {
         $(".checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
      }
 	if($('#Starlocation').length){
-	      serchHotelList($('#Starlocation'));
-	      serchHotelList($('#lowPricelocation'));
+		serchHotelList($('#Starlocation'));
+		serchHotelList($('#lowPricelocation'));
 	}
 });
 </script>
@@ -36,15 +36,14 @@ $(function () {
 		          <ul>
 		            <li>
 		            <c:if test="${empty dto}">
-		            	<a href="<%=request.getContextPath()%>/user/user_main.jsp">로그인</a>
+		            	<a href="<%=request.getContextPath()%>/user_login_page.do">로그인</a>
 		            </c:if>
 		            <c:if test="${!empty dto}">
-		            	<a href="<%=request.getContextPath()%>/user/user_myPage.jsp">마이페이지</a>
+		            	<a href="<%=request.getContextPath()%>/user_my_page.do">마이페이지</a>
 						<%--로그아웃 --%>		            	
 		            	<br>
 		            	<input type = "button" value = "로그아웃"
 						onclick = "if(confirm('로그아웃 진행하십니까?')){location.href='user_logout.do'}else{return;}">
-						
 		            </c:if>
 		            </li>
 		            <li><a href="<%=request.getContextPath()%>/">프로모션</a></li>
