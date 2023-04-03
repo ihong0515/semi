@@ -32,7 +32,7 @@ public class FrontController extends HttpServlet{
 
 		String propertiesPath = request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties");
 		FileInputStream fis = new FileInputStream(propertiesPath);
-
+		
 		prop.load(fis);
 		
 		String value = prop.getProperty(command);
