@@ -18,7 +18,8 @@ public class ReviewInsertAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		String saveFolder = "C:\\NCS\\workspace_semi\\00_SemiProject\\WebContent\\image\\review";
+		String saveFolder = request.getServletContext().getRealPath("/image/review");
+		//String saveFolder = "C:\\NCS\\workspace_semi\\00_SemiProject\\WebContent\\image\\review";
 		int fileSize = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
