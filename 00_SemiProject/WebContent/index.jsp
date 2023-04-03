@@ -21,22 +21,22 @@
 			<nav>
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
-						<li><input type="button" class="Starlocation" id="Starlocation" value="서울"></li>
-						<li><input type="button" class="Starlocation" value="경기"></li>
-						<li><input type="button" class="Starlocation" value="강원"></li>
-						<li><input type="button" class="Starlocation" value="전남"></li>
-						<li><input type="button" class="Starlocation" value="전북"></li>
-						<li><input type="button" class="Starlocation" value="충북"></li>
-						<li><input type="button" class="Starlocation" value="충남"></li>
-						<li><input type="button" class="Starlocation" value="경남"></li>
-						<li><input type="button" class="Starlocation" value="경북"></li>
-						<li><input type="button" class="Starlocation" value="제주"></li>
+						<li><input type="button" class="Starlocation" id="Starlocation" value="서울" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="경기" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="강원" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="전남" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="전북" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="충북" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="충남" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="경남" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="경북" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="Starlocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
-			</nav>	 
+			</nav>
 					 <h3>별점순 리스트(ajax)</h3>
 				
 			
-					<table id = "Star_list_Table" cellspacing="0">
+					<table id="star_list_Table" cellspacing="0">
 					 
 					 <tr>
 						<th>여기는 어떄여</th>
@@ -49,22 +49,22 @@
 			<nav>
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
-						<li><input type="button" class="lowPricelocation" id="lowPricelocation" value="서울"></li>
-						<li><input type="button" class="lowPricelocation" value="경기"></li>
-						<li><input type="button" class="lowPricelocation" value="강원"></li>
-						<li><input type="button" class="lowPricelocation" value="전남"></li>
-						<li><input type="button" class="lowPricelocation" value="전북"></li>
-						<li><input type="button" class="lowPricelocation" value="충북"></li>
-						<li><input type="button" class="lowPricelocation" value="충남"></li>
-						<li><input type="button" class="lowPricelocation" value="경남"></li>
-						<li><input type="button" class="lowPricelocation" value="경북"></li>
-						<li><input type="button" class="lowPricelocation" value="제주"></li>
+						<li><input type="button" class="lowPricelocation" id="lowPricelocation" value="서울" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="경기" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="강원" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="전남" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="전북" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="충북" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="충남" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="경남" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="경북" onclick="serchHotelList(this)"></li>
+						<li><input type="button" class="lowPricelocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>	 
 					 <h3>최저가  리스트(ajax)</h3>
 				
 			
-					<table id = "lowPrice_list_Table" cellspacing="0">
+					<table id="low_list_Table" cellspacing="0">
 					 
 					 <tr>
 						<th>여기도 어떄여</th>

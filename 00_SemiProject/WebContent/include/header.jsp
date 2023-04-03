@@ -12,13 +12,19 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <head>
 <script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/index/index.js"></script>
-	
-	
-
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/index/index.js"></script>
+<script type="text/javascript">
+$(function () {
+	if(<%=checkDate==null %>){
+        $(".checkIn").val(new Date().toISOString().slice(0, 10));
+        $(".checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
+     }
+	serchHotelList($('#Starlocation'));
+	serchHotelList($('#lowPricelocation'));
+});
+</script>
 </head>
 <body>
 	<div id="header">
@@ -80,3 +86,5 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 		</div><!-- div center end -->
 	</div><!--header div end  -->
 	<hr>
+</body>
+</html>
