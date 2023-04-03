@@ -36,7 +36,7 @@ CREATE TABLE room (
 
 CREATE TABLE user1 (
 	user_no	number(10)		NOT NULL,
-	user_id	varchar(20)	unique	NOT NULL,
+	user_id	varchar2(20)	unique	NOT NULL,
 	user_pwd	varchar2(20)		NOT NULL,
 	user_name	varchar2(20)		NOT NULL,
 	user_phone	varchar2(20)		NOT NULL,
@@ -63,15 +63,16 @@ CREATE TABLE reserv (
 	reserv_people	number(10)		NULL,
 	reserv_request	varchar2(1000)		NULL,
 	reserv_date	date	DEFAULT sysdate	NOT NULL,
-	reserv_usecheck	varchar(10) default 'N' check(reserv_usecheck in('Y','N','C')),
+	reserv_usecheck	varchar2(10) default 'N' check(reserv_usecheck in('Y','N','C')),
     reserv_payment varchar2(50),
-    reserv_ins number(5)
+    reserv_ins number(5),
+    reserv_phone varchar2(50) not null
 );
 
 CREATE TABLE owner (
 	owner_no	number(10)		NOT NULL,
-	owner_id	varchar(20)		NOT NULL,
-	owner_pwd	varchar(20)		NOT NULL,
+	owner_id	varchar2(20)		NOT NULL,
+	owner_pwd	varchar2(20)		NOT NULL,
 	owner_name	varchar2(30)		NOT NULL,
 	owner_phone	varchar2(40)		NOT NULL,
 	owner_email	varchar2(100)		NOT NULL,
@@ -80,7 +81,7 @@ CREATE TABLE owner (
 
 CREATE TABLE promotion (
 	prom_no	number(10)		NOT NULL,
-	prom_name	varchar(50)		NOT NULL,
+	prom_name	varchar2(50)		NOT NULL,
 	prom_info	varchar2(2000)		NOT NULL,
 	prom_folder	varchar2(1000)		NOT NULL
 );
@@ -128,14 +129,14 @@ CREATE TABLE inquiry_site (
 );
 
 CREATE TABLE payment (
-	pay_no	number(10)		NOT NULL,
-	pay_userno	number(10)		NOT NULL,
-	pay_name	varchar(50)		NULL,
-	pay_cardno	number(20)		NOT NULL,
+	pay_no number(10)		NOT NULL,
+	pay_userno number(10)		NOT NULL,
+	pay_name varchar2(50)		NULL,
+	pay_cardno varchar2(100)		NOT NULL,
 	pay_cardcom	varchar2(50)		NOT NULL,
 	pay_cvc	number(5)		NOT NULL,
-	pay_pwd	VARCHAR(255)		NOT NULL,
-	pay_date	varchar(20)		NOT NULL
+	pay_pwd	varchar2(255)		NOT NULL,
+	pay_date varchar2(20)		NOT NULL
 );
 
 ALTER TABLE hotel ADD CONSTRAINT "PK_HOTEL" PRIMARY KEY (

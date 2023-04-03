@@ -1,4 +1,4 @@
-package com.model.payment;
+package com.model.promotion;
 
 public class CouponDTO {
 	private int coup_no;

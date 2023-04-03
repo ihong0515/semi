@@ -1,4 +1,4 @@
-package com.action.payment;
+package com.action.promotion;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.model.payment.*;
+import com.model.promotion.*;
 
 public class CouponGetSaleAction implements Action {
 
@@ -20,13 +20,10 @@ public class CouponGetSaleAction implements Action {
 		int salePrice = price*coup.getCoup_sale()/100;
 		int realPrice = price - salePrice;
 		
-		System.out.println(price);
-		System.out.println(coup.getCoup_sale());
-		System.out.println(salePrice);
-		System.out.println(realPrice);
-		
 		String str = "<coupons>"
 				+ "<coupon>"
+				+ "<coup_no>"+coup.getCoup_no()+"</coup_no>"
+				+ "<prom_no>"+coup.getCoup_promno()+"</prom_no>"
 				+ "<name>"+coup.getCoup_name()+"</name>"
 				+ "<sale>"+coup.getCoup_sale()+"</sale>"
 				+ "<saleP>"+salePrice+"</saleP>"
