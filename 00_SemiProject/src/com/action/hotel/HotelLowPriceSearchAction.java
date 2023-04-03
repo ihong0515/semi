@@ -1,6 +1,7 @@
 package com.action.hotel;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,19 +17,20 @@ public class HotelLowPriceSearchAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		ActionForward fowrd = new ActionForward();
+		//ActionForward fowrd = new ActionForward();
 		String location = request.getParameter("Location");
 		
-		List<HotelDTO>list = HotelDAO.getInstance().getHotelLowPriceSearch(location);
+		String list = HotelDAO.getInstance().getHotelLowPriceSearch(location);
+		PrintWriter out = response.getWriter();
+		out.println(list);
+		//HttpSession session = request.getSession();
+		//session.setAttribute("hotel_LowPrice_List", list);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("hotel_LowPrice_List", list);
+		//request.setAttribute("hotel_LowPrice_List", list);
 		
-		request.setAttribute("hotel_LowPrice_List", list);
-		
-		fowrd.setRedirect(false);
-		fowrd.setPath("index.jsp");
-		return fowrd;
+		//fowrd.setRedirect(false);
+		//fowrd.setPath("index.jsp");
+		return null;
 	}
 
 }

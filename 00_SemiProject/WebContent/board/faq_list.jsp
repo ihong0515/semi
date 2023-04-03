@@ -27,7 +27,7 @@ for (i = 0; i < acc.length; i++) {
 		
 		<div align="center">
 		<h2>FAQ 자주묻는 질문</h2>
-		<form method="post" action="<%=request.getContextPath() %>/faq_list.do.">
+		<form method="post" action="<%=request.getContextPath() %>/faq_main.do">
 			<button class="accordion">예약을 취소하고 싶어요.</button>
 				<div class="panel">
 				  <p>트립닷컴 앱에서 예약 페이지로 이동 후 [예약 취소]를 선택하여 예약을 취소하세요.</p>

@@ -1,4 +1,4 @@
-package com.action.user;
+package com.action.login;
 
 import java.io.IOException;
 
@@ -15,23 +15,14 @@ public class UserLogoutAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// 로그아웃 세션 종료 기능
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
-		  
-		  request.getSession().invalidate();
-		  //String id = session.getId();
-		  //PrintWriter out = response.getWriter();
-		  
-		  //out.println(id);
-		  
-			
-			 ActionForward forward = new ActionForward();
-			 
-			 forward.setRedirect(false);
-			 forward.setPath("index.jsp");
-			
-			 return forward;
-			
+		ActionForward forward = new ActionForward();
 		 
+		forward.setRedirect(false);
+		forward.setPath("index.jsp");
+		
+		return forward;
 	}
-
 }

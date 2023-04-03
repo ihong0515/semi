@@ -90,7 +90,8 @@ CREATE TABLE coupon (
 	coup_promno	number(10)		NOT NULL,
 	coup_name	varchar2(50)		NOT NULL,
 	coup_info	varchar2(1000)		NULL,
-	coup_sale	number(20)	DEFAULT 0	NOT NULL
+	coup_sale	number(20)	DEFAULT 0	NOT NULL,
+	coup_serialno varchar2(50) not null
 );
 
 CREATE TABLE faq (

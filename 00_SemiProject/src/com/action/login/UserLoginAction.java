@@ -1,4 +1,4 @@
-package com.action.user;
+package com.action.login;
 
 import java.io.IOException;
 
@@ -32,5 +32,4 @@ public class UserLoginAction implements Action {
 		
 		return forward;
 	}
-
 }
