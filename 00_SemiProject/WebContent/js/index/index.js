@@ -16,9 +16,9 @@ function serchHotelList(e){
 			let table = "";
 			
 			$(data).find("hotel").each(function(){
-					
+					let hotel_no = $(this).find("hotel_no").text()
 					table += "<table><tr>"
-					table += "<td><img src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg'></td>";
+					table += "<td><a href='hotel_get_Content.do?hotel_no="+hotel_no+"'><img src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg'></a></td>";
 					table += "</tr>"
 					
 					table += "<tr>"

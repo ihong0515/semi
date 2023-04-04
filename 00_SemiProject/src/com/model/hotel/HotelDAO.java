@@ -251,6 +251,7 @@ public class HotelDAO {
 			while(rs.next()) {
 				
 				list += "<hotel>";
+				list += "<hotel_no>" + rs.getInt("hotel_no") + "</hotel_no>";
 				list += "<hotel_photo_folder>" + rs.getString("hotel_photo_folder") + "</Hotel_photo_folder>";
 				list += "<hotel_name>" + rs.getNString("hotel_name") + "</hotel_name>";
 				list += "<hotel_star>" + rs.getInt("hotel_star") + "</hotel_star>";
@@ -281,6 +282,7 @@ public class HotelDAO {
 			list += "<hotels>";
 			while(rs.next()) {
 				list += "<hotel>";
+				list += "<hotel_no>" + rs.getInt("hotel_no") + "</hotel_no>";
 				list += "<hotel_photo_folder>" + rs.getString("hotel_photo_folder") + "</hotel_photo_folder>";
 				list += "<hotel_name>" + rs.getNString("hotel_name") + "</hotel_name>";
 				list += "<hotel_star>" + rs.getInt("hotel_star") + "</hotel_star>";
