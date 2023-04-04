@@ -176,7 +176,7 @@ function saleCheck() {
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="content">
-								<jsp:include page="../terms/use_terms" />
+								<jsp:include page="../terms/payment/use_terms" />
 				            </div>
 				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
 				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
@@ -188,7 +188,7 @@ function saleCheck() {
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="content">
-				                <jsp:include page="../terms/privat_terms" />
+				                <jsp:include page="../terms/payment/privat_terms" />
 				            </div>
 				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
 				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
@@ -199,7 +199,7 @@ function saleCheck() {
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="content">
-				                <jsp:include page="../terms/servies_terms" />
+				                <jsp:include page="../terms/payment/servies_terms" />
 				            </div>
 				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
 				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
@@ -210,7 +210,7 @@ function saleCheck() {
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="content">
-				               <jsp:include page="../terms/tex_terms" />
+				               <jsp:include page="../terms/payment/tex_terms" />
 				            </div>
 				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
 				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">

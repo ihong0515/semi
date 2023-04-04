@@ -46,7 +46,7 @@ $(function () {
 						onclick = "if(confirm('로그아웃 진행하십니까?')){location.href='user_logout.do'}else{return;}">
 		            </c:if>
 		            </li>
-		            <li><a href="<%=request.getContextPath()%>/">프로모션</a></li>
+		            <li><a href="<%=request.getContextPath()%>/PromotionList.do">프로모션</a></li>
 		          </ul>
 		        </nav>
 		<hr>

@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.model.board.ReviewDTO;
 import com.model.reserve.ReserveDTO;
 
 public class HotelReserveAction implements Action {
