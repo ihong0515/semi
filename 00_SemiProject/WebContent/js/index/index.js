@@ -16,37 +16,37 @@ function serchHotelList(e){
 			let table = "";
 			
 			$(data).find("hotel").each(function(){
-					let hotel_no = $(this).find("hotel_no").text()
-					table += "<table><tr>"
+					let hotel_no = $(this).find("hotel_no").text();
+					table += "<table><tr>";
 					table += "<td><a href='hotel_get_Content.do?hotel_no="+hotel_no+"'><img src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg'></a></td>";
-					table += "</tr>"
+					table += "</tr>";
 					
-					table += "<tr>"
+					table += "<tr>";
 					table += "<td>" + $(this).find("hotel_name").text()+"</td>"; 
-					table += "</tr>"
+					table += "</tr>";
 					
 					
 					
-					let star = $(this).find("hotel_star").text()
+					let star = $(this).find("hotel_star").text();
 					console.log(star);
 					Number(star);
 					typeof(star);
-					table += "<tr><td>"
+					table += "<tr><td>";
 					for(let i = 0; i < star;i++)
 					{
 					table += "★"; 	
 					}
-					table += "</td></tr>"
+					table += "</td></tr>";
 					
 					
 					let minprice = $(this).find("hotel_price_min").text().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 					
-					table += "<tr>"
+					table += "<tr>";
 					table += "<td>₩"+minprice+"원</td>"; 
-					table += "</tr>"
+					table += "</tr>";
 					
 					
-					table += "<tr>"
+					table += "<tr>";
 					table += "<td>" + $(this).find("hotel_info").text()+"</td>"; 
 					table += "</tr></table>";
 				});

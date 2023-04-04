@@ -14,7 +14,7 @@ import com.model.hotel.HotelDAO;
 public class HotelIndexSearchAction implements Action {
 
 	@Override
-	public synchronized ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String location = request.getParameter("param");
 		String type = request.getParameter("search");
@@ -25,6 +25,7 @@ public class HotelIndexSearchAction implements Action {
 		}else {
 			list = HotelDAO.getInstance().getHotelLowPriceSearch(location);
 		}
+		System.out.println(list);
 		out.println(list);
 		return null;
 	}
