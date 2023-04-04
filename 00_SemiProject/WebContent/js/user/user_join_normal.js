@@ -126,39 +126,48 @@ function joinFormCheck() {
 		$("#phonecheck").show();
 		$("#phonecheck").append('<font color="red">전화번호를 입력해주세요.</font>');
 		$('#user_phone_mid').val('').focus();
+		return false;
 	} 
 	if($('#user_phone_end').val() == "") {
 		$("#phonecheck").text("");
 		$("#phonecheck").show();
 		$("#phonecheck").append('<font color="red">전화번호를 입력해주세요.</font>');
 		$('#user_phone_end').val('').focus();
+		return false;
 	} 
 	if($('#user_birth').val() == "") {
 		$("#birthcheck").text("");
 		$("#birthcheck").show();
 		$("#birthcheck").append('<font color="red">생년월일을 입력해주세요.</font>');
 		$('#user_birth').val('').focus();
+		return false;
 	} 
 	if($('#user_region').val() == "") {
 		$("#regioncheck").text("");
 		$("#regioncheck").show();
 		$("#regioncheck").append('<font color="red">선호 지역을 입력해주세요.</font>');
 		$('#user_region').val('').focus();
+		return false;
 	} 
 	if($('#user_email').val() == "") {
 		$("#emailcheck").text("");
 		$("#emailcheck").show();
 		$("#emailcheck").append('<font color="red">이메일 주소를 입력해주세요.</font>');
 		$('#user_email').val('').focus();
+		return false;
 	} 
 	
-	if($('#essential').is(':checked')) {
-		alert("필수 항목에 모두 동의해주세요.");
-	}
+	
+}
+
+function reqCheck() {
+    if($(".required").prop(':checked') == false){
+		alert("필수 항목을 모두 선택해주세요.");
+	};
 }
 
 /* 이메일 자동완성 기능 */
-function autoEmail(){
+function autoEmail() {
     
 var mailId = $('#user_email').val().split('@');
     var mailList = ['naver.com','gmail.com','daum.net','hanmail.net'];
