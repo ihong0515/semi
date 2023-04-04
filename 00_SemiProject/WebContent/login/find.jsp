@@ -15,7 +15,7 @@
 		<br>
 		
 		<form>
-			<table border="1" cellspacing="0"> 
+			<table border="1" cellspacing="0">
 				<tr>
 					<th>가입 이메일 </th>
 					<td> <input type="text" name="userEmail">
