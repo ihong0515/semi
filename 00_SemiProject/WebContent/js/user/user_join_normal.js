@@ -1,6 +1,6 @@
 /* 기본  ----------------------------------------------------------------------------- */
 $(function () {
-	
+		
 	/* 아이디 input에 한글 입력 불가능 */
 	$("#user_id").on("blur keyup", function() {
 		$(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '') );
@@ -97,6 +97,32 @@ $(function () {
 		}
 	});
 	
+	/* 약관동의 전체 선택 */
+	$(document).ready(function() {
+		$("#cbx_chkAll").click(function() {
+			if($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
+			else $("input[name=chk]").prop("checked", false);
+		});
+		
+		$("input[name=chk]").click(function() {
+			var total = $("input[name=chk]").length;
+			var checked = $("input[name=chk]:checked").length;
+			
+			if(total != checked) $("#cbx_chkAll").prop("checked", false);
+			else $("#cbx_chkAll").prop("checked", true); 
+		});
+	});
+	
+	/* 약관동의 더보기, 접기 */
+	$(document).on("click","#main",function() {
+		if($(this).next().css("display")=="none") {
+			$(this).next().show();
+			$(this).html('<i class="fa-solid fa-chevron-up"></i>');
+		} else{
+	        $(this).next().hide();
+	        $(this).html('<i class="fa-solid fa-chevron-down"></i>');
+	      }
+	});
 	
 
 });
