@@ -54,7 +54,7 @@
 								<th>이메일</th>
 								<div class="ui-widget">
 									<td>
-										<input name="user_email" id="user_email" value="${dto.getUser_email() }>
+										<input name="user_email" id="user_email" value="${dto.getUser_email() }">
 										<br>
 										<span id="nullcheck"></span>
 									</td>
