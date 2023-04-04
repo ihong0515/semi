@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+#mapping_hotel_list{
+	display: flex;
+	justify-content: space-around;
+}

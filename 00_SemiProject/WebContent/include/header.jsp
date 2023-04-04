@@ -47,6 +47,7 @@ $(function () {
 		            </c:if>
 		            </li>
 		            <li><a href="<%=request.getContextPath()%>/PromotionList.do">프로모션</a></li>
+		            <li><a href="<%=request.getContextPath() %>/hotel_mapping_list.do">호텔 추천</a>
 		          </ul>
 		        </nav>
 		<hr>
