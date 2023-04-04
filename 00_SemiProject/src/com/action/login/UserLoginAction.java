@@ -28,7 +28,7 @@ public class UserLoginAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("user/user_myPage.jsp");
+		forward.setPath("index.jsp");
 		
 		return forward;
 	}

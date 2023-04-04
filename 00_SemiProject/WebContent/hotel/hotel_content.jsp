@@ -194,7 +194,7 @@
 					</form>
 								</c:if>
 								<c:if test="${user==null }">
-					<h5>로그인을 하세요.</h5>
+					<a href='<%=request.getContextPath()%>/user_login_page.do'>로그인을 하세요.</a>
 								</c:if>
 				</div>
 			</div>

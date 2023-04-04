@@ -1,6 +1,6 @@
 package com.model.reserve;
 
-public class reserveDTO {
+public class ReserveDTO {
 	private int reserv_no;
 	private int reserv_hotelno;
 	private String reserv_hotelname;
@@ -21,8 +21,7 @@ public class reserveDTO {
 	private String reserve_usecheck;
 	private int reserve_payment;
 	private int reserve_ins;
-	
-	
+	private String reserve_phone;
 	
 	public int getReserv_no() {
 		return reserv_no;
@@ -143,14 +142,11 @@ public class reserveDTO {
 	}
 	public void setReserve_ins(int reserve_ins) {
 		this.reserve_ins = reserve_ins;
-	}	
-	
-	
-	
-		
-	
-	
-	
-	
-	
+	}
+	public String getReserve_phone() {
+		return reserve_phone;
+	}
+	public void setReserve_phone(String reserve_phone) {
+		this.reserve_phone = reserve_phone;
+	}
 }

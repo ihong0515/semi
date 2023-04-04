@@ -1,4 +1,4 @@
-package com.action.payment;
+package com.action.promotion;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.model.payment.PromotionDAO;
-import com.model.payment.PromotionDTO;
+import com.model.promotion.*;
 
 public class PaymentPromotionListAction implements Action {
 

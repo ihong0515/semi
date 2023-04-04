@@ -1,4 +1,4 @@
-package com.model.payment;
+package com.model.promotion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
