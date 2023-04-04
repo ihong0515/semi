@@ -7,8 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>user_join_normal.jsp</title>
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="<%=request.getContextPath() %>/js/user/user_join_normal.js"></script>
 <script type="text/javascript">
@@ -37,7 +35,6 @@
 	    	$(this).find(".sub").slideDown();
 		}
 	});
-
 	$(document).on("click","#main",function() {
 		if($(this).next().css("display")=="none") {
 			$(this).next().show();
@@ -155,10 +152,12 @@
 					<br>
 					
 					<input type="checkbox" id="cbx_chkAll">
-					<b>사용자 약관 전체 동의</b>
+					<label><b>사용자 약관 전체 동의</b></label>
 					<hr color="gray">
 					
-					<input type="checkbox" name="chk">서비스 이용 약관 동의(필수)&nbsp;&nbsp;
+					
+					<input type="checkbox" name="chk">
+					<label>서비스 이용 약관 동의(필수)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail" style="display:none;overflow:scroll;text-align:left;width:400px;height:200px;">
 						<pre>
@@ -167,7 +166,8 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk">개인정보 처리방침 동의(필수)&nbsp;&nbsp;
+					<input type="checkbox" name="chk">
+					<label>개인정보 처리방침 동의(필수)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail" style="display:none;overflow:scroll;text-align:left;width:400px;height:200px;">
 					 	<pre>
@@ -176,7 +176,8 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk">만 14세 이상 확인(필수)&nbsp;&nbsp;
+					<input type="checkbox" name="chk">
+					<label>만 14세 이상 확인(필수)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail" style="display:none;overflow:scroll;text-align:left;width:400px;height:200px;">
 						<pre>
@@ -185,7 +186,8 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk">평생회원제 동의(선택)&nbsp;&nbsp;
+					<input type="checkbox" name="chk">
+					<label>평생회원제 동의(선택)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail" style="display:none;overflow:scroll;text-align:left;width:400px;height:200px;">
 						<pre>
@@ -194,7 +196,8 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk">쿠폰, 이벤트 등 혜택 알림 동의(선택)&nbsp;&nbsp;
+					<input type="checkbox" name="chk">
+					<label>쿠폰, 이벤트 등 혜택 알림 동의(선택)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail" style="display:none;overflow:scroll;text-align:left;width:400px;height:200px;">
 						<pre>
