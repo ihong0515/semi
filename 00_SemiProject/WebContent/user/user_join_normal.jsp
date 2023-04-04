@@ -7,17 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>user_join_normal.jsp</title>
-
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
-<script src="../js/user/user_join_normal.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/user/user_join_normal.js"></script>
 <script type="text/javascript">
-
-
-	
 	/* 약관동의 전체 선택 */
 	$(document).ready(function() {
 		$("#cbx_chkAll").click(function() {
@@ -53,8 +45,6 @@
 	        $(this).html('<i class="fa-solid fa-chevron-down"></i>');
 	      }
 	});
-	
-
 </script>
 </head>
 <body>
@@ -64,13 +54,12 @@
       		<div align="center">
 				<h2>고객 회원가입</h2>
 				<br>
-				<form method="post" name="joinForm" id="joinForm" action="<%=request.getContextPath()%>/user_join_ok.do" onsubmit="return false">
+				<form method="post" name="joinForm" id="joinForm" action="<%=request.getContextPath()%>/user_join_ok.do" onsubmit="return joinFormCheck()">
 					<table>
-					
 						<tr>
 							<th>아이디</th>
 							<td>
-								<input name="user_id" id="user_id">
+								<input name="user_id" id="user_id" onblur="checkId(this)">
 								<input type="hidden" name="idcheckfin" value="idUncheck">
 								<br>
 								<span id="idcheck"></span>
@@ -80,7 +69,7 @@
 						<tr>
 							<th>비밀번호</th>
 							<td>
-								<input type="password" name="user_pwd" id="user_pwd">
+								<input type="password" name="user_pwd" id="user_pwd" onblur="pwdKorCheck(this)" onchange="pwdInput()">
 								<br>
 								<span id="pwdcheck"></span>
 							</td>
@@ -90,7 +79,7 @@
 						<tr>
 							<th>비밀번호 확인</th>
 							<td>
-								<input type="password" name="user_repwd" id="user_repwd">
+								<input type="password" name="user_repwd" id="user_repwd" onchange="pwdInput()">
 								<br>
 								<span id="repwdcheck"></span>
 							</td>
@@ -148,9 +137,12 @@
 						
 						<tr>
 							<th>이메일</th>
+								<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+								<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+								<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 							<div class="ui-widget">
 								<td>
-									<input name="user_email" id="user_email" onkeyup="autoEmail('user_email',this.value)" autocomplete="off">
+									<input name="user_email" id="user_email" onkeyup="autoEmail()" autocomplete="off">
 									<input type="button" value="이메일 인증">
 									<br>
 									<span id="emailcheck"></span>
@@ -159,7 +151,7 @@
 						</tr>
 					</table>
 					<br>
-
+					
 					<input type="checkbox" id="cbx_chkAll">
 					<b>사용자 약관 전체 동의</b>
 					<hr color="gray">
@@ -425,12 +417,11 @@ http://ctrc.go.kr/
 					<br>
 					
 					<hr>
-					<input type="submit" id="submit" value="회원가입" onclick="joinFormCheck()">
+					<input type="submit" id="submit" value="회원가입">
 				</form>
 			</div>
     	</div>
       <jsp:include page="../include/footer.jsp" />
 	</div>
-   
 </body>
 </html>
