@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -54,6 +56,7 @@ public class PromotionDAO {
 		CouponDTO dto = null;
 		
 		try {
+			connect();
 			sql = "select * from coupon where coup_serialno = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, serial);
@@ -76,7 +79,29 @@ public class PromotionDAO {
 		return dto;
 	}
 	
-	
+	public List<PromotionDTO>getpromotionList(){
+		List<PromotionDTO>list = new ArrayList<PromotionDTO>();
+		PromotionDTO dto = null;
+		try {
+			sql = "select * from promotion";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				dto =new PromotionDTO();
+				dto.setProm_no(rs.getInt("prom_no"));
+				dto.setProm_folder(rs.getString("prom_folder"));
+				dto.setProm_name(rs.getString("prom_name"));
+				dto.setProm_info(rs.getString("prom_info"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		return list;
+	}
 	
 	
 }

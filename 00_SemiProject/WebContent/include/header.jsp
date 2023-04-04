@@ -47,7 +47,7 @@ $(function () {
 						
 		            </c:if>
 		            </li>
-		            <li><a href="<%=request.getContextPath()%>/">프로모션</a></li>
+		            <li><a href="<%=request.getContextPath()%>/PromotionList.do">프로모션</a></li>
 		          </ul>
 		        </nav>
 		<hr>
