@@ -1,6 +1,7 @@
 package com.action.hotel;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.action.*;
 import com.model.board.*;
 import com.model.hotel.*;
+import com.model.user.UserDAO;
 
 public class HotelContentAction implements Action {
 
@@ -18,19 +20,38 @@ public class HotelContentAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ActionForward forward = new ActionForward();
 		
+		HttpSession session = request.getSession();
 		int hotel_no = Integer.parseInt(request.getParameter("hotel_no").trim());
+		
+		ArrayList<Date> checkdate = (ArrayList<Date>)session.getAttribute("CheckDate");
+		ArrayList<Integer> hotel_no_list = new ArrayList<Integer>();
+		SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
+		String inFormat = "";
+		String outFormat = "";
+		if(checkdate!=null) {
+			inFormat = SDF.format(checkdate.get(0));
+			outFormat = SDF.format(checkdate.get(1));
+		}else {
+			Calendar cal = Calendar.getInstance();
+			inFormat = cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
+			outFormat = cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+(cal.get(Calendar.DAY_OF_MONTH)+1);
+			
+			System.out.println(inFormat);
+			System.out.println(outFormat);
+		}
+		hotel_no_list = UserDAO.getInstance().checkReservDate(inFormat, outFormat, hotel_no);
+		
+		ArrayList<RoomDTO> roomList = HotelDAO.getInstance().getRoomList(hotel_no, hotel_no_list);
 		
 		HotelDTO hDTO = HotelDAO.getInstance().getHotelContent(hotel_no);
 		HotelPolicyDTO pDTO = HotelDAO.getInstance().getHotelPolicyContent(hotel_no);
-		ArrayList<RoomDTO> roomList = HotelDAO.getInstance().getRoomList(hotel_no);
 		ArrayList<ReviewDTO> reviewList = ReviewDAO.getInstance().getReviewList(hotel_no);
 		
+		
+		request.setAttribute("RoomList", roomList);
 		request.setAttribute("HotelDTO", hDTO);
 		request.setAttribute("HPDTO", pDTO);
-		request.setAttribute("RoomList", roomList);
 		request.setAttribute("ReviewList", reviewList);
-		
-		HttpSession session = request.getSession();
 		
 		ArrayList<HotelDTO> visitList = null;
 		

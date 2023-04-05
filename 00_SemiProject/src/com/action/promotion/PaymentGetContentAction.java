@@ -18,7 +18,8 @@ public class PaymentGetContentAction implements Action {
 		PaymentDTO dto = UserDAO.getInstance().getPaymentContent(Integer.parseInt(request.getParameter("card_no")));
 		
 		String str = "<payment>";
-		str += "<pay_cardno>"+dto.getPay_cardno()+"</pay_cardno>"
+		str += "<pay_no>"+dto.getPay_no()+"</pay_no>"
+				+ "<pay_cardno>"+dto.getPay_cardno()+"</pay_cardno>"
 				+ "<pay_cardcom>"+dto.getPay_cardcom()+"</pay_cardcom>";
 		str += "</payment>";
 		response.getWriter().println(str);

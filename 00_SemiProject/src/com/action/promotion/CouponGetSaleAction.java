@@ -13,9 +13,10 @@ public class CouponGetSaleAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		CouponDTO coup = PromotionDAO.getInstance().checkCouponContent(request.getParameter("coup_no").trim());
-		
+		int coup_no = Integer.parseInt(request.getParameter("coup_no").trim());
 		int price = Integer.parseInt(request.getParameter("price").trim());
+		
+		CouponDTO coup = PromotionDAO.getInstance().getCouponContent(coup_no);
 		
 		int salePrice = price*coup.getCoup_sale()/100;
 		int realPrice = price - salePrice;

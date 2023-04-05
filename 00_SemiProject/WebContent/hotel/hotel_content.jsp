@@ -34,7 +34,7 @@
 			<c:if test="${!empty hoDTO }">
 				<div id="hotel_all_info">
 					<div id="hotel_info">
-						<a href="<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${hoDTO.getHotel_no() }">${hoDTO.getHotel_name() }</a> <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach> ${hoDTO.getHotel_point() }/10.0<br>
+						${hoDTO.getHotel_name() } <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach> ${hoDTO.getHotel_point() }/10.0<br>
 						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="100" height="100"><br>
 						${hoDTO.getHotel_addr() }<br>
 						<hr>

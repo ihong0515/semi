@@ -64,7 +64,7 @@ CREATE TABLE reserv (
 	reserv_request	varchar2(1000)		NULL,
 	reserv_date	date	DEFAULT sysdate	NOT NULL,
 	reserv_usecheck	varchar2(10) default 'N' check(reserv_usecheck in('Y','N','C')),
-    reserv_payment varchar2(50),
+    reserv_payment number(10),
     reserv_ins number(5),
     reserv_phone varchar2(50) not null
 );
@@ -92,7 +92,9 @@ CREATE TABLE coupon (
 	coup_name	varchar2(50)		NOT NULL,
 	coup_info	varchar2(1000)		NULL,
 	coup_sale	number(20)	DEFAULT 0	NOT NULL,
-	coup_serialno varchar2(50) not null
+	coup_serialno varchar2(50) not null,
+	coup_userno number(10) not null,
+	coup_usecheck varchar2(5) default 'N' check(coup_usecheck in('Y', 'N'))
 );
 
 CREATE TABLE faq (
@@ -320,4 +322,11 @@ ALTER TABLE review ADD CONSTRAINT "FK_room_TO_review_1" FOREIGN KEY (
 )
 REFERENCES room (
 	room_no
+) ON DELETE CASCADE;
+
+ALTER TABLE coupon ADD CONSTRAINT "FK_user1_TO_coupon_5" FOREIGN KEY (
+	coup_userno
+)
+REFERENCES user1 (
+	user_no
 ) ON DELETE CASCADE;

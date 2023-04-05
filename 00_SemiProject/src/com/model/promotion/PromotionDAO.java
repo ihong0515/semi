@@ -52,14 +52,14 @@ public class PromotionDAO {
 		}
 	}
 
-	public CouponDTO checkCouponContent(String serial) {
+	public CouponDTO getCouponContent(int no) {
 		CouponDTO dto = null;
 		
 		try {
 			connect();
-			sql = "select * from coupon where coup_serialno = ?";
+			sql = "select * from coupon where coup_no = ?";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, serial);
+			ps.setInt(1, no);
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto = new CouponDTO();
@@ -69,6 +69,8 @@ public class PromotionDAO {
 				dto.setCoup_info(rs.getString("coup_info"));
 				dto.setCoup_sale(rs.getInt("coup_sale"));
 				dto.setCoup_serialno(rs.getString("coup_serialno"));
+				dto.setCoup_userno(rs.getInt("coup_userno"));
+				dto.setCoup_usecheck(rs.getString("coup_usecheck"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -98,6 +100,35 @@ public class PromotionDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			close();
+		}
+		return list;
+	}
+
+	public ArrayList<CouponDTO> getUseableCoupon(int user_no) {
+		ArrayList<CouponDTO> list = new ArrayList<CouponDTO>();
+		
+		try {
+			sql = "select * from coupon where coup_userno = ? and coup_usecheck = 'N'";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				CouponDTO dto = new CouponDTO();
+				dto.setCoup_no(rs.getInt("coup_no"));
+				dto.setCoup_promno(rs.getInt("coup_promno"));
+				dto.setCoup_name(rs.getString("coup_name"));
+				dto.setCoup_info(rs.getString("coup_info"));
+				dto.setCoup_sale(rs.getInt("coup_sale"));
+				dto.setCoup_serialno(rs.getString("coup_serialno"));
+				dto.setCoup_userno(rs.getInt("coup_userno"));
+				dto.setCoup_usecheck(rs.getString("coup_usecheck"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
 			close();
 		}
 		return list;

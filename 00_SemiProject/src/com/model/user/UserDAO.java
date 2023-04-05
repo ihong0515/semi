@@ -304,5 +304,99 @@ public class UserDAO {
 		}
 		return dto;
 	}
+
+	public int insertReservContetn(ReserveDTO dto) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select count(*) from reserv";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto.setReserv_no(rs.getInt(1)+1);
+				
+				if(dto.getReserv_promno()!=0) {
+					sql = "insert into reserv values(?,?,?,?,?,?,?,'"+dto.getReserv_promno()+"','"+dto.getReserv_coupno()+"',?"
+							+ ",?,?,?,?,?,?,sysdate,default,?,?,?)";
+				}else {
+					sql = "insert into reserv values(?,?,?,?,?,?,?,default,default,?"
+							+ ",?,?,?,?,?,?,sysdate,default,?,?,?)";
+				}
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getReserv_no());
+				ps.setInt(2, dto.getReserv_hotelno());
+				ps.setString(3, dto.getReserv_hotelname());
+				ps.setInt(4, dto.getReserv_roomno());
+				ps.setString(5, dto.getReserv_roomname());
+				ps.setInt(6, dto.getReserv_userno());
+				ps.setString(7, dto.getReserv_username());
+				ps.setInt(8, dto.getReserv_nomalprice());
+				ps.setInt(9, dto.getReserv_realprice());
+				ps.setString(10, dto.getReserv_start());
+				ps.setString(11, dto.getReserv_end());
+				ps.setInt(12, dto.getReserv_daycount());
+				ps.setInt(13, dto.getReserv_people());
+				ps.setString(14, dto.getReserv_request());
+				ps.setInt(15, dto.getReserv_payment());
+				ps.setInt(16, dto.getReserv_ins());
+				ps.setString(17, dto.getReserv_phone());
+				
+				result = ps.executeUpdate();
+				
+				if(result>0) {
+					if(dto.getReserv_coupno()!=0) {
+						updateCouponUse(dto.getReserv_coupno());
+					}
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	private void updateCouponUse(int reserv_coupno) {
+		try {
+			sql = "update coupon set coup_usecheck = 'Y' where coup_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, reserv_coupno);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public ArrayList<Integer> checkReservDate(String inFormat, String outFormat, int hotel_no) {
+		
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		try {
+			connect();
+			sql = "select reserv_roomno from "
+					+ "(select reserv_roomno, reserv_hotelno from reserv "
+					+ "where reserv_start <= '"+inFormat+"' and '"+inFormat+"' < reserv_end "
+					+ "or reserv_start < '"+outFormat+"' and '"+outFormat+"' <= reserv_end) "
+					+ "where reserv_hotelno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, hotel_no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getInt("reserv_roomno"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+	
+	
 	
 }

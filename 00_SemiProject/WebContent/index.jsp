@@ -44,7 +44,6 @@
 						
 					</tr>	
 					</table>
-				</ul>	
 			
 			<%--지역 별 최저가 순 추천 --%>
 			<nav>
@@ -72,14 +71,7 @@
 						
 					</tr>	
 					</table>
-				</ul>	
-			
-
-		
-		
-		
-
-
+		</section>
 		<hr>
 		<%--main contentend --%>
 		<jsp:include page="/include/footer.jsp" />

@@ -26,19 +26,15 @@ function modal_uncheck(e){
 function check_payment() {
 	if($('#userFirstName').val()==''){
 		$('#userFirstName').focus();
-		
 		return false;
 	}else if($('#userLastName').val()==''){
 		$('#userLastName').focus();
-		
 		return false;
 	}else if($('#userEmail').val()==''){
 		$('#userEmail').focus();
-		
 		return false;
 	}else if($('#userPhone_body').val()==''){
 		$('#userPhone_body').focus();
-		
 		return false;
 	}else if(!$('.use_terms[type="checkbox"]').is(":checked")){
 		$('.use_terms').focus();
@@ -56,10 +52,15 @@ function check_payment() {
 		$('.tex_terms').focus();
 		alert('세금 명세 약관을 읽고 동의하세요.');
 		return false;
-	}else{
-		
+	}else if($('#userCard').val()==""){
+		$('#userCard').focus();
+		alert('카드를 선택하세요.');
+		return false;
+	}else if(confirm('호텔 결제를 진행합니다. 정말로 결제하시겠습니까.')){
 		return true;
-	}		
+	}else{
+		return false;
+	}
 }
 
 function payment_getno(){
@@ -72,10 +73,12 @@ function payment_getno(){
 		datatype: "xml",
 		success: function(data){
 			let cardno = $(data).find("pay_cardno").text();
-			
+			let pay_no = $(data).find("pay_no").text();
 			let txt = "카드번호 : "+cardno.slice(0,4)+"-****-****-"+cardno.slice(12)+" 할부 : <input type='number' min='1' name='reserv_ins' style='width:30px;'>"
 			txt += "<br>카드사 : "+ $(data).find("pay_cardcom").text();
+			
 			$('#payment_usercard_view p').html(txt);
+			$('#card_no').val(pay_no);
 		},
 		error: function(){
 			alert('카드 가져오기 실패..');
