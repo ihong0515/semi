@@ -14,14 +14,14 @@ public class ReserveDTO {
 	private int reserv_people;
 	private String reserv_request;
 	private String reserv_date;
-	private int reserve_promno;
-	private int reserve_coupno;
-	private int reserve_nomalprice;
-	private int reserve_realprice;
-	private String reserve_usecheck;
-	private int reserve_payment;
-	private int reserve_ins;
-	private String reserve_phone;
+	private int reserv_promno;
+	private int reserv_coupno;
+	private int reserv_nomalprice;
+	private int reserv_realprice;
+	private String reserv_usecheck;
+	private int reserv_payment;
+	private int reserv_ins;
+	private String reserv_phone;
 	
 	public int getReserv_no() {
 		return reserv_no;
@@ -101,52 +101,53 @@ public class ReserveDTO {
 	public void setReserv_date(String reserv_date) {
 		this.reserv_date = reserv_date;
 	}
-	public int getReserve_promno() {
-		return reserve_promno;
+	public int getReserv_promno() {
+		return reserv_promno;
 	}
-	public void setReserve_promno(int reserve_promno) {
-		this.reserve_promno = reserve_promno;
+	public void setReserv_promno(int reserv_promno) {
+		this.reserv_promno = reserv_promno;
 	}
-	public int getReserve_coupno() {
-		return reserve_coupno;
+	public int getReserv_coupno() {
+		return reserv_coupno;
 	}
-	public void setReserve_coupno(int reserve_coupno) {
-		this.reserve_coupno = reserve_coupno;
+	public void setReserv_coupno(int reserv_coupno) {
+		this.reserv_coupno = reserv_coupno;
 	}
-	public int getReserve_nomalprice() {
-		return reserve_nomalprice;
+	public int getReserv_nomalprice() {
+		return reserv_nomalprice;
 	}
-	public void setReserve_nomalprice(int reserve_nomalprice) {
-		this.reserve_nomalprice = reserve_nomalprice;
+	public void setReserv_nomalprice(int reserv_nomalprice) {
+		this.reserv_nomalprice = reserv_nomalprice;
 	}
-	public int getReserve_realprice() {
-		return reserve_realprice;
+	public int getReserv_realprice() {
+		return reserv_realprice;
 	}
-	public void setReserve_realprice(int reserve_realprice) {
-		this.reserve_realprice = reserve_realprice;
+	public void setReserv_realprice(int reserv_realprice) {
+		this.reserv_realprice = reserv_realprice;
 	}
-	public String getReserve_usecheck() {
-		return reserve_usecheck;
+	public String getReserv_usecheck() {
+		return reserv_usecheck;
 	}
-	public void setReserve_usecheck(String reserve_usecheck) {
-		this.reserve_usecheck = reserve_usecheck;
+	public void setReserv_usecheck(String reserv_usecheck) {
+		this.reserv_usecheck = reserv_usecheck;
 	}
-	public int getReserve_payment() {
-		return reserve_payment;
+	public int getReserv_payment() {
+		return reserv_payment;
 	}
-	public void setReserve_payment(int reserve_payment) {
-		this.reserve_payment = reserve_payment;
+	public void setReserv_payment(int reserv_payment) {
+		this.reserv_payment = reserv_payment;
 	}
-	public int getReserve_ins() {
-		return reserve_ins;
+	public int getReserv_ins() {
+		return reserv_ins;
 	}
-	public void setReserve_ins(int reserve_ins) {
-		this.reserve_ins = reserve_ins;
+	public void setReserv_ins(int reserv_ins) {
+		this.reserv_ins = reserv_ins;
 	}
-	public String getReserve_phone() {
-		return reserve_phone;
+	public String getReserv_phone() {
+		return reserv_phone;
 	}
-	public void setReserve_phone(String reserve_phone) {
-		this.reserve_phone = reserve_phone;
-	}
+	public void setReserv_phone(String reserv_phone) {
+		this.reserv_phone = reserv_phone;
+	}	
 }
+	

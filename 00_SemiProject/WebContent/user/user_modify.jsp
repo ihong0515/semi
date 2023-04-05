@@ -6,8 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>user_modify.jsp</title>
+<title>회원정보 수정</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/user/user_modify.js"></script>
 </head>
 <body>
 	
@@ -15,55 +17,43 @@
 		<jsp:include page="../include/header.jsp" />
 	    	<div id="content">
 				<div align="center">
-					<hr width="50%" color="pink">
-					<h3>게시물 수정 폼 페이지</h3>
-					<hr width="50%" color="pink">
+					<h2>고객 회원정보 수정</h2>
 					<br>
-					
-					<form method="post" action="<%=request.getContextPath() %>/user_modify_ok.do">
+					<form method="post" action="<%=request.getContextPath() %>/user_modify_ok.do" onsubmit="return modifyFormCheck()">
 						<input type="hidden" name="user_no" value="${dto.getUser_no() }">
-						<table border="1" cellspacing="0" width="400">
-							<tr> 
-								<th>이름</th>
-								<td><input name="user_name" value="${dto.getUser_name()}" readonly></td>
-							</tr>
+						<table border="1" cellspacing="0" width="600">
 							<tr>
 								<th>아이디</th>
-								<td><input name="user_id" value="${dto.getUser_id()}"></td>
+								<td>${dto.getUser_id()}</td>
 							</tr>
 							<tr>
 								<th>비밀번호</th>
-								<td><input type="password" name="user_pwd"></td>
+								<td><input type="button" value="비밀번호 변경"></td>
+							</tr>
+							<tr> 
+								<th>이름</th>
+								<td>${dto.getUser_name()}</td>
 							</tr>
 							<tr>
-								<th>전화번호</th>
+								<th>휴대전화</th>
 								<td>
 									010-
-									<input name="user_phone_mid" id="user_phone_mid">
+									<input name="user_phone_mid" id="user_phone_mid" maxlength="4" value="${dto.getUser_phone().substring(4,8)}">
 									-
-									<input name="user_phone_end" id="user_phone_end">
+									<input name="user_phone_end" id="user_phone_end" maxlength="4" value="${dto.getUser_phone().substring(9)}">
 									<br>
 									<span id="phonecheck"></span>
 								</td>
 							</tr>
 							<tr>
 								<th>생년월일</th>
-								<td><input type="date" name="user_birth" value="${dto.getUser_birth()}"></td>
+								<td><input type="date" name="user_birth" id="user_birth" value="${dto.getUser_birth()}"></td>
 							</tr>
-							<tr>
-								<th>이메일</th>
-								<div class="ui-widget">
-									<td>
-										<input name="user_email" id="user_email" value="${dto.getUser_email() }">
-										<br>
-										<span id="nullcheck"></span>
-									</td>
-								</div>
-							</tr>
+							
 							<tr>
 								<th>선호지역</th>
 								<td>
-									<select name = "user_region" value="${dto.getUser_region()}">
+									<select name = "user_region" id="user_region" value="${dto.getUser_region()}">
 						               <option value = "seoul">서울</option>
 						               <option value = "jeju">경기</option>
 						               <option value = "kwangwon">강원</option>
@@ -75,11 +65,19 @@
 						               <option value = "kyungbuk">경북</option>
 						               <option value = "jeju">제주</option>
 							        </select>
+							        <br>
+									<span id="regioncheck"></span>
 								</td>
 							</tr>
+							
+							<tr>
+								<th>이메일</th>
+								<td>${dto.getUser_email() }</td>
+							</tr>
+							
 							<tr>
 								<td colspan="2" align="center">
-									<input type="submit" value="글수정">&nbsp;&nbsp;
+									<input type="submit" id="submit" value="글수정">&nbsp;&nbsp;
 									<input type="reset" value="다시작성">
 								</td>
 							</tr>

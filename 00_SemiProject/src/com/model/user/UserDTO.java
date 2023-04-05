@@ -10,6 +10,9 @@ public class UserDTO {
 	private String user_birth;
 	private String user_email;
 	private String user_region;
+	private int user_jjim1;
+	private int user_jjim2;
+	private int user_jjim3;
 	
 	public int getUser_no() {
 		return user_no;
@@ -59,7 +62,24 @@ public class UserDTO {
 	public void setUser_region(String user_region) {
 		this.user_region = user_region;
 	}
-	
+	public int getUser_jjim1() {
+		return user_jjim1;
+	}
+	public void setUser_jjim1(int user_jjim1) {
+		this.user_jjim1 = user_jjim1;
+	}
+	public int getUser_jjim2() {
+		return user_jjim2;
+	}
+	public void setUser_jjim2(int user_jjim2) {
+		this.user_jjim2 = user_jjim2;
+	}
+	public int getUser_jjim3() {
+		return user_jjim3;
+	}
+	public void setUser_jjim3(int user_jjim3) {
+		this.user_jjim3 = user_jjim3;
+	}
 	
 	
 }
