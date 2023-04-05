@@ -20,6 +20,7 @@ if(checkDate!=null){
 <c:set var="inoutDay" value="<%=inoutday %>" />
 <c:set var="usDTO" value="${sessionScope.loginUser }" />
 <c:set var="cardList" value="${CardList }" />
+<c:set var="coupList" value="${CoupList }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@ function saleCheck() {
 		type: "post",
 		url: "coupon_get_SalePrice.do",
 		data: {
-			coup_no:$('#prom_code_txt').val(),
+			coup_no:$('#prom_code_select').val(),
 			price: ${roDTO.getRoom_price() * inoutDay}
 		},
 		datatype: "xml",
@@ -53,6 +54,7 @@ function saleCheck() {
 				$('#realPrice').text("₩"+resultPrice);
 				$('#coup_no').val($("coup_no", this).text());
 				$('#prom_no').val($("prom_no", this).text());
+				$('#realPrice_hidden').val(price);
 			});
 		},
 		error: function(data){
@@ -119,7 +121,7 @@ function saleCheck() {
 									<option value="017">017</option>
 									<option value="019">019</option>
 								</select>
-								<input type="text" placeholder="휴대폰 번호" id="userPhone_body" name="userPhone_body">
+								<input type="text" placeholder="0000" id="userPhone_body_first" name="userPhone_body_first">-<input type="text" placeholder="0000" id="userPhone_body_last" name="userPhone_body_last">
 							</fieldset>
 						</div>
 						<div id="payment_hotel_userReq">
@@ -132,8 +134,14 @@ function saleCheck() {
 						</div>
 						<div id="payment_hotel_promotion">
 							<h3>혜택 적용</h3>
-							<span>할인 코드</span><input type="button" value="선택/입력" onclick=""><br>
-							<input type="text" placeholder="할인 코드 입력  12자리" id="prom_code_txt"><input type="button" value="할인 적용" id="prom_code_btn" onclick="saleCheck()"><br>
+							<span>할인 코드</span><br>
+							<select id="prom_code_select">
+								<option value="">:::::::</option>
+								<c:forEach items="${coupList }" var="coDTO">
+								<option value="${coDTO.getCoup_no() }">${coDTO.getCoup_name() }</option>
+								</c:forEach>
+							</select>
+							<input type="button" value="할인 적용" id="prom_code_btn" onclick="saleCheck()"><br>
 							<span id="coupon_name"></span>
 						</div>
 					</div>
@@ -145,7 +153,7 @@ function saleCheck() {
 									<fmt:formatNumber value="${roDTO.getRoom_price() }" type="currency"/> X ${inoutDay }박
 								</th>
 								<td>
-									<span name="nomalPrice"><fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" /></span>
+									<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />
 								</td>
 							</tr>
 							<tr>
@@ -161,7 +169,7 @@ function saleCheck() {
 									바로 결제
 								</th>
 								<td id="realPrice">
-									<span name="realPrice"><fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" /></span>
+									<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />
 								</td>
 							</tr>
 						</table>
@@ -237,15 +245,17 @@ function saleCheck() {
 						</c:if>
 					</div>
 					<div id="payment_submit">
-						<input type="hidden" name="card_no" value="${cardDTO.getPay_no() }">
+						<input id="realPrice_hidden" type="hidden" name="realPrice" value="${roDTO.getRoom_price()*inoutDay }">
+						<input type="hidden" name="nomalPrice" value="${roDTO.getRoom_price()*inoutDay }">
+						<input type="hidden" id="card_no" name="card_no" value="0">
 						<input type="hidden" name="coup_no" id="coup_no">
 						<input type="hidden" name="prom_no" id="prom_no">
 						<input type="hidden" name="user_no" value="${usDTO.getUser_no() }">
 						<input type="hidden" name="inoutDay" value="${inoutDay }">
-						<input type="hidden" name="hotel_no" value="${hoDTO.getHotel_name() }">
-						<input type="hidden" name="hotel_name" value="${hoDTO.getHotel_no() }">
-						<input type="hidden" name="room_no" value="${roDTO.getRoom_name() }">
-						<input type="hidden" name="room_name" value="${roDTO.getRoom_no() }">
+						<input type="hidden" name="hotel_name" value="${hoDTO.getHotel_name() }">
+						<input type="hidden" name="hotel_no" value="${hoDTO.getHotel_no() }">
+						<input type="hidden" name="room_name" value="${roDTO.getRoom_name() }">
+						<input type="hidden" name="room_no" value="${roDTO.getRoom_no() }">
 						<input type="submit" value="다음 단계 : 최종 확정 >">
 					</div>
 				</form>

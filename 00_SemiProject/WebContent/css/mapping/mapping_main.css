@@ -4,3 +4,9 @@
 	display: flex;
 	justify-content: space-around;
 }
+#mapping_a{
+	text-align: center;
+}
+#mapping_img_hotel:hover{
+	cursor: pointer;
+}

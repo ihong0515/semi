@@ -6,11 +6,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.action.Action;
-import com.action.ActionForward;
-import com.model.hotel.HotelDAO;
-import com.model.hotel.HotelDTO;
-import com.model.hotel.RoomDTO;
+import com.action.*;
+import com.model.hotel.*;
+import com.model.promotion.*;
 import com.model.user.*;
 
 public class HotelPaymentAction implements Action {
@@ -27,7 +25,12 @@ public class HotelPaymentAction implements Action {
 		if(user!=null) {
 			ArrayList<PaymentDTO> cardList = UserDAO.getInstance().getPaymentList(user.getUser_no());
 			request.setAttribute("CardList", cardList);
+			
+			ArrayList<CouponDTO> coupList = PromotionDAO.getInstance().getUseableCoupon(user.getUser_no());
+			request.setAttribute("CoupList", coupList);
 		}
+		
+		
 		
 		request.setAttribute("HotelDTO", hotel);
 		request.setAttribute("RoomDTO", room);
