@@ -25,7 +25,6 @@ public class HotelIndexSearchAction implements Action {
 		}else {
 			list = HotelDAO.getInstance().getHotelLowPriceSearch(location);
 		}
-		System.out.println(list);
 		out.println(list);
 		return null;
 	}

@@ -53,43 +53,46 @@ function pwdInput(){
 	var pwd = $('#user_pwd').val();
 	var repwd = $('#user_repwd').val();
 		
-		if(pwd != "" || repwd != "") {
-			if(pwd==repwd) { // 일치
-				$("#repwdcheck").text("");
-				$("#repwdcheck").show();
-				$("#repwdcheck").append('<font color="blue">비밀번호가 일치합니다.</font>');
-			} else { // 불일치
-				$("#repwdcheck").text("");
-				$("#repwdcheck").show();
-				$("#repwdcheck").append('<font color="red">비밀번호가 일치하지 않습니다.</font>');
-				$('#user_repwd').val('').focus();
-			}
+	if(pwd != "" || repwd != "") {
+		if(pwd==repwd) { // 일치
+			$("#repwdcheck").text("");
+			$("#repwdcheck").show();
+			$("#repwdcheck").append('<font color="blue">비밀번호가 일치합니다.</font>');
+		} else { // 불일치
+			$("#repwdcheck").text("");
+			$("#repwdcheck").show();
+			$("#repwdcheck").append('<font color="red">비밀번호가 일치하지 않습니다.</font>');
+			$('#user_repwd').val('').focus();
 		}
+	}
 }
 
 
 function checkPwd(pwd, id) {
-	    if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
-			$("#pwdcheck").text("");
-			$("#pwdcheck").show();
-			$("#pwdcheck").append('<font color="red">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</font>');
-			$('#user_pwd').val('').focus();
-	    } else if(/(\w)\1\1\1/.test(pwd)) {
-			$("#pwdcheck").text("");
-			$("#pwdcheck").show();
-			$("#pwdcheck").append('<font color="red">같은 문자를 4번 이상 사용하실 수 없습니다.</font>');
-			$('#user_pwd').val('').focus();
-	    } else if(pwd.search(id) > -1) {
-			$("#pwdcheck").text("");
-			$("#pwdcheck").show();
-			$("#pwdcheck").append('<font color="red">비밀번호에 아이디가 포함되었습니다.</font>');
-			$('#user_pwd').val('').focus();
-		} else {
-			$("#pwdcheck").text("");
-			$("#pwdcheck").show();
-			$("#pwdcheck").append('<font color="blue">사용가능한 비밀번호입니다.</font>');
-	    }
-	}
+    if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
+		$("#pwdcheck").text("");
+		$("#pwdcheck").show();
+		$("#pwdcheck").append('<font color="red">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</font>');
+		$('#user_pwd').val('').focus();
+    } else if(/(\w)\1\1\1/.test(pwd)) {
+		$("#pwdcheck").text("");
+		$("#pwdcheck").show();
+		$("#pwdcheck").append('<font color="red">같은 문자를 4번 이상 사용하실 수 없습니다.</font>');
+		$('#user_pwd').val('').focus();
+		
+  /* 해당 조건 삭제(가입 조건 너무 복잡해짐)
+	} else if(pwd.search(id) > -1) {
+		$("#pwdcheck").text("");
+		$("#pwdcheck").show();
+		$("#pwdcheck").append('<font color="red">비밀번호에 아이디가 포함되었습니다.</font>');
+		$('#user_pwd').val('').focus();*/
+		
+	} else {
+		$("#pwdcheck").text("");
+		$("#pwdcheck").show();
+		$("#pwdcheck").append('<font color="blue">사용가능한 비밀번호입니다.</font>');
+    }
+}
 
 /* 회원가입 버튼 클릭 결과 ----------------------------------------------------------------------------- */
 function joinFormCheck() {
@@ -157,13 +160,19 @@ function joinFormCheck() {
 		return false;
 	} 
 	
+	if(!$("input:checked[id='required_1']").is(':checked')){
+		alert("필수 항목을 모두 선택하셔야 회원가입이 가능합니다.");
+		return false;
+	}
+	if(!$("input:checked[id='required_2']").is(':checked')){
+		alert("필수 항목을 모두 선택하셔야 회원가입이 가능합니다.");
+		return false;
+	}
+	if(!$("input:checked[id='required_3']").is(':checked')){
+		alert("필수 항목을 모두 선택하셔야 회원가입이 가능합니다.");
+		return false;
+	}
 	
-}
-
-function reqCheck() {
-    if($(".required").prop(':checked') == false){
-		alert("필수 항목을 모두 선택해주세요.");
-	};
 }
 
 /* 이메일 자동완성 기능 */

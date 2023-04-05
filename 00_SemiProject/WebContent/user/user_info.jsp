@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>user_info</title>
+<title>회원 상세 정보</title>
 </head>
 <body>
 
@@ -14,12 +14,11 @@
 		<jsp:include page="../include/header.jsp" />
 	    	<div id="content">
 				<div align="center">
-					<hr width="50%" color="tomato">
-					<h3>${dto.getUser_name() }님 회원 정보</h3>
-					<hr width="50%" color="tomato">
+					<h2>${dto.getUser_name() }님 회원 정보</h2>
 					<br>
 					
 					<table border="1" cellspacing="0" width="400">
+						<c:if test="${!empty dto }">
 						<tr>
 							<th>이름</th>
 							<td>${dto.getUser_name() }</td>
@@ -42,7 +41,7 @@
 						</tr>
 						
 						<tr>
-							<th>전화번호</th>
+							<th>휴대전화</th>
 							<td>${dto.getUser_phone() }</td>
 						</tr>
 						
@@ -60,6 +59,7 @@
 							<th>선호지역</th>
 							<td>${dto.getUser_region() }</td>
 						</tr>
+						</c:if>
 						
 						<c:if test="${empty dto }">
 							<tr>

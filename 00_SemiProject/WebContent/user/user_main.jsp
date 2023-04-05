@@ -35,7 +35,7 @@
 			
 			<c:if test="${!empty dto}">
 				<fieldset style="width:500px;">
-					<legend>[${dto.getUser_name() }]님 환영합니다!</legend>
+					<legend>[${dto.getUser_name() }]님, 환영합니다!</legend>
 					<input type="button" value="전체 회원조회" onclick="location.href='<%=request.getContextPath() %>/user_list.do'">
 					<input type="button" value="마이페이지" onclick="location.href='<%=request.getContextPath() %>/user_myPage.do?no=${dto.getUser_no() }'">
 				</fieldset>
