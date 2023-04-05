@@ -28,7 +28,6 @@ function serchHotelList(e){
 					
 					
 					let star = $(this).find("hotel_star").text();
-					console.log(star);
 					Number(star);
 					typeof(star);
 					table += "<tr><td>";

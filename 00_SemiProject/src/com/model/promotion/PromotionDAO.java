@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -134,6 +135,72 @@ public class PromotionDAO {
 		
 		
 		
+	}//promotion content end
+	public String makeCoupon() {
+
+		final char[] possibleCharacters =
+
+				{'1','2','3','4','5','6','7','8','9','0'
+				,'A','B','C','D'
+				,'E','F','G','H'
+				,'I','J','K','L'
+				,'M','N','O','P'
+				,'Q','R','S','T'
+				,'u','V','W','X','Y','Z'};
+
+		final int possibleCharacterCount = possibleCharacters.length;
+
+		Random rnd = new Random();
+			
+			StringBuffer buf = new StringBuffer(12);
+			for (int i=12;i>0;i--) {
+				buf.append(possibleCharacters[rnd.nextInt(possibleCharacterCount)]);
+			}
+			
+			String coupon_no = buf.toString();
+			
+			
+			
+			
+			return coupon_no;
+		}
+		
+		public String coupon_receive_check(int user_no, int prom_no) {
+			
+			String result = "";
+			
+			
+			try {
+				sql = "select * from coupon where coup_userno = ? and coup_promno = ?";
+				
+				
+				ps = con.prepareStatement(sql);
+				ps.setInt(1,user_no);
+				ps.setInt(2, prom_no);
+				
+				rs = ps.executeQuery();
+				if(rs.next()){
+					if(rs.getString("coup_usecheck").equals("N")) { //쿠폰 ㅇ 사용 ㅇ
+						result = rs.getString("coup_serialno");
+					}else { //쿠폰 ㅇ 사용 x
+						result = "-1";
+					}
+				}else { //쿠폰 x
+					result = "1";
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return result;
+		}
+		
+
+		
+		
 	}
 
 	public ArrayList<CouponDTO> getUseableCoupon(int user_no) {
@@ -165,4 +232,3 @@ public class PromotionDAO {
 		return list;
 	}
 	
-}
