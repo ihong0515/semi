@@ -43,7 +43,7 @@
 			
 					<c:if test="${empty list }">
 						<tr>
-							<td colspan="4" align="center">
+							<td colspan="8" align="center">
 								<h3>전체 게시물 리스트가 없습니다.</h3>
 							</td>
 						</tr>

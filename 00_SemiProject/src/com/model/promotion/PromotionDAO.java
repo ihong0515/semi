@@ -103,6 +103,37 @@ public class PromotionDAO {
 			close();
 		}
 		return list;
+	}//list end
+	public PromotionDTO getPromotionContent(int no) {
+		
+		PromotionDTO dto = null;
+		
+		
+		
+		try {
+			sql = "select * from promotion where prom_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				dto = new PromotionDTO();
+				dto.setProm_no(rs.getInt("prom_no"));
+				dto.setProm_folder(rs.getString("prom_folder"));
+				dto.setProm_name(rs.getString("prom_name"));
+				dto.setProm_info(rs.getString("prom_info"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}return dto;
+		
+		
+		
+		
+		
 	}
 
 	public ArrayList<CouponDTO> getUseableCoupon(int user_no) {
@@ -133,6 +164,5 @@ public class PromotionDAO {
 		}
 		return list;
 	}
-	
 	
 }

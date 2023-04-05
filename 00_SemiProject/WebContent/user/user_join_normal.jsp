@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>user_join_normal.jsp</title>
+<title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="<%=request.getContextPath() %>/js/user/user_join_normal.js"></script>
 <script type="text/javascript">
@@ -108,9 +108,9 @@
 							<th>휴대전화</th>
 							<td>
 								010-
-								<input name="user_phone_mid" id="user_phone_mid">
+								<input name="user_phone_mid" id="user_phone_mid" maxlength="4">
 								-
-								<input name="user_phone_end" id="user_phone_end">
+								<input name="user_phone_end" id="user_phone_end" maxlength="4">
 								<br>
 								<span id="phonecheck"></span>
 							</td>
@@ -166,7 +166,7 @@
 					<label><b>사용자 약관 전체 동의</b></label>
 					<hr color="gray">
 					
-					<input type="checkbox" name="chk" class="required">
+					<input type="checkbox" name="chk" id="required_1">
 					<label>서비스 이용 약관 동의(필수)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail">
@@ -176,7 +176,7 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk" class="required">
+					<input type="checkbox" name="chk" id="required_2">
 					<label>개인정보 처리방침 동의(필수)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail">
@@ -186,7 +186,7 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk" class="required">
+					<input type="checkbox" name="chk" id="required_3">
 					<label>만 14세 이상 확인(필수)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail">
@@ -196,7 +196,7 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk" class="optional">
+					<input type="checkbox" name="chk">
 					<label>평생회원제 동의(선택)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail">
@@ -206,7 +206,7 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk" class="optional">
+					<input type="checkbox" name="chk">
 					<label>쿠폰, 이벤트 등 혜택 알림 동의(선택)</label>
 					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
 					<div id="detail">
@@ -215,8 +215,6 @@
 						</pre>
 					</div>
 					<br>
-					
-					<input type="button" value="필수 확인" onclick="reqCheck()">
 					
 					<hr>
 					<input type="submit" id="submit" value="회원가입">

@@ -35,16 +35,11 @@
 				</ul>
 			</nav>
 					 <h3>별점순 리스트(ajax)</h3>
-				
-			
 					<table id="star_list_Table" cellspacing="0">
-					 
-					 <tr>
-						<th>여기는 어떄여</th>
-						
-					</tr>	
+						 <tr>
+							<th>여기는 어떄여</th>
+						</tr>
 					</table>
-			
 			<%--지역 별 최저가 순 추천 --%>
 			<nav>
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
@@ -61,16 +56,14 @@
 						<li><input type="button" class="lowPricelocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>	 
-					 <h3>최저가  리스트(ajax)</h3>
+				<h3>최저가  리스트(ajax)</h3>
 				
 			
-					<table id="low_list_Table" cellspacing="0">
-					 
-					 <tr>
+				<table id="low_list_Table" cellspacing="0">
+					<tr>
 						<th>여기도 어떄여</th>
-						
 					</tr>	
-					</table>
+				</table>
 		</section>
 		<hr>
 		<%--main contentend --%>

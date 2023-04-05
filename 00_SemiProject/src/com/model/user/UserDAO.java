@@ -102,6 +102,9 @@ public class UserDAO {
 				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
+				dto.setUser_jjim1(rs.getInt("user_jjim1"));
+				dto.setUser_jjim2(rs.getInt("user_jjim2"));
+				dto.setUser_jjim3(rs.getInt("user_jjim3"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -112,9 +115,7 @@ public class UserDAO {
 	}
 	
 	public List<UserDTO> getUserList() {
-		
 		List<UserDTO> list = new ArrayList<UserDTO>();
-		
 		try {
 			connect();
 			sql = "select * from user1 order by user_no";
@@ -175,26 +176,14 @@ public class UserDAO {
 		int result = 0;
 		try {
 			connect();
-			sql = "select * from user1 where user_no = ?";
+			sql = "update user1 set user_phone = ?, user_birth = ?, user_region = ? where user_no = ?";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, dto.getUser_no());
-			rs = ps.executeQuery();
+			ps.setString(1, dto.getUser_phone());
+			ps.setString(2, dto.getUser_birth());
+			ps.setString(3, dto.getUser_region());
+			ps.setInt(4, dto.getUser_no());
 			
-			if(rs.next()) {
-				if(dto.getUser_pwd().equals(rs.getString("user_pwd"))) {
-					sql = "update user1 set user_phone = ?, user_birth = ?, user_email = ?, user_region = ? where user_no = ?";
-					ps = con.prepareStatement(sql);
-		
-					ps.setString(1, dto.getUser_phone());
-					ps.setString(2, dto.getUser_birth());
-					ps.setString(3, dto.getUser_email());
-					ps.setString(4, dto.getUser_region());
-					ps.setInt(5, dto.getUser_no());
-					result = ps.executeUpdate();
-				} else {
-					result = -1;
-				}
-			}
+			result = ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -268,7 +257,6 @@ public class UserDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -297,7 +285,6 @@ public class UserDAO {
 				dto.setPay_date(rs.getString("pay_date"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -398,5 +385,46 @@ public class UserDAO {
 	}
 	
 	
+	
+	public List<ReserveDTO> getReservList(int user_no) {
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+		try {
+			connect();
+			sql = "select * from reserv where reserv_userno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				ReserveDTO dto = new ReserveDTO();
+				dto.setReserv_no(rs.getInt("reserv_no"));
+				dto.setReserv_hotelno(rs.getInt("reserv_hotelno"));
+				dto.setReserv_hotelname(rs.getString("reserv_hotelname"));
+				dto.setReserv_roomno(rs.getInt("reserv_roomno"));
+				dto.setReserv_roomname(rs.getString("reserv_roomname"));
+				dto.setReserv_userno(rs.getInt("reserv_userno"));
+				dto.setReserv_username(rs.getString("reserv_username"));
+				dto.setReserv_promno(rs.getInt("reserv_promno"));
+				dto.setReserv_coupno(rs.getInt("reserv_coupno"));
+				dto.setReserv_nomalprice(rs.getInt("reserv_nomalprice"));
+				dto.setReserv_realprice(rs.getInt("reserv_realprice"));
+				dto.setReserv_start(rs.getString("reserv_start"));
+				dto.setReserv_end(rs.getString("reserv_end"));
+				dto.setReserv_daycount(rs.getInt("reserv_daycount"));
+				dto.setReserv_people(rs.getInt("reserv_people"));
+				dto.setReserv_request(rs.getString("reserv_request"));
+				dto.setReserv_date(rs.getString("reserv_date"));
+				dto.setReserv_usecheck(rs.getString("reserv_usecheck"));
+				dto.setReserv_payment(rs.getInt("reserv_payment"));
+				dto.setReserv_ins(rs.getInt("reserv_ins"));
+				dto.setReserv_phone(rs.getString("reserv_phone"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
 	
 }
