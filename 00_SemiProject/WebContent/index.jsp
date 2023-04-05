@@ -35,7 +35,6 @@
 				</ul>
 			</nav>
 					 <h3>별점순 리스트(ajax)</h3>
-				
 			
 					<table id="star_list_Table" cellspacing="0">
 					 
@@ -43,8 +42,7 @@
 						<th>여기는 어떄여</th>
 						
 					</tr>	
-					</table>
-				</ul>	
+					</table>	
 			
 			<%--지역 별 최저가 순 추천 --%>
 			<nav>
@@ -62,24 +60,16 @@
 						<li><input type="button" class="lowPricelocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>	 
-					 <h3>최저가  리스트(ajax)</h3>
+				<h3>최저가  리스트(ajax)</h3>
 				
 			
-					<table id="low_list_Table" cellspacing="0">
+				<table id="low_list_Table" cellspacing="0">
 					 
-					 <tr>
+					<tr>
 						<th>여기도 어떄여</th>
-						
 					</tr>	
-					</table>
-				</ul>	
-			
-
-		
-		
-		
-
-
+				</table>
+		</section>
 		<hr>
 		<%--main contentend --%>
 		<jsp:include page="/include/footer.jsp" />
