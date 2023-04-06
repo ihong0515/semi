@@ -1,4 +1,4 @@
-package com.model.reserve;
+package com.model.user;
 
 public class ReserveDTO {
 	private int reserv_no;
@@ -148,6 +148,5 @@ public class ReserveDTO {
 	}
 	public void setReserv_phone(String reserv_phone) {
 		this.reserv_phone = reserv_phone;
-	}	
+	}
 }
-	

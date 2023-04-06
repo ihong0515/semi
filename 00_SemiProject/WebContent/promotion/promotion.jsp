@@ -18,8 +18,12 @@
 				<c:forEach items="${Promotion}" var="dto" varStatus="i">
 						<table border = "1" cellspacing="0" width ="30%">
 							<tr>
-							<td><button onclick = "window.open('PromotionContent.do?no=${dto.getProm_no()}','width=100% height=100%')" width="100%" height="100%">
-							<img src="<%=request.getContextPath()%>/image/promotion/${dto.getProm_folder()}/main.jpg" width="100%" height="100%"></button></td></tr>
+								<td> <
+									<button onclick = "window.open('PromotionContent.do?no=${dto.getProm_no()}','width=100% height=100%')" width="100%" height="100%">
+										<img src="<%=request.getContextPath()%>/image/promotion/${dto.getProm_folder()}/main.jpg" width="100%" height="100%">
+									</button>
+								</td>
+							</tr>
 							<tr><td>${dto.getProm_name()}</td></tr>
 							<tr><td>${dto.getProm_info()}</td></tr>
 						</table>
@@ -29,11 +33,6 @@
 		<c:if test="${empty Promotion}">
 				<h3>테이블이 없습니다.</h3>
 		</c:if>	
-			  
-			
-			
-			
-			
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
