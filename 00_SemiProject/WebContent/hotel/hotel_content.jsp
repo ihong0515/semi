@@ -31,61 +31,61 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 		<div id="content">
-			<c:if test="${!empty hoDTO }">
-				<div id="hotel_all_info">
-					<div id="hotel_info">
-						${hoDTO.getHotel_name() } <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach> ${hoDTO.getHotel_point() }/10.0<br>
-						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="100" height="100"><br>
-						${hoDTO.getHotel_addr() }<br>
-						<hr>
-						<c:if test="${hpDTO.isHp_wifi() }">
-							<i class="fa fa-wifi" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_tub() }">
-							<i class="fa fa-bath" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_pool() }">
-							<i class="fa fa-wifi" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_restaurant() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_parking() }">
-							<i class="fa fa-car" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_fitness() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_bar() }">
-							<i class="fa fa-beer" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_terrace() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_sauna() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
-					</div>
-					<div id="room_info">
-						<c:forEach items="${roomList }" var="roDTO">
-							<div class="room_content">
-								${roDTO.getRoom_name() }
-								<div>
-									<c:forEach begin="1" end="${roDTO.getRoom_photo_folder_size() }" var="i">
-										<img alt="" src="<%=request.getContextPath() %>/image/hotel${roDTO.getRoom_photo_folder() }${i }.jpg" width="50" height="50">
-									</c:forEach><br>
-									<i class="fa fa-bed" aria-hidden="true"></i>${roDTO.getRoom_bed() } / 숙박인원 ${roDTO.getRoom_people_min() }~${roDTO.getRoom_people_max() }<br>
-									${roDTO.getRoom_size() }m<sup>2</sup>&nbsp;&nbsp;<c:if test="${roDTO.getRoom_breakfast()== 'Y' }"><i class="fa fa-cutlery" aria-hidden="true"></i></c:if><br>
-									${roDTO. getRoom_checkin()}:00까지 체크인
-								</div>
-							</div>
-							<div class="room_reserv">
-								가격 : ${roDTO.getRoom_price() }원 <input value="예약하기" type="button" onclick="location.href='hotel_payment.do?room_no=${roDTO.getRoom_no() }&hotel_no=${hoDTO.getHotel_no() }'">
-							</div>
-						</c:forEach>
-					</div>
+		<c:if test="${!empty hoDTO }">
+			<div id="hotel_all_info">
+				<div id="hotel_info">
+					${hoDTO.getHotel_name() } <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach> ${hoDTO.getHotel_point() }/10.0<br>
+					<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="100" height="100"><br>
+					${hoDTO.getHotel_addr() }<br>
+					<hr>
+					<c:if test="${hpDTO.isHp_wifi() }">
+						<i class="fa fa-wifi" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_tub() }">
+						<i class="fa fa-bath" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_pool() }">
+						<i class="fa fa-wifi" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_restaurant() }">
+						<i class="fa fa-cutlery" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_parking() }">
+						<i class="fa fa-car" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_fitness() }">
+						<i class="fa fa-cutlery" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_bar() }">
+						<i class="fa fa-beer" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_terrace() }">
+						<i class="fa fa-cutlery" aria-hidden="true"></i>
+					</c:if>
+					<c:if test="${hpDTO.isHp_sauna() }">
+						<i class="fa fa-cutlery" aria-hidden="true"></i>
+					</c:if>
 				</div>
-			</c:if>
+				<div id="room_info">
+					<c:forEach items="${roomList }" var="roDTO">
+						<div class="room_content">
+							${roDTO.getRoom_name() }
+							<div>
+								<c:forEach begin="1" end="${roDTO.getRoom_photo_folder_size() }" var="i">
+									<img alt="" src="<%=request.getContextPath() %>/image/hotel${roDTO.getRoom_photo_folder() }${i }.jpg" width="50" height="50">
+								</c:forEach><br>
+								<i class="fa fa-bed" aria-hidden="true"></i>${roDTO.getRoom_bed() } / 숙박인원 ${roDTO.getRoom_people_min() }~${roDTO.getRoom_people_max() }<br>
+								${roDTO.getRoom_size() }m<sup>2</sup>&nbsp;&nbsp;<c:if test="${roDTO.getRoom_breakfast()== 'Y' }"><i class="fa fa-cutlery" aria-hidden="true"></i></c:if><br>
+								${roDTO. getRoom_checkin()}:00까지 체크인
+							</div>
+						</div>
+						<div class="room_reserv">
+							가격 : ${roDTO.getRoom_price() }원 <input value="예약하기" type="button" onclick="location.href='hotel_payment.do?room_no=${roDTO.getRoom_no() }&hotel_no=${hoDTO.getHotel_no() }'">
+						</div>
+					</c:forEach>
+				</div>
+			</div>
+		</c:if>
 			<div id="hotel_review">
 			<hr>
 				<c:if test="${!empty reviewList }">
