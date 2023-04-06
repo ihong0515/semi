@@ -10,9 +10,7 @@ public class Inquiry_SiteDTO {
 	private int inqsi_group;
 	private int inqsi_step;
 	private int inqsi_indent;
-	
-	
-	
+	private int inqsi_userno;
 	
 	public int getInqsi_no() {
 		return inqsi_no;
@@ -67,6 +65,12 @@ public class Inquiry_SiteDTO {
 	}
 	public void setInqsi_indent(int inqsi_indent) {
 		this.inqsi_indent = inqsi_indent;
+	}
+	public int getInqsi_userno() {
+		return inqsi_userno;
+	}
+	public void setInqsi_userno(int inqsi_userno) {
+		this.inqsi_userno = inqsi_userno;
 	}
 	
 	

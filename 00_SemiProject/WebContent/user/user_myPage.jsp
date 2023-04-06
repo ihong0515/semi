@@ -19,7 +19,7 @@
 				<li><a href="<%=request.getContextPath() %>/user_modify.do?no=${dto.getUser_no() }">회원정보 수정</a></li>
 				<li><a href="<%=request.getContextPath() %>/user_reservation.do?no=${dto.getUser_no() }">예약 내역 확인</a></li>
 				<li><a href="<%=request.getContextPath() %>/user_jjim.do?no=${dto.getUser_no() }">찜 목록</a></li>
-				<li><a href="<%=request.getContextPath() %>/user_q&a.do?no=${dto.getUser_no() }">1:1 문의 내역 확인</a></li>
+				<li><a href="<%=request.getContextPath() %>/user_board_main.do">1:1 문의 내역 확인</a></li>
 				<li><a href="<%=request.getContextPath() %>/user_coupon.do?no=${dto.getUser_no() }">보유 쿠폰</a></li>
 			</ul>
     	</div>

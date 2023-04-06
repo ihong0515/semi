@@ -52,11 +52,17 @@ function changeimg(img) {
 function fullpageUse(){
 	$('#fullpage').fullpage({
 		autoScrolling: true,
-		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', '#c0c0c0'],
+		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE'],
 		loopBottom: true,
 		verticalCentered: true,
+		anchors:['map_anchor'],
 		nagivation: true,
-		navigationPosition: 'right',
-		anchors:['home_anchor', 'map_anchor']
+		navigationPosition: 'left',
+		navigationTooltips: ['Page 1', 'Page 2'],
+		showActiveTooltip: true,
+		menu: '#menu',
+		slidesNavigation: true,
+		scrollBar: true
+		
 	});
 }
