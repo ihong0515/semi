@@ -2,28 +2,25 @@
  * 
  */
 
-
 function getCoupon(e){
-	$.ajax({
-		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
-		type: "get",
-		url : "coupon_make.do",
-		data : {
-			prom_no : $(e).val()
-		},
-		datatype : "xml",
-		context : this,
-		success : function(data){
-			alert('성공입니다 당신은 쿠폰을 받을 수 있어요.');
-			console.log(data);
-		},
-		error : function(){
-			alert('에러입니다.');
-		}
-		
-		
-	});
-	
-	
-	
+	if(uid == 'null'){
+		alert('로그인이 필요한 서비스 입니다.');
+	}else{
+		$.ajax({
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+			type: "get",
+			url : "coupon_make.do",
+			data : {
+				prom_no : $('#prom_no_val').val()
+			},
+			datatype : "text",
+			context : this,
+			success : function(data){
+				$('#coup_result').text(data);
+			},
+			error : function(){
+				alert('에러입니다.');
+			}
+		});
+	}
 }

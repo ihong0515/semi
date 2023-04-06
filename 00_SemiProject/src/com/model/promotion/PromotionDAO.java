@@ -57,7 +57,6 @@ public class PromotionDAO {
 		CouponDTO dto = null;
 		
 		try {
-			connect();
 			sql = "select * from coupon where coup_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
@@ -152,18 +151,15 @@ public class PromotionDAO {
 
 		Random rnd = new Random();
 			
-			StringBuffer buf = new StringBuffer(12);
-			for (int i=12;i>0;i--) {
-				buf.append(possibleCharacters[rnd.nextInt(possibleCharacterCount)]);
-			}
-			
-			String coupon_no = buf.toString();
-			
-			
-			
-			
-			return coupon_no;
+		StringBuffer buf = new StringBuffer(12);
+		for (int i=12;i>0;i--) {
+			buf.append(possibleCharacters[rnd.nextInt(possibleCharacterCount)]);
 		}
+		
+		String coupon_no = buf.toString();
+		
+		return coupon_no;
+	}
 		
 		public String coupon_receive_check(int user_no, int prom_no) {
 			
@@ -192,16 +188,9 @@ public class PromotionDAO {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally {
-				close();
 			}
 			return result;
 		}
-		
-
-		
-		
-	}
 
 	public ArrayList<CouponDTO> getUseableCoupon(int user_no) {
 		ArrayList<CouponDTO> list = new ArrayList<CouponDTO>();
@@ -222,6 +211,10 @@ public class PromotionDAO {
 				dto.setCoup_userno(rs.getInt("coup_userno"));
 				dto.setCoup_usecheck(rs.getString("coup_usecheck"));
 				list.add(dto);
+				
+				
+				
+				//여기다가 발생 시킨 난수도 변수로 넣어서 대조하기.
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -232,3 +225,60 @@ public class PromotionDAO {
 		return list;
 	}
 	
+	public String couponCheck() {
+		String coup_serial = makeCoupon();
+		try {
+			sql = "select coup_serialno from coupon where coup_serialno = ?"; // 아예 없다면 userno와prono가 동일한 것을 쿠폰 테이블 삽입.
+			ps = con.prepareStatement(sql);
+			ps.setString(1, coup_serial);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				coup_serial = couponCheck();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return coup_serial;
+	}
+	
+	public void insertCoupon(int user_no,int prom_no,String coupon_serial) {
+		int count = 0;
+		
+		
+		try {
+			sql = "select max(coup_no) from coupon";
+			ps = con.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1)+1;
+			}
+			PromotionDTO prodto = getPromotionContent(prom_no);
+			connect();
+			sql = "insert into coupon values(?,?,?,?,?,default)";
+			
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, count);
+			ps.setInt(2,prom_no);
+			ps.setInt(3, prodto.getProm_sale());
+			ps.setString(4,coupon_serial);
+			ps.setInt(5, user_no);
+			
+			
+			ps.executeUpdate();
+			System.out.println("1");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+	}
+}
