@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="<%=request.getContextPath() %>/js/user/user_join_normal.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_join_normal.js?ver=1"></script>
 <script type="text/javascript">
 	/* 약관동의 전체 선택 */
 	$(document).ready(function() {
@@ -69,7 +69,7 @@
 						<tr>
 							<th>아이디</th>
 							<td>
-								<input name="user_id" id="user_id" onblur="checkId(this)">
+								<input name="user_id" id="user_id" onblur="checkId(this)" onkeyup="idKorCheck(this)">
 								<input type="hidden" name="idcheckfin" value="idUncheck">
 								<br>
 								<span id="idcheck"></span>
@@ -79,7 +79,7 @@
 						<tr>
 							<th>비밀번호</th>
 							<td>
-								<input type="password" name="user_pwd" id="user_pwd" onblur="pwdKorCheck(this)" onchange="pwdInput()">
+								<input type="password" name="user_pwd" id="user_pwd" onkeyup="pwdKorCheck(this)" onchange="pwdInput()">
 								<br>
 								<span id="pwdcheck"></span>
 							</td>

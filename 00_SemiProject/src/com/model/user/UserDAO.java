@@ -64,7 +64,7 @@ public class UserDAO {
 				count = rs.getInt(1);
 			}
 			
-			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, ?, ?, '', '', '')";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, count + 1);
 			ps.setString(2, dto.getUser_id());
@@ -333,6 +333,57 @@ public class UserDAO {
 			close();
 		}
 		return list;
+	}
+	
+	public int changeUserPwd(int no, String nowPwd, String newPwd) {
+		
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select user_pwd from user1 where user_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+		
+			if(rs.next()) {
+				if(nowPwd.equals(rs.getString("user_pwd"))) {
+					sql = "update user1 set user_pwd = ? where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setString(1, newPwd);
+					ps.setInt(2, no);
+					result = ps.executeUpdate();
+				} else {
+					result = -1;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public int jjimCancel(int user_no, int jjim1_no, int jjim2_no, int jjim3_no) {
+		
+		int result = 0;
+		
+		try {
+			connect();
+			
+//			호텔 넘버에 맞는 찜 넘버 삭제 -> 업데이트 시퀀스로 앞으로 줄줄이 땡겨주기!
+			
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			result = ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
 	}
 	
 }

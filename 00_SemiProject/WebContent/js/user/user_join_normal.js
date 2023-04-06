@@ -1,8 +1,6 @@
 /* 기본  ----------------------------------------------------------------------------- */
 
 function checkId(e){
-	/* 아이디 input에 한글 입력 불가능 */
-	$(e).val($(e).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''));
 	
 	$("#idcheck").hide(); // span 태그 영역 숨기기
 	
@@ -41,6 +39,11 @@ function checkId(e){
 	});
 }
 
+function idKorCheck(e){
+	/* 아이디 input에 한글 입력 불가능  */
+	$(e).val( $(e).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '') );
+}
+
 function pwdKorCheck(e){
 	/* 비밀번호 input에 한글 입력 불가능  */
 	$(e).val( $(e).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '') );
@@ -68,7 +71,7 @@ function pwdInput(){
 }
 
 
-function checkPwd(pwd, id) {
+function checkPwd(pwd) {
     if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
 		$("#pwdcheck").text("");
 		$("#pwdcheck").show();

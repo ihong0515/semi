@@ -7,9 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보 수정</title>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="<%=request.getContextPath() %>/js/user/user_modify.js"></script>
+<script src="<%=request.getContextPath() %>/js/user/user_modify.js?ver=2"></script>
+<link href="<%=request.getContextPath() %>/css/user/user_modify.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -20,15 +21,42 @@
 					<h2>고객 회원정보 수정</h2>
 					<br>
 					<form method="post" action="<%=request.getContextPath() %>/user_modify_ok.do" onsubmit="return modifyFormCheck()">
-						<input type="hidden" name="user_no" value="${dto.getUser_no() }">
+						
 						<table border="1" cellspacing="0" width="600">
 							<tr>
 								<th>아이디</th>
 								<td>${dto.getUser_id()}</td>
 							</tr>
+							
 							<tr>
 								<th>비밀번호</th>
-								<td><input type="button" value="비밀번호 변경"></td>
+								<td>
+									<input type="button" value="비밀번호 변경" onclick="show_modal()">
+									<div id="myModal" class="modal">
+										<div class="modal_content" align="center">
+											<input type="hidden" name="user_no" value="${dto.getUser_no() }">
+											
+											<h2>비밀번호 변경</h2>
+											<label>현재 비밀번호</label>
+											<input type="password" name="now_pwd" id="now_pwd">
+											<br>
+											
+											<label>변경할 비밀번호</label>
+											<input type="password" name="new_pwd" id="new_pwd" onchange="pwdInput()">
+											<span id="pwdcheck"></span>
+											<br>
+											
+											<label>변경할 비밀번호 재확인</label>
+											<input type="password" name="re_new_pwd" id="re_new_pwd" onchange="pwdInput()">
+											<span id="repwdcheck"></span>
+											<br>
+											<br>
+											
+											<input type="submit" value="비밀번호 변경" onclick="javascript: form.action='<%=request.getContextPath()%>/user_pwdChange.do'">&nbsp;&nbsp;
+											<input type="button" value="취소" onClick="close_modal()">
+										</div>
+									</div>
+								</td>
 							</tr>
 							<tr> 
 								<th>이름</th>
