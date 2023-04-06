@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
@@ -20,6 +21,9 @@ public class UserMyPageAction implements Action {
 		UserDAO dao = UserDAO.getInstance();
 		UserDTO cont = dao.getUserContent(user_no);
 		request.setAttribute("Content", cont);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("loginUser", cont);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
