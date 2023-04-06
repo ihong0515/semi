@@ -17,6 +17,7 @@ public class CouponGetSaleAction implements Action {
 		int price = Integer.parseInt(request.getParameter("price").trim());
 		
 		CouponDTO coup = PromotionDAO.getInstance().getCouponContent(coup_no);
+		PromotionDTO prom = PromotionDAO.getInstance().getPromotionContent(coup.getCoup_promno());
 		
 		int salePrice = price*coup.getCoup_sale()/100;
 		int realPrice = price - salePrice;
@@ -25,7 +26,7 @@ public class CouponGetSaleAction implements Action {
 				+ "<coupon>"
 				+ "<coup_no>"+coup.getCoup_no()+"</coup_no>"
 				+ "<prom_no>"+coup.getCoup_promno()+"</prom_no>"
-				+ "<name>"+coup.getCoup_name()+"</name>"
+				+ "<name>"+prom.getProm_name()+"</name>"
 				+ "<sale>"+coup.getCoup_sale()+"</sale>"
 				+ "<saleP>"+salePrice+"</saleP>"
 				+ "<price>"+realPrice+"</price>"

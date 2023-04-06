@@ -31,6 +31,7 @@ if(checkDate!=null){
 <script type="text/javascript">
 function saleCheck() {
 	$.ajax({
+		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 		type: "post",
 		url: "coupon_get_SalePrice.do",
 		data: {

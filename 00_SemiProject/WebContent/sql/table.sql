@@ -42,7 +42,10 @@ CREATE TABLE user1 (
 	user_phone	varchar2(20)		NOT NULL,
 	user_birth	varchar2(50)		NOT NULL,
 	user_email	varchar2(20)		NOT NULL,
-	user_region	varchar2(20)		NOT NULL
+	user_region	varchar2(20)		NOT NULL,
+	USER_JJIM1 NUMBER(10) DEFAULT null,
+	USER_JJIM2 NUMBER(10) DEFAULT null,
+	USER_JJIM3 NUMBER(10) DEFAULT null
 );
 
 CREATE TABLE reserv (
@@ -83,14 +86,13 @@ CREATE TABLE promotion (
 	prom_no	number(10)		NOT NULL,
 	prom_name	varchar2(50)		NOT NULL,
 	prom_info	varchar2(2000)		NOT NULL,
-	prom_folder	varchar2(1000)		NOT NULL
+	prom_folder	varchar2(1000)		NOT NULL,
+	prom_sale NUMBER(20) NOT NULL
 );
 
 CREATE TABLE coupon (
 	coup_no	number(10)		NOT NULL,
 	coup_promno	number(10)		NOT NULL,
-	coup_name	varchar2(50)		NOT NULL,
-	coup_info	varchar2(1000)		NULL,
 	coup_sale	number(20)	DEFAULT 0	NOT NULL,
 	coup_serialno varchar2(50) not null,
 	coup_userno number(10) not null,
@@ -115,7 +117,8 @@ CREATE TABLE inquiry_hotel (
 	inqho_update	date	DEFAULT null	NULL,
 	inqho_group	number(10)		NOT NULL,
 	inqho_step	number(10)		NULL,
-	inqho_indent	number(10)		NULL
+	inqho_indent	number(10)		NULL,
+	inqho_userno number(10) not null
 );
 
 CREATE TABLE inquiry_site (
@@ -127,7 +130,8 @@ CREATE TABLE inquiry_site (
 	inqsi_update	date	DEFAULT null	NULL,
 	inqsi_group	number(10)		NOT NULL,
 	inqsi_step	number(10)		NULL,
-	inqsi_indent	number(10)		NULL
+	inqsi_indent	number(10)		NULL,
+	inqsi_userno number(10) not null
 );
 
 CREATE TABLE payment (
@@ -331,8 +335,16 @@ REFERENCES user1 (
 	user_no
 ) ON DELETE CASCADE;
 
-ALTER TABLE USER1 ADD (USER_JJIM1 NUMBER(10) DEFAULT null );
+ALTER TABLE inquiry_site ADD CONSTRAINT "FK_user1_site_1" FOREIGN KEY (
+	inqsi_userno
+)
+REFERENCES user1 (
+	user_no
+) ON DELETE CASCADE;
 
-ALTER TABLE USER1 ADD (USER_JJIM2 NUMBER(10) DEFAULT null );
-
-ALTER TABLE USER1 ADD (USER_JJIM3 NUMBER(10) DEFAULT null );
+ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_user1_hotel_1" FOREIGN KEY (
+	inqho_userno
+)
+REFERENCES user1 (
+	user_no
+) ON DELETE CASCADE;
