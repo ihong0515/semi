@@ -9,9 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.model.reserve.ReserveDTO;
-import com.model.user.UserDAO;
-import com.model.user.UserDTO;
+import com.model.user.*;
 
 public class UserReservationAction implements Action {
 

@@ -5,6 +5,9 @@ public class PromotionDTO {
 	private String prom_name;
 	private String prom_info;
 	private String prom_folder;
+	private int prom_sale;
+	
+	
 	public int getProm_no() {
 		return prom_no;
 	}
@@ -28,5 +31,11 @@ public class PromotionDTO {
 	}
 	public void setProm_folder(String prom_folder) {
 		this.prom_folder = prom_folder;
+	}
+	public int getProm_sale() {
+		return prom_sale;
+	}
+	public void setProm_sale(int prom_sale) {
+		this.prom_sale = prom_sale;
 	}
 }

@@ -39,8 +39,8 @@ public class UserJoinOkAction implements Action {
 		ActionForward forward = new ActionForward();
 		
 		if(check > 0) {
-			forward.setRedirect(true);
-			forward.setPath("user_list.do");
+			forward.setRedirect(false);
+			forward.setPath("index.jsp");
 		} else {
 			forward.setRedirect(false);
 			forward.setPath("user/user_join_normal.jsp");

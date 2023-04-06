@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="user_dto" value="${sessionScope.loginUser }" />
-<c:set var="hotel_dto1" value="${hotel_dto1 }" />
-<c:set var="hotel_dto2" value="${hotel_dto2 }" />
-<c:set var="hotel_dto3" value="${hotel_dto3 }" />
+<c:set var="hotelList" value="${hotelList }" />
 
 <!DOCTYPE html>
 <html>
@@ -20,16 +19,27 @@
 				<div align="center">
 					<h2>${user_dto.getUser_name() }님이 찜한 숙소</h2>
 					<br>
-					
-					<c:if test="${!empty hotel_dto1 }">
-					<ul>
-						<li>호텔 이름: ${hotel_dto1.getHotel_name() }</li>
-						<li>호텔 이름: ${hotel_dto2.getHotel_name() }</li>
-						<li>호텔 이름: ${hotel_dto3.getHotel_name() }</li>
-					</ul>
+					<c:if test="${!empty hotelList }">
+					<c:forEach items="${hotelList }" var="dto">
+						<ul>
+							<img onclick="location.href='hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'" src='/00_SemiProject/image/hotel/${dto.getHotel_photo_folder() }/main.jpg' style='width:100px; height:100px;'></p>
+							<li>${dto.getHotel_name() }</li>
+							<li>
+								<c:if test="${dto.getHotel_star() != 0 }">
+									<c:forEach begin="1" end="${dto.getHotel_star()}">
+										★
+									</c:forEach>
+								</c:if>
+							</li>
+							<li>최저가 <fmt:formatNumber value="${dto.getHotel_price_min() }"/>원</li>
+							<li>${dto.getHotel_info() }</li>
+							<br>
+							<input type="button" value="찜 취소" onclick="location.href='user_jjim_cancel.do?user_no=${user_dto.getUser_no() }&&jjim1_no='${user_dto.getUser_jjim1() }'&&jjim2_no='${user_dto.getUser_jjim2() }'&&jjim3_no='${user_dto.getUser_jjim3() }'">
+						</ul>
+						</c:forEach>
 					</c:if>
 					
-					<c:if test="${empty hotel_dto1 }">
+					<c:if test="${empty hotelList }">
 						<ul>
 							<li colspan="2" align="center">
 								<p>찜한 호텔이 없습니다.</p>
