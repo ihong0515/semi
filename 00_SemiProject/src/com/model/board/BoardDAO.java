@@ -54,6 +54,7 @@ public class BoardDAO {
 		
 	}  // closeConn() 메서드 end
 
+	
 	public ArrayList<Inquiry_SiteDTO> getSiteBoardList() {
 		ArrayList<Inquiry_SiteDTO> list = new ArrayList<Inquiry_SiteDTO>();
 		
@@ -74,6 +75,7 @@ public class BoardDAO {
 				dto.setInqsi_step(rs.getInt("inqsi_step"));
 				dto.setInqsi_indent(rs.getInt("inqsi_indent"));
 				dto.setInqsi_userno(rs.getInt("inqsi_userno"));
+				
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -235,6 +237,86 @@ public class BoardDAO {
 		return list;
 	}
 	
+	public int insertSite(Inquiry_SiteDTO dto) {
+		
+		int result = 0, count = 0;
+		
+		try {
+			openConn();
+			
+			sql = "select max(inqsi_no) from inquiry_site";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1) + 1;
+			}
+			
+			sql = "insert into inquiry_site values(?, ?, ?, ?, sysdate, '', ?, 0, 0, ?)";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, count);
+			pstmt.setString(2, dto.getInqsi_title());
+			pstmt.setNString(3, dto.getInqsi_content());
+			pstmt.setInt(4, count);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		} finally {
+			closeConn();
+		}
+		
+		return result;
+		
+	}
 	
+	public Inquiry_SiteDTO getSiteContent(int no) {
+		
+		Inquiry_SiteDTO dto = null;
+		
+		try {
+			openConn();
+			
+			sql = "select * from inquiry_site where inqsi_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, no);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				dto = new Inquiry_SiteDTO();
+				
+				dto.setInqsi_no(rs.getInt("inqsi_no"));
+				dto.setInqsi_writer(rs.getString("inqsi_writer"));
+				dto.setInqsi_title(rs.getString("inqsi_title"));
+				dto.setInqsi_content(rs.getString("inqsi_content"));
+				dto.setInqsi_date(rs.getString("inqsi_date"));
+				dto.setInqsi_update(rs.getString("inqsi_update"));
+				dto.setInqsi_group(rs.getInt("inqsi_group"));
+				dto.setInqsi_step(rs.getInt("inqsi_step"));
+				dto.setInqsi_indent(rs.getInt("inqsi_indent"));
+				dto.setInqsi_userno(rs.getInt("inqsi_userno"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn();
+		}
+		
+		return dto;
+
+	}
 	
 }
