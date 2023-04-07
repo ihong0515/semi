@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.model.hotel.HotelDTO;
+
 public class UserDAO {
 	
 	private static UserDAO instance;
@@ -249,7 +251,7 @@ public class UserDAO {
 				dto.setPay_no(rs.getInt("pay_no"));
 				dto.setPay_userno(rs.getInt("pay_userno"));
 				dto.setPay_name(rs.getString("pay_name"));
-				dto.setPay_cardno(rs.getString("pay_cardno"));
+				dto.setPay_cardno(rs.getInt("pay_cardno"));
 				dto.setPay_cardcom(rs.getString("pay_cardcom"));
 				dto.setPay_cvc(rs.getInt("pay_cvc"));
 				dto.setPay_pwd(rs.getString("pay_pwd"));
@@ -278,7 +280,7 @@ public class UserDAO {
 				dto.setPay_no(rs.getInt("pay_no"));
 				dto.setPay_userno(rs.getInt("pay_userno"));
 				dto.setPay_name(rs.getString("pay_name"));
-				dto.setPay_cardno(rs.getString("pay_cardno"));
+				dto.setPay_cardno(rs.getInt("pay_cardno"));
 				dto.setPay_cardcom(rs.getString("pay_cardcom"));
 				dto.setPay_cvc(rs.getInt("pay_cvc"));
 				dto.setPay_pwd(rs.getString("pay_pwd"));
@@ -427,6 +429,42 @@ public class UserDAO {
 		return list;
 	}
 	
+	public HotelDTO getHotelContentbyUserNo(int user_no) {
+		HotelDTO dto = null;
+		try {
+			connect();
+			sql = "select * from hotel where hotel_no = (select hotel_no from hotel h join reserv r on hotel_no = reserv_hotelno where hotel_no = reserv_hotelno)";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				dto = new HotelDTO();
+				dto.setHotel_no(rs.getInt("hotel_no"));
+				dto.setHotel_ownerNo(rs.getInt("hotel_ownerno"));
+				dto.setHotel_name(rs.getString("hotel_name"));
+				dto.setHotel_phone(rs.getString("hotel_phone"));
+				dto.setHotel_addr(rs.getString("hotel_addr"));
+				dto.setHotel_location(rs.getString("hotel_location"));
+				dto.setHotel_email(rs.getString("hotel_email"));
+				dto.setHotel_info(rs.getString("hotel_info"));
+				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
+				dto.setHotel_establish(rs.getInt("hotel_establish"));
+				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
+				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
+				dto.setHotel_price_max(rs.getInt("hotel_price_max"));
+				dto.setHotel_people_min(rs.getInt("hotel_people_min"));
+				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
+				dto.setHotel_star(rs.getInt("hotel_star"));
+				dto.setHotel_point(rs.getInt("hotel_point"));
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return dto;
+	}
+	
 	public int changeUserPwd(int no, String nowPwd, String newPwd) {
 		
 		int result = 0;
@@ -457,19 +495,37 @@ public class UserDAO {
 		return result;
 	}
 	
-	public int jjimCancel(int user_no, int jjim1_no, int jjim2_no, int jjim3_no) {
+	public int jjimCancel(int user_no, int hotel_no) {
 		
 		int result = 0;
 		
 		try {
 			connect();
-			
-//			호텔 넘버에 맞는 찜 넘버 삭제 -> 업데이트 시퀀스로 앞으로 줄줄이 땡겨주기!
-			
+			sql = "select user_jjim1, user_jjim2, user_jjim3 from user1 where user_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, user_no);
-			result = ps.executeUpdate();
+			rs = ps.executeQuery();
 			
+			if(rs.next()) { // 찜 내역 존재
+				if(hotel_no == rs.getInt(1)) { // 찜1 취소
+					sql = "update user1 set user_jjim1 = user_jjim2, user_jjim2 = user_jjim3, user_jjim3 = null where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, user_no);
+					result = ps.executeUpdate();
+				} else if(hotel_no == rs.getInt(2)) { // 찜2 취소
+					sql = "update user1 set user_jjim2 = user_jjim3, user_jjim3 = null where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, user_no);
+					result = ps.executeUpdate();
+				} else { // 찜3 취소
+					sql = "update user1 set user_jjim3 = null where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, user_no);
+					result = ps.executeUpdate();
+				}
+			} else {
+				result = -1;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -478,4 +534,72 @@ public class UserDAO {
 		return result;
 	}
 	
+	public int getUserReservCancel(int reserv_no) {
+		int result = 0;
+		try {
+			connect();
+			sql = "update reserv set reserv_usecheck = 'C' where reserv_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, reserv_no);
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	
+	public int insertPayment(PaymentDTO dto, int user_no) {
+		int result = 0, count = 0;
+		try {
+			connect();
+			sql = "select max(pay_no) from payment";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+			sql = "insert into payment values(?, ?, ?, ?, ?, ?, ?, ?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, count + 1);
+			ps.setInt(2, user_no);
+			ps.setString(3, dto.getPay_name());
+			ps.setInt(4, dto.getPay_cardno());
+			ps.setString(5, dto.getPay_cardcom());
+			ps.setInt(6, dto.getPay_cvc());
+			ps.setString(7, dto.getPay_pwd());
+			ps.setString(8, dto.getPay_date());
+			
+			result = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

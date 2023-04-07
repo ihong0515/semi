@@ -34,7 +34,7 @@
 							<li>최저가 <fmt:formatNumber value="${dto.getHotel_price_min() }"/>원</li>
 							<li>${dto.getHotel_info() }</li>
 							<br>
-							<input type="button" value="찜 취소" onclick="location.href='user_jjim_cancel.do?user_no=${user_dto.getUser_no() }&&jjim1_no='${user_dto.getUser_jjim1() }'&&jjim2_no='${user_dto.getUser_jjim2() }'&&jjim3_no='${user_dto.getUser_jjim3() }'">
+							<input type="button" value="찜 취소" onclick="location.href='user_jjim_cancel.do?user_no=${user_dto.getUser_no() }&&hotel_no=${dto.getHotel_no() }'">
 						</ul>
 						</c:forEach>
 					</c:if>
