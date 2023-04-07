@@ -35,9 +35,6 @@ public class HotelContentAction implements Action {
 			Calendar cal = Calendar.getInstance();
 			inFormat = cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
 			outFormat = cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+(cal.get(Calendar.DAY_OF_MONTH)+1);
-			
-			System.out.println(inFormat);
-			System.out.println(outFormat);
 		}
 		hotel_no_list = UserDAO.getInstance().checkReservDate(inFormat, outFormat, hotel_no);
 		

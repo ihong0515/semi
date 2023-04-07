@@ -9,6 +9,7 @@
 		}else{
 			page = 1;
 		}
+		console.log('1');
 		$.ajax({
 			type: "post",
 			url: "board_Site_Get_List.do",

@@ -170,7 +170,7 @@
 						<table id="review_write_table">
 							<tr>
 								<td colspan="2">
-									<input type="number" placeholder="평점" name="review_point" min="0" max="10">
+									평점 : <input type="number" name="review_point" min="0" max="10" value="10">
 								</td>
 							</tr>
 							<tr>
