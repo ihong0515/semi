@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+nav{
+	margin-bottom: 50px;
+}
+nav ul{
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+}
+nav ul li{
+	list-style: none;
+	width: 100px;
+}
+.index_hotel_img{
+	width: 250px;
+	height: 250px;
+}
+table{
+	border-bottom: 1px solid #c0c0c0;
+}

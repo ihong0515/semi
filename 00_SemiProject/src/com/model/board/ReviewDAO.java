@@ -92,13 +92,15 @@ public class ReviewDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, dto.getReview_userno());
 			rs = ps.executeQuery();
-			if(rs.next()) {
-				if(rs.getString("reserv_usecheck").equalsIgnoreCase("Y")) {
+			if(rs.next()) { //예약내역 ㅇ
+				if(rs.getString("reserv_usecheck").equalsIgnoreCase("Y")) { //사용 후
 					dto.setReview_reservno(rs.getInt("reserv_no"));
 					dto.setReview_checkindate(rs.getString("reserv_start").substring(0,10));
 					dto.setReview_roomno(rs.getInt("reserv_roomno"));
 					
 					result = checkReview(dto.getReview_reservno());
+				}else { // 사용 전
+					result = -2;
 				}
 			}
 		} catch (SQLException e) {
@@ -117,9 +119,9 @@ public class ReviewDAO {
 			sql = "select count(*) from review where review_reservno = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, reserv_no);
-			if(rs.next()) {
+			if(rs.next()) { // 리뷰 등록
 				result = -1;
-			}else {
+			}else { // 사용 가능
 				result = 1;
 			}
 		} catch (SQLException e) {

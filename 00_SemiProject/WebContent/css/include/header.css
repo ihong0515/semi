@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#container{
+	width: 800px;
+	margin: 50px auto;
+}
+a{
+	text-decoration: none;
+	color: blue;
+}
+a:hover{
+	color: lightblue;
+}
+#header_navi_home img{
+	width: 100%;
+	cursor: pointer;
+}
+#header_navi_home_log{
+	float: right;
+	margin: 10px auto;
+	clear: both;
+}
+#header_navi_ul{
+	margin: 70px auto;
+}
+#header_navi_ul ul{
+	display: flex;
+	padding: 0;
+	justify-content: space-around;
+}
+#header_navi_ul ul li{
+	list-style: none;
+	width: 20%;
+	padding: 5px 15px;
+}
+#header_search{
+	text-align: center;
+}

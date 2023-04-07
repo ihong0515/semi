@@ -32,10 +32,9 @@ public class FrontController extends HttpServlet{
 
 		String propertiesPath = request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties");
 		FileInputStream fis = new FileInputStream(propertiesPath);
-		
 		prop.load(fis);
-		
 		String value = prop.getProperty(command);
+		fis.close();
 		
 		if(value.substring(0, 7).equals("execute")) {
 			StringTokenizer st = new StringTokenizer(value, "|");
