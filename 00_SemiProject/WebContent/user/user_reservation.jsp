@@ -1,60 +1,58 @@
+<%@page import="com.model.hotel.HotelDAO"%>
+<%@page import="com.model.hotel.HotelDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="dto" value="${sessionScope.loginUser }" />
+<c:set var="dtoUser" value="${sessionScope.loginUser }" />
+<c:set var="dtoHotel" value="${dtoHotel }"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>숙소 예약 내역</title>
+<script type="text/javascript">
+
+ function cancelReservCheck(no) {
+	 let res = confirm("예약을 취소하시겠습니까?")
+	 
+	 if(res) {
+		 location.href = "user_reserv_cancel.do?reserv_no="+no;
+	 }
+ }
+
+</script>
 </head>
 <body>
 
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-	    	<div id="content">
-				<div align="center">
-					<h2>${dto.getUser_name() }님 숙소 예약 내역 리스트</h2>
-					<br>
-					
-					<table border="1" cellspacing="0" width="800">
-						<tr>
-							<th>예약확인번호</th>
-							<th>호텔 이름</th>
-							<th>객실 정보</th>
-							<th>체크인</th>
-							<th>체크아웃</th>
-							<th>요금 및 결제 세부 정보</th>
-							<th>예약자명</th>
-							<th>연락처</th>
-							<th>이메일</th>
-						</tr>
-						
-						<c:set var="list" value="${reservList }"/>
-						<c:if test="${!empty list }">
-							<c:forEach items="${list }" var="dtoReserv">
-								<tr>
-									<td>${dtoReserv.getReserv_no() }</td>
-									<td>${dtoReserv.getReserv_hotelname() }</td>
-									<td>${dtoReserv.getReserv_roomname() }</td>
-									<td>${dtoReserv.getReserv_start() }</td>
-									<td>${dtoReserv.getReserv_end() }</td>
-									<td>${dtoReserv.getReserv_realprice() }</td>
-									<td>${dtoReserv.getReserv_username() }</td>
-									<td>${dtoReserv.getReserv_phone() }</td>
-								</tr>
-							</c:forEach>
-						</c:if>
-						
-						<c:if test="${empty list }">
-							<tr>
-								<td colspan="9" align="center">
-									<p>예약 내역이 존재하지 않습니다.</p>
-								</td>
-							</tr>
-						</c:if>
-					</table>
-				</div>
+	    	<div id="content" align="center">
+	    		<input type="hidden" name="user_no" value="${dtoUser.getUser_no() }">
+				<h2>${dtoUser.getUser_name() }님 숙소 예약 내역 리스트</h2>
+				<br>
+				
+				<c:set var="list" value="${reservList }"/>
+				<c:if test="${!empty list }">
+					<c:forEach items="${list }" var="dtoReserv">
+						<ul>
+							<img onclick="location.href='hotel_get_Content.do?hotel_no=${dtoReserv.getReserv_hotelno() }'"
+								 src='/00_SemiProject/image/hotel/${dtoHotel.getHotel_photo_folder() }/main.jpg' style='width:100px; height:100px;'>
+							<li><h3>${dtoReserv.getReserv_hotelname() }</h3></li>
+							<li>객실명: ${dtoReserv.getReserv_roomname() }</li>
+							<li>체크인: ${dtoReserv.getReserv_start() }</li>
+							<li>체크아웃: ${dtoReserv.getReserv_end() }</li>
+							<li>결제금액: <fmt:formatNumber value="${dtoReserv.getReserv_realprice() }"/>원</li>
+							<br>
+							<input type="button" value="예약 취소" onclick="cancelReservCheck(${dtoReserv.getReserv_no() })">
+						</ul>
+					</c:forEach>
+				</c:if>
+				
+				<c:if test="${empty list }">
+					<ul>
+						<li>예약 내역이 존재하지 않습니다.</li>
+					</ul>
+				</c:if>
 			</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>

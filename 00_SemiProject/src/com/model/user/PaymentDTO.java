@@ -4,7 +4,7 @@ public class PaymentDTO {
 	private int pay_no;
 	private int pay_userno;
 	private String pay_name;
-	private String pay_cardno;
+	private int pay_cardno;
 	private String pay_cardcom;
 	private int pay_cvc;
 	private String pay_pwd;
@@ -28,10 +28,10 @@ public class PaymentDTO {
 	public void setPay_name(String pay_name) {
 		this.pay_name = pay_name;
 	}
-	public String getPay_cardno() {
+	public int getPay_cardno() {
 		return pay_cardno;
 	}
-	public void setPay_cardno(String pay_cardno) {
+	public void setPay_cardno(int pay_cardno) {
 		this.pay_cardno = pay_cardno;
 	}
 	public String getPay_cardcom() {
