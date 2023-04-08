@@ -1,7 +1,9 @@
 package com.action.board;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,9 +19,13 @@ public class ReviewInsertAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-		String saveFolder = request.getServletContext().getRealPath("/image/review");
-		//String saveFolder = "C:\\NCS\\workspace_semi\\00_SemiProject\\WebContent\\image\\review";
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties"));
+		prop.load(fis);
+		fis.close();
+		
+		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\review";
+		
 		int fileSize = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
@@ -29,7 +35,7 @@ public class ReviewInsertAction implements Action {
 		dto.setReview_userno(user_no);
 		int check = ReviewDAO.getInstance().checkReserve(dto);
 		
-		if(check == 1) {
+		if(check == 1) { //사용 전
 			int hotel_no = Integer.parseInt(multi.getParameter("review_hotelno").trim());
 			String hotel_name = multi.getParameter("review_hotelname").trim();
 			dto.setReview_writer(multi.getParameter("review_userid").trim());
@@ -69,13 +75,19 @@ public class ReviewInsertAction implements Action {
 						+ "</script>");
 				return null;
 			}
-		}else if(check ==-1) {
+		}else if(check ==-1) { // 리뷰 등록
 			response.getWriter().println("<script>"
 					+ "alert('이미 리뷰가 등록되어 있습니다.');"
 					+ "history.back();"
 					+ "</script>");
 			return null;
-		}else {
+		}else if(check == -2) {
+			response.getWriter().println("<script>"
+					+ "alert('사용하기 전에는 리뷰를 작성하실 수 없습니다.');"
+					+ "history.back();"
+					+ "</script>");
+			return null;
+		}else { // 예약 없음
 			response.getWriter().println("<script>"
 					+ "alert('사용 하신 상품에만 리뷰를 등록할 수 있습니다.');"
 					+ "history.back();"

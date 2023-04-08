@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.model.hotel.HotelDTO;
+
 public class UserDAO {
 	
 	private static UserDAO instance;
@@ -62,7 +64,7 @@ public class UserDAO {
 				count = rs.getInt(1);
 			}
 			
-			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into user1 values(?, ?, ?, ?, ?, ?, ?, ?, '', '', '')";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, count + 1);
 			ps.setString(2, dto.getUser_id());
@@ -102,9 +104,11 @@ public class UserDAO {
 				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
-				dto.setUser_jjim1(rs.getInt("user_jjim1"));
-				dto.setUser_jjim2(rs.getInt("user_jjim2"));
-				dto.setUser_jjim3(rs.getInt("user_jjim3"));
+				int[] jL = new int[3];
+				jL[0] = rs.getInt("user_jjim1");
+				jL[1] = rs.getInt("user_jjim2");
+				jL[2] = rs.getInt("user_jjim3");
+				dto.setUser_jjimList(jL);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -132,6 +136,11 @@ public class UserDAO {
 				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
+				int[] jL = new int[3];
+				jL[0] = rs.getInt("user_jjim1");
+				jL[1] = rs.getInt("user_jjim2");
+				jL[2] = rs.getInt("user_jjim3");
+				dto.setUser_jjimList(jL);
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -163,6 +172,11 @@ public class UserDAO {
 				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
+				int[] jL = new int[3];
+				jL[0] = rs.getInt("user_jjim1");
+				jL[1] = rs.getInt("user_jjim2");
+				jL[2] = rs.getInt("user_jjim3");
+				dto.setUser_jjimList(jL);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -249,7 +263,7 @@ public class UserDAO {
 				dto.setPay_no(rs.getInt("pay_no"));
 				dto.setPay_userno(rs.getInt("pay_userno"));
 				dto.setPay_name(rs.getString("pay_name"));
-				dto.setPay_cardno(rs.getString("pay_cardno"));
+				dto.setPay_cardno(rs.getInt("pay_cardno"));
 				dto.setPay_cardcom(rs.getString("pay_cardcom"));
 				dto.setPay_cvc(rs.getInt("pay_cvc"));
 				dto.setPay_pwd(rs.getString("pay_pwd"));
@@ -278,7 +292,7 @@ public class UserDAO {
 				dto.setPay_no(rs.getInt("pay_no"));
 				dto.setPay_userno(rs.getInt("pay_userno"));
 				dto.setPay_name(rs.getString("pay_name"));
-				dto.setPay_cardno(rs.getString("pay_cardno"));
+				dto.setPay_cardno(rs.getInt("pay_cardno"));
 				dto.setPay_cardcom(rs.getString("pay_cardcom"));
 				dto.setPay_cvc(rs.getInt("pay_cvc"));
 				dto.setPay_pwd(rs.getString("pay_pwd"));
@@ -292,7 +306,7 @@ public class UserDAO {
 		return dto;
 	}
 
-	public int insertReservContetn(ReserveDTO dto) {
+	public int insertReservContent(ReserveDTO dto) {
 		int result = 0;
 		
 		try {
@@ -427,4 +441,209 @@ public class UserDAO {
 		return list;
 	}
 	
+	public HotelDTO getHotelContentbyUserNo(int user_no) {
+		HotelDTO dto = null;
+		try {
+			connect();
+			sql = "select * from hotel where hotel_no = (select hotel_no from hotel h join reserv r on hotel_no = reserv_hotelno where hotel_no = reserv_hotelno)";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				dto = new HotelDTO();
+				dto.setHotel_no(rs.getInt("hotel_no"));
+				dto.setHotel_ownerNo(rs.getInt("hotel_ownerno"));
+				dto.setHotel_name(rs.getString("hotel_name"));
+				dto.setHotel_phone(rs.getString("hotel_phone"));
+				dto.setHotel_addr(rs.getString("hotel_addr"));
+				dto.setHotel_location(rs.getString("hotel_location"));
+				dto.setHotel_email(rs.getString("hotel_email"));
+				dto.setHotel_info(rs.getString("hotel_info"));
+				dto.setHotel_room_count(rs.getInt("hotel_room_count"));
+				dto.setHotel_establish(rs.getInt("hotel_establish"));
+				dto.setHotel_photo_folder(rs.getString("hotel_photo_folder"));
+				dto.setHotel_price_min(rs.getInt("hotel_price_min"));
+				dto.setHotel_price_max(rs.getInt("hotel_price_max"));
+				dto.setHotel_people_min(rs.getInt("hotel_people_min"));
+				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
+				dto.setHotel_star(rs.getInt("hotel_star"));
+				dto.setHotel_point(rs.getInt("hotel_point"));
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return dto;
+	}
+	
+	public int changeUserPwd(int no, String nowPwd, String newPwd) {
+		
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select user_pwd from user1 where user_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+		
+			if(rs.next()) {
+				if(nowPwd.equals(rs.getString("user_pwd"))) {
+					sql = "update user1 set user_pwd = ? where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setString(1, newPwd);
+					ps.setInt(2, no);
+					result = ps.executeUpdate();
+				} else {
+					result = -1;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public int jjimCancel(int user_no, int hotel_no) {
+		
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select user_jjim1, user_jjim2, user_jjim3 from user1 where user_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) { // 찜 내역 존재
+				if(hotel_no == rs.getInt(1)) { // 찜1 취소
+					sql = "update user1 set user_jjim1 = user_jjim2, user_jjim2 = user_jjim3, user_jjim3 = null where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, user_no);
+					result = ps.executeUpdate();
+				} else if(hotel_no == rs.getInt(2)) { // 찜2 취소
+					sql = "update user1 set user_jjim2 = user_jjim3, user_jjim3 = null where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, user_no);
+					result = ps.executeUpdate();
+				} else { // 찜3 취소
+					sql = "update user1 set user_jjim3 = null where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, user_no);
+					result = ps.executeUpdate();
+				}
+			} else {
+				result = -1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public int getUserReservCancel(int reserv_no) {
+		int result = 0;
+		try {
+			connect();
+			sql = "update reserv set reserv_usecheck = 'C' where reserv_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, reserv_no);
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	
+	public int insertPayment(PaymentDTO dto, int user_no) {
+		int result = 0, count = 0;
+		try {
+			connect();
+			sql = "select max(pay_no) from payment";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+			sql = "insert into payment values(?, ?, ?, ?, ?, ?, ?, ?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, count + 1);
+			ps.setInt(2, user_no);
+			ps.setString(3, dto.getPay_name());
+			ps.setInt(4, dto.getPay_cardno());
+			ps.setString(5, dto.getPay_cardcom());
+			ps.setInt(6, dto.getPay_cvc());
+			ps.setString(7, dto.getPay_pwd());
+			ps.setString(8, dto.getPay_date());
+			
+			result = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+
+	public int jjimInsertContent(int hotel_no, int user_no) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select user_jjim1, user_jjim2, user_jjim3 from user1 where user_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				sql = "update user1 set ";
+				if(rs.getInt(1)==0) {
+					sql += "user_jjim1 = '"+hotel_no+"' ";
+				}else if(rs.getInt(2)==0) {
+					sql += "user_jjim2 = '"+hotel_no+"' ";
+				}else {
+					sql += "user_jjim3 = '"+hotel_no+"' ";
+				}
+				sql += "where user_no = ?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, user_no);
+				result = ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,8 +20,6 @@ public class PaymentPromotionListAction implements Action {
 		List<PromotionDTO>list = dao.getpromotionList();
 		
 		request.setAttribute("Promotion", list);
-		
-		
 	
 		forward.setRedirect(false);
 		forward.setPath("promotion/promotion.jsp");

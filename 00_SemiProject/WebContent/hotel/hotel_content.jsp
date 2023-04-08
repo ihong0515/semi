@@ -13,19 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.review_table{
-	border: 1px solid #c0c0c0;
-	border-collapse: collapse;
-}
-#review_write_table,
-#review_write_table tr,
-#review_write_table th,
-#review_write_table td{
-	border: 1px solid #c0c0c0;
-	border-collapse: collapse;
-}
-</style>
+<link href="<%=request.getContextPath() %>/css/hotel/hotel_content.css" rel="stylesheet">
 </head>
 <body>
 	<div id="container">
@@ -34,7 +22,23 @@
 		<c:if test="${!empty hoDTO }">
 			<div id="hotel_all_info">
 				<div id="hotel_info">
-					${hoDTO.getHotel_name() } <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach> ${hoDTO.getHotel_point() }/10.0<br>
+					${hoDTO.getHotel_name() }
+					<%--jjim 표시 --%>
+					<c:set var="check" value="-1" />
+					<c:forEach items="${user.getUser_jjimList() }" var="jjim">
+						<c:if test="${jjim==hoDTO.getHotel_no() }">
+							<c:set var="check" value="1" />
+						</c:if>
+					</c:forEach>
+					<c:if test="${check == 1}">
+						<span class="hotel_like_check" onclick="likeDelete(this, ${hoDTO.getHotel_no() })"><i class="fa fa-heart" aria-hidden="true"></i></span>
+					</c:if>
+					<c:if test="${check == -1}">
+						<span class="hotel_like_check" onclick="likeInsert(this, ${hoDTO.getHotel_no() }"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+					</c:if>
+					<%--jjim 표시 end --%>
+					<br>
+					<c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach> ${hoDTO.getHotel_point() }/10.0<br>
 					<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="100" height="100"><br>
 					${hoDTO.getHotel_addr() }<br>
 					<hr>
@@ -170,7 +174,7 @@
 						<table id="review_write_table">
 							<tr>
 								<td colspan="2">
-									<input type="number" placeholder="평점" name="review_point" min="0" max="10">
+									평점 : <input type="number" name="review_point" min="0" max="10" value="10">
 								</td>
 							</tr>
 							<tr>

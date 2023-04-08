@@ -18,14 +18,18 @@ function serchHotelList(e){
 			$(data).find("hotel").each(function(){
 					let hotel_no = $(this).find("hotel_no").text();
 					table += "<table><tr>";
-					table += "<td><a href='hotel_get_Content.do?hotel_no="+hotel_no+"'><img src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg'></a></td>";
+					table += "<td><a href='hotel_get_Content.do?hotel_no="+hotel_no+"'><img class='index_hotel_img' src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg'></a></td>";
 					table += "</tr>";
 					
 					table += "<tr>";
-					table += "<td>" + $(this).find("hotel_name").text()+"</td>"; 
+					table += "<td>" + $(this).find("hotel_name").text();
+					if($(this).find("hotel_jjim_check").text()==1){
+						table += " <span class='hotel_like_check' onclick='likeDelete(this, "+hotel_no+")'><i class='fa fa-heart' aria-hidden='true'></i></span>";
+					}else{
+						table += " <span class='hotel_like_check' onclick='likeInsert(this, "+hotel_no+")'><i class='fa fa-heart-o' aria-hidden='true'></i></span>";
+					}
+					table += "</td>"; 
 					table += "</tr>";
-					
-					
 					
 					let star = $(this).find("hotel_star").text();
 					Number(star);

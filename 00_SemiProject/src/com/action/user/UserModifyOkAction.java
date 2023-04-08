@@ -22,13 +22,13 @@ public class UserModifyOkAction implements Action {
 		String user_birth = request.getParameter("user_birth").trim();
 		String user_region = request.getParameter("user_region").trim();
 		
-		UserDTO dto = new UserDTO();
+		UserDAO dao = UserDAO.getInstance();
+		UserDTO dto = dao.getUserContent(user_no);
 		dto.setUser_no(user_no);
 		dto.setUser_phone(user_phone);
 		dto.setUser_birth(user_birth);
 		dto.setUser_region(user_region);
 		
-		UserDAO dao = UserDAO.getInstance();
 		int check = dao.updateUser(dto);
 		
 		PrintWriter out = response.getWriter();

@@ -1,6 +1,7 @@
 package com.action.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,14 +27,17 @@ public class UserJjimAction implements Action {
 		HttpSession session = request.getSession();
 		session.setAttribute("loginUser", user_dto);
 		
-		HotelDAO hotel_dao = HotelDAO.getInstance();
-		HotelDTO hotel_dto1 = hotel_dao.getHotelContent(user_dto.getUser_jjim1());
-		HotelDTO hotel_dto2 = hotel_dao.getHotelContent(user_dto.getUser_jjim2());
-		HotelDTO hotel_dto3 = hotel_dao.getHotelContent(user_dto.getUser_jjim3());
+		ArrayList<HotelDTO> list = new ArrayList<>();
 		
-		request.setAttribute("hotel_dto1", hotel_dto1);
-		request.setAttribute("hotel_dto2", hotel_dto2);
-		request.setAttribute("hotel_dto3", hotel_dto3);
+		int[] jjimList = user_dto.getUser_jjimList();
+		
+		for(int i : jjimList) {
+			if(i!=0) {
+				list.add(HotelDAO.getInstance().getHotelContent(i));
+			}
+		}
+
+		request.setAttribute("hotelList", list);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

@@ -21,6 +21,7 @@ public class PaymentPromotionContentAction implements Action {
 		PromotionDAO dao = PromotionDAO.getInstance();
 		PromotionDTO dto = dao.getPromotionContent(prom_no);
 		request.setAttribute("Promotion",dto);
+		
 		forward.setRedirect(false);
 		forward.setPath("promotion/promotion_content.jsp");
 		return forward;

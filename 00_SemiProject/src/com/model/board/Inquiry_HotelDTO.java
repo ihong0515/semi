@@ -12,8 +12,7 @@ public class Inquiry_HotelDTO {
 	private int inqho_group;
 	private int inqho_step;
 	private int inqho_indent;
-	
-	
+	private int inqho_userno;
 	
 	public int getInqho_no() {
 		return inqho_no;
@@ -80,6 +79,12 @@ public class Inquiry_HotelDTO {
 	}
 	public void setInqho_indent(int inqho_indent) {
 		this.inqho_indent = inqho_indent;
+	}
+	public int getInqho_userno() {
+		return inqho_userno;
+	}
+	public void setInqho_userno(int inqho_userno) {
+		this.inqho_userno = inqho_userno;
 	}
 	
 	

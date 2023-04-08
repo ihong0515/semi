@@ -12,6 +12,7 @@
 		<jsp:include page="../include/header.jsp" />
 		<div id="event_content" align = "center">
 			<h1>이벤트 프로 모션</h1>
+
 		<c:set  var="promotion_list" value = "${Promotion}" />	
 		<c:if test="${!empty Promotion}">
 				<c:forEach items="${Promotion}" var="dto" varStatus="i">
@@ -32,6 +33,31 @@
 		<c:if test="${empty Promotion}">
 				<h3>테이블이 없습니다.</h3>
 		</c:if>	
+
+			<c:set  var="promotion_list" value = "${Promotion}" />	
+			<c:if test="${!empty Promotion}">
+			<c:forEach items="${Promotion}" var="dto" varStatus="i">
+			<table border = "1" cellspacing="0" width ="30%">
+				<tr>
+					<td>
+						<button onclick = "window.open('PromotionContent.do?no=${dto.getProm_no()}','width=100% height=100%')" width="100%" height="100%">
+						<img src="<%=request.getContextPath()%>/image/promotion/${dto.getProm_folder()}/main.jpg" width="100%" height="100%">
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<td>${dto.getProm_name()}</td>
+				</tr>
+				<tr>
+					<td>${dto.getProm_info()}</td>
+				</tr>
+			</table>
+			</c:forEach>
+			</c:if>	
+			<c:if test="${empty Promotion}">
+			<h3>테이블이 없습니다.</h3>
+			</c:if>	
+
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>

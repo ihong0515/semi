@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="<%=request.getContextPath() %>/js/user/user_join_normal.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_join_normal.js?ver=1"></script>
 <script type="text/javascript">
 	/* 약관동의 전체 선택 */
 	$(document).ready(function() {
@@ -35,7 +35,7 @@
 	    	$(this).find(".sub").slideDown();
 		}
 	});
-	$(document).on("click","#main",function() {
+	$(document).on("click",".main",function() {
 		if($(this).next().css("display")=="none") {
 			$(this).next().show();
 			$(this).html('<i class="fa-solid fa-chevron-up"></i>');
@@ -47,7 +47,7 @@
 </script>
 <style type="text/css">
 
-#detail{
+.detail{
 	display:none;
 	overflow:scroll;
 	text-align:left;
@@ -69,7 +69,7 @@
 						<tr>
 							<th>아이디</th>
 							<td>
-								<input name="user_id" id="user_id" onblur="checkId(this)">
+								<input name="user_id" id="user_id" onblur="checkId(this)" onkeyup="idKorCheck(this)">
 								<input type="hidden" name="idcheckfin" value="idUncheck">
 								<br>
 								<span id="idcheck"></span>
@@ -79,7 +79,7 @@
 						<tr>
 							<th>비밀번호</th>
 							<td>
-								<input type="password" name="user_pwd" id="user_pwd" onblur="pwdKorCheck(this)" onchange="pwdInput()">
+								<input type="password" name="user_pwd" id="user_pwd" onkeyup="pwdKorCheck(this)" onchange="pwdInput()">
 								<br>
 								<span id="pwdcheck"></span>
 							</td>
@@ -150,14 +150,14 @@
 								<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 								<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 								<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-							<div class="ui-widget">
-								<td>
+							<td>
+								<div class="ui-widget">
 									<input name="user_email" id="user_email" onkeyup="autoEmail()" autocomplete="off">
 									<input type="button" value="이메일 인증">
 									<br>
 									<span id="emailcheck"></span>
-								</td>
-							</div>
+								</div>
+							</td>
 						</tr>
 					</table>
 					<br>
@@ -168,8 +168,8 @@
 					
 					<input type="checkbox" name="chk" id="required_1">
 					<label>서비스 이용 약관 동의(필수)</label>
-					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
-					<div id="detail">
+					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<div class="detail">
 						<pre>
 							<jsp:include page="../terms/user/service_terms" />
 						</pre>
@@ -178,8 +178,8 @@
 					
 					<input type="checkbox" name="chk" id="required_2">
 					<label>개인정보 처리방침 동의(필수)</label>
-					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
-					<div id="detail">
+					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<div class="detail">
 					 	<pre>
 					 		<jsp:include page="../terms/user/info_terms" />
 						</pre>
@@ -188,8 +188,8 @@
 					
 					<input type="checkbox" name="chk" id="required_3">
 					<label>만 14세 이상 확인(필수)</label>
-					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
-					<div id="detail">
+					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<div class="detail">
 						<pre>
 							<jsp:include page="../terms/user/kid_terms" />
 						</pre>
@@ -198,8 +198,8 @@
 					
 					<input type="checkbox" name="chk">
 					<label>평생회원제 동의(선택)</label>
-					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
-					<div id="detail">
+					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<div class="detail">
 						<pre>
 							<jsp:include page="../terms/user/member_terms" />
 						</pre>
@@ -208,8 +208,8 @@
 					
 					<input type="checkbox" name="chk">
 					<label>쿠폰, 이벤트 등 혜택 알림 동의(선택)</label>
-					<span id="main"><i class="fa-solid fa-chevron-down"></i></span>
-					<div id="detail">
+					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<div class="detail">
 						<pre>
 							<jsp:include page="../terms/user/coupon_terms" />
 						</pre>

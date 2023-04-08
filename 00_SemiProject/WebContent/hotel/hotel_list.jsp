@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="hotel_list" value="${Hotel_List }" />
+<c:set var="user" value="${sessionScope.loginUser }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,7 +106,22 @@
 						<div class="cnt">
 							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder()}/main.jpg" width="150px" height="150px" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'">
 							<div>
-								호텔 이름 : <a href="<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }">${dto.getHotel_name() }</a> <br>
+								<a href="<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }">${dto.getHotel_name() }</a>
+								<%--jjim 표시 --%>
+								<c:set var="check" value="-1" />
+								<c:forEach items="${user.getUser_jjimList() }" var="jjim">
+									<c:if test="${jjim==dto.getHotel_no() }">
+										<c:set var="check" value="1" />
+									</c:if>
+								</c:forEach>
+								<c:if test="${check == 1}">
+									<span class="hotel_like_check" onclick="likeDelete(this, ${dto.getHotel_no() })"><i class="fa fa-heart" aria-hidden="true"></i></span>
+								</c:if>
+								<c:if test="${check == -1}">
+									<span class="hotel_like_check" onclick="likeInsert(this, ${dto.getHotel_no() })"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+								</c:if>
+								<%--jjim 표시 end --%>
+								<br>
 								<c:forEach begin="1" end="${dto.getHotel_star() }">★</c:forEach>
 								 <br>
 								평점 : ${dto.getHotel_point() }/10 <br>
