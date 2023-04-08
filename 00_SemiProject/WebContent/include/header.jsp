@@ -24,17 +24,6 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/header.css">
 </head>
 <body>
-<<<<<<< HEAD
-<div id="header" align ="center">
-	<div class = "header_nav" >
-		<h1><a href="<%=request.getContextPath()%>/index.jsp"><i class="fa fa-home" aria-hidden="true"></i></a></h1>
-			<c:set var="dto" value="${sessionScope.loginUser }" />
-				<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
-		          <ul>
-		            <li>
-		            <c:if test="${empty dto}">
-		            	<a href="<%=request.getContextPath()%>/user_login_page.do">로그인</a>
-=======
 	<div id="container">
 		<div id="header">
 			<div id="header_navi">
@@ -57,14 +46,11 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 		            <li><a href="<%=request.getContextPath() %>/crawling_hotel.do">다양한 호텔 리뷰</a></li>
 		            <li><a href="<%=request.getContextPath()%>/PromotionList.do">프로모션</a></li>
 		          </ul>
-
 		        </nav>
 		    </div><!-- Header nav bar end -->    
 		<hr>
-	
 		<h5>검색창</h5>
 			<div class = "header_search">
-
 		       </div>
 			</div>
 			<div id="header_search">
@@ -102,23 +88,6 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 		 </div><!-- header_search bar end -->
 	</div><!--header div end  -->
 	<hr>
-=======
-					<c:if test="${!empty sessionScope.CheckDate }">
-					<c:set var="checkDate" value="${sessionScope.CheckDate }" />
-					<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
-					<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-					<input type="date" value="${checkin }" class="checkIn" name="checkinDate">~<input type="date" value="${checkout }" class="checkOut" name="checkoutDate">
-					</c:if>
-					<c:if test="${empty sessionScope.CheckDate }">
-					<input type="date" value="" class="checkIn" name="checkinDate">~<input type="date" value="" class="checkOut" name="checkoutDate">
-					</c:if>
-			     <!--체크아웃 셀렉트 박스 end  -->
-		         <%--지역이나, 호텔이름 관련 키워드로 입력 예정 --%>	
-					<input type="text" placeholder="지역,숙소명 입력"name="keyword">&nbsp;&nbsp;<input type ="submit">
-				</form>
-			</div>
-		</div><!--header div end  -->
-	</div>
->>>>>>> d54b28dbab749590637620cf00cc0d4b6a3e3c44
+
 </body>
 </html>
