@@ -35,7 +35,6 @@ public class HotelPaymentAction implements Action {
 		request.setAttribute("HotelDTO", hotel);
 		request.setAttribute("RoomDTO", room);
 		
-		
 		forward.setRedirect(false);
 		forward.setPath("hotel/hotel_payment.jsp");
 		return forward;

@@ -3,12 +3,12 @@
 nav{
 	margin-bottom: 50px;
 }
-nav ul{
+.index_search ul{
 	padding: 0;
 	display: flex;
 	justify-content: space-around;
 }
-nav ul li{
+.index_search ul li{
 	list-style: none;
 	width: 100px;
 }

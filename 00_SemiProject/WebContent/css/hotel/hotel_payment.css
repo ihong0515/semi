@@ -5,7 +5,7 @@
 	height: 500px;
 	position: absolute;
 	left: 25%;
-	top: 500px;
+	top: 875px;
 	display: none;
 	flex-direction: column;
 	align-items: center;
@@ -32,26 +32,28 @@
 	padding: 10px;
 	overflow: auto;
 }
-#modal .title {
+#modal .modal-title {
 	padding-left: 10px;
 	display: inline;
 	text-shadow: 1px 1px 2px gray;
 	color: white;
 }
-#modal .title h2 {
+#modal .modal-title h2 {
 	display: inline;
 }
 #modal .close-area {
-	display: inline;
 	float: right;
 	padding-right: 10px;
 	cursor: pointer;
 	text-shadow: 1px 1px 2px gray;
 	color: white;
 }
-#modal .content {
-margin-top: 20px;
-padding: 0px 10px;
-text-shadow: 1px 1px 2px gray;
-color: white;
+#modal .modal-content {
+	margin-top: 20px;
+	padding: 0px 10px;
+	text-shadow: 1px 1px 2px gray;
+	color: white;
+}
+.modal_content_inp{
+		width: 30px;
 }

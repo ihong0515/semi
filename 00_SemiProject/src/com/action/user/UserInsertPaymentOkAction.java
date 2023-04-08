@@ -16,7 +16,6 @@ public class UserInsertPaymentOkAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
-		System.out.println("user_no : "+ user_no);
 		
 		String pay_name = request.getParameter("pay_name").trim();
 		int pay_cardno = Integer.parseInt(request.getParameter("pay_cardno").trim());

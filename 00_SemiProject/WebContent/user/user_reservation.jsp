@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="dtoUser" value="${sessionScope.loginUser }" />
 <c:set var="dtoHotel" value="${dtoHotel }"/>
 <!DOCTYPE html>
@@ -35,15 +36,14 @@
 				<c:if test="${!empty list }">
 					<c:forEach items="${list }" var="dtoReserv">
 						<ul>
-							<img onclick="location.href='hotel_get_Content.do?hotel_no=${dtoReserv.getReserv_hotelno() }'"
-								 src='/00_SemiProject/image/hotel/${dtoHotel.getHotel_photo_folder() }/main.jpg' style='width:100px; height:100px;'>
+							<li><img onclick="location.href='hotel_get_Content.do?hotel_no=${dtoReserv.getReserv_hotelno() }'"
+								 src='/00_SemiProject/image/hotel/${dtoHotel.getHotel_photo_folder() }/main.jpg' style='width:100px; height:100px;'></li>
 							<li><h3>${dtoReserv.getReserv_hotelname() }</h3></li>
 							<li>객실명: ${dtoReserv.getReserv_roomname() }</li>
-							<li>체크인: ${dtoReserv.getReserv_start() }</li>
-							<li>체크아웃: ${dtoReserv.getReserv_end() }</li>
-							<li>결제금액: <fmt:formatNumber value="${dtoReserv.getReserv_realprice() }"/>원</li>
-							<br>
-							<input type="button" value="예약 취소" onclick="cancelReservCheck(${dtoReserv.getReserv_no() })">
+							<li>체크인: ${dtoReserv.getReserv_start().substring(0,10) }</li>
+							<li>체크아웃: ${dtoReserv.getReserv_end().substring(0,10) }</li>
+							<li>결제금액: <fmt:formatNumber value="${dtoReserv.getReserv_realprice() }" type="currency" />원</li>
+							<li><input type="button" value="예약 취소" onclick="cancelReservCheck(${dtoReserv.getReserv_no() })"></li>
 						</ul>
 					</c:forEach>
 				</c:if>

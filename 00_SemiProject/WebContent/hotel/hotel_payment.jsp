@@ -24,46 +24,13 @@ if(checkDate!=null){
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+	let check_price_param = '${roDTO.getRoom_price() * inoutDay}';
+</script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_payment.js"></script>
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_payment.css" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-function saleCheck() {
-	$.ajax({
-		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
-		type: "post",
-		url: "coupon_get_SalePrice.do",
-		data: {
-			coup_no:$('#prom_code_select').val(),
-			price: ${roDTO.getRoom_price() * inoutDay}
-		},
-		datatype: "xml",
-		success: function(data){
-			alert('쿠폰 등록 성공!');
-			$(data).find("coupon").each(function() {
-				let saleP = $("saleP", this).text();
-				let price = $("price", this).text();
-				let name = $("name", this).text();
-				let sale = $("sale", this).text();
-				
-				let resultSale = saleP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-				let resultPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-				
-				$('#coupon_name').text(name +" / "+ sale+" % 할인");
-				$('#salePrice').text("₩"+resultSale);
-				$('#realPrice').text("₩"+resultPrice);
-				$('#coup_no').val($("coup_no", this).text());
-				$('#prom_no').val($("prom_no", this).text());
-				$('#realPrice_hidden').val(price);
-			});
-		},
-		error: function(data){
-			alert('쿠폰 등록 실패..');
-		}
-	});
-}
-</script>
 </head>
 <body>
 	<div id="container">
@@ -180,50 +147,57 @@ function saleCheck() {
 					</div>
 					<div id="modal" class="modal-overlay">
 				        <div class="modal-window use_terms">
-				            <div class="title">
+				            <div class="modal-title">
 				                <h2>이용 약관</h2>
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="content">
+				            <div class="modal-content">
 								<jsp:include page="../terms/payment/use_terms" />
 				            </div>
-				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
-				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
-				            
+				            <div class="modal-footer">
+				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
+				            </div>
 				        </div>
 				        <div class="modal-window privat_terms">
-				            <div class="title">
+				            <div class="modal-title">
 				                <h2>개인정보 처리방침</h2>
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="content">
+				            <div class="modal-content">
 				                <jsp:include page="../terms/payment/privat_terms" />
 				            </div>
-				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
-				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
+				            <div class="modal-footer">
+				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
+				            </div>
 				        </div>
 				        <div class="modal-window servies_terms">
-				            <div class="title">
+				            <div class="modal-title">
 				                <h2>공급업체 서비스 약관</h2>
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="content">
+				            <div class="modal-content">
 				                <jsp:include page="../terms/payment/servies_terms" />
 				            </div>
-				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
-				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
+				            <div class="modal-footer">
+				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
+				            </div>
 				        </div>
 				        <div class="modal-window tex_terms">
-				            <div class="title">
+				            <div class="modal-title">
 				                <h2>세금 명세 약관</h2>
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="content">
+				            <div class="modal-content">
 				               <jsp:include page="../terms/payment/tex_terms" />
 				            </div>
-				            <input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
-				            <input type="button" value="동의안함" onclick="modal_uncheck(this)">
-				        </div>
+				            <div class="modal-footer">
+				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
+								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
+				            </div>
+						</div>
 				    </div>
 				    <div id="payment_usercard">
 						${dto.getUser_name() }

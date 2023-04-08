@@ -22,10 +22,14 @@ function serchHotelList(e){
 					table += "</tr>";
 					
 					table += "<tr>";
-					table += "<td>" + $(this).find("hotel_name").text()+"</td>"; 
+					table += "<td>" + $(this).find("hotel_name").text();
+					if($(this).find("hotel_jjim_check").text()==1){
+						table += " <span class='hotel_like_check' onclick='likeDelete(this, "+hotel_no+")'><i class='fa fa-heart' aria-hidden='true'></i></span>";
+					}else{
+						table += " <span class='hotel_like_check' onclick='likeInsert(this, "+hotel_no+")'><i class='fa fa-heart-o' aria-hidden='true'></i></span>";
+					}
+					table += "</td>"; 
 					table += "</tr>";
-					
-					
 					
 					let star = $(this).find("hotel_star").text();
 					Number(star);

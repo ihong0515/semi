@@ -104,9 +104,11 @@ public class UserDAO {
 				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
-				dto.setUser_jjim1(rs.getInt("user_jjim1"));
-				dto.setUser_jjim2(rs.getInt("user_jjim2"));
-				dto.setUser_jjim3(rs.getInt("user_jjim3"));
+				int[] jL = new int[3];
+				jL[0] = rs.getInt("user_jjim1");
+				jL[1] = rs.getInt("user_jjim2");
+				jL[2] = rs.getInt("user_jjim3");
+				dto.setUser_jjimList(jL);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -134,6 +136,11 @@ public class UserDAO {
 				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
+				int[] jL = new int[3];
+				jL[0] = rs.getInt("user_jjim1");
+				jL[1] = rs.getInt("user_jjim2");
+				jL[2] = rs.getInt("user_jjim3");
+				dto.setUser_jjimList(jL);
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -165,6 +172,11 @@ public class UserDAO {
 				dto.setUser_region(rs.getString("user_region"));
 				dto.setUser_pwd(rs.getString("user_pwd"));
 				dto.setUser_id(rs.getString("user_id"));
+				int[] jL = new int[3];
+				jL[0] = rs.getInt("user_jjim1");
+				jL[1] = rs.getInt("user_jjim2");
+				jL[2] = rs.getInt("user_jjim3");
+				dto.setUser_jjimList(jL);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -294,7 +306,7 @@ public class UserDAO {
 		return dto;
 	}
 
-	public int insertReservContetn(ReserveDTO dto) {
+	public int insertReservContent(ReserveDTO dto) {
 		int result = 0;
 		
 		try {
@@ -579,6 +591,38 @@ public class UserDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			close();
+		}
+		return result;
+	}
+
+	public int jjimInsertContent(int hotel_no, int user_no) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select user_jjim1, user_jjim2, user_jjim3 from user1 where user_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				sql = "update user1 set ";
+				if(rs.getInt(1)==0) {
+					sql += "user_jjim1 = '"+hotel_no+"' ";
+				}else if(rs.getInt(2)==0) {
+					sql += "user_jjim2 = '"+hotel_no+"' ";
+				}else {
+					sql += "user_jjim3 = '"+hotel_no+"' ";
+				}
+				sql += "where user_no = ?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, user_no);
+				result = ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
 			close();
 		}
 		return result;

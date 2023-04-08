@@ -9,7 +9,9 @@
 		}else{
 			page = 1;
 		}
-		console.log('1');
+		
+		$('#board_write_btn').show();
+		
 		$.ajax({
 			type: "post",
 			url: "board_Site_Get_List.do",
@@ -79,6 +81,9 @@
 			}else{
 				page = 1;
 			}
+			
+			$('#board_write_btn').hide();
+			
 			$.ajax({
 				type: "post",
 				url: "board_Hotel_Get_List.do",

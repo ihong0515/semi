@@ -18,7 +18,6 @@ public class UserPaymentAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		int user_no = Integer.parseInt(request.getParameter("no").trim());
-		System.out.println(user_no);
 		
 		UserDAO daoUser = UserDAO.getInstance();
 		UserDTO dtoUser = daoUser.getUserContent(user_no);

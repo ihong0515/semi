@@ -36,3 +36,7 @@ a:hover{
 #header_search{
 	text-align: center;
 }
+.hotel_like_check{
+	cursor: pointer;
+	color: blue;
+}

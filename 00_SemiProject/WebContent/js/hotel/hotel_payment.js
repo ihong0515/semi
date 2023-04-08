@@ -5,13 +5,13 @@ function modal_click(e) {
 	modal_close();
 	let modal_class = $(e).attr('class');
 	$('#modal').css('display', 'flex');
-	$('#modal').find('.'+modal_class+'').css('display','inline-block');
+	$('#modal').find('.'+modal_class).css('display','inline-block');
 }
-
 function modal_close(){
 	$('.modal-window').css('display','none');
 	$('#modal').css('display','none');
 }
+
 function modal_check(e){
 	modal_close();
 	let modal_class = $(e).parents('div').attr('class').slice(13);
@@ -74,7 +74,7 @@ function payment_getno(){
 		success: function(data){
 			let cardno = $(data).find("pay_cardno").text();
 			let pay_no = $(data).find("pay_no").text();
-			let txt = "카드번호 : "+cardno.slice(0,4)+"-****-****-"+cardno.slice(12)+" 할부 : <input type='number' min='1' name='reserv_ins' style='width:30px;'>"
+			let txt = "카드번호 : "+cardno.slice(0,4)+"-****-****-"+cardno.slice(12)+" 할부 : <input type='number' min='1' name='reserv_ins' style='width:30px;'>";
 			txt += "<br>카드사 : "+ $(data).find("pay_cardcom").text();
 			
 			$('#payment_usercard_view p').html(txt);
@@ -82,6 +82,41 @@ function payment_getno(){
 		},
 		error: function(){
 			alert('카드 가져오기 실패..');
+		}
+	});
+}
+
+function saleCheck() {
+	$.ajax({
+		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+		type: "post",
+		url: "coupon_get_SalePrice.do",
+		data: {
+			coup_no:$('#prom_code_select').val(),
+			price: check_price_param
+		},
+		datatype: "xml",
+		success: function(data){
+			alert('쿠폰 등록 성공!');
+			$(data).find("coupon").each(function() {
+				let saleP = $("saleP", this).text();
+				let price = $("price", this).text();
+				let name = $("name", this).text();
+				let sale = $("sale", this).text();
+				
+				let resultSale = saleP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+				let resultPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+				
+				$('#coupon_name').text(name +" / "+ sale+" % 할인");
+				$('#salePrice').text("₩"+resultSale);
+				$('#realPrice').text("₩"+resultPrice);
+				$('#coup_no').val($("coup_no", this).text());
+				$('#prom_no').val($("prom_no", this).text());
+				$('#realPrice_hidden').val(price);
+			});
+		},
+		error: function(data){
+			alert('쿠폰 등록 실패..');
 		}
 	});
 }
