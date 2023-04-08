@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>새 결제수단 등록</title>
 <script type="text/javascript">
-
 	function etc_card(e) {
 		if($(e).val() == "etc"){
 			$("#etc").show();
@@ -16,7 +15,6 @@
 			$("#etc").hide();
 		}
 	}
-
 	function inputMoveNumber(num) {
 		if(isFinite(num.value) == false) {
 			alert("카드번호는 숫자만 입력할 수 있습니다.");
@@ -31,7 +29,6 @@
 
 </script>
 <style type="text/css">
-
 	.moveNumber {
 		text-align:center;
 		width:40px;

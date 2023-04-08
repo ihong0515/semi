@@ -14,7 +14,6 @@
     	<div id="content" align="center">
 			<h2>${dto.getUser_name() }님의 마이페이지</h2>
 			<br>
-			
 			<ul>
 				<li><a href="<%=request.getContextPath() %>/user_info.do?no=${dto.getUser_no() }">회원 상세 정보</a></li>
 				<li><a href="<%=request.getContextPath() %>/user_payment.do?no=${dto.getUser_no() }">내 결제수단 정보</a></li>

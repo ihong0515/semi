@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/index/index.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/include/index.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/index.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
 		<%-- 기본 커서 서울에 잡혀 있게 할 예정. --%>
 		<%--지역별 별점순(내림차순 정렬후) 숙소 추천  배너--%>
 		<section>
-			<nav>
+			<nav class="index_search">
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
 					<li><input type="button" class="Starlocation" id="Starlocation" value="서울" onclick="serchHotelList(this)"></li>
@@ -39,7 +39,7 @@
 					</tr>
 				</table>
 			<%--지역 별 최저가 순 추천 --%>
-			<nav>
+			<nav class="index_search">
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
 						<li><input type="button" class="lowPricelocation" id="lowPricelocation" value="서울" onclick="serchHotelList(this)"></li>

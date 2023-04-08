@@ -6,26 +6,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-
 	function check() {
 		if(f.writer.value == "") {
 			alert("작성자를 입력하세요!!!")
 			f.writer.focus();
 			return false;
 		}
-		
 		if(f.title.value == "") {
 			alert("글 제목을 입력하세요!!!")
 			f.title.focus();
 			return false;
 		}
-		
 		if(f.cont.value == "") {
 			alert("글 내용을 입력하세요!!!")
 			f.cont.focus();
 			return false;
 		}
-		
 		if(f.pwd.value == "") {
 			alert("글 내용을 입력하세요!!!")
 			f.pwd.focus();

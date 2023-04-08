@@ -10,22 +10,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/board/board_write.css">
 <script type="text/javascript">
-
-
-	function check() {
-		if(f.title.value == "") {
-			alert("제목을 입력하세요.")
-			f.title.focus();
-			return false;
-		}
-		
-		if(f.content.value == "") {
-			alert("문의내용을 입력하세요.")
-			f.content.focus();
-			return false;
-		}
+function check() {
+	if(f.title.value == "") {
+		alert("제목을 입력하세요.")
+		f.title.focus();
+		return false;
 	}
-	
+	if(f.content.value == "") {
+		alert("문의내용을 입력하세요.")
+		f.content.focus();
+		return false;
+	}
+}
 </script>
 </head>
 <body>

@@ -29,10 +29,7 @@ public class UserJjimAction implements Action {
 		
 		ArrayList<HotelDTO> list = new ArrayList<>();
 		
-		int[] jjimList = {0, 0, 0};
-		jjimList[0] = user_dto.getUser_jjim1();
-		jjimList[1] = user_dto.getUser_jjim2();
-		jjimList[2] = user_dto.getUser_jjim3();
+		int[] jjimList = user_dto.getUser_jjimList();
 		
 		for(int i : jjimList) {
 			if(i!=0) {

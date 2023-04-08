@@ -15,24 +15,19 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
-$(function () {
-	if(<%=checkDate==null %>){
-        $(".checkIn").val(new Date().toISOString().slice(0, 10));
-        $(".checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
-     }
-	if($('#Starlocation').length){
-		serchHotelList($('#Starlocation'));
-		serchHotelList($('#lowPricelocation'));
-	}
-});
+	let user_no = '${loginUser.getUser_no()}';
+	let checkdate_param = '<%=checkDate==null %>';
+	let contextPath = '<%=request.getContextPath() %>';
 </script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/include/header.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/onload.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/header.css">
 </head>
 <body>
 	<div id="container">
 		<div id="header">
 			<div id="header_navi">
-				<div id="header_navi_home"><img alt="" src="<%=request.getContextPath() %>/image/include/banner.jpg" onclick="location.href='<%=request.getContextPath()%>/index.jsp'"></div>
+				<div id="header_navi_home"><img alt="" src="<%=request.getContextPath() %>/image/include/banner.jpg" onclick="location.href='<%=request.getContextPath()%>/index_move.do'"></div>
 				<c:set var="dto" value="${sessionScope.loginUser }" />
 				<div id="header_navi_home_log">
 					<c:if test="${empty dto}">
@@ -41,7 +36,7 @@ $(function () {
 		            <c:if test="${!empty dto}">
 		            <a href="<%=request.getContextPath()%>/user_my_page.do">마이페이지</a>
 					<%--로그아웃 --%>&nbsp;|&nbsp;
-					<a href="javascript:if(confirm('로그아웃 진행하십니까?')){location.href='<%=request.getContextPath()%>/user_logout.do'}else{return;}">로그아웃</a>
+					<a href="javascript:logout()">로그아웃</a>
 		            </c:if>
 				</div>
 				<div id="header_navi_ul"><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->

@@ -25,7 +25,7 @@
 	    		<input type="button" value="호텔 문의" id="hotel_board" onclick="hotel_board_getList()">
 	    	</div>
 	    	<div id="board_main">
-	    		<div id="board_write_btn">
+	    		<div id="board_write_btn" style="display: none;">
 	    			<input type="button" value="문의하기" onclick="if(confirm('사이트에 문의사항을 작성하러 가시겠습니까.')){location.href='<%=request.getContextPath() %>/board_site_write.do'} else{return false; }">
 	    		</div>
 	    		<table id=board_list>
