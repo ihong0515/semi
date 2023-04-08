@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="footer">
-			<hr>
+		<hr>
 		<h5>하단 네비바</h5>
 		<nav><!--구현 기능접속 네비바  -->
           <ul>

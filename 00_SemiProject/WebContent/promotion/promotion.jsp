@@ -14,7 +14,6 @@
 			<h1>이벤트 프로 모션</h1>
 		<c:set  var="promotion_list" value = "${Promotion}" />	
 		<c:if test="${!empty Promotion}">
-				
 				<c:forEach items="${Promotion}" var="dto" varStatus="i">
 						<table border = "1" cellspacing="0" width ="30%">
 							<tr>

@@ -28,8 +28,8 @@ $(function () {
 </script>
 </head>
 <body>
-	<div id="header">
-		<div align ="center">
+<div id="header" align ="center">
+	<div class = "header_nav" >
 		<h1><a href="<%=request.getContextPath()%>/index.jsp"><i class="fa fa-home" aria-hidden="true"></i></a></h1>
 			<c:set var="dto" value="${sessionScope.loginUser }" />
 				<nav><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
@@ -50,9 +50,11 @@ $(function () {
 		            <li><a href="<%=request.getContextPath() %>/hotel_mapping_list.do">호텔 추천</a>
 		          </ul>
 		        </nav>
+		    </div><!-- Header nav bar end -->    
 		<hr>
 	
 		<h5>검색창</h5>
+			<div class = "header_search">
 				<form  method = "post" action="<%=request.getContextPath()%>/hotel_Search.do">
 					<!--지역선택 selectbox  -->
 					지역<select name="location">
@@ -79,12 +81,10 @@ $(function () {
 							<input type="date" value="" class="checkIn" name="checkinDate">~<input type="date" value="" class="checkOut" name="checkoutDate">
 						</c:if>
 			            <!--체크아웃 셀렉트 박스 end  -->
-			        
 			         	<br/>
-			         <%--지역이나, 호텔이름 관련 키워드로 입력 예정 --%>	
 			         <input type="text" placeholder="지역,숙소명 입력"name="keyword">&nbsp;&nbsp;<input type ="submit">
 				</form>
-		</div><!-- div center end -->
+		 </div><!-- header_search bar end -->
 	</div><!--header div end  -->
 	<hr>
 </body>
