@@ -65,8 +65,6 @@ public class PromotionDAO {
 				dto = new CouponDTO();
 				dto.setCoup_no(rs.getInt("coup_no"));
 				dto.setCoup_promno(rs.getInt("coup_promno"));
-				dto.setCoup_name(rs.getString("coup_name"));
-				dto.setCoup_info(rs.getString("coup_info"));
 				dto.setCoup_sale(rs.getInt("coup_sale"));
 				dto.setCoup_serialno(rs.getString("coup_serialno"));
 				dto.setCoup_userno(rs.getInt("coup_userno"));
