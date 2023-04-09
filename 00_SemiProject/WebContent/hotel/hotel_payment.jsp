@@ -21,6 +21,7 @@ if(checkDate!=null){
 <c:set var="usDTO" value="${sessionScope.loginUser }" />
 <c:set var="cardList" value="${CardList }" />
 <c:set var="coupList" value="${CoupList }" />
+<c:set var="promList" value="${PromList }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,10 +104,16 @@ if(checkDate!=null){
 						<div id="payment_hotel_promotion">
 							<h3>혜택 적용</h3>
 							<span>할인 코드</span><br>
-							<select id="prom_code_select">
-								<option value="">:::::::</option>
+							<select id="prom_code_select" style="width: 120px;">
+								<option value="">::::::::::::::::::::::::::</option>
 								<c:forEach items="${coupList }" var="coDTO">
-								<option value="${coDTO.getCoup_no() }">${coDTO.getCoup_name() }</option>
+								<option value="${coDTO.getCoup_no() }">
+								<c:forEach items="${promList }" var="prDTO">
+									<c:if test="${prDTO.getProm_no()==coDTO.getCoup_promno() }">
+									${prDTO.getProm_name() }
+									</c:if>
+								</c:forEach>
+								</option>
 								</c:forEach>
 							</select>
 							<input type="button" value="할인 적용" id="prom_code_btn" onclick="saleCheck()"><br>

@@ -55,14 +55,6 @@ function fullpageUse(){
 		sectionsColor: ['#b3e0ff', '#b3e0ff'],
 		loopBottom: true,
 		verticalCentered: true,
-		anchors:['map_anchor'],
-		nagivation: true,
-		navigationPosition: 'left',
-		navigationTooltips: ['Page 1', 'Page 2'],
-		showActiveTooltip: true,
-		menu: '#menu',
-		slidesNavigation: true,
-		scrollBar: true
-		
+		anchors:['map_anchor']
 	});
 }

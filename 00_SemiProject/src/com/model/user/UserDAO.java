@@ -263,7 +263,7 @@ public class UserDAO {
 				dto.setPay_no(rs.getInt("pay_no"));
 				dto.setPay_userno(rs.getInt("pay_userno"));
 				dto.setPay_name(rs.getString("pay_name"));
-				dto.setPay_cardno(rs.getInt("pay_cardno"));
+				dto.setPay_cardno(rs.getString("pay_cardno"));
 				dto.setPay_cardcom(rs.getString("pay_cardcom"));
 				dto.setPay_cvc(rs.getInt("pay_cvc"));
 				dto.setPay_pwd(rs.getString("pay_pwd"));
@@ -292,7 +292,7 @@ public class UserDAO {
 				dto.setPay_no(rs.getInt("pay_no"));
 				dto.setPay_userno(rs.getInt("pay_userno"));
 				dto.setPay_name(rs.getString("pay_name"));
-				dto.setPay_cardno(rs.getInt("pay_cardno"));
+				dto.setPay_cardno(rs.getString("pay_cardno"));
 				dto.setPay_cardcom(rs.getString("pay_cardcom"));
 				dto.setPay_cvc(rs.getInt("pay_cvc"));
 				dto.setPay_pwd(rs.getString("pay_pwd"));
@@ -580,7 +580,7 @@ public class UserDAO {
 			ps.setInt(1, count + 1);
 			ps.setInt(2, user_no);
 			ps.setString(3, dto.getPay_name());
-			ps.setInt(4, dto.getPay_cardno());
+			ps.setString(4, dto.getPay_cardno());
 			ps.setString(5, dto.getPay_cardcom());
 			ps.setInt(6, dto.getPay_cvc());
 			ps.setString(7, dto.getPay_pwd());

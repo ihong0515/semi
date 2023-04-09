@@ -18,7 +18,7 @@ public class UserInsertPaymentOkAction implements Action {
 		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
 		
 		String pay_name = request.getParameter("pay_name").trim();
-		int pay_cardno = Integer.parseInt(request.getParameter("pay_cardno").trim());
+		String pay_cardno = request.getParameter("pay_cardno").trim();
 		String pay_cardcom = request.getParameter("pay_cardcom").trim();
 		int pay_cvc = Integer.parseInt(request.getParameter("pay_cvc").trim());
 		String pay_pwd = request.getParameter("pay_pwd").trim();
