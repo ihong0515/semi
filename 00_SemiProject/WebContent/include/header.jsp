@@ -50,15 +50,11 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 		            <li><a href="<%=request.getContextPath() %>/crawling_hotel.do">다양한 호텔 리뷰</a></li>
 		            <li><a href="<%=request.getContextPath()%>/PromotionList.do">프로모션</a></li>
 		          </ul>
-		        </nav>
-		    </div><!-- Header nav bar end -->    
-		<hr>
-		<h5>검색창</h5>
-			<div class = "header_search">
-		       </div>
-			</div>
+		        </div>
+		    </div><!-- header_navi end -->    
+			<hr>
+			<h5>검색창</h5>
 			<div id="header_search">
-
 				<form  method = "post" action="<%=request.getContextPath()%>/hotel_Search.do">
 					<!--지역선택 selectbox  -->
 					<select name="location">
@@ -73,25 +69,21 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 						<option value = "경북">경북</option>
 						<option value = "제주">제주</option>
 					</select>
-					
 					<!--날짜선택 selectbox  -->
-
-						<c:if test="${!empty sessionScope.CheckDate }">
-							<c:set var="checkDate" value="${sessionScope.CheckDate }" />
-							<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
-							<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-							<input type="date" value="${checkin }" class="checkIn" name="checkinDate">~<input type="date" value="${checkout }" class="checkOut" name="checkoutDate">
-						</c:if>
-						<c:if test="${empty sessionScope.CheckDate }">
-							<input type="date" value="" class="checkIn" name="checkinDate">~<input type="date" value="" class="checkOut" name="checkoutDate">
-						</c:if>
-			            <!--체크아웃 셀렉트 박스 end  -->
-			         	<br/>
-			         <input type="text" placeholder="지역,숙소명 입력"name="keyword">&nbsp;&nbsp;<input type ="submit">
+					<c:if test="${!empty sessionScope.CheckDate }">
+					<c:set var="checkDate" value="${sessionScope.CheckDate }" />
+						<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
+						<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
+						<input type="date" value="${checkin }" class="checkIn" name="checkinDate">~<input type="date" value="${checkout }" class="checkOut" name="checkoutDate">
+					</c:if>
+					<c:if test="${empty sessionScope.CheckDate }">
+						<input type="date" value="" class="checkIn" name="checkinDate">~<input type="date" value="" class="checkOut" name="checkoutDate">
+					</c:if>
+					<!--체크아웃 셀렉트 박스 end  -->
+			        <input type="text" placeholder="지역,숙소명 입력"name="keyword">&nbsp;&nbsp;<input type ="submit">
 				</form>
-		 </div><!-- header_search bar end -->
-	</div><!--header div end  -->
-	<hr>
-
+			</div><!-- header_search bar end -->
+		</div><!--header end  -->
+	</div>
 </body>
 </html>

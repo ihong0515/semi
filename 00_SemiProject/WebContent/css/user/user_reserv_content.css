@@ -1,2 +1,17 @@
 @charset "UTF-8";
 
+#content div{
+	margin-bottom: 20px;
+}
+.cancle_info_content{
+	display: flex;
+	justify-content: flex-start;
+}
+.cancle_info_head{
+	text-align: center;
+	vertical-align: middle;
+	width: 150px;
+}
+.cancle_info_body{
+	margin-left: 20px;
+}
