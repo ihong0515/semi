@@ -15,7 +15,7 @@
 }
 
 .range_number {
-	border: 1px solid #ddd;
+	border: 1px solid red;
 	text-align: center;
 	font-size: 1.6em;
 	-moz-appearance: textfield;
@@ -28,7 +28,7 @@
 
 .range_number:invalid,
 .range_number:out-of-range {
-	border: 2px solid #ff6347;
+	border: 2px solid red;
 }
 
 .range_range {
@@ -41,15 +41,15 @@
 }
 
 .range_range:focus::-webkit-slider-runnable-track {
-	background: #2497e3;
+	background: white;
 }
 
 .range_range:focus::-ms-fill-lower {
-	background: #2497e3;
+	background: white;
 }
 
 .range_range:focus::-ms-fill-upper {
-	background: #2497e3;
+	background: white;
 }
 
 .range_range::-webkit-slider-runnable-track {
@@ -57,7 +57,7 @@
 	height: 5px;
 	cursor: pointer;
 	animate: 0.2s;
-	background: #2497e3;
+	background: white;
 	border-radius: 1px;
 	box-shadow: none;
 	border: 0;
@@ -66,12 +66,12 @@
 .range_range::-webkit-slider-thumb {
 	z-index: 2;
 	position: relative;
-	box-shadow: 0px 0px 0px #000;
-	border: 1px solid #2497e3;
+	box-shadow: 0px 0px 0px red;
+	border: 1px solid #fbc0bf;
 	height: 18px;
 	width: 18px;
 	border-radius: 25px;
-	background: #a1d0ff;
+	background: white;
 	cursor: pointer;
 	-webkit-appearance: none;
 	margin-top: -7px;
@@ -82,7 +82,7 @@
 	height: 5px;
 	cursor: pointer;
 	animate: 0.2s;
-	background: #2497e3;
+	background: #fbc0bf;
 	border-radius: 1px;
 	box-shadow: none;
 	border: 0;
@@ -91,8 +91,8 @@
 .range_range::-moz-range-thumb {
 	z-index: 2;
 	position: relative;
-	box-shadow: 0px 0px 0px #000;
-	border: 1px solid #2497e3;
+	box-shadow: 0px 0px 0px red;
+	border: 1px solid #fbc0bf;
 	height: 18px;
 	width: 18px;
 	border-radius: 25px;
@@ -110,7 +110,7 @@
 }
 .range_range::-ms-fill-lower,
 .range_range::-ms-fill-upper {
-	background: #2497e3;
+	background: #fbc0bf;
 	border-radius: 1px;
 	box-shadow: none;
 	border: 0;
@@ -118,12 +118,12 @@
 .range_range::-ms-thumb {
 	z-index: 2;
 	position: relative;
-	box-shadow: 0px 0px 0px #000;
-	border: 1px solid #2497e3;
+	box-shadow: 0px 0px 0px red;
+	border: 1px solid #fbc0bf;
 	height: 18px;
 	width: 18px;
 	border-radius: 25px;
-	background: #a1d0ff;
+	background: white;
 	cursor: pointer;
 }
 .cnt img{

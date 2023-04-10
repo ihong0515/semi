@@ -22,7 +22,7 @@
 }
 .next_img{
 	font-size: 20px;
-	color: blue;
+	color: #fbc0bf;
 	margin: auto 0 auto 5px;
 	font-weight: bold;
 }
@@ -48,14 +48,14 @@
 }
 .room_reserv input{
 	height: 100%;
-	color:blue;
-	background-color: #e3e1fd;
+	color: #fbc0bf;
+	background-color: white;
 	border-radius: 10px;
 	cursor: pointer;
 	border: 0;
 }
 .room_reserv input:hover{
-	background-color: lightblue;
+	background-color: red;
 }
 .hotel_review_content{
 	display: flex;
@@ -92,7 +92,7 @@
 #review_write_table tr,
 #review_write_table th,
 #review_write_table td{
-	border: 1px solid #c0c0c0;
+	border: 1px solid red;
 	border-collapse: collapse;
 	padding: 5px 10px;
 }

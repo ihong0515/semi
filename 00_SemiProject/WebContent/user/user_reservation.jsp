@@ -24,7 +24,6 @@
 </script>
 </head>
 <body>
-
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 	    	<div id="content" align="center">
@@ -36,7 +35,7 @@
 				<c:if test="${!empty list }">
 					<c:forEach items="${list }" var="dtoReserv">
 						<ul>
-							<li><img onclick="location.href='hotel_get_Content.do?hotel_no=${dtoReserv.getReserv_hotelno() }'"
+							<li><img onclick="location.href='user_reserv_content.do?hotel_no=${dtoReserv.getReserv_hotelno() }'"
 								 src='/00_SemiProject/image/hotel/${dtoHotel.getHotel_photo_folder() }/main.jpg' style='width:100px; height:100px;'></li>
 							<li><h3>${dtoReserv.getReserv_hotelname() }</h3></li>
 							<li>객실명: ${dtoReserv.getReserv_roomname() }</li>

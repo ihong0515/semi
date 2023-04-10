@@ -52,7 +52,7 @@ function changeimg(img) {
 function fullpageUse(){
 	$('#fullpage').fullpage({
 		autoScrolling: true,
-		sectionsColor: ['#b3e0ff', '#b3e0ff'],
+		sectionsColor: ['#fbc0bf', '#fbc0bf'],
 		loopBottom: true,
 		verticalCentered: true,
 		anchors:['map_anchor']
