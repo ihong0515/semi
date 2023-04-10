@@ -56,6 +56,8 @@ function serchHotelList(e){
 					table += "<td>" + $(this).find("hotel_info").text()+"</td>"; 
 					table += "</tr>";
 					table += "</table>";
+					
+					
 				});
 			
 				if($(e).attr('class')=="Starlocation"){
@@ -65,6 +67,8 @@ function serchHotelList(e){
 					$("#low_list_Table tr:gt(0)").remove();
 					$("#low_list_Table").find("tr:eq(0)").after(table);
 				}
+				
+				
 			},
 			error : function(){
 				alert("에러입니다.");	
