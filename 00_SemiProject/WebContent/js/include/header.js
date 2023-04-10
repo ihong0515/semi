@@ -68,3 +68,17 @@ function likeDelete(self, no){
 		alert('로그인이 필요합니다.');
 	}
 }
+
+function openMypage(e){
+	$('.submenu').css('display','flex');
+	
+	$('.submenu').mouseleave(function(){
+		$('.submenu').css('display','none');
+	});
+	
+	
+}
+
+	
+
+
