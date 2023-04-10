@@ -103,10 +103,7 @@ public class PromotionDAO {
 		return list;
 	}//list end
 	public PromotionDTO getPromotionContent(int no) {
-		
 		PromotionDTO dto = null;
-		
-		
 		
 		try {
 			sql = "select * from promotion where prom_no = ?";

@@ -107,13 +107,69 @@
 							<td>
 								<div class="ui-widget">
 									<input name="user_email" id="user_email" onkeyup="autoEmail()" autocomplete="off">
-									<input type="button" value="이메일 인증">
+									<input type="button" value="이메일 인증" onclick="emailSend()">
 									<br>
 									<span id="emailcheck"></span>
+									<input type="text" id="user_email_check">&nbsp;&nbsp;<input type="button" value="인증번호 확인" onclick="emailCheck()">
 								</div>
 							</td>
 						</tr>
 					</table>
+					<script type="text/javascript">
+						function emailSend() {
+							if($('#user_email').val()==''){
+								alert('Email 주소를 적어주세요.');
+							}else{
+								$.ajax({
+									type: "post",
+									url: "user_Join_Email_Send.do",
+									data:{
+										email: $('#user_email').val()
+									},
+									datatype: "text",
+									success: function(data){
+										if(data==1){
+											alert('이메일 도착까지 3~5분정도 소요될 수 있습니다.');
+										}else{
+											alert('이메일 전송 실패....');
+										}
+									},
+									error: function(){
+										alert('이메일 전송 중 오류 발생....');
+									}
+								});
+							}
+						}
+						function emailCheck() {
+							if($('#user_email_check').val()==''){
+								alert('인증 코드를 적어주세요.');
+							}else{
+								$.ajax({
+									type: "post",
+									url: "user_Join_Email_Check.do",
+									data:{
+										email: $('#user_email').val(),
+										check_code: $('#user_email_check').val()
+									},
+									datatype: "text",
+									success: function(data){
+										if(data==1){
+											alert("인증 성공");
+										}else if(data==-1){
+											alert("인증 번호가 다릅니다.");
+										}else{
+											alert("이메일 발송 여부를 확인하세요.")
+										}
+										
+									},
+									error: function(){
+										alert('오류 발생....');
+									}
+								});
+							}
+						}
+					
+					</script>
 					<br>
 					
 					<input type="checkbox" id="cbx_chkAll" onclick="checkFalse()">
@@ -125,7 +181,7 @@
 					<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 					<div class="detail">
 						<pre>
-							<jsp:include page="../terms/user/service_terms" />
+							<jsp:include page="../terms/payment/service_terms" />
 						</pre>
 					</div>
 					<br>

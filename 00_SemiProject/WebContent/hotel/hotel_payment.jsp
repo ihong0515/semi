@@ -185,7 +185,7 @@ if(checkDate!=null){
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="modal-content">
-				                <jsp:include page="../terms/payment/servies_terms" />
+				                <jsp:include page="../terms/payment/service_terms" />
 				            </div>
 				            <div class="modal-footer">
 				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
@@ -198,7 +198,6 @@ if(checkDate!=null){
 				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="modal-content">
-				               <jsp:include page="../terms/payment/tex_terms" />
 				            </div>
 				            <div class="modal-footer">
 				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
