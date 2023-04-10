@@ -25,6 +25,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/header.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slick/slick.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slick/slick-theme.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/footer.css">
 </head>
 <body>
 	<div id="container">

@@ -24,7 +24,6 @@
 		<%--지역별 별점순(내림차순 정렬후) 숙소 추천  배너--%>
 		<section>
 			<nav class="index_search">
-
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
 					<li><input type="button" class="Starlocation" id="Starlocation" value="서울" onclick="serchHotelList(this)"></li>
@@ -39,14 +38,12 @@
 					<li><input type="button" class="Starlocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>
-
-			
-				 <div class="post-wrapper">
-				 <h1 class="silder-title">별점순 추천</h1>
+				 <h1 class="list-title">별점순 추천</h1>
 					<table id="star_list_Table" cellspacing="0">
 						 <tr>
 						</tr>
 					</table>
+					</div>
 		</div><!--별점순 추천 list end  -->
 			
 			
@@ -54,14 +51,12 @@
 			<%--지역 별 최저가 순 추천 --%>
 		<div class = "lowprice_list">
 			<nav>
-
 				<table id="star_list_Table" cellspacing="0">
 					 <tr>
 					</tr>
 				</table>
 			<%--지역 별 최저가 순 추천 --%>
 			<nav class="index_search">
-
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
 					<li><input type="button" class="lowPricelocation" id="lowPricelocation" value="서울" onclick="serchHotelList(this)"></li>
@@ -76,17 +71,13 @@
 					<li><input type="button" class="lowPricelocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>
-				 <h1 class="silder-title">최저가순 추천</h1>
+				 <h1 class="list-title">최저가순 추천</h1>
 				<table id="low_list_Table" cellspacing="0">
 					<%--slick slider start --%>
 					<tr>
 					</tr>	
 				</table>
-
 		</div><!--low price list end  -->
-		
-	
-
 		</section>
 
 		<%--main contentend --%>
