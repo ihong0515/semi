@@ -5,10 +5,10 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.action.login.SessionRenewal;
 import com.model.user.UserDAO;
 import com.model.user.UserDTO;
 
@@ -17,16 +17,15 @@ public class UserJjimCancelAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		int user_no = Integer.parseInt(request.getParameter("user_no"));
-		int hotel_no = Integer.parseInt(request.getParameter("hotel_no"));
+		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
+		int hotel_no = Integer.parseInt(request.getParameter("hotel_no").trim());
 		
 		UserDAO dao = UserDAO.getInstance();
 		UserDTO dto = dao.getUserContent(user_no);
+		
+		SessionRenewal.renewal(request);
+		
 		int res = dao.jjimCancel(user_no, hotel_no);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("loginUser", dto);
-		
 		PrintWriter out = response.getWriter();
 		
 		if(res > 0) {

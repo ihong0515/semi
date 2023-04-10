@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="dto" value="${sessionScope.loginUser}" />
+<c:set var="user_dto" value="${sessionScope.loginUser}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
     	<div id="content" align="center">
 			<h2>고객 로그인</h2>
 			<br>
-			<c:if test="${empty dto}">
+			<c:if test="${empty user_dto}">
 				<fieldset style="width:500px;">
 					<legend>로그인 페이지</legend>
 					<form method="post" action="<%=request.getContextPath() %>/user_login.do">
@@ -33,11 +33,11 @@
 				</fieldset>
 			</c:if>
 			
-			<c:if test="${!empty dto}">
+			<c:if test="${!empty user_dto}">
 				<fieldset style="width:500px;">
-					<legend>[${dto.getUser_name() }]님, 환영합니다!</legend>
+					<legend>[${user_dto.getUser_name() }]님, 환영합니다!</legend>
 					<input type="button" value="전체 회원조회" onclick="location.href='<%=request.getContextPath() %>/user_list.do'">
-					<input type="button" value="마이페이지" onclick="location.href='<%=request.getContextPath() %>/user_myPage.do?no=${dto.getUser_no() }'">
+					<input type="button" value="마이페이지" onclick="location.href='<%=request.getContextPath() %>/user_myPage.do?no=${user_dto.getUser_no() }'">
 				</fieldset>
 			</c:if>
 			

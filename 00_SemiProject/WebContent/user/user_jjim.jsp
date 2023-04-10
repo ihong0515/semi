@@ -9,6 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>찜한 호텔 내역</title>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_jjim.js"></script>
+<link href="<%=request.getContextPath() %>/css/user/user.css" rel="stylesheet">
 </head>
 <body>
 	<div id="container">
@@ -31,8 +33,8 @@
 						</li>
 						<li>최저가 <fmt:formatNumber value="${dto.getHotel_price_min() }"/>원</li>
 						<li>${dto.getHotel_info() }</li>
-						<li><input type="button" value="찜 취소" onclick="location.href='user_jjim_cancel.do?user_no=${user_dto.getUser_no() }&&hotel_no=${dto.getHotel_no() }'"></li>
 					</ul>
+					<input type="button" value="찜 취소" onclick="check(${user_dto.getUser_no() }, ${dto.getHotel_no() })">
 					</c:forEach>
 				</c:if>
 				<c:if test="${empty hotelList }">

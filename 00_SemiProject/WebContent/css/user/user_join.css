@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.detail{
+	display:none;
+	overflow:scroll;
+	text-align:left;
+	width:400px;
+	height:200px;
+}

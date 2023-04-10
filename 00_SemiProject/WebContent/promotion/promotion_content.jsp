@@ -13,7 +13,7 @@ let uid = '<%=session.getAttribute("loginUser")%>';
 <script src="<%=request.getContextPath()%>/js/promotion/promotion.js"></script>
 </head>
 <body>
-	<div align="center">
+	<div id ="coupon_content" align="center">
 		<h1>프로모션 쿠폰 발급</h1>
 		<c:set var="dto" value="${Promotion}}"/>
 		<c:if test="${!empty Promotion}">
@@ -29,11 +29,11 @@ let uid = '<%=session.getAttribute("loginUser")%>';
 				</td>
 			</tr>
 		</table>
-		<div>
+		<div id="coupon_button_area">
 			<input type="hidden" value="${Promotion.getProm_no()}" id="prom_no_val">
 			<input type ="button" value = "쿠폰 발급" onclick = "getCoupon()" >
 		</div>
-		<div>
+		<div id="coup_result_area" >
 			<p id="coup_result"></p>
 		</div>
 	</c:if>

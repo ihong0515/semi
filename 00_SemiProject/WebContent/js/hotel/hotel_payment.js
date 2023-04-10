@@ -15,7 +15,6 @@ function modal_close(){
 function modal_check(e){
 	modal_close();
 	let modal_class = $(e).parents().parents('div').attr('class').slice(13);
-	console.log(modal_class);
 	$('#payment_terms .'+modal_class+'[type="checkbox"]').attr('checked',true);
 }
 function modal_uncheck(e){

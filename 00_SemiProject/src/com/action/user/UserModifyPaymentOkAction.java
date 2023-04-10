@@ -1,32 +1,32 @@
 package com.action.user;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.action.login.SessionRenewal;
 import com.model.user.PaymentDTO;
 import com.model.user.UserDAO;
 
-public class UserPaymentAction implements Action {
+public class UserModifyPaymentOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		int pay_no = Integer.parseInt(request.getParameter("pay_no").trim());
+		
+		UserDAO dao = UserDAO.getInstance();
+		PaymentDTO pay_cont = dao.getPaymentContent(pay_no);
+		
+		SessionRenewal.renewal(request);
+		request.setAttribute("dtoPayment", pay_cont);
 
-		int user_no = Integer.parseInt(request.getParameter("no").trim());
-		
-		UserDAO user_dao = UserDAO.getInstance();
-		
-		ArrayList<PaymentDTO> list = user_dao.getPaymentList(user_no);
-		request.setAttribute("pay_list", list);
-		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("user/user_payment.jsp");
-		
 		return forward;
 	}
 

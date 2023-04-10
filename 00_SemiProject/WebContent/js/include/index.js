@@ -17,7 +17,8 @@ function serchHotelList(e){
 			
 			$(data).find("hotel").each(function(){
 					let hotel_no = $(this).find("hotel_no").text();
-					table += "<table><tr>";
+					table += "<table>";
+					table += "<tr>";
 					table += "<td><a href='hotel_get_Content.do?hotel_no="+hotel_no+"'><img class='index_hotel_img' src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg'></a></td>";
 					table += "</tr>";
 					
@@ -34,12 +35,14 @@ function serchHotelList(e){
 					let star = $(this).find("hotel_star").text();
 					Number(star);
 					typeof(star);
-					table += "<tr><td>";
+					table += "<tr>";
+					table += "<td>";
 					for(let i = 0; i < star;i++)
 					{
 					table += "★"; 	
 					}
-					table += "</td></tr>";
+					table += "</td>";
+					table += "</tr>";
 					
 					
 					let minprice = $(this).find("hotel_price_min").text().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -51,7 +54,10 @@ function serchHotelList(e){
 					
 					table += "<tr>";
 					table += "<td>" + $(this).find("hotel_info").text()+"</td>"; 
-					table += "</tr></table>";
+					table += "</tr>";
+					table += "</table>";
+					
+					
 				});
 			
 				if($(e).attr('class')=="Starlocation"){
@@ -61,6 +67,8 @@ function serchHotelList(e){
 					$("#low_list_Table tr:gt(0)").remove();
 					$("#low_list_Table").find("tr:eq(0)").after(table);
 				}
+				
+				
 			},
 			error : function(){
 				alert("에러입니다.");	
