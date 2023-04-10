@@ -8,16 +8,13 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_reservation.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/user/user_reservation.css">
 <c:set var="user_dto" value="${sessionScope.loginUser }" />
 </head>
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 	    	<div id="content" align="center">
-	    		<input type="hidden" name="user_no" value="${dtoUser.getUser_no() }">
-				<h2>${dtoUser.getUser_name() }님 숙소 예약 내역 리스트</h2>
-				<br>
-	    		<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
 				<h2>${user_dto.getUser_name() }님 숙소 예약 내역 리스트</h2>
 				<div id=reserve_list>
 					<a class="reserv" id="reserv_N" onclick="getReserv(this)">사용 전</a>&nbsp;&nbsp;
@@ -26,6 +23,7 @@
 					<br>
 					총 <span id="reserv_count"></span>개
 					<div id="reserv_content"></div>
+					<input type="hidden" id="use_check" value="">
 				</div>
 			</div>
 		<jsp:include page="../include/footer.jsp" />

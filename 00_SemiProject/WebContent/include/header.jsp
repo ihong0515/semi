@@ -61,7 +61,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 						<li><a href="<%=request.getContextPath() %>/crawling_hotel.do">다양한 호텔 리뷰</a></li>
 						<li><a href="<%=request.getContextPath()%>/PromotionList.do">프로모션</a></li>
 					</ul>
-		        </div>
+				</div>
 			</div><!-- Header nav bar end -->    
 			<h5>검색창</h5>
 			<div id="header_search">

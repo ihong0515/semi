@@ -30,6 +30,10 @@ public class UserReservContentGetAction implements Action {
 		request.setAttribute("Dto", dto);
 		request.setAttribute("PayDto", payDto);
 		request.setAttribute("PromDto", promDto);
-		return null;
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("user/user_reserv_content.jsp");
+		return forward;
 	}
 }
