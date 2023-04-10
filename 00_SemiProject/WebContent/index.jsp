@@ -40,10 +40,11 @@
 				</ul>
 			</nav>
 
-				<h3>별점순 리스트(ajax)</h3>
+			
+				 <div class="post-wrapper">
+				 <h1 class="silder-title">별점순 추천</h1>
 					<table id="star_list_Table" cellspacing="0">
 						 <tr>
-							<th>여기는 어떄여</th>
 						</tr>
 					</table>
 		</div><!--별점순 추천 list end  -->
@@ -56,7 +57,6 @@
 
 				<table id="star_list_Table" cellspacing="0">
 					 <tr>
-						<th>여기는 어떄여</th>
 					</tr>
 				</table>
 			<%--지역 별 최저가 순 추천 --%>
@@ -76,15 +76,16 @@
 					<li><input type="button" class="lowPricelocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>
+				 <h1 class="silder-title">최저가순 추천</h1>
 				<table id="low_list_Table" cellspacing="0">
+					<%--slick slider start --%>
 					<tr>
-						<th>여기도 어떄여</th>
 					</tr>	
 				</table>
 
 		</div><!--low price list end  -->
 		
-		<hr>
+	
 
 		</section>
 

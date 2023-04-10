@@ -12,8 +12,9 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/slick/slick.js"></script>
 <script type="text/javascript">
 	let user_no = '${loginUser.getUser_no()}';
 	let checkdate_param = '<%=checkDate==null %>';
@@ -22,6 +23,8 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/include/header.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/onload.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/header.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/slick/slick.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/slick/slick-theme.css">
 </head>
 <body>
 	<div id="container">
