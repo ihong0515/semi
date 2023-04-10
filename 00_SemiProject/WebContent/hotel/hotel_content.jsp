@@ -39,7 +39,7 @@
 							<span class="hotel_like_check" onclick="likeDelete(this, ${hoDTO.getHotel_no() })"><i class="fa fa-heart" aria-hidden="true"></i></span>
 						</c:if>
 						<c:if test="${check == -1}">
-							<span class="hotel_like_check" onclick="likeInsert(this, ${hoDTO.getHotel_no() }"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+							<span class="hotel_like_check" onclick="likeInsert(this, ${hoDTO.getHotel_no() })"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
 						</c:if>
 						<%--jjim 표시 end --%>
 						<br>

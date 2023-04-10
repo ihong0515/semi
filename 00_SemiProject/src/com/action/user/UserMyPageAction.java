@@ -4,11 +4,10 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
-
+import com.action.login.SessionRenewal;
 import com.model.user.*;
 
 public class UserMyPageAction implements Action {
@@ -22,8 +21,7 @@ public class UserMyPageAction implements Action {
 		UserDTO cont = dao.getUserContent(user_no);
 		request.setAttribute("Content", cont);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("loginUser", cont);
+		SessionRenewal.renewal(request);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

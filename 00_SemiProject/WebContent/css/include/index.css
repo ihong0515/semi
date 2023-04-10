@@ -17,6 +17,7 @@ nav{
 	width: 250px;
 	height: 250px;
 }
+
 .star_list_Table{
 	display: flex;
 	justify-content: space-around;
@@ -27,4 +28,4 @@ nav{
 }
 .submit{
 	
-}
+

@@ -141,8 +141,13 @@ CREATE TABLE payment (
 	pay_cardno varchar2(100)		NOT NULL,
 	pay_cardcom	varchar2(50)		NOT NULL,
 	pay_cvc	number(5)		NOT NULL,
-	pay_pwd	varchar2(255)		NOT NULL,
+	pay_pwd	varchar2(25)		NOT NULL,
 	pay_date varchar2(20)		NOT NULL
+);
+create table email_check(
+	user_email varchar2(50),
+	email_code varchar2(50),
+	code_check varchar2(5) default 'N' check(code_check in('Y','N'))
 );
 
 ALTER TABLE hotel ADD CONSTRAINT "PK_HOTEL" PRIMARY KEY (

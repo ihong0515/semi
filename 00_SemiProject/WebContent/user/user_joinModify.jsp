@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="dto" value="${sessionScope.loginUser }" />
+<c:set var="user_dto" value="${sessionScope.loginUser }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +25,7 @@
 						<table border="1" cellspacing="0" width="600">
 							<tr>
 								<th>아이디</th>
-								<td>${dto.getUser_id()}</td>
+								<td>${user_dto.getUser_id()}</td>
 							</tr>
 							
 							<tr>
@@ -34,7 +34,7 @@
 									<input type="button" value="비밀번호 변경" onclick="show_modal()">
 									<div id="myModal" class="modal">
 										<div class="modal_content" align="center">
-											<input type="hidden" name="user_no" value="${dto.getUser_no() }">
+											<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
 											
 											<h2>비밀번호 변경</h2>
 											<label>현재 비밀번호</label>
@@ -60,28 +60,28 @@
 							</tr>
 							<tr> 
 								<th>이름</th>
-								<td>${dto.getUser_name()}</td>
+								<td>${user_dto.getUser_name()}</td>
 							</tr>
 							<tr>
 								<th>휴대전화</th>
 								<td>
 									010-
-									<input name="user_phone_mid" id="user_phone_mid" maxlength="4" value="${dto.getUser_phone().substring(4,8)}">
+									<input name="user_phone_mid" id="user_phone_mid" maxlength="4" value="${user_dto.getUser_phone().substring(4,8)}">
 									-
-									<input name="user_phone_end" id="user_phone_end" maxlength="4" value="${dto.getUser_phone().substring(9)}">
+									<input name="user_phone_end" id="user_phone_end" maxlength="4" value="${user_dto.getUser_phone().substring(9)}">
 									<br>
 									<span id="phonecheck"></span>
 								</td>
 							</tr>
 							<tr>
 								<th>생년월일</th>
-								<td><input type="date" name="user_birth" id="user_birth" value="${dto.getUser_birth()}"></td>
+								<td><input type="date" name="user_birth" id="user_birth" value="${user_dto.getUser_birth()}"></td>
 							</tr>
 							
 							<tr>
 								<th>선호지역</th>
 								<td>
-									<select name = "user_region" id="user_region" value="${dto.getUser_region()}">
+									<select name = "user_region" id="user_region" value="${user_dto.getUser_region()}">
 						               <option value = "seoul">서울</option>
 						               <option value = "jeju">경기</option>
 						               <option value = "kwangwon">강원</option>
@@ -100,7 +100,7 @@
 							
 							<tr>
 								<th>이메일</th>
-								<td>${dto.getUser_email() }</td>
+								<td>${user_dto.getUser_email() }</td>
 							</tr>
 							
 							<tr>

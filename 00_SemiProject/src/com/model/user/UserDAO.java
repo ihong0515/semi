@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.model.hotel.HotelDTO;
+import com.model.promotion.*;
 
 public class UserDAO {
 	
@@ -408,6 +409,50 @@ public class UserDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, user_no);
 			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				ReserveDTO dto = new ReserveDTO();
+				dto.setReserv_no(rs.getInt("reserv_no"));
+				dto.setReserv_hotelno(rs.getInt("reserv_hotelno"));
+				dto.setReserv_hotelname(rs.getString("reserv_hotelname"));
+				dto.setReserv_roomno(rs.getInt("reserv_roomno"));
+				dto.setReserv_roomname(rs.getString("reserv_roomname"));
+				dto.setReserv_userno(rs.getInt("reserv_userno"));
+				dto.setReserv_username(rs.getString("reserv_username"));
+				dto.setReserv_promno(rs.getInt("reserv_promno"));
+				dto.setReserv_coupno(rs.getInt("reserv_coupno"));
+				dto.setReserv_nomalprice(rs.getInt("reserv_nomalprice"));
+				dto.setReserv_realprice(rs.getInt("reserv_realprice"));
+				dto.setReserv_start(rs.getString("reserv_start"));
+				dto.setReserv_end(rs.getString("reserv_end"));
+				dto.setReserv_daycount(rs.getInt("reserv_daycount"));
+				dto.setReserv_people(rs.getInt("reserv_people"));
+				dto.setReserv_request(rs.getString("reserv_request"));
+				dto.setReserv_date(rs.getString("reserv_date"));
+				dto.setReserv_usecheck(rs.getString("reserv_usecheck"));
+				dto.setReserv_payment(rs.getInt("reserv_payment"));
+				dto.setReserv_ins(rs.getInt("reserv_ins"));
+				dto.setReserv_phone(rs.getString("reserv_phone"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+	
+	public List<ReserveDTO> getReservListStatus(int user_no, String status) {
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+		try {
+			connect();
+			sql = "select * from reserv where reserv_userno = ? and reserv_usecheck = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			ps.setString(2, status);
+			rs = ps.executeQuery();
+			
 			while(rs.next()) {
 				ReserveDTO dto = new ReserveDTO();
 				dto.setReserv_no(rs.getInt("reserv_no"));
@@ -627,23 +672,288 @@ public class UserDAO {
 		}
 		return result;
 	}
+	
+	public PromotionDTO getPromContentbyuserno(int user_no) {
+		PromotionDTO dto = null;
+		try {
+			connect();
+			sql = "select * from promotion where prom_no = (select coup_promno from coupon where coup_userno = ?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				dto =new PromotionDTO();
+				dto.setProm_no(rs.getInt("prom_no"));
+				dto.setProm_name(rs.getString("prom_name"));
+				dto.setProm_folder(rs.getString("prom_folder"));
+				dto.setProm_info(rs.getString("prom_info"));
+				dto.setProm_sale(rs.getInt("prom_sale"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		return dto;
+	}
+	
+	public ArrayList<CouponDTO> getCouponList(int user_no) {
+		ArrayList<CouponDTO> list = new ArrayList<CouponDTO>();
+		
+		try {
+			connect();
+			sql = "select * from coupon where coup_userno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				CouponDTO dto = new CouponDTO();
+				dto.setCoup_no(rs.getInt("coup_no"));
+				dto.setCoup_promno(rs.getInt("coup_promno"));
+				dto.setCoup_sale(rs.getInt("coup_sale"));
+				dto.setCoup_serialno(rs.getString("coup_serialno"));
+				dto.setCoup_userno(rs.getInt("coup_userno"));
+				dto.setCoup_usecheck(rs.getString("coup_usecheck"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+	
+	public int deletePayment(int pay_no) {
+		int result = 0;
+		try {
+			connect();
+			sql = "delete from payment where pay_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, pay_no);
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public int quitUser(int user_no, String user_pwd) {
+		int result = 0;
+		try {
+			connect();
+			sql = "select * from user1 where user_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				if(user_pwd.equals(rs.getString("user_pwd"))) {
+					sql = "delete user1 where user_no = ?";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, user_no);
+					result = ps.executeUpdate();
+				} else {
+					result = -1;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public void updateSequence(int user_no) {
+		try {
+			connect();
+			sql = "update user1 set user_no = user_no - 1 where user_no > ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+	
+	public String getReservListbyStatus(String status) {
+		String result = null;
+		
+		try {
+			connect();
+			sql = "select * from reserv where reserv_usecheck = ?  order by reserv_start";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, status);
+			rs = ps.executeQuery();
+			
+			result = "<reservations>";
+			
+			while(rs.next()) {
+				result += "<reserv>";
+				result += "<reserv_hotelname>" + rs.getString("reserv_hotelname") + "</reserv_hotelname>";
+				result += "<reserv_roomname>" + rs.getString("reserv_roomname") + "</reserv_roomname>";
+				result += "<reserv_start>" + rs.getString("reserv_start") + "</reserv_start>";
+				result += "<reserv_end>" + rs.getString("reserv_end") + "</reserv_end>";
+				result += "<reserv_realprice>" + rs.getInt("reserv_realprice") + "</reserv_realprice>";
+				result += "</reserv>";
+			}
+			result = "</reservations>";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	public String insertEmailCode(String user_email) {
+		String code = "";
+		try {
+			connect();
+			code = PromotionDAO.getInstance().makeCoupon();
+			sql = "select email_code from email_check where email_code = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, code);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				code = insertEmailCode(user_email);
+			}
+			sql = "insert into email_check values(?, ?, default)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			ps.setString(2, code);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return code;
+	}
+
+	public int checkEmailCode(String user_email, String code) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select * from email_check where user_email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				if(rs.getString("email_code").equals(code)) {
+					result = 1;
+				}else {
+					result = -1;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return result;
+	}
+
+	public void deleteEmailCode(String user_email) {
+		try {
+			connect();
+			sql = "delete from email_check where user_email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+
+	public void updateEmailCode(String user_email) {
+		try {
+			connect();
+			sql = "update email_check set code_check = 'Y' where user_email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+
+	public String checkEmailUseable(String user_email) {
+		String result = "";
+		
+		try {
+			connect();
+			sql = "select * from email_check where user_email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				result = rs.getString("code_check");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	public ReserveDTO getReservContent(int re_no) {
+		ReserveDTO dto  = null;
+		
+		try {
+			connect();
+			sql = "select * from reserv where reserv_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, re_no);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto = new ReserveDTO();
+				dto.setReserv_no(rs.getInt("reserv_no"));
+				dto.setReserv_hotelno(rs.getInt("reserv_hotelno"));
+				dto.setReserv_hotelname(rs.getString("reserv_hotelname"));
+				dto.setReserv_roomno(rs.getInt("reserv_roomno"));
+				dto.setReserv_roomname(rs.getString("reserv_roomname"));
+				dto.setReserv_userno(rs.getInt("reserv_userno"));
+				dto.setReserv_username(rs.getString("reserv_username"));
+				dto.setReserv_promno(rs.getInt("reserv_promno"));
+				dto.setReserv_coupno(rs.getInt("reserv_coupno"));
+				dto.setReserv_nomalprice(rs.getInt("reserv_nomalprice"));
+				dto.setReserv_realprice(rs.getInt("reserv_realprice"));
+				dto.setReserv_start(rs.getString("reserv_start"));
+				dto.setReserv_end(rs.getString("reserv_end"));
+				dto.setReserv_daycount(rs.getInt("reserv_daycount"));
+				dto.setReserv_people(rs.getInt("reserv_people"));
+				dto.setReserv_request(rs.getString("reserv_request"));
+				dto.setReserv_date(rs.getString("reserv_date"));
+				dto.setReserv_usecheck(rs.getString("reserv_usecheck"));
+				dto.setReserv_payment(rs.getInt("reserv_payment"));
+				dto.setReserv_ins(rs.getInt("reserv_ins"));
+				dto.setReserv_phone(rs.getString("reserv_phone"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return dto;
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

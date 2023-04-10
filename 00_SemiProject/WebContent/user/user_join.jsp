@@ -8,54 +8,8 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_join_normal.js?ver=1"></script>
-<script type="text/javascript">
-	/* 약관동의 전체 선택 */
-	$(document).ready(function() {
-		$("#cbx_chkAll").click(function() {
-			if($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
-			else $("input[name=chk]").prop("checked", false);
-		});
-		
-		$("input[name=chk]").click(function() {
-			var total = $("input[name=chk]").length;
-			var checked = $("input[name=chk]:checked").length;
-			
-			if(total != checked) $("#cbx_chkAll").prop("checked", false);
-			else $("#cbx_chkAll").prop("checked", true); 
-		});
-	});
-	
-	/* 약관동의 더보기, 접기 */
-	$(".main").click(function() {
-		if($(this).find(".sub").is(":visible")){
-	   		$(this).find(".sub").slideUp();
-		}
-		else{
-	    	$(this).find(".sub").slideDown();
-		}
-	});
-	$(document).on("click",".main",function() {
-		if($(this).next().css("display")=="none") {
-			$(this).next().show();
-			$(this).html('<i class="fa-solid fa-chevron-up"></i>');
-		} else{
-	        $(this).next().hide();
-	        $(this).html('<i class="fa-solid fa-chevron-down"></i>');
-	      }
-	});
-</script>
-<style type="text/css">
-
-.detail{
-	display:none;
-	overflow:scroll;
-	text-align:left;
-	width:400px;
-	height:200px;
-}
-
-</style>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_join.js?ver=1"></script>
+<link href="<%=request.getContextPath() %>/css/user/user_join.css" rel="stylesheet">
 </head>
 <body>
 	<div id="container">
@@ -153,32 +107,88 @@
 							<td>
 								<div class="ui-widget">
 									<input name="user_email" id="user_email" onkeyup="autoEmail()" autocomplete="off">
-									<input type="button" value="이메일 인증">
+									<input type="button" value="이메일 인증" onclick="emailSend()">
 									<br>
 									<span id="emailcheck"></span>
+									<input type="text" id="user_email_check">&nbsp;&nbsp;<input type="button" value="인증번호 확인" onclick="emailCheck()">
 								</div>
 							</td>
 						</tr>
 					</table>
+					<script type="text/javascript">
+						function emailSend() {
+							if($('#user_email').val()==''){
+								alert('Email 주소를 적어주세요.');
+							}else{
+								$.ajax({
+									type: "post",
+									url: "user_Join_Email_Send.do",
+									data:{
+										email: $('#user_email').val()
+									},
+									datatype: "text",
+									success: function(data){
+										if(data==1){
+											alert('이메일 도착까지 3~5분정도 소요될 수 있습니다.');
+										}else{
+											alert('이메일 전송 실패....');
+										}
+									},
+									error: function(){
+										alert('이메일 전송 중 오류 발생....');
+									}
+								});
+							}
+						}
+						function emailCheck() {
+							if($('#user_email_check').val()==''){
+								alert('인증 코드를 적어주세요.');
+							}else{
+								$.ajax({
+									type: "post",
+									url: "user_Join_Email_Check.do",
+									data:{
+										email: $('#user_email').val(),
+										check_code: $('#user_email_check').val()
+									},
+									datatype: "text",
+									success: function(data){
+										if(data==1){
+											alert("인증 성공");
+										}else if(data==-1){
+											alert("인증 번호가 다릅니다.");
+										}else{
+											alert("이메일 발송 여부를 확인하세요.")
+										}
+										
+									},
+									error: function(){
+										alert('오류 발생....');
+									}
+								});
+							}
+						}
+					
+					</script>
 					<br>
 					
-					<input type="checkbox" id="cbx_chkAll">
+					<input type="checkbox" id="cbx_chkAll" onclick="checkFalse()">
 					<label><b>사용자 약관 전체 동의</b></label>
 					<hr color="gray">
 					
-					<input type="checkbox" name="chk" id="required_1">
+					<input type="checkbox" name="chk" id="required_1" onclick="checkTrue()">
 					<label>서비스 이용 약관 동의(필수)</label>
-					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 					<div class="detail">
 						<pre>
-							<jsp:include page="../terms/user/service_terms" />
+							<jsp:include page="../terms/payment/service_terms" />
 						</pre>
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk" id="required_2">
+					<input type="checkbox" name="chk" id="required_2" onclick="checkTrue()">
 					<label>개인정보 처리방침 동의(필수)</label>
-					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 					<div class="detail">
 					 	<pre>
 					 		<jsp:include page="../terms/user/info_terms" />
@@ -186,9 +196,9 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk" id="required_3">
+					<input type="checkbox" name="chk" id="required_3" onclick="checkTrue()">
 					<label>만 14세 이상 확인(필수)</label>
-					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 					<div class="detail">
 						<pre>
 							<jsp:include page="../terms/user/kid_terms" />
@@ -196,9 +206,9 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk">
+					<input type="checkbox" name="chk" onclick="checkTrue()">
 					<label>평생회원제 동의(선택)</label>
-					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 					<div class="detail">
 						<pre>
 							<jsp:include page="../terms/user/member_terms" />
@@ -206,9 +216,9 @@
 					</div>
 					<br>
 					
-					<input type="checkbox" name="chk">
+					<input type="checkbox" name="chk" onclick="checkTrue()">
 					<label>쿠폰, 이벤트 등 혜택 알림 동의(선택)</label>
-					<span class="main"><i class="fa-solid fa-chevron-down"></i></span>
+					<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 					<div class="detail">
 						<pre>
 							<jsp:include page="../terms/user/coupon_terms" />

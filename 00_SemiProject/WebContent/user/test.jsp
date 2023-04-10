@@ -34,6 +34,5 @@
         <label for="email">email: </label>
         <input id="email" onkeyup="autoEmail('email',this.value)" autocomplete="off">
     </div>
-    
 </body>
 </html>

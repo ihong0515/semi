@@ -7,7 +7,6 @@ public class PromotionDTO {
 	private String prom_folder;
 	private int prom_sale;
 	
-	
 	public int getProm_no() {
 		return prom_no;
 	}
