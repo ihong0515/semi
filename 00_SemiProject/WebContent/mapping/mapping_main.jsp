@@ -19,7 +19,7 @@
 				<a href="<%=request.getContextPath() %>/index.jsp"><i class="fa fa-home" aria-hidden="true"></i></a>
 			</div>
 			<div id="mapping" align="center">
-				<img alt="" src="<%=request.getContextPath() %>/image/map/koreaMap.jpg" usemap="#mapping_area" id="mapping_img">
+				<img alt="" src="<%=request.getContextPath() %>/image/map/koreaMap.jpg" usemap="#mapping_area" id="mapping_img" style="width: 500px;">
 				<map name="mapping_area">
 					<area shape="poly" alt="서울" title="" coords="105,133,114,118,122,116,131,82,148,76,157,93,162,91,166,76,177,58,191,50,198,60,214,56,223,63,224,92,231,107,223,142,225,154,242,139,257,132,260,162,237,179,250,189,202,232,190,234,183,220,181,206,168,215,139,226,130,226,118,229,106,189,94,204,90,214,81,198,86,155,74,163,61,146,64,138,78,113,100,132" 
 					onmouseover="changeimg('<%=request.getContextPath() %>/image/map/seoul.jpg')" onmouseout="changeimg('<%=request.getContextPath() %>/image/map/koreaMap.jpg')" onclick="mapping_searchHotel(this)" target="" />

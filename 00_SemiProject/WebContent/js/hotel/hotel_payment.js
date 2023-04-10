@@ -87,36 +87,42 @@ function payment_getno(){
 }
 
 function saleCheck() {
-	$.ajax({
+	let coup_no_val = $('#prom_code_select').val();
+	if(coup_no_val==''){
+		alert('쿠폰번호를 선택하세요.');
+	}else{
+		$.ajax({
 		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
-		type: "post",
-		url: "coupon_get_SalePrice.do",
-		data: {
-			coup_no:$('#prom_code_select').val(),
-			price: check_price_param
-		},
-		datatype: "xml",
-		success: function(data){
-			alert('쿠폰 등록 성공!');
-			$(data).find("coupon").each(function() {
-				let saleP = $("saleP", this).text();
-				let price = $("price", this).text();
-				let name = $("name", this).text();
-				let sale = $("sale", this).text();
-				
-				let resultSale = saleP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-				let resultPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-				
-				$('#coupon_name').text(name +" / "+ sale+" % 할인");
-				$('#salePrice').text("₩"+resultSale);
-				$('#realPrice').text("₩"+resultPrice);
-				$('#coup_no').val($("coup_no", this).text());
-				$('#prom_no').val($("prom_no", this).text());
-				$('#realPrice_hidden').val(price);
-			});
-		},
-		error: function(data){
-			alert('쿠폰 등록 실패..');
-		}
-	});
+			type: "post",
+			url: "coupon_get_SalePrice.do",
+			data: {
+				coup_no: coup_no_val,
+				price: check_price_param
+			},
+			datatype: "xml",
+			success: function(data){
+				alert('쿠폰 등록 성공!');
+				$(data).find("coupon").each(function() {
+					let saleP = $("saleP", this).text();
+					let price = $("price", this).text();
+					let name = $("name", this).text();
+					let sale = $("sale", this).text();
+					
+					let resultSale = saleP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+					let resultPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+					
+					$('#coupon_name').text(name +" / "+ sale+" % 할인");
+					$('#salePrice').text("₩"+resultSale);
+					$('#realPrice').text("₩"+resultPrice);
+					$('#coup_no').val($("coup_no", this).text());
+					$('#prom_no').val($("prom_no", this).text());
+					$('#realPrice_hidden').val(price);
+				});
+			},
+			error: function(data){
+				alert('쿠폰 등록 실패..');
+			}
+		});
+	}
+	
 }

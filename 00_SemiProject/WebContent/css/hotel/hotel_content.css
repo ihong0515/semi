@@ -1,8 +1,92 @@
 @charset "UTF-8";
 
-.review_table{
-	border: 1px solid #c0c0c0;
-	border-collapse: collapse;
+#hotel_info{
+	display: flex;
+	justify-content: flex-start;
+}
+#hotel_info_img{
+	margin: 0px 50px;
+}
+#hotel_info_detail{
+	width: 300px;
+	margin-left: 50px;
+}
+#room_info{
+	margin-top: 30px;
+}
+.room_content_img img:nth-child(n+2){
+	display: none;
+}
+.room_content_img{
+	cursor: pointer;
+}
+.next_img{
+	font-size: 20px;
+	color: blue;
+	margin: auto 0 auto 5px;
+	font-weight: bold;
+}
+.room_content{
+	display: flex;
+	justify-content: flex-start;
+	padding: 30px;
+}
+.room_content_img{
+	display: flex;
+	justify-content: space-between;
+}
+
+.room_content_info{
+	margin-left: 30px;
+}
+.room_content_info{
+	display: flex;
+	justify-content: flex-start;
+}
+.room_reserv{
+	margin-left: 50px;
+}
+.room_reserv input{
+	height: 100%;
+	color:blue;
+	background-color: #e3e1fd;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 0;
+}
+.room_reserv input:hover{
+	background-color: lightblue;
+}
+.hotel_review_content{
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 10px 20px;
+}
+.hotel_review_content div{
+	margin-right: 20px;
+}
+.hotel_review_content_head{
+	width: 150px;
+}
+.hotel_review_content_body{
+	width: 350px;
+}
+.hotel_review_content_delete{
+	float: right;
+	clear: both;
+}
+#review_write{
+	margin-top: 20px;
+}
+#review_write input,
+#review_write textarea{
+	resize: none;
+	border: 0;
+}
+#review_write input:focus,
+#review_write textarea:focus{
+	outline: none;
 }
 #review_write_table,
 #review_write_table tr,
@@ -10,4 +94,19 @@
 #review_write_table td{
 	border: 1px solid #c0c0c0;
 	border-collapse: collapse;
+	padding: 5px 10px;
+}
+#review_wirte_btn{
+	margin-top: 20px;
+}
+#visit_hotel{
+	display: flex;
+	justify-content: flex-start;
+}
+#visit_hotel_cont{
+	padding: 10px;
+	width: 200px;
+}
+img{
+	border-radius: 10px;
 }
