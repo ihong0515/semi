@@ -11,15 +11,17 @@ $(function () {
 		serchHotelList($('#Starlocation'));
 		serchHotelList($('#lowPricelocation'));
 	}
-	
-	 console.log("jQuery version: " + jQuery.fn.jquery);
-	
+
 	$('.promotion_list').slick({
 	  dots: true,
+	  dotsClass : "slick-dots", 
 	  infinite: true,
 	  speed: 300,
 	  slidesToShow: 1,
-	  adaptiveHeight: true
+	  adaptiveHeight: true,
+	  arrows: true,
+	  prevArrow : "<button type='button' class='slick-prev'>Previous</button>",		// 이전 화살표 모양 설정
+	  nextArrow : "<button type='button' class='slick-next'>Next</button>"	
 	});
 	
 	

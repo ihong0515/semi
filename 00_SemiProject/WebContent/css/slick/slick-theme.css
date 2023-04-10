@@ -150,18 +150,18 @@
 .slick-dots li button
 {
     font-size: 0;
-    line-height: 0;
+    line-height: 20px;
 
     display: block;
 
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 10px;
     padding: 5px;
 
     cursor: pointer;
-
+	border-radius: 50%;
     color: transparent;
-    border: 0;
+    border: none;
     outline: none;
     background: transparent;
 }

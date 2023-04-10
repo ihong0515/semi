@@ -17,55 +17,49 @@ function serchHotelList(e){
 			
 			$(data).find("hotel").each(function(){
 					let hotel_no = $(this).find("hotel_no").text();
-					table += "<table>";
-					table += "<tr>";
-					table += "<td><a href='hotel_get_Content.do?hotel_no="+hotel_no+"'><img class='index_hotel_img' src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg'></a></td>";
-					table += "</tr>";
+					table += "<div class='content'>";
+					table += "<div class = 'hotel_image'>";
+					table += "<a href='hotel_get_Content.do?hotel_no="+hotel_no+"'><img class='index_hotel_img' src='/00_SemiProject/image/hotel/" + 								$(this).find("hotel_photo_folder").text() + "/main.jpg'></a>";
+					table += "</div>";
 					
-					table += "<tr>";
-					table += "<td>" + $(this).find("hotel_name").text();
+					table += "<div class = 'hotel_like'>";
+					table += $(this).find("hotel_name").text();
 					if($(this).find("hotel_jjim_check").text()==1){
 						table += " <span class='hotel_like_check' onclick='likeDelete(this, "+hotel_no+")'><i class='fa fa-heart' aria-hidden='true'></i></span>";
 					}else{
 						table += " <span class='hotel_like_check' onclick='likeInsert(this, "+hotel_no+")'><i class='fa fa-heart-o' aria-hidden='true'></i></span>";
 					}
-					table += "</td>"; 
-					table += "</tr>";
+					table += "</div>";
 					
 					let star = $(this).find("hotel_star").text();
 					Number(star);
-					typeof(star);
-					table += "<tr>";
-					table += "<td>";
+					table += "<div class = 'hotel_star'>";
 					for(let i = 0; i < star;i++)
 					{
 					table += "★"; 	
 					}
-					table += "</td>";
-					table += "</tr>";
+					table += "</div>";
 					
 					
 					let minprice = $(this).find("hotel_price_min").text().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 					
-					table += "<tr>";
-					table += "<td>₩"+minprice+"원</td>"; 
-					table += "</tr>";
+					table += "<div class = 'hotel_minprice'>";
+					table += "₩"+minprice+"원"; 
+					table += "</div>";
 					
 					
-					table += "<tr>";
-					table += "<td>" + $(this).find("hotel_info").text()+"</td>"; 
-					table += "</tr>";
-					table += "</table>";
-					
-					
-				});
+					table += "<div class = 'hotel_info'>";
+					table += $(this).find("hotel_info").text(); 
+					table += "</div>";
+				table += "</div>";
+					});
 			
 				if($(e).attr('class')=="Starlocation"){
-					$("#star_list_Table tr:gt(0)").remove();
-					$("#star_list_Table").find("tr:eq(0)").after(table);
+					$(".star_list_Table").empty();
+					$(".star_list_Table").append(table);
 				}else{
-					$("#low_list_Table tr:gt(0)").remove();
-					$("#low_list_Table").find("tr:eq(0)").after(table);
+					$(".low_list_Table").empty();
+					$(".low_list_Table").append(table);
 				}
 				
 				
