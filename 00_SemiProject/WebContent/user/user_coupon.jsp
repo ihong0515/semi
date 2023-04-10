@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="user_dto" value="${sessionScope.loginUser }" />
-<c:set var="list" value="${couponList }" />
-
+<c:set var="prom_dto" value="${prom_dto }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +16,14 @@
 			<div align="center">
 				<h2>${user_dto.getUser_name() }님의 보유 쿠폰 내역</h2>
 				<br>
-				<table border="1">
+				<table border="1" cellspacing="0">
 					<tr>
 						<th>프로모션 이름</th> <th>내용</th> <th>할인율</th> <th>일련번호</th> <th>사용여부</th>
 					</tr>
 					
+					<c:set var="list" value="${couponList }" />
 					<c:if test="${!empty list }">
 						<c:forEach items="${list }" var="coup_dto">
-							<c:set var="prom_dto" value="${prom_dto }" />
 							<tr>
 								<td>${prom_dto.getProm_name() }</td>
 								<td>${prom_dto.getProm_info() }</td>
@@ -37,7 +36,7 @@
 					
 					<c:if test="${empty list }" var="coup_dto">
 						<tr>
-							<td colspan="3" align="center">
+							<td colspan="5" align="center">
 								<p>등록된 쿠폰이 없습니다.</p>
 							</td>
 						</tr>

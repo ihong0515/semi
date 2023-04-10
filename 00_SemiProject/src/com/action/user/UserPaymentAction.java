@@ -1,16 +1,15 @@
 package com.action.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
 import com.model.user.PaymentDTO;
 import com.model.user.UserDAO;
-import com.model.user.UserDTO;
 
 public class UserPaymentAction implements Action {
 
@@ -19,13 +18,10 @@ public class UserPaymentAction implements Action {
 
 		int user_no = Integer.parseInt(request.getParameter("no").trim());
 		
-		UserDAO daoUser = UserDAO.getInstance();
-		UserDTO dtoUser = daoUser.getUserContent(user_no);
-		PaymentDTO dtoPayment = daoUser.getPaymentContent(user_no);
+		UserDAO user_dao = UserDAO.getInstance();
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("loginUser", dtoUser);
-		request.setAttribute("dtoPayment", dtoPayment);
+		ArrayList<PaymentDTO> list = user_dao.getPaymentList(user_no);
+		request.setAttribute("pay_list", list);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

@@ -196,3 +196,29 @@ var mailId = $('#user_email').val().split('@');
         }
     });
 }
+
+
+/* 약관동의 전체 선택 */
+function checkFalse() {
+	if($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
+	else $("input[name=chk]").prop("checked", false);
+}
+
+function checkTrue() {
+	var total = $("input[name=chk]").length;
+	var checked = $("input[name=chk]:checked").length;
+	
+	if(total != checked) $("#cbx_chkAll").prop("checked", false);
+	else $("#cbx_chkAll").prop("checked", true); 
+}
+
+/* 약관동의 더보기, 접기 */
+function agreeShow(self) {
+	if($(self).next().css("display")=="none") {
+		$(self).next().show();
+		$(self).html('<i class="fa-solid fa-chevron-up" onclick="agreeShow()"></i>');
+	} else{
+        $(self).next().hide();
+        $(self).html('<i class="fa-solid fa-chevron-down" onclick="agreeShow()"></i>');
+    }
+}

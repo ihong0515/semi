@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.action.login.SessionRenewal;
 import com.model.user.PaymentDTO;
 import com.model.user.UserDAO;
 
@@ -18,13 +19,16 @@ public class UserInsertPaymentOkAction implements Action {
 		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
 		
 		String pay_name = request.getParameter("pay_name").trim();
-		String pay_cardno = request.getParameter("pay_cardno").trim();
+		String pay_cardno = request.getParameter("pay_cardno1")+"-"+request.getParameter("pay_cardno2")+"-"+request.getParameter("pay_cardno3")+"-"+request.getParameter("pay_cardno4");
+		System.out.println(pay_cardno);
 		String pay_cardcom = request.getParameter("pay_cardcom").trim();
 		int pay_cvc = Integer.parseInt(request.getParameter("pay_cvc").trim());
 		String pay_pwd = request.getParameter("pay_pwd").trim();
 		String pay_date = request.getParameter("pay_date").trim();
 
 		PaymentDTO dto = new PaymentDTO();
+		
+		SessionRenewal.renewal(request);
 		
 		dto.setPay_name(pay_name);
 		dto.setPay_cardno(pay_cardno);
@@ -38,8 +42,8 @@ public class UserInsertPaymentOkAction implements Action {
 		ActionForward forward = new ActionForward();
 		
 		if(res > 0) {
-			forward.setRedirect(false);
-			forward.setPath("user_payment.do");
+			forward.setRedirect(true);
+			forward.setPath("user_payment.do?no="+user_no);
 		} else {
 			forward.setRedirect(false);
 			forward.setPath("user/user_insertPayment.jsp");

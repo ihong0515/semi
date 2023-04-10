@@ -5,10 +5,10 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.action.login.SessionRenewal;
 import com.model.user.UserDAO;
 import com.model.user.UserDTO;
 
@@ -33,8 +33,7 @@ public class UserModifyOkAction implements Action {
 		
 		PrintWriter out = response.getWriter();
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("loginUser", dto);
+		SessionRenewal.renewal(request);
 		
 		if(check > 0) {
 			out.println("<script>");
