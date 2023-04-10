@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.action.login.SessionRenewal;
 import com.model.user.UserDAO;
 
 public class UserDeletePaymentOkAction implements Action {
@@ -21,6 +22,8 @@ public class UserDeletePaymentOkAction implements Action {
 		UserDAO dao = UserDAO.getInstance();
 		int res = dao.deletePayment(pay_no);
 		PrintWriter out = response.getWriter();
+		
+		SessionRenewal.renewal(request);
 
 		if(res > 0) {
 			out.println("<script>");

@@ -5,14 +5,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.action.login.SessionRenewal;
 import com.model.promotion.CouponDTO;
 import com.model.promotion.PromotionDTO;
 import com.model.user.UserDAO;
-import com.model.user.UserDTO;
 
 public class UserCouponAction implements Action {
 
@@ -22,10 +21,7 @@ public class UserCouponAction implements Action {
 		int user_no = Integer.parseInt(request.getParameter("no").trim());
 		
 		UserDAO dao = UserDAO.getInstance();
-		UserDTO user_dto = dao.getUserContent(user_no);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("loginUser", user_dto);
+		SessionRenewal.renewal(request);
 		
 		List<CouponDTO> list = dao.getCouponList(user_no);
 		request.setAttribute("couponList", list);
