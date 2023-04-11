@@ -26,6 +26,7 @@ public class UserDeletePaymentOkAction implements Action {
 		SessionRenewal.renewal(request);
 
 		if(res > 0) {
+			dao.updateSequencePayment(pay_no);
 			out.println("<script>");
 			out.println("alert('해당 결제수단이 삭제 되었습니다.')");
 			out.println("location.href='user_payment.do?no="+user_no+"'");

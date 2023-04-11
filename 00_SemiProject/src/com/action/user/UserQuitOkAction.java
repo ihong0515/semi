@@ -25,7 +25,7 @@ public class UserQuitOkAction implements Action {
 		PrintWriter out = response.getWriter();
 		
 		if(check > 0) {
-			dao.updateSequence(user_no);
+			dao.updateSequenceUser(user_no);
 			out.println("<script>");
 			out.println("alert('탈퇴가 완료되었습니다.')");
 			out.println("location.href='index_move.do'");

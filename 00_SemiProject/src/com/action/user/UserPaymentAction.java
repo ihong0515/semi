@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.action.login.SessionRenewal;
 import com.model.user.PaymentDTO;
 import com.model.user.UserDAO;
 
@@ -19,7 +20,7 @@ public class UserPaymentAction implements Action {
 		int user_no = Integer.parseInt(request.getParameter("no").trim());
 		
 		UserDAO user_dao = UserDAO.getInstance();
-		
+		SessionRenewal.renewal(request);
 		ArrayList<PaymentDTO> list = user_dao.getPaymentList(user_no);
 		request.setAttribute("pay_list", list);
 		
