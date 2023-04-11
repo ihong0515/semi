@@ -40,7 +40,7 @@
 							</li>
 							<li>유효기간: ${pay_dto.getPay_date().substring(0,4) }년 ${pay_dto.getPay_date().substring(5,7) }월 ${pay_dto.getPay_date().substring(8) }일 </li>
 							<li>
-								<input type="button" value="결제수단 수정" onclick="location.href='user_paymentModify.do'">&nbsp;&nbsp;
+								<input type="button" value="결제수단 수정" onclick="location.href='user_paymentModify.do?pay_no=${pay_dto.getPay_no()}'">&nbsp;&nbsp;
 								<input type="button" value="결제수단 삭제" onclick="check(${pay_dto.getPay_userno()}, ${pay_dto.getPay_no()})">
 							</li>
 						</ul>
