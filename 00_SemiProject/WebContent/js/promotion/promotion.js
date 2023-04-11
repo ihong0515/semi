@@ -1,6 +1,19 @@
 /**쿠폰 발급시 세션 정보 조회 , 쿠폰 발급 요청 하는 기능입니다.
  * 
  */
+$(document).ready(function(){
+	$('.promotion_list').slick({
+		dots: true,
+		dotsClass : "slick-dots", 
+		infinite: true,
+		speed: 300,
+		slidesToShow: 1,
+		adaptiveHeight: true,
+		arrows: true,
+		prevArrow : "<button type='button' class='slick-prev'>Previous</button>",		// 이전 화살표 모양 설정
+		nextArrow : "<button type='button' class='slick-next'>Next</button>"	
+	});
+});
 
 function getCoupon(e){
 	if(uid == 'null'){

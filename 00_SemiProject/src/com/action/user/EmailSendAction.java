@@ -20,18 +20,18 @@ public class EmailSendAction implements Action {
 		
 		String user_email = request.getParameter("email").trim();
 		
-		final String user = "fff1fff123@naver.com";
-	    final String password = "qkrtpal031!!";
+		final String user = "semiemailsend@gmail.com";
+	    final String password = "oyrgqrepssjsdbic";
 	    String code = UserDAO.getInstance().insertEmailCode(user_email);
 	    int result = 0;
 		try{   
 			Properties clsProp = System.getProperties();
 			
-			clsProp.put("mail.smtp.host", "smtp.naver.com");
+			clsProp.put("mail.smtp.host", "smtp.gmail.com");
 			clsProp.put("mail.smtp.port", 465);
 			clsProp.put("mail.smtp.auth", "true");
 			clsProp.put("mail.smtp.ssl.enable", "true");
-			clsProp.put("mail.smtp.ssl.trust", "smtp.naver.com");
+			clsProp.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 			
 			Session clsSession = Session.getInstance(clsProp, new Authenticator(){
 				public PasswordAuthentication getPasswordAuthentication(){

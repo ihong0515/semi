@@ -30,8 +30,12 @@
 						table += "<td>";
 						table += $(this).find("board_no").text();
 						table += "</td>";
-						table += "<td><a href='"+p_path+"/board_Get_Content.do?board_no="+$(this).find("board_no").text()+"'>";
-						table += "비밀 글입니다.";
+						table += "<td><a href='"+contextPath+"/board_Get_Site_Content.do?board_no="+$(this).find("board_no").text()+"'>";
+						if($(this).find("board_userno").text()==user_no){
+							table += $(this).find("board_title").text();
+						}else{
+							table += "비밀 글입니다.";
+						}
 						table += "</a></td>";
 						table += "<td>";
 						table += $(this).find("board_writer").text();
@@ -104,7 +108,7 @@
 							table += "<td>";
 							table += $(this).find("board_no").text();
 							table += "</td>";
-							table += "<td><a href='"+p_path+"/board_Get_Content.do?board_no="+$(this).find("board_no").text()+"'>";
+							table += "<td><a href='"+contextPath+"/board_Get_Hotel_Content.do?board_no="+$(this).find("board_no").text()+"'>";
 							table += $(this).find("board_title").text();
 							table += "</a></td>";
 							table += "<td>";

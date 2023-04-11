@@ -8,10 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/board/board_main.css">
-<script type="text/javascript">
-	let p_path = "<%=request.getContextPath() %>";
-	let user_no = "${loginUser.getUser_no() }";
-</script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/board/board_main.js"></script>
 </head>
 <body>

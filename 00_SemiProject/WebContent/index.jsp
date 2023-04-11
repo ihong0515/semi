@@ -13,6 +13,7 @@
 </head>
 <body>
 	<div id="container">
+		<div id="cotent">
 		<jsp:include page="include/header.jsp" />
 			<nav class="index_search">
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
@@ -51,5 +52,6 @@
 					</div>
 		</div><%--main contentend --%>
 		<jsp:include page="/include/footer.jsp" />
+	</div>
 </body>
 </html>

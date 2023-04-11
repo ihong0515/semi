@@ -24,6 +24,16 @@ function serchHotelList(e){
 					
 					table += "<div class = 'hotel_like'>";
 					table += $(this).find("hotel_name").text();
+					
+					let star = $(this).find("hotel_star").text();
+					Number(star);
+					table += "<span class = 'hotel_star'>";
+					for(let i = 0; i < star;i++)
+					{
+					table += "★"; 	
+					}
+					table += "</span>";
+					
 					if($(this).find("hotel_jjim_check").text()==1){
 						table += " <span class='hotel_like_check' onclick='likeDelete(this, "+hotel_no+")'><i class='fa fa-heart' aria-hidden='true'></i></span>";
 					}else{
@@ -31,27 +41,19 @@ function serchHotelList(e){
 					}
 					table += "</div>";
 					
-					let star = $(this).find("hotel_star").text();
-					Number(star);
-					table += "<div class = 'hotel_star'>";
-					for(let i = 0; i < star;i++)
-					{
-					table += "★"; 	
-					}
+					table += "<div class = 'hotel_hashtag'>";
+					table += "# "+$(this).find("hotel_hashtag1").text();
+					table += " # "+$(this).find("hotel_hashtag2").text();
+					table += " # "+$(this).find("hotel_hashtag3").text();
 					table += "</div>";
-					
 					
 					let minprice = $(this).find("hotel_price_min").text().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 					
-					table += "<div class = 'hotel_minprice'>";
+					table += "<div class='hotel_minprice'>";
 					table += "₩"+minprice+"원"; 
 					table += "</div>";
 					
-					
-					table += "<div class = 'hotel_info'>";
-					table += $(this).find("hotel_info").text(); 
 					table += "</div>";
-				table += "</div>";
 					});
 			
 				if($(e).attr('class')=="Starlocation"){
