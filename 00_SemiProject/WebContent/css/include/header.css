@@ -3,6 +3,7 @@
 #container{
 	width: 800px;
 	margin: 50px auto;
+	background-color: rgba(247, 217, 218, 0.39);
 }
 ul{
 	 list-style:none;
