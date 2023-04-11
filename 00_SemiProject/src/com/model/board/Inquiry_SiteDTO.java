@@ -7,9 +7,6 @@ public class Inquiry_SiteDTO {
 	private String inqsi_content;
 	private String inqsi_date;
 	private String inqsi_update;
-	private int inqsi_group;
-	private int inqsi_step;
-	private int inqsi_indent;
 	private int inqsi_userno;
 	
 	public int getInqsi_no() {
@@ -47,24 +44,6 @@ public class Inquiry_SiteDTO {
 	}
 	public void setInqsi_update(String inqsi_update) {
 		this.inqsi_update = inqsi_update;
-	}
-	public int getInqsi_group() {
-		return inqsi_group;
-	}
-	public void setInqsi_group(int inqsi_group) {
-		this.inqsi_group = inqsi_group;
-	}
-	public int getInqsi_step() {
-		return inqsi_step;
-	}
-	public void setInqsi_step(int inqsi_step) {
-		this.inqsi_step = inqsi_step;
-	}
-	public int getInqsi_indent() {
-		return inqsi_indent;
-	}
-	public void setInqsi_indent(int inqsi_indent) {
-		this.inqsi_indent = inqsi_indent;
 	}
 	public int getInqsi_userno() {
 		return inqsi_userno;

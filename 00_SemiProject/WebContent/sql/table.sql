@@ -118,8 +118,8 @@ CREATE TABLE inquiry_hotel (
 	inqho_update	date	DEFAULT null	NULL,
 	inqho_group	number(10)		NOT NULL,
 	inqho_step	number(10)		NULL,
-	inqho_indent	number(10)		NULL,
-	inqho_userno number(10) not null
+	inqho_userno number(10) not null,
+	inqho_write_check not null check(inqho_write_check in('O', 'U'))
 );
 
 CREATE TABLE inquiry_site (
@@ -129,10 +129,12 @@ CREATE TABLE inquiry_site (
 	inqsi_content	varchar2(2000)		NOT NULL,
 	inqsi_date	date		NOT NULL,
 	inqsi_update	date	DEFAULT null	NULL,
-	inqsi_group	number(10)		NOT NULL,
-	inqsi_step	number(10)		NULL,
-	inqsi_indent	number(10)		NULL,
 	inqsi_userno number(10) not null
+);
+create table inquiry_site_reply (
+	inqsi_reply_no number(10) not null,
+	inq
+
 );
 
 CREATE TABLE payment (
@@ -149,6 +151,18 @@ create table email_check(
 	user_email varchar2(50),
 	email_code varchar2(50),
 	code_check varchar2(5) default 'N' check(code_check in('Y','N'))
+);
+
+CREATE TABLE inquiry_site_reply (
+	inqre_no	number(10)		NOT NULL,
+	inqsi__siteno	number(10)		NOT NULL,
+	inqre_userno	number(10)		NOT NULL,
+	inqre_content	varchar2(1000)		NOT NULL,
+	inqre_date	date		NOT NULL
+);
+
+ALTER TABLE inquiry_site_reply ADD CONSTRAINT "PK_INQUIRY_SITE_REPLY" PRIMARY KEY (
+	inqre_no
 );
 
 ALTER TABLE hotel ADD CONSTRAINT "PK_HOTEL" PRIMARY KEY (
@@ -248,14 +262,14 @@ REFERENCES promotion (
 	prom_no
 ) ON DELETE CASCADE;
 
-ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_owner_TO_inquiry_hotel_1" FOREIGN KEY (
+ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_owner_TO_inq_hotel_1" FOREIGN KEY (
 	inqho_ownerno
 )
 REFERENCES owner (
 	owner_no
 ) ON DELETE CASCADE;
 
-ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_hotel_TO_inquiry_hotel_1" FOREIGN KEY (
+ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_hotel_TO_inq_hotel_1" FOREIGN KEY (
 	inqho_hotelno
 )
 REFERENCES hotel (
@@ -350,6 +364,20 @@ REFERENCES user1 (
 
 ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_user1_hotel_1" FOREIGN KEY (
 	inqho_userno
+)
+REFERENCES user1 (
+	user_no
+) ON DELETE CASCADE;
+
+ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_inquiry_site_TO_site_reply_1" FOREIGN KEY (
+	inqsi__siteno
+)
+REFERENCES inquiry_site (
+	inqsi_no
+) ON DELETE CASCADE;
+
+ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_user1_TO_site_reply_1" FOREIGN KEY (
+	inqre_userno
 )
 REFERENCES user1 (
 	user_no

@@ -955,5 +955,4 @@ public class UserDAO {
 		}
 		return dto;
 	}
-	
 }

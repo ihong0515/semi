@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 	<div align="center">
 			<h3>아이디/비밀번호 찾기</h3>
 		<hr width="50%" color="blue">

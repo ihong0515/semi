@@ -52,10 +52,7 @@ public class BoardSiteGetListAction implements Action {
 			}else {
 				board_list += "<board_update>"+dto.getInqsi_update().substring(5, 10)+"</board_update>";
 			}
-			board_list += "<board_group>"+dto.getInqsi_group()+"</board_group>"
-					+ "<board_step>"+dto.getInqsi_step()+"</board_step>"
-					+ "<board_indent>"+dto.getInqsi_indent()+"</board_indent>"
-					+ "<board_userno>"+dto.getInqsi_userno()+"</board_userno>";
+			board_list += "<board_userno>"+dto.getInqsi_userno()+"</board_userno>";
 			
 			board_list += "</board>";
 		}

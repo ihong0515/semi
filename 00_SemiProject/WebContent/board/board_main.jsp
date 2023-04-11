@@ -21,9 +21,6 @@
 	    		<input type="button" value="호텔 문의" id="hotel_board" onclick="hotel_board_getList()">
 	    	</div>
 	    	<div id="board_main">
-	    		<div id="board_write_btn" style="display: none;">
-	    			<input type="button" value="문의하기" onclick="if(confirm('사이트에 문의사항을 작성하러 가시겠습니까.')){location.href='<%=request.getContextPath() %>/board_site_write.do'} else{return false; }">
-	    		</div>
 	    		<table id=board_list>
 	    			<tr>
 	    				<th style="width: 40px;">
@@ -46,7 +43,31 @@
 	    			<tr>
 	    		</table>
 	    		<div id="board_navi">
-	    		<input type="hidden" value="" id="page_li_lastPage">
+	    			<div id="board_write_btn" style="display: none;">
+		    			<input id="board_write_modal_btn" type="button" value="문의하기" onclick="if(confirm('사이트에 문의사항을 작성하시겠습니까.')){write_modeal_open(); } else{return false; }">
+		    			<div id="board_write_modal_overlay">
+		    				<div id="board_write_modal_window">
+		    					<form action="<%=request.getContextPath() %>/board_site_write.do" method="post" onsubmit="return write_check()" name="f">
+			    					<div id="modal_head">
+			    						<div id="modal_head_title">
+			    							제목 : <input type="text" name="board_title">
+			    						</div>
+			    						<div id="modal_head_x" onclick="write_modeal_close()">
+			    							X
+			    						</div>
+			    					</div>
+			    					<div id="modal_body">
+			    						<textarea rows="15" cols="70" name="board_content"></textarea>
+			    					</div>
+			    					<div id="modal_foot">
+			    						<input type="submit" value="등록">&nbsp;&nbsp;
+			    						<input type="reset" value="다시 작성">
+			    					</div>
+		    					</form>
+		    				</div>
+		    			</div>
+		    		</div>
+	    			<input type="hidden" value="" id="page_li_lastPage">
 	    			<ul class='board_navi_page' id="board_navi_site">
 		    			<li class="page_li">
 							<a class="page-link" href="javascript:site_board_getList()">&#171;</a>
