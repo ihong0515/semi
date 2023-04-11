@@ -11,8 +11,8 @@ public class Inquiry_HotelDTO {
 	private String inqho_update;
 	private int inqho_group;
 	private int inqho_step;
-	private int inqho_indent;
 	private int inqho_userno;
+	private String inqho_write_check;
 	
 	public int getInqho_no() {
 		return inqho_no;
@@ -74,26 +74,16 @@ public class Inquiry_HotelDTO {
 	public void setInqho_step(int inqho_step) {
 		this.inqho_step = inqho_step;
 	}
-	public int getInqho_indent() {
-		return inqho_indent;
-	}
-	public void setInqho_indent(int inqho_indent) {
-		this.inqho_indent = inqho_indent;
-	}
 	public int getInqho_userno() {
 		return inqho_userno;
 	}
 	public void setInqho_userno(int inqho_userno) {
 		this.inqho_userno = inqho_userno;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public String getInqho_write_check() {
+		return inqho_write_check;
+	}
+	public void setInqho_write_check(String inqho_write_check) {
+		this.inqho_write_check = inqho_write_check;
+	}
 }

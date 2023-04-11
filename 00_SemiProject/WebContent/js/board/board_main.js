@@ -13,6 +13,7 @@
 		$('#board_write_btn').show();
 		
 		$.ajax({
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 			type: "post",
 			url: "board_Site_Get_List.do",
 			data:{page: page},
@@ -31,10 +32,10 @@
 						table += $(this).find("board_no").text();
 						table += "</td>";
 						table += "<td><a href='"+contextPath+"/board_Get_Site_Content.do?board_no="+$(this).find("board_no").text()+"'>";
-						if($(this).find("board_userno").text()==user_no){
+						if($(this).find("board_userno").text()==user_no||user_no=='1'){
 							table += $(this).find("board_title").text();
 						}else{
-							table += "비밀 글입니다.";
+							table += "<비밀 글입니다.>";
 						}
 						table += "</a></td>";
 						table += "<td>";
@@ -89,6 +90,7 @@
 			$('#board_write_btn').hide();
 			
 			$.ajax({
+				contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 				type: "post",
 				url: "board_Hotel_Get_List.do",
 				data: {
@@ -108,7 +110,12 @@
 							table += "<td>";
 							table += $(this).find("board_no").text();
 							table += "</td>";
-							table += "<td><a href='"+contextPath+"/board_Get_Hotel_Content.do?board_no="+$(this).find("board_no").text()+"'>";
+							table += "<td><a class='board_title_a' href='"+contextPath+"/board_Get_Hotel_Content.do?board_no="+$(this).find("board_no").text()+"'>";
+							
+							if($(this).find("board_step").text()>1){
+								table += "└>Re:　";
+							}
+							
 							table += $(this).find("board_title").text();
 							table += "</a></td>";
 							table += "<td>";
@@ -149,5 +156,25 @@
 					alert('게시물 불러오기 실패....');
 				}
 			});
+		}
+	}
+	
+	function write_modeal_open(){
+		$(document).scrollTop(250);
+		$('#board_write_modal_overlay').show();
+	}
+	function write_modeal_close(){
+		$('#board_write_modal_overlay').hide();
+	}
+	
+	function write_check(){
+		if(f.board_title.value == "") {
+			alert("글 제목을 입력하세요!!!");
+			f.board_title.focus();
+			return false;
+		}else if(f.board_content.value == "") {
+			alert("글 내용을 입력하세요!!!");
+			f.board_content.focus();
+			return false;
 		}
 	}

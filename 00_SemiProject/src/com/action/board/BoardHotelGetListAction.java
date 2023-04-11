@@ -11,6 +11,7 @@ import com.action.ActionForward;
 import com.model.board.BoardDAO;
 import com.model.board.Inquiry_HotelDTO;
 import com.model.hotel.HotelDAO;
+import com.model.user.UserDTO;
 
 public class BoardHotelGetListAction implements Action {
 
@@ -39,7 +40,9 @@ public class BoardHotelGetListAction implements Action {
 		int startNo = (page *rowsize) - (rowsize - 1); //시작번호
 		int endNo = (page*rowsize);  //끝번호
 		
-		ArrayList<Inquiry_HotelDTO> list = BoardDAO.getInstance().getHotelPageBoardList(Integer.parseInt(request.getParameter("userNo")), startNo, endNo);
+		UserDTO user = (UserDTO)request.getSession().getAttribute("loginUser");
+		
+		ArrayList<Inquiry_HotelDTO> list = BoardDAO.getInstance().getHotelPageBoardList(user.getUser_no(), startNo, endNo);
 		
 		String board_list = "<board_list>";
 		
@@ -58,8 +61,7 @@ public class BoardHotelGetListAction implements Action {
 				board_list += "<board_update>"+dto.getInqho_update().substring(5, 10)+"</board_update>";
 			}
 			board_list += "<board_group>"+dto.getInqho_group()+"</board_group>"
-					+ "<board_step>"+dto.getInqho_step()+"</board_step>"
-					+ "<board_indent>"+dto.getInqho_indent()+"</board_indent>";
+					+ "<board_step>"+dto.getInqho_step()+"</board_step>";
 
 			board_list += "<board_ownerno>"+dto.getInqho_ownerno()+"</board_ownerno>";
 			board_list += "<board_userno>"+dto.getInqho_userno()+"</board_userno>";
