@@ -23,6 +23,7 @@ public class HotelIndexSearchAction implements Action {
 		String type = request.getParameter("search");
 		ArrayList<HotelDTO> list = new ArrayList<>();
 		PrintWriter out = response.getWriter();
+		
 		if(type.equals("Starlocation")) {
 			list = HotelDAO.getInstance().getHotelIndexSearch(location, "hotel_star desc");
 		}else {
@@ -51,6 +52,10 @@ public class HotelIndexSearchAction implements Action {
 			str += "<hotel_price_min>" + dto.getHotel_price_min() + "</hotel_price_min>";
 			str += "<hotel_info>" + dto.getHotel_info() + "</hotel_info>";
 			str += "<hotel_jjim_check>"+jjim_check+"</hotel_jjim_check>";
+			str += "<hotel_hashtag1>"+dto.getHotel_hashtag().get(0)+"</hotel_hashtag1>";
+			str += "<hotel_hashtag2>"+dto.getHotel_hashtag().get(1)+"</hotel_hashtag2>";
+			str += "<hotel_hashtag3>"+dto.getHotel_hashtag().get(2)+"</hotel_hashtag3>";
+			
 			str += "</hotel>";
 		}
 		str += "</hotels>";

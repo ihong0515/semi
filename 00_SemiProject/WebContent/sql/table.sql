@@ -16,6 +16,7 @@ CREATE TABLE hotel (
 	hotel_people_max	number(10)		NOT NULL,
 	hotel_star	number(10)		NOT NULL,
 	hotel_point	number(10)	DEFAULT 0	NULL
+	hotel_hashtag varchar2(1000) default null
 );
 
 CREATE TABLE room (

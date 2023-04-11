@@ -31,11 +31,10 @@
 					<br>
 					총 ${dto.getReserv_daycount() } 박
 				</div>
-				
 			</div>
 			<div id="payment_info">
 				<div>
-					결제 카드 : ${payDto.getPay_name() } : ${dto.getReserv_ins() }
+					결제 카드 : ${payDto.getPay_name() } / 할부 : ${dto.getReserv_ins() } 개월
 				</div>
 				<div>
 					원 가 : ${dto.getReserv_nomalprice() }<br>
@@ -50,7 +49,8 @@
 					결제 금액 : ${dto.getReserv_realprice() }
 				</div>
 			</div>
-			<div id="cancle_info">
+			<c:if test="${dto.getReserv_usecheck() =='N' }">
+				<div id="cancle_info">
 				<div class="cancle_info_content">
 					<p class="cancle_info_head">
 						고객센터 운영시간 :
@@ -75,6 +75,17 @@
 			<div id="cancle_btn">
 				<span onclick="location.href=''">예약 취소 및 환불을 요청합니다.</span>
 			</div>
+			</c:if>
+			<c:if test="${dto.getReserv_usecheck() =='Y' }">
+			<div>
+				사용완료된 상품입니다.
+			</div>
+			</c:if>
+			<c:if test="${dto.getReserv_usecheck() =='C' }">
+			<div>
+				결제 취소된 상품입니다.
+			</div>
+			</c:if>
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
