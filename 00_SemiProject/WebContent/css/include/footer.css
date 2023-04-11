@@ -11,6 +11,9 @@
 .info_footer{
 	text-align: center;
 }
+ul{
+	list-style:none;
+}
 /* }
 .container{
 	

@@ -1,3 +1,12 @@
 @charset "UTF-8";
 
+#container{
+	width: 800px;
+	margin: 50px auto;
 	
+}
+.promotion_font{
+	text-align:center;
+	font-weight:bold;
+	font-size:10pt;
+}
