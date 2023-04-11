@@ -20,13 +20,8 @@ function getReserv(self){
 				let price = $(this).find("reserv_realprice").text();
 				let resultPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 				
-				if(use_check=='N'){
-					str += "<img onclick=\'location.href=\""+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"\"\' src='"+contextPath+"/image/hotel/"+$(this).find("photo").text()+"/main.jpg' style='width:100px; height:100px;'><br>";
-					str += "<a href='"+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"'>"+$(this).find("reserv_hotelname").text()+"</a><br>";
-				}else{
-					str += "<img id='use_check_img' src='"+contextPath+"/image/hotel/"+$(this).find("photo").text()+"/main.jpg' style='width:100px; height:100px;'><br>";
-					str += "<a id='use_check_a'>"+$(this).find("reserv_hotelname").text()+"</a><br>";
-				}
+				str += "<img onclick=\'location.href=\""+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"\"\' src='"+contextPath+"/image/hotel/"+$(this).find("photo").text()+"/main.jpg' style='width:100px; height:100px;'><br>";
+				str += "<a href='"+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"'>"+$(this).find("reserv_hotelname").text()+"</a><br>";
 				str += $(this).find("reserv_roomname").text()+"<br>";
 				str += "체크인: " + $(this).find("reserv_start").text()+"<br>";
 				str += "체크아웃: " + $(this).find("reserv_end").text()+"<br>";

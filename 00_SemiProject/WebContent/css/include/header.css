@@ -1,23 +1,22 @@
 @charset "UTF-8";
 
-#container{
-	width: 800px;
-	margin: 50px auto;
-	background-color: rgba(247, 217, 218, 0.39);
-}
-ul{
-	 list-style:none;
-  	 padding-left:0px;
-	
-	
-}
-
 a{
 	text-decoration: none;
 	color:#fbc0bf;
 }
 a:hover{
-	color: red;
+	color: #ec1c24;
+}
+
+
+#container{
+	width: 800px;
+	margin: 50px auto;
+	background-color: rgba(247, 217, 218, 0.39);
+}
+#header_navi ul{
+	 list-style:none;
+  	 padding-left:0px;
 }
 #header_navi_home img{
 	width: 100%;
@@ -67,21 +66,21 @@ a:hover{
 .submenu li{
 	list-style: none;
 }
- input[type="date"]{
+#header_search input[type="date"]{
   position: relative;
   min-height:30px;
   padding: 10px 12px;
   border: 5px solid pink;
   font-size:20px;
 }
-input[type="text"]{
+#header_search input[type="text"]{
   position: relative;
   min-height:30px;
   padding: 10px 12px;
   border: 5px solid pink;
   font-size:20px;
 }
-select{
+#header_search select{
   position: relative;
   min-height:30px;
   padding: 10px 12px;

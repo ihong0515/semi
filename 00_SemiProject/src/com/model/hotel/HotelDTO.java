@@ -1,5 +1,7 @@
 package com.model.hotel;
 
+import java.util.ArrayList;
+
 public class HotelDTO {
 	private int hotel_no;
 	private int hotel_ownerNo;
@@ -18,6 +20,7 @@ public class HotelDTO {
 	private int hotel_people_max;
 	private int hotel_star;
 	private int hotel_point;
+	private ArrayList<String> hotel_hashtag;
 	
 	public HotelDTO() {	}
 
@@ -155,5 +158,13 @@ public class HotelDTO {
 
 	public void setHotel_ownerNo(int hotel_ownerNo) {
 		this.hotel_ownerNo = hotel_ownerNo;
+	}
+
+	public ArrayList<String> getHotel_hashtag() {
+		return hotel_hashtag;
+	}
+
+	public void setHotel_hashtag(ArrayList<String> hotel_hashtag) {
+		this.hotel_hashtag = hotel_hashtag;
 	}
 }

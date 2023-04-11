@@ -1,9 +1,20 @@
 /**
  * 
  */
+$(document).ready(function(){
+	if(checkdate_param){
+        $(".checkIn").val(new Date().toISOString().slice(0, 10));
+        $(".checkOut").val(new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().slice(0, 10));
+     }
+	if($('#Starlocation').length){
+		serchHotelList($('#Starlocation'));
+		serchHotelList($('#lowPricelocation'));
+	}
+});
+
 function logout() {
 	if(confirm('로그아웃 진행하십니까?')){
-		location.href="contextPath/user_logout.do";
+		location.href=contextPath+"/user_logout.do";
 	}else{
 		return ;
 	}
@@ -31,7 +42,7 @@ function likeInsert(self, no){
 				}
 			},
 			error : function(){
-				alert("에러입니다.");	
+				alert("에러입니다.");
 			}
 		}); // ajax함수 end
 	}else{
@@ -69,16 +80,15 @@ function likeDelete(self, no){
 	}
 }
 
-function openMypage(e){
+function openMypage(){
 	$('.submenu').css('display','flex');
 	
 	$('.submenu').mouseleave(function(){
 		$('.submenu').css('display','none');
 	});
-	
-	
 }
 
-	
+
+
 
 

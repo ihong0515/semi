@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -90,6 +91,15 @@ public class HotelDAO {
 				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
 				dto.setHotel_star(rs.getInt("hotel_star"));
 				dto.setHotel_point(rs.getInt("hotel_point"));
+
+				String hash = rs.getNString("hotel_hashtag");
+				StringTokenizer st = new StringTokenizer(hash, ",");
+				ArrayList<String> hashtag = new ArrayList<String>();
+				while(st.hasMoreTokens()) {
+					hashtag.add(st.nextToken());
+				}
+				
+				dto.setHotel_hashtag(hashtag);
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -171,6 +181,15 @@ public class HotelDAO {
 				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
 				dto.setHotel_star(rs.getInt("hotel_star"));
 				dto.setHotel_point(rs.getInt("hotel_point"));
+
+				String hash = rs.getNString("hotel_hashtag");
+				StringTokenizer st = new StringTokenizer(hash, ",");
+				ArrayList<String> hashtag = new ArrayList<String>();
+				while(st.hasMoreTokens()) {
+					hashtag.add(st.nextToken());
+				}
+				
+				dto.setHotel_hashtag(hashtag);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -271,6 +290,15 @@ public class HotelDAO {
 				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
 				dto.setHotel_star(rs.getInt("hotel_star"));
 				dto.setHotel_point(rs.getInt("hotel_point"));
+				
+				String hash = rs.getNString("hotel_hashtag");
+				StringTokenizer st = new StringTokenizer(hash, ",");
+				ArrayList<String> hashtag = new ArrayList<String>();
+				while(st.hasMoreTokens()) {
+					hashtag.add(st.nextToken());
+				}
+				
+				dto.setHotel_hashtag(hashtag);
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -326,6 +354,15 @@ public class HotelDAO {
 				dto.setHotel_people_max(rs.getInt("hotel_people_max"));
 				dto.setHotel_star(rs.getInt("hotel_star"));
 				dto.setHotel_point(rs.getInt("hotel_point"));
+
+				String hash = rs.getNString("hotel_hashtag");
+				StringTokenizer st = new StringTokenizer(hash, ",");
+				ArrayList<String> hashtag = new ArrayList<String>();
+				while(st.hasMoreTokens()) {
+					hashtag.add(st.nextToken());
+				}
+				
+				dto.setHotel_hashtag(hashtag);
 				detail_list.add(dto);
 			}
 		} catch (SQLException e) {
