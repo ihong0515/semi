@@ -15,7 +15,7 @@
 	<div id="container">
       <jsp:include page="../include/header.jsp" />
     	<div id="content">
-      		<div align="center">
+      		<div>
 				<h2>고객 회원가입</h2>
 				<br>
 				<form method="post" name="joinForm" id="joinForm" action="<%=request.getContextPath()%>/user_join_ok.do" onsubmit="return joinFormCheck()">

@@ -13,7 +13,7 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
     	<div id="content">
-			<div align="center">
+			<div>
 				<h2>${user_dto.getUser_name() }님의 보유 쿠폰 내역</h2>
 				<br>
 				<table border="1" cellspacing="0">

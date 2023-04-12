@@ -22,9 +22,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/include/header.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/header.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/footer.css">
-
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/crawling/crawling.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">

@@ -16,9 +16,7 @@
 <body>
 	<div id="container">
 		<div id="index_content">
-		
 			<jsp:include page="include/header.jsp" />
-			
 			<h1 class="list_title">별점순 추천</h1>
 			<nav class="index_search">
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
@@ -35,16 +33,13 @@
 					<li><input type="button" class="Starlocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>
-			
 			<div class="star_list_Table_bg">
 				<div class="star_list_Table">
 				</div>		
 			</div>
-			
 			<div class="prom_banner">
 				<img src="<%=request.getContextPath() %>/image/include/prom_banner1.png" onclick="location.href='<%=request.getContextPath()%>/PromotionList.do'" width="800px">
 			</div>
-			
 			<h1 class="list_title">최저가순 추천</h1>
 			<nav class="index_search">
 				<ul>
@@ -60,16 +55,12 @@
 					<li><input type="button" class="lowPricelocation" value="제주" onclick="serchHotelList(this)"></li>
 				</ul>
 			</nav>
-			
 			<div class="low_list_Table_bg">
 				<div class="low_list_Table">
 				</div>
 			</div>
-			
 		</div><%--main contentend --%>
-		
 		<jsp:include page="/include/footer.jsp" />
-		
 	</div>
 </body>
 </html>
