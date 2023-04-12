@@ -108,8 +108,17 @@
 		width: 100%;
 		flex-direction: column;
 	}
+	.faq_board_cont{
+		display: none;
+	}
 	.faq_cont{
 		display: none;
+	}
+	.faq_btn_total_active:after {
+		content: "\2212";
+	}
+	.faq_btn_total:after {
+		content: '\002B';
 	}
 	.faq_btn_active:after {
 		content: "\2212";

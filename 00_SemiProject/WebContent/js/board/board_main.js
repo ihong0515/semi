@@ -189,8 +189,23 @@
 	function faq_board_getList(){
 		$('.faq_cont').hide();
 		$('.faq_board_cont button').attr('class', 'faq_btn');
+		$('.faq_btn_total').attr('class', 'faq_btn_total');
 		$('#faq_main').css('display', 'flex');
 		$('#board_main').hide();	
+	}
+	
+	function faq_calling_to(self){
+		$('.faq_board_cont').slideUp();
+		$('.faq_board_wrap button').attr('class', 'faq_btn_total');
+		$('.faq_cont').slideUp();
+		$('.faq_board_cont button').attr('class', 'faq_btn');
+		if ($(self).nextAll().css('display')=='none'){
+			$(self).nextAll().slideDown();
+			$(self).attr('class', 'faq_btn_total_active');
+		}else{
+			$(self).nextAll().slideUp();
+			$(self).attr('class', 'faq_btn_total');
+		}
 	}
 	
 	function faq_calling(self){

@@ -2,7 +2,7 @@
 
 #footer_container{
 	background-color: rgb(232, 216, 226);
-
+	margin-top: 50px;
 }
 #footer{
 	display: flex;

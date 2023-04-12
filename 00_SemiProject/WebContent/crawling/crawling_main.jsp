@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/crawling/crawling.css">
 </head>
 <body>
 	<div id="container">

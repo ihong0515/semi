@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>main_footer</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/footer.css">
 </head>
 <body>
 	<div id = "footer_container">
