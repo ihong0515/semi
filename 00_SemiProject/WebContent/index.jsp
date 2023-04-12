@@ -16,9 +16,7 @@
 <body>
 	<div id="container">
 		<div id="index_content">
-		
 			<jsp:include page="include/header.jsp" />
-			
 			<h1 class="list_title">별점순 추천</h1>
 			<nav class="index_search">
 				<!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
@@ -65,7 +63,6 @@
 				<div class="low_list_Table">
 				</div>
 			</div>
-			
 		</div><%--main contentend --%>
 		
 		<jsp:include page="/include/footer.jsp" />
