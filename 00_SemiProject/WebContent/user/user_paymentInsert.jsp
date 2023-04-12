@@ -13,7 +13,7 @@
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-	    	<div id="content" align="center">
+	    	<div id="content">
 	    		<h2>새 결제수단 등록</h2>
 				<br>
 				<form method="post" action="<%=request.getContextPath()%>/user_insertPaymentOk.do?user_no=${user_dto.getUser_no()}">

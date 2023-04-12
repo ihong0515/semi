@@ -77,7 +77,7 @@
 					</li>
 				</ul>
 			</div>
-			<div id="crawling_main" style="width:1000px">
+			<div id="crawling_main">
 				<c:if test="${list.size()!=0 }">
 				<c:forEach items="${list }" var="dto">
 				<div class="crawling_main_content">

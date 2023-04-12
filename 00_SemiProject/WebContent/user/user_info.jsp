@@ -9,10 +9,9 @@
 <title>회원 상세 정보</title>
 </head>
 <body>
-
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-	    	<div id="content" align="center">
+	    	<div id="content">
 				<h2>${user_dto.getUser_name() }님의 회원 정보</h2>
 				<br>
 				

@@ -17,7 +17,7 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 	    	<div id="content">
-				<div align="center">
+				<div>
 					<h2>고객 회원정보 수정</h2>
 					<br>
 					<form method="post" action="<%=request.getContextPath() %>/user_modify_ok.do" onsubmit="return modifyFormCheck()">

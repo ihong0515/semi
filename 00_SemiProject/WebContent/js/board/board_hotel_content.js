@@ -21,7 +21,7 @@ function modify_check(){
 
 function delete_hotel(){
 	if(write_check=='U'||user_no==1){
-		location.href=contextPath+"/board_hotel_delete.do?board_no="+board_no+"&group_no"+group_no;
+		location.href=contextPath+"/board_hotel_delete.do?board_no="+board_no+"&group_no="+group_no+"&step_no="+step_no;
 	}else{
 		alert('호텔의 답변은 지울 수 없습니다.');
 	}

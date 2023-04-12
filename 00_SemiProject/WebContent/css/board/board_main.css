@@ -3,7 +3,7 @@
 		margin: 10px;
 		height: 500px;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 	#board_main{
 		width: 800px;
@@ -103,3 +103,18 @@
 	#modal_foot{
 		margin-top: 10px;
 	}
+	#faq_main{
+		display: none;
+		width: 100%;
+		flex-direction: column;
+	}
+	.faq_cont{
+		display: none;
+	}
+	.faq_btn_active:after {
+		content: "\2212";
+	}
+	.faq_btn:after {
+		content: '\002B';
+	}
+	

@@ -228,23 +228,40 @@ public class UserDAO {
 	}
 	
 	public int checkUserId(String id) {
-		
-		int result = 0; 
-		
+		int result = 0;
 		try {
 			connect();
 			sql = "select * from user1 where user_id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
-			
 			if(rs.next()) {
 				result = -1;
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public int checkPwd(String user_pwd) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select * from user1 where user_pwd = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_pwd);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				result = 1;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
 			close();
 		}
 		return result;

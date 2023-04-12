@@ -171,12 +171,16 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public int getHotelBoardCount() {
+	public int getHotelBoardCount(int no) {
 		int count = 0;
 		
 		try {
 			openConn();
-			sql = "select count(*) from inquiry_hotel";
+			if(no==1) {
+				sql = "select count(*) from inquiry_hotel";
+			}else {
+				sql = "select count(*) from inquiry_hotel where inqho_userno = "+no;
+			}
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
@@ -199,11 +203,13 @@ public class BoardDAO {
 			sql = "select * from "
 					+ "(select row_number() "
 					+ "over(order by inqho_group desc, INQHO_STEP) rnum, "
-					+ "b.* from inquiry_hotel b) "
-					+ "where rnum between ? and ?";
+					+ "b.* from inquiry_hotel b ";
 			if(user_no!=1) {
-				sql += " and inqho_userno = "+user_no;
+				sql += " where inqho_userno = "+user_no+")";
+			}else {
+				sql += ")";
 			}
+			sql += " where rnum between ? and ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startNo);
@@ -494,7 +500,7 @@ public class BoardDAO {
 		
 		try {
 			openConn();
-			sql = "select inqho_no from inquiry_hotel where inqho_group = ? order by inqho_no"; //삭제 글 리스트
+			sql = "select inqho_no from inquiry_hotel where inqho_group = ? order by inqho_no desc"; //삭제 글 리스트
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, group);
 			rs = pstmt.executeQuery();
@@ -534,9 +540,9 @@ public class BoardDAO {
 	public void sequenceHotelBoardStep(int group) {
 		try {
 			openConn();
-			sql = "update inquiry_hotel set inqho_group = inqho_group -1 inqho_group > ?"; //위 원글 리스트들 그룹 -1
+			sql = "update inquiry_hotel set inqho_group = inqho_group -1 where inqho_group = ?"; //위 원글 리스트들 그룹 -1
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rs.getInt("inqho_group"));
+			pstmt.setInt(1, group);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -554,8 +560,8 @@ public class BoardDAO {
 			sql = "delete from inquiry_hotel where inqho_no = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, no);
-			int re = pstmt.executeUpdate();
-			if(re>0) {
+			result = pstmt.executeUpdate();
+			if(result>0) {
 				sequence_hotel(no);
 			}
 		} catch (SQLException e) {

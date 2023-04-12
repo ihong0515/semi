@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#login_main{
+	margin: 0 auto;
+}
+#login_main_wrap{
+	margin: 0 auto;
+	width: 330px;
+}
+#login_main_wrap div{
+	display: flex;
+	justify-content: center;
+	margin: 20px auto;
+}
+.login_main_inp input{
+	width: 300px;
+	height: 40px;
+	font-size: 17px;
+}
+#login_main_btn input{
+	margin: 0 20px;
+}
+#login_main_a{
+	justify-content: space-between !important;
+}
