@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+
+a{
+	text-decoration: none;
+	color: black;
+  }
+
 * {
 	margin: 0;
 	padding: 0;
@@ -8,6 +14,7 @@
 #container{
 	width: 800px;
 	margin: 0 auto 100px auto;
+
 }
 
 #header input, select {

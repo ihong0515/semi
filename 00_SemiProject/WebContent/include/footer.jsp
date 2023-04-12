@@ -7,10 +7,10 @@
 <title>main_footer</title>
 </head>
 <body>
-	<div id = "container">
+	<div id = "footer_container">
 		<div id="foot">
 			<div id = "footer">
-				<div class = "term_footer">
+				<div class = "faq_footer">
 	      		<ul>
 	       	 		<li>
 	        		<a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
