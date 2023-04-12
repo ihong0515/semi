@@ -1,18 +1,43 @@
 @charset "UTF-8";
 
-nav{
-	margin-bottom: 50px;
+#index_content {
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	margin-bottom: 100px;
 }
+
+.list_title {
+	width: 800px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+nav input {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	text-align: center;
+	border: none;
+	background: transparent;
+	font-size: 16px;
+}
+
+nav {
+	margin-bottom: 15px;
+}
+
 .index_search ul{
 	padding: 0;
 	display: flex;
-	justify-content: space-around;
-	
+	justify-content: center;
+	text-align: center;
+	line-height: 20px;
 }
+
 .index_search ul li{
-	list-style: none;
 	width: 100px;
 }
+
 .index_hotel_img{
 	width: 250px;
 	height: 250px;
@@ -21,11 +46,30 @@ nav{
 .star_list_Table{
 	display: flex;
 	justify-content: space-around;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 800px;
 }
+
+.star_list_Table_bg {
+	background: #FCF0F1;
+}
+
 .low_list_Table{
+	background: #D7D3D3;
 	display: flex;
 	justify-content: space-around;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
-.submit{
+
+.low_list_Table_bg {
+	background: #D7D3D3;
+}
+
+.prom_banner {
+	margin-top: 145px;
+	margin-bottom: 145px;
+}
 	
 

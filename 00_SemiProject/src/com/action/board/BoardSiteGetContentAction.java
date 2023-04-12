@@ -20,7 +20,7 @@ public class BoardSiteGetContentAction implements Action {
 		UserDTO user = (UserDTO)request.getSession().getAttribute("loginUser");
 		Inquiry_SiteDTO board = BoardDAO.getInstance().getSiteContent(bo_no);
 		
-		if(board.getInqsi_userno()==user.getUser_no()) {
+		if(board.getInqsi_userno()==user.getUser_no()||user.getUser_no()==1) {
 			request.setAttribute("Board_site", board);
 			
 			ActionForward forward = new ActionForward();

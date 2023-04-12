@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 #container{
 	width: 800px;
 	margin: 50px auto;
@@ -7,6 +8,7 @@
 	background-color: rgb(232, 216, 226);
 
 }
+
 #footer{
 	display: flex;
 	justify-content: space-around;
@@ -17,11 +19,7 @@
 .info_footer{
 	text-align: center;
 }
+
 ul{
 	list-style:none;
 }
-/* }
-.container{
-	
-	
-} */

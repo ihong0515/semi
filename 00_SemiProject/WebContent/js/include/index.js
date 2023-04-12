@@ -4,7 +4,7 @@
 function serchHotelList(e){
 	$.ajax({
 		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
-		type: "get",
+		type: "post",
 		url : "hotel_IndexSearch.do",
 		data : {
 			param : $(e).val(),

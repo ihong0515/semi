@@ -47,6 +47,7 @@
 				</div><!--promotion_list  -->
 
 			</c:if>	
+
 			<c:if test="${empty Promotion}">
 					<h3>프로모션 정보가 없습니다.</h3>
 			</c:if>	

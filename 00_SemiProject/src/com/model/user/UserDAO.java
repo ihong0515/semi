@@ -279,14 +279,14 @@ public class UserDAO {
 		return list;
 	}
 
-	public PaymentDTO getPaymentContent(int card_no) {
+	public PaymentDTO getPaymentContent(int pay_no) {
 		PaymentDTO dto = null;
 		
 		try {
 			connect();
 			sql = "select * from payment where pay_no = ?";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, card_no);
+			ps.setInt(1, pay_no);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				dto = new PaymentDTO();
@@ -640,6 +640,28 @@ public class UserDAO {
 		}
 		return result;
 	}
+	
+	public int modifyPayment(PaymentDTO dto) {
+		int result = 0;
+		try {
+			connect();
+			sql = "update payment set pay_name = ?, pay_cardno = ?, pay_cardcom = ?, pay_cvc = ?, pay_pwd = ?, pay_date = ? where pay_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getPay_name());
+			ps.setString(2, dto.getPay_cardno());
+			ps.setString(3, dto.getPay_cardcom());
+			ps.setInt(4, dto.getPay_cvc());
+			ps.setString(5, dto.getPay_pwd());
+			ps.setString(6, dto.getPay_date());
+			ps.setInt(7, dto.getPay_no());
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
 
 	public int jjimInsertContent(int hotel_no, int user_no) {
 		int result = 0;
@@ -740,6 +762,20 @@ public class UserDAO {
 		return result;
 	}
 	
+	public void updateSequencePayment(int pay_no) {
+		try {
+			connect();
+			sql = "update payment set pay_no = pay_no - 1 where pay_no > ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, pay_no);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+	
 	public int quitUser(int user_no, String user_pwd) {
 		int result = 0;
 		try {
@@ -767,7 +803,7 @@ public class UserDAO {
 		return result;
 	}
 	
-	public void updateSequence(int user_no) {
+	public void updateSequenceUser(int user_no) {
 		try {
 			connect();
 			sql = "update user1 set user_no = user_no - 1 where user_no > ?";
@@ -955,5 +991,4 @@ public class UserDAO {
 		}
 		return dto;
 	}
-	
 }
