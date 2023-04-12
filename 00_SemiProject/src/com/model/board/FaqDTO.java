@@ -31,6 +31,4 @@ public class FaqDTO {
 	public void setFaq_content(String faq_content) {
 		this.faq_content = faq_content;
 	}
-	
-	
 }

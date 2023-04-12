@@ -585,6 +585,54 @@ public class BoardDAO {
 		}
 	}
 
+	public ArrayList<FaqDTO> getFaqList() {
+		ArrayList<FaqDTO> list = new ArrayList<FaqDTO>();
+		
+		try {
+			openConn();
+			sql = "select * from faq";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				FaqDTO dto = new FaqDTO();
+				dto.setFaq_no(rs.getInt("faq_no"));
+				dto.setFaq_category(rs.getInt("faq_category"));
+				dto.setFaq_title(rs.getString("faq_title"));
+				dto.setFaq_content(rs.getString("faq_content"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeConn();
+		}
+		return list;
+	}
+
+	public ArrayList<FaqCateNameDTO> getFaqName() {
+		ArrayList<FaqCateNameDTO> list = new ArrayList<FaqCateNameDTO>();
+		
+		try {
+			openConn();
+			sql = "select * from faq_category order by faq_cate_no";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				FaqCateNameDTO dto = new FaqCateNameDTO();
+				dto.setFaq_cate_no(rs.getInt("faq_cate_no"));
+				dto.setFaq_cate_name(rs.getString("faq_cate_name"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeConn();
+		}
+		return list;
+	}
+
 	
 	
 	
