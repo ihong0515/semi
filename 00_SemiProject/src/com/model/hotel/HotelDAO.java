@@ -291,7 +291,7 @@ public class HotelDAO {
 				dto.setHotel_star(rs.getInt("hotel_star"));
 				dto.setHotel_point(rs.getInt("hotel_point"));
 				
-				String hash = rs.getNString("hotel_hashtag");
+				String hash = rs.getString("hotel_hashtag");
 				StringTokenizer st = new StringTokenizer(hash, ",");
 				ArrayList<String> hashtag = new ArrayList<String>();
 				while(st.hasMoreTokens()) {
