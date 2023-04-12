@@ -7,10 +7,10 @@
 <title>main_footer</title>
 </head>
 <body>
-	<div id = "container">
+	<div id = "footer_container">
 		<div id="foot">
 			<div id = "footer">
-				<div class = "term_footer">
+				<div class = "faq_footer">
 	      		<ul>
 	       	 		<li>
 	        		<a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -22,15 +22,15 @@
 	    		</div>
 	    		<div class = "term_footer">
 	      		<ul>
-		        	<li><a href="<%=request.getContextPath()%>/footer/privat.jsp">개인정보 처리방침</a></li>
-		        	<li><a href="<%=request.getContextPath()%>/footer/serviceterm.jsp">서비스 이용 약관</a></li>
-		        	<li><a href="<%=request.getContextPath()%>/footer/useterm.jsp">사용약관</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/privat.jsp">개인정보 처리방침</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/serviceterm.jsp">서비스 이용 약관</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/useterm.jsp">사용약관</a></li>
 	      		</ul>
 	    		</div>
 	    		<div class = "term_footer">
 	      		<ul>
-		        	<li><a href="<%=request.getContextPath()%>/footer/couponterm.jsp">쿠폰</a></li>
-		        	<li><a href="<%=request.getContextPath()%>/footer/kidterm.jsp">아동</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/couponterm.jsp">쿠폰</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/kidterm.jsp">아동</a></li>
 	      		</ul>
 	    		</div>
 	    		<div class = "logo_footer">

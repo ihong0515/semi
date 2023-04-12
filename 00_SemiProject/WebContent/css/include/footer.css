@@ -1,21 +1,20 @@
 @charset "UTF-8";
-#container{
-	width: 800px;
-	margin: 50px auto;
+
+#footer_container{
+	background-color: rgb(232, 216, 226);
+
 }
 #footer{
 	display: flex;
 	justify-content: space-around;
 }
-
+.term_footer{
+	color:#CCCCCC;
+}
 .info_footer{
 	text-align: center;
 }
+
 ul{
 	list-style:none;
 }
-/* }
-.container{
-	
-	
-} */

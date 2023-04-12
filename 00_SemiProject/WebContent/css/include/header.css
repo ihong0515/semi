@@ -1,95 +1,157 @@
 @charset "UTF-8";
 
+
 a{
 	text-decoration: none;
-	color:#fbc0bf;
-}
-a:hover{
-	color: #ec1c24;
-}
+	color: black;
+  }
 
+* {
+	margin: 0;
+	padding: 0;
+}
 
 #container{
 	width: 800px;
-	margin: 50px auto;
-	background-color: rgba(247, 217, 218, 0.39);
+	margin: 0 auto 100px auto;
+
 }
-#header_navi ul{
-	 list-style:none;
-  	 padding-left:0px;
+
+#header input, select {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	text-align: center;
+	font-family: 'Noto Sans KR', sans-serif;
 }
+
+#header input:focus, #header select:focus {
+	outline:none;
+}
+
+#header a {
+	text-decoration: none;
+	color: black;
+}
+
+#container {
+	width: 800px;
+	margin-bottom: 110px;
+}
+
+#header_navi {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 800px;
+}
+
+#header_navi_logo {
+	float: left;
+	height: 130px;
+	flex: 2;
+	text-align: center;
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 #header_navi_home img{
 	width: 100%;
 	cursor: pointer;
 }
-#header_navi_home_log{
-	float: right;
-	margin: 10px auto;
-	clear: both;
-}
-#header_navi_ul{
-	margin: 70px auto;
-}
-#header_navi_ul ul{
-	display: flex;
-	padding: 0;
-	justify-content: space-around;
-}
-#header_navi_ul ul li{
-	list-style: none;
-	width: 20%;
-	padding: 5px 15px;
-}
-#header_search{
-	text-align: center;
-	position: relative;
-    min-height:30px;
-    padding: 10px 12px;
-    border: 5px solid pink;
-    display: flex;
-    justify-content: space-around;
-   
-}
-.hotel_like_check{
-	cursor: pointer;
-	color: blue;
+
+#header_navi_ul {
+	flex: 4;
+	margin-left: 50px;
 }
 
-.submenu{
+#header_navi_ul li{
+	float: left;
+	height: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 20px;
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 16px;
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#header_navi_home_log a {
+	float: right;
+	flex: 1;
+	height: 20px;
+	vertical-align: middle;
+	margin-left:30px;
+	margin-right: 10px;
+	text-align: right;
+	line-height: 20px;
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 13px;
+}
+
+#header_navi_home_log {
+	position: relative;
+}
+
+.submenu {
 	position: absolute;
-	padding: 0;
 	display: none;
+	background: #E3E3E3;
+	height: 200px;
 	flex-direction: column;
-	border: 1px solid red;
-	background-color: white;
+	top: 25px;
+    right: 0;
+    height: auto;
+    width: 160px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10px;
+    
 }
-.submenu li{
-	list-style: none;
+
+.submenu li {
+	padding: 3px;
 }
-#header_search input[type="date"]{
-  position: relative;
-  min-height:30px;
-  padding: 10px 12px;
-  border: 5px solid pink;
-  font-size:20px;
+
+.submenu li:hover {
+	background:#F4D2D5;
+	transition: ease 0.1s;
+	color: white;
 }
-#header_search input[type="text"]{
-  position: relative;
-  min-height:30px;
-  padding: 10px 12px;
-  border: 5px solid pink;
-  font-size:20px;
+
+#header_search {
+	margin-top: 20px;
 }
-#header_search select{
-  position: relative;
-  min-height:30px;
-  padding: 10px 12px;
-  border: 5px solid pink;
-  font-size:20px;
-} 
-.submit_button{
-	background-color:pink;
-	font-size:20px;
-	color:white;
-	color: #fbc0bf;
+
+#location {
+    border: 1px solid #ccc;
+    vertical-align: top;
+    height: 30px;
+    width: 140px;
+}
+
+.checkIn, .checkOut {
+	border: 1px solid #ccc;
+	vertical-align: top;
+	height: 30px;
+	width: 130px;
+}
+
+#submit_button {
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	border: 1px solid #ccc;
+	vertical-align: top;
+}
+
+#keyword {
+	border: 1px solid #ccc;
+	vertical-align: middle;
+	height: 30px;
+	width: 280px;
 }
