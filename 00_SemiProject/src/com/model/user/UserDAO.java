@@ -207,8 +207,11 @@ public class UserDAO {
 		return result;
 	}
 	
+<<<<<<< Updated upstream
 
 	
+=======
+>>>>>>> Stashed changes
 	public int checkUserId(String id) {
 		int result = 0;
 		try {
