@@ -26,6 +26,7 @@ public class UserLoginAction implements Action {
 				UserDTO cont = dao.loginUser(user_id, user_pwd);
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", cont);
+				
 				ActionForward forward = new ActionForward();
 				forward.setRedirect(false);
 				forward.setPath("index.jsp");

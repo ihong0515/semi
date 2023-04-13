@@ -53,8 +53,8 @@ function pwdInput(){
 	/* 비밀번호 유효성 검사 */
 	checkPwd($('#user_pwd').val(), $('#user_id').val());
 	
-	var pwd = $('#user_pwd').val();
-	var repwd = $('#user_repwd').val();
+	let pwd = $('#user_pwd').val();
+	let repwd = $('#user_repwd').val();
 		
 	if(pwd != "" || repwd != "") {
 		if(pwd==repwd) { // 일치
@@ -82,14 +82,6 @@ function checkPwd(pwd) {
 		$("#pwdcheck").show();
 		$("#pwdcheck").append('<font color="red">같은 문자를 4번 이상 사용하실 수 없습니다.</font>');
 		$('#user_pwd').val('').focus();
-		
-  /* 해당 조건 삭제(가입 조건 너무 복잡해짐)
-	} else if(pwd.search(id) > -1) {
-		$("#pwdcheck").text("");
-		$("#pwdcheck").show();
-		$("#pwdcheck").append('<font color="red">비밀번호에 아이디가 포함되었습니다.</font>');
-		$('#user_pwd').val('').focus();*/
-		
 	} else {
 		$("#pwdcheck").text("");
 		$("#pwdcheck").show();
@@ -181,11 +173,11 @@ function joinFormCheck() {
 /* 이메일 자동완성 기능 */
 function autoEmail() {
     
-var mailId = $('#user_email').val().split('@');
-    var mailList = ['naver.com','gmail.com','daum.net','hanmail.net'];
-    var mailArr = new Array;
+	let mailId = $('#user_email').val().split('@');
+    let mailList = ['naver.com','gmail.com','daum.net','hanmail.net'];
+    let mailArr = new Array;
     
-	for(var i=0; i < mailList.length; i++ ){
+	for(let i=0; i < mailList.length; i++ ){
     	mailArr.push( mailId[0] +'@'+ mailList[i] );
     }
 
@@ -221,4 +213,59 @@ function agreeShow(self) {
         $(self).next().hide();
         $(self).html('<i class="fa-solid fa-chevron-down" onclick="agreeShow()"></i>');
     }
+}
+
+function emailSend() {
+	if($('#user_email').val()==''){
+		alert('Email 주소를 적어주세요.');
+	}else{
+		$.ajax({
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+			type: "post",
+			url: "user_Email_Send.do",
+			data:{
+				email: $('#user_email').val(),
+				check: "user_join"
+			},
+			datatype: "text",
+			success: function(data){
+				if(data==1){
+					alert('이메일 도착까지 3~5분정도 소요될 수 있습니다.');
+				}else{
+					alert('이메일 전송 실패....');
+				}
+			},
+			error: function(){
+				alert('이메일 전송 중 오류 발생....');
+			}
+		});
+	}
+}
+function emailCheck() {
+	if($('#user_email_check').val()==''){
+		alert('인증 코드를 적어주세요.');
+	}else{
+		$.ajax({
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+			type: "post",
+			url: "user_Email_Check.do",
+			data:{
+				email: $('#user_email').val(),
+				check_code: $('#user_email_check').val()
+			},
+			datatype: "text",
+			success: function(data){
+				if(data==1){
+					alert("인증 성공");
+				}else if(data==-1){
+					alert("인증 번호가 다릅니다.");
+				}else{
+					alert("이메일 발송 여부를 확인하세요.")
+				}
+			},
+			error: function(){
+				alert('오류 발생....');
+			}
+		});
+	}
 }

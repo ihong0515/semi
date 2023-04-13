@@ -38,11 +38,12 @@ public class UserJoinOkAction implements Action {
 			
 			int check = dao.insertUser(dto);
 			
-			ActionForward forward = new ActionForward();
+			
 			
 			if(check > 0) {
 				dao.deleteEmailCode(user_email);
 				
+				ActionForward forward = new ActionForward();
 				forward.setRedirect(false);
 				forward.setPath("index.jsp");
 				return forward;
