@@ -9,11 +9,6 @@ html, body {
 	height: 100%;
 }
 
-#header_container{
-	width: 800px;
-	margin: 0 auto 100px auto;
-}
-
 #header {
 	height: 480px;
 	position: relative;
