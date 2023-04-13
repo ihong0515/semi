@@ -27,7 +27,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div id="container">
+	<div id="header_container">
 		<div id="header">
 			<div id="header_navi">
 				<div id="header_navi_logo">

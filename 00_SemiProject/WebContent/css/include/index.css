@@ -1,15 +1,21 @@
 @charset "UTF-8";
 
-#index_content {
-	font-family: 'Noto Sans KR', sans-serif;
-	list-style: none;
-	margin-bottom: 100px;
+html, body {
+	height: 100%;
 }
 
-.list_title {
-	width: 800px;
-	text-align: center;
+#index_content {
+	min-height: 100%;
+	height: 1500px;
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	margin: auto;
+	align-content: center;
+}
+
+#title {
 	margin-bottom: 30px;
+	text-align: center;
 }
 
 nav input {
@@ -20,39 +26,56 @@ nav input {
 	border: none;
 	background: transparent;
 	font-size: 16px;
+	width: 80px;
+	height: 50px;
 }
 
-nav {
-	margin-bottom: 15px;
+#content_serach {
+	width: 800px;
+	margin: auto;
 }
 
-.index_search ul{
+.index_search ul {
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	text-align: center;
 	line-height: 20px;
+	width: 800px;
 }
 
-.index_search ul li{
+.index_search ul li {
 	width: 100px;
 }
 
-.index_hotel_img{
+.clickedStarlocation {
+	background: #FCF0F1;
+}
+
+.clickedLowPricelocation {
+	background: #D7D3D3;
+}
+
+.index_hotel_img {
 	width: 250px;
 	height: 250px;
 }
 
-.star_list_Table{
+.star_list_Table {
 	display: flex;
 	justify-content: space-around;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	width: 800px;
+	margin: auto;
 }
 
 .star_list_Table_bg {
 	background: #FCF0F1;
+	width: 100vw;
+	left: 0;
+	align-items: center;
+	height: 367px;
 }
 
 .low_list_Table{
@@ -61,15 +84,25 @@ nav {
 	justify-content: space-around;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	width: 800px;
+	margin: auto;
 }
 
 .low_list_Table_bg {
 	background: #D7D3D3;
+	width: 100vw;
+	left: 0;
+	align-items: center;
+	height: 367px;
 }
 
 .prom_banner {
+	position: relative;
 	margin-top: 145px;
 	margin-bottom: 145px;
+	height: 125px;
+	text-align: center;
 }
 	
+
 
