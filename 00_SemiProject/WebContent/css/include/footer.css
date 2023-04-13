@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#footer{
+#footer {
 	height: 275px;
 	background-color:#FABAC2;
 	font-family : 'Noto Sans KR', sans-serif;
@@ -8,18 +8,31 @@
 	margin: 50px auto;
 	background-color: rgb(232, 216, 226);
 	bottom: 0;
+}
+
+#link_footer {
 	display: flex;
 	justify-content: space-around;
 }
+
+.term_footer {
+	color:#CCCCCC;
+}
+
 .term_footer{
 	color:#CCCCCC;
 }
+
 .info_footer{
+	display: flex;
+	justify-content: space-around;
 	text-align: center;
 }
-.logo_footer{
+
+.logo_footer {
 	width : 200px;
 }
-ul{
+
+#footer ul{
 	list-style:none;
 }
