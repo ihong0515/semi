@@ -36,8 +36,7 @@
 				</nav>
 			</div>
 			<div class="star_list_Table_bg">
-				<div class="star_list_Table">
-				</div>		
+				<div class="star_list_Table"></div>		
 			</div>
 			<div class="prom_banner">
 				<img src="<%=request.getContextPath() %>/image/include/prom_banner1.png" onclick="location.href='<%=request.getContextPath()%>/PromotionList.do'" width="800px">
@@ -62,8 +61,7 @@
 				</nav>
 			</div>
 			<div class="low_list_Table_bg">
-				<div class="low_list_Table">
-				</div>
+				<div class="low_list_Table"></div>
 			</div>
 		</div>
 		<jsp:include page="/include/footer.jsp" />

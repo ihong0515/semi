@@ -32,7 +32,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 			<div id="header_navi_logo">
 				<img src="<%=request.getContextPath() %>/image/include/logo2.png" onclick="location.href='<%=request.getContextPath()%>/index_move.do'" width="200px">
 			</div>
-			<div id="header_navi_ul"><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
+				<div id="header_navi_ul"><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
 					<li><a href="<%=request.getContextPath() %>/hotel_mapping_list.do">Hotel in Map</a></li>
 					<li><a href="<%=request.getContextPath() %>/crawling_hotel.do">Review</a></li>
@@ -48,7 +48,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 				<c:if test="${!empty dto}">
 					<a href="javascript:openMypage()" id="mypage">mypage</a>
 					<a href="javascript:logout()" id="logout">logout</a>
-					<ul class="submenu">	
+					<ul class="submenu">
 						<li><a href="<%=request.getContextPath() %>/user_info.do?no=${dto.getUser_no() }">회원 정보 수정</a></li>
 						<li><a href="<%=request.getContextPath() %>/user_payment.do?no=${dto.getUser_no() }">내 결제수단</a></li>
 						<li><a href="<%=request.getContextPath() %>/user_reservation.do?no=${dto.getUser_no() }">예약 내역</a></li>
@@ -58,11 +58,16 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 					</ul>
 				</c:if>
 			</div>
-		</div><!-- Header nav bar end -->   
-		<div id="header_navi_home">
-			<img src="<%=request.getContextPath() %>/image/include/banner.jpg" onclick="location.href='<%=request.getContextPath()%>/index_move.do'">
-		</div> 
-		<div id="header_search" align="center">
+		</div><!-- Header nav bar end -->
+		<% if(request.getServletPath().equals("/index.jsp")){%>
+			<div id="header_navi_home">
+				<img src="<%=request.getContextPath() %>/image/include/banner.jpg" onclick="location.href='<%=request.getContextPath()%>/index_move.do'">
+			</div>
+		<%} %>
+		<div id="header_search" align="center"
+		<% if(!request.getServletPath().equals("/index.jsp")){%>
+			style="border-bottom: 5px solid #EAEAEA;border-top: 5px solid #EAEAEA;padding-top: 10px;padding-bottom: 10px;"
+		<%} %>>
 			<form  method="post" action="<%=request.getContextPath()%>/hotel_Search.do">
 				<!--지역선택 selectbox  -->
 				<select name="location" id="location">

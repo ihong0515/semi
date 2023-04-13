@@ -207,25 +207,7 @@ public class UserDAO {
 		return result;
 	}
 	
-	public int duplicateId(String id) {
-		int cnt = 0;
-		try {
-			connect();
-			sql = "select count(user_id) as cnt from user1 where user_id = ?";
-			ps = con.prepareStatement(sql);
-			ps.setString(1, id);
-			rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				cnt = rs.getInt("count");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
+
 	
 	public int checkUserId(String id) {
 		int result = 0;

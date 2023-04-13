@@ -3,17 +3,13 @@
    width: 800px;
    margin: 100px auto;
 }
-
 #content {
    min-height: 100%;
    font-family: 'Noto Sans KR', sans-serif;
    list-style: none;
    margin: 100px auto;
    align-content: center;
-   
 }
-
-
 
 .hotel_FontHit{
 	font-size: medium;
@@ -23,8 +19,6 @@
 	border : 2px solid black;
 	margin-bottom: 50px;
 	text-align: left;
-	
-	
 }
 #payment h1 {
 	text-align: center;
@@ -49,11 +43,8 @@
 #payment_hotelwrap_cont > div{
 	width : 40%; height:50%;
 }
-
-
 #payment_hotel_img{
 	vertical-align: middle;
-	
 }
 #payment_hotel_img img{
 	width: 80%;
@@ -61,19 +52,16 @@
 	justify-content: center;
 	margin-left: 10px;
 }
-
 #payment_price{
 	background-color: black;
 	color: white;
 }
-
 #payment_hotel_userInfo{
 	display: flex;
 	flex-direction: row;
 	justify-content:center;
 	flex-wrap: wrap;
 }
-
 #payment_hotel_userInfo > fieldset{
 	width:45%;
 	height :45%;
@@ -90,42 +78,48 @@
 	height: 100%;
 	font-size: xx-large;
 }
-
 #payment_hotel_userInfo > fieldset input:focus{
 	outline : none;
-	
 }
-
-
+#payment_hotel_userInfo > fieldset input::placeholder{
+	font-size: 23px;
+}
+#userPhone_body{
+	width: 275px !important;
+	margin-left: 5px
+}
 .userPhone_head{
 	width : 20%;
 	height: 100%;
 	font-size: medium;
+	border: 0;
 }
 #payment_hotel_userInfo legend{
 	
 	font-weight: bold;
 	font-size: medium;	
 }
-
 #payment_hotel_userReq fieldset{
 	border: 1px;
 	padding-left: 10px;
 	padding-left: 10px;
 	padding-bottom: 10px;
-	
 }
-.userReq_textbox{
-	
+#payment_hotel_userReq textarea{
+	border: 0;
+	resize: none;
+	width: 95%;
+	height: 95%;
+	margin: 10px;
+	box-sizing: border-box;
 }
-
+#payment_hotel_userReq textarea:focus{
+	outline: none;
+}
 #payment_hotel_promotion{
 	padding-left: 10px;
 	padding-bottom: 10px;
 }
-
-
-
 /*상단 본결제창 내용  */
 .modal-overlay {
 	width: 50%;
@@ -138,7 +132,6 @@
 	align-items: center;
 	justify-content: center;
 	background: white;
-	
 	backdrop-filter: blur(1.5px);
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
@@ -157,31 +150,30 @@
 	padding: 10px;
 	overflow: auto;
 }
-#modal .modal-title {
+.modal-title {
 	padding-left: 10px;
 	display: inline;
 	text-shadow: 1px 1px 2px gray;
 	color: black;
 }
-#modal .modal-title h2 {
+.modal-title h2 {
 	display: inline;
 }
-#modal .close-area {
-	
+.close-area {
 	float: right;
 	padding-right: 10px;
 	cursor: pointer;
 	text-shadow: 1px 1px 2px gray;
 	color: black;
 }
-#modal .modal-content {
+.modal-content {
 	margin-top: 20px;
 	padding: 0px 10px;
 	text-shadow: 1px 1px 2px gray;
 	color: black;
 }
 .modal_content_inp{
-		width: 30px;
+	width: 30px;
 }
 #payment_submit{
 	text-align: center;

@@ -53,17 +53,17 @@ if(checkDate!=null){
 									<c:if test="${roDTO.getRoom_breakfast() }"><i class="fa fa-cutlery" aria-hidden="true"></i>조식 포함</c:if>
 								</div>
 							</div>	
-								<div id="payment_hotel_date">
-									<c:if test="${!empty sessionScope.CheckDate }">
-										<c:set var="checkDate" value="${sessionScope.CheckDate }" />
-										<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
-										<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-										<input type="date" value="${checkin }" class="checkIn" name="payment_hotel_indate" >~<input type="date" value="${checkout }" class="checkOut" name="payment_hotel_outdate">
-									</c:if>
-									<c:if test="${empty sessionScope.CheckDate }">
-										<input type="date" value="" class="checkIn" name="payment_hotel_indate">~<input type="date" value="" class="checkOut" name="payment_hotel_outdate">
-									</c:if>
-									인원수 : <input type="number" name="reserv_people" min="${roDTO.getRoom_people_min() }" max="${roDTO.getRoom_people_max() }" value="${roDTO.getRoom_people_min() }">
+							<div id="payment_hotel_date">
+								<c:if test="${!empty sessionScope.CheckDate }">
+									<c:set var="checkDate" value="${sessionScope.CheckDate }" />
+									<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
+									<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
+									<input type="date" value="${checkin }" class="checkIn" name="payment_hotel_indate" >~<input type="date" value="${checkout }" class="checkOut" name="payment_hotel_outdate">
+								</c:if>
+								<c:if test="${empty sessionScope.CheckDate }">
+									<input type="date" value="" class="checkIn" name="payment_hotel_indate">~<input type="date" value="" class="checkOut" name="payment_hotel_outdate">
+								</c:if>
+								인원수 : <input type="number" name="reserv_people" min="${roDTO.getRoom_people_min() }" max="${roDTO.getRoom_people_max() }" value="${roDTO.getRoom_people_min() }">
 							</div>
 						</div>	
 						<div id="payment_hotel_userInfo">
@@ -83,7 +83,12 @@ if(checkDate!=null){
 								<legend>
 									이메일 주소
 								</legend>
+								<c:if test="${empty usDTO }">
+								<input type="text" placeholder="로그인이 필요합니다." readonly="readonly">
+								</c:if>
+								<c:if test="${!empty usDTO }">
 								<input type="text" value="${usDTO.getUser_email() }" readonly="readonly">
+								</c:if>
 							</fieldset>
 							<fieldset>
 								<legend>
@@ -158,13 +163,12 @@ if(checkDate!=null){
 						해당 예약 요청 시, <input type="checkbox" class="use_terms" disabled><a href="#modal" onclick="modal_click(this)" class="use_terms">이용 약관</a>, <input type="checkbox" disabled class="privat_terms"><a href="#modal" onclick="modal_click(this)" class="privat_terms">개인정보 처리방침</a>, <input type="checkbox" disabled class="servies_terms"><a href="#modal" onclick="modal_click(this)" class="servies_terms">공급업체 서비스 약관</a> 및 <input type="checkbox" disabled class="tex_terms"><a href="#modal" onclick="modal_click(this)" class="tex_terms">세금 명세 약관</a>을 읽었으며 이에 동의합니다.
 					</div>
 					<div id="modal" class="modal-overlay">
-						<div class="close-area" onclick="modal_close()">X</div>
 				        <div class="modal-window use_terms">
 				            <div class="modal-title">
 				                <h2>이용 약관</h2>
-				                <!-- <div class="close-area" onclick="modal_close()">X</div> -->
+				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
-				            <div class="modal-content">
+				            <div class="modal-content" style="overflow: auto;">
 								<jsp:include page="../terms/payment/use_terms" />
 				            </div>
 				            <div class="modal-footer">
@@ -188,7 +192,7 @@ if(checkDate!=null){
 				        <div class="modal-window servies_terms">
 				            <div class="modal-title">
 				                <h2>공급업체 서비스 약관</h2>
-				               <!--  <div class="close-area" onclick="modal_close()">X</div> -->
+				            	<div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="modal-content">
 				                <jsp:include page="../terms/payment/service_terms" />
@@ -201,9 +205,10 @@ if(checkDate!=null){
 				        <div class="modal-window tex_terms">
 				            <div class="modal-title">
 				                <h2>세금 명세 약관</h2>
-				                
+				                <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="modal-content">
+				            
 				            </div>
 				            <div class="modal-footer">
 				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;

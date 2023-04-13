@@ -28,52 +28,8 @@
 						</div>
 					</form>
 					<div id="login_main_a">
-						<a href="javascript:openIdSearch()">아이디 찾기</a>
-						<a href="javascript:openPwdSearch()">비밀번호 찾기</a>
-					</div>
-					<div id="login_modal">
-						<div id="id_search_modal">
-							<div class="modal_window">
-								<div class="modal_window_x" onclick="close_modal()">
-									x
-								</div>
-								<div class="modal_window_title">
-									아이디 찾기
-								</div>
-								<div class="modal_window_body">
-									<span>이 름 : <input type="text" id="modal_id_name"></span><br>
-									<span>E-mail : <input type="text" id="modal_id_mail" class="modal_mail"></span>
-								</div>
-								<div class="modal_window_result modal_id">
-									<input type="text" placeholder="코드 입력" class="id_check_result">
-									<input type="button" onclick="emailCheck(this, 0)" value="인증 확인" class="id_check_result">
-								</div>
-								<div class="modal_window_footer">
-									<input type="button" value="메일 전송" onclick="searchId()">
-								</div>
-							</div>
-						</div>
-						<div id="pwd_search_modal">
-							<div class="modal_window">
-								<div class="modal_window_x" onclick="close_modal()">
-									x
-									</div>
-								<div class="modal_window_title">
-									비밀번호 찾기
-								</div>
-								<div class="modal_window_body">
-									ID : <input type="text" id="modal_pwd_id"><br>
-									E-mail : <input type="text" id="modal_pwd_mail" class="modal_mail">
-								</div>
-								<div class="modal_window_result modal_pwd">
-									<input type="text" placeholder="코드 입력" class="pwd_check_result">
-									<input type="button" onclick="emailCheck(this, 1)" value="인증 확인" class="pwd_check_result">
-								</div>
-								<div class="modal_window_footer">
-									<input type="button" value="메일 전송" onclick="searchPwd()">
-								</div>
-							</div>
-						</div>
+						<a href="javascript:openSearchPage('<%=request.getContextPath() %>/login/login_id_search.jsp')">아이디 찾기</a>
+						<a href="javascript:openSearchPage('<%=request.getContextPath() %>/login/login_pwd_search.jsp')">비밀번호 찾기</a>
 					</div>
 				</div>
 			</div>

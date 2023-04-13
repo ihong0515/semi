@@ -35,7 +35,7 @@ public class HotelReserveAction implements Action {
 		dto.setReserv_request(request.getParameter("payment_hotel_userReq").trim());
 		dto.setReserv_payment(Integer.parseInt(request.getParameter("card_no").trim()));
 		dto.setReserv_ins(Integer.parseInt(request.getParameter("reserv_ins").trim()));
-		dto.setReserv_phone(request.getParameter("userPhone_head")+"-"+request.getParameter("userPhone_body_first").trim()+"-"+request.getParameter("userPhone_body_last").trim());
+		dto.setReserv_phone(request.getParameter("userPhone_head")+"-"+request.getParameter("userPhone_body_first").trim());
 
 		int re = UserDAO.getInstance().insertReservContent(dto);
 		if(re>0) {

@@ -633,8 +633,34 @@ public class BoardDAO {
 		return list;
 	}
 
-	
-	
-	
-	
+	public int insertBoardHotelContent(Inquiry_HotelDTO dto) {
+		int result = 0;
+		
+		try {
+			openConn();
+			sql = "select count(*) from inquiry_hotel";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dto.setInqho_no(rs.getInt(1)+1);
+				
+				sql = "insert into inquiry_hotel values(?, ?, ?, ?, ?, ?, sysdate, default, ?, 1, ?, ?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, dto.getInqho_no());
+				pstmt.setInt(2, dto.getInqho_ownerno());
+				pstmt.setInt(3, dto.getInqho_hotelno());
+				pstmt.setString(4, dto.getInqho_writer());
+				pstmt.setString(5, dto.getInqho_title());
+				pstmt.setString(6, dto.getInqho_content());
+				pstmt.setInt(7, dto.getInqho_no());
+				pstmt.setInt(8, dto.getInqho_userno());
+				pstmt.setString(9, dto.getInqho_write_check());
+				result = pstmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
