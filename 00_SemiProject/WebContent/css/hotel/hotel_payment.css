@@ -1,5 +1,56 @@
 @charset "UTF-8";
 
+#payment_hotel > div{
+	border : 2px solid black;
+	margin-bottom: 50px;
+	text-align: left;
+	
+}
+
+#payment h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#payment_hotel > div:nth-child(1){
+	
+}
+#payment_hotel > div:nth-child(4){
+	border : none;
+}
+#payment_hotel > div:nth-last-child(1){
+	background-color: black;
+	color: white;
+}
+
+
+
+#payment_hotel_userInfo > fieldset{
+	
+	margin-bottom: 20px;
+	border : 2px solid black;
+	
+}
+#payment_hotelwrap{
+	display:flex;
+	justify-direction: row; 
+	flex-wrap: row-wrap;
+	background-color: #EEADB3;
+}
+#payment_hotelwrap > div{
+	width : 50%; height:50%;
+	
+}
+#payment final_area{
+	text-align: center;
+}
+
+
+
+
+
+
+/*상단 본결제창 내용  */
 .modal-overlay {
 	width: 50%;
 	height: 500px;
