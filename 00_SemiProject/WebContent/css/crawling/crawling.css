@@ -1,9 +1,19 @@
 @charset "UTF-8";
-	#content{
-		display: flex;
-		flex-direction: column;
-		background-color: white;
-		font-family : 'Noto Sans KR', sans-serif;
+	#container {
+   	width: 800px;
+   	margin: 100px auto;
+	margin-top:100px;
+	}
+
+	#content {
+   	min-height: 100%;
+   	font-family: 'Noto Sans KR', sans-serif;
+   	list-style: none;
+   	margin: auto;
+   	align-content: center;
+   	background-color: white;
+   	display: flex;
+	flex-direction: column;
 	}
 	#crawling_side1{
 		width: 100%;
