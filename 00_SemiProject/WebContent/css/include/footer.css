@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 #footer_container{
+	background-color:#FABAC2;
+	font-family : 'Noto Sans KR', sans-serif;
+	font-size : 3px;
+	margin: 50px auto;
 	background-color: rgb(232, 216, 226);
 	margin-top: 50px;
 }
@@ -14,7 +18,9 @@
 .info_footer{
 	text-align: center;
 }
-
+.logo_footer{
+	width : 200px;
+}
 ul{
 	list-style:none;
 }

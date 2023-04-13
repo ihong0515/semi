@@ -35,7 +35,7 @@
 	      		</ul>
 	    		</div>
 	    		<div class = "logo_footer">
-	      			<img src = "<%=request.getContextPath()%>/image/icon/footer_logo.jpg">
+	      			<img src = "<%=request.getContextPath()%>/image/include/logo2.png" width ="100%">
 	    		</div>
     			</div>
     		<div class = "info_footer">
