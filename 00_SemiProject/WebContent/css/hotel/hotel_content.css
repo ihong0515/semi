@@ -3,13 +3,11 @@
 	width: 800px;
 	margin: 100px auto;
 }
-
 #content {
 	min-height: 100%;
 	font-family: 'Noto Sans KR', sans-serif;
 	list-style: none;
-	margin: auto;
-	margin-top: 100px;
+	margin: 100px auto;
 	align-content: center;
 }
 
@@ -127,6 +125,7 @@
 	position: relative;
 }
 #write_overlay{
+	display: none;
 	position: absolute;
 	left: 20%;
 	top: -300px;

@@ -216,13 +216,14 @@ function agreeShow(self) {
 }
 
 function emailSend() {
+	console.log(contextPath);
 	if($('#user_email').val()==''){
 		alert('Email 주소를 적어주세요.');
 	}else{
 		$.ajax({
 			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 			type: "post",
-			url: "user_Email_Send.do",
+			url: contextPath+"/user_Email_Send.do",
 			data:{
 				email: $('#user_email').val(),
 				check: "user_join"

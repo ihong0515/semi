@@ -65,6 +65,7 @@ function check_payment() {
 
 function payment_getno(){
 	$.ajax({
+		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 		type: "post",
 		url: "payment_get_Content.do",
 		data: {
@@ -92,7 +93,7 @@ function saleCheck() {
 		alert('쿠폰번호를 선택하세요.');
 	}else{
 		$.ajax({
-		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 			type: "post",
 			url: "coupon_get_SalePrice.do",
 			data: {

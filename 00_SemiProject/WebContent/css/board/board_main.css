@@ -1,129 +1,136 @@
 @charset "UTF-8";
-	#content{
-		margin: 10px;
-		height: 500px;
-		display: flex;
-		justify-content: flex-start;
-	}
-	#board_main{
-		width: 800px;
-	}
-	#board_list{
-		width: 600px;
-	}
-	#board_list th, #board_list td{
-		padding: 5px 10px;
-		border-bottom: 1px solid #c0c0c0;
-		white-space: nowrap;
-		overflow: hidden;
-	}
-	#board_list th{
-		width: 100%;
-		height: 100%;
-	}
-	#board_write_btn{
-		float: right;
-		clear: both;
-	}
-	.board_navi_page{
-		display: none;
-		justify-content: center;
-		padding: 0px;
-	}
-	.page_li{
-		list-style: none;
-		width: 25px;
-		height: 25px;
-		border: 1px solid black;
-		border-radius: 5px;
-		margin: auto 10px;
-	}
-	.page-link{
-		vertical-align: middle;
-		text-decoration: none;
-	}
-	#board_write_btn{
-		position: relative;
-	}
-	#board_write_modal_btn{
-		position: absolute;
-		top: 0px;
-		right: 0px;
-	}
-	#board_write_modal_overlay{
-		display: none;
-		position:absolute;
-		top: 50%;
-		left: 24%;
-		background-color: #fbc0bf;
-		border: 1px solid red;
-		border-radius: 10px;
-		width: 750px;
-		height: 360px;
-	}
-	#board_write_modal_window{
-		background-color: white;
-		margin: 15px auto;
-		width: 720px;
-		height: 320px;
-		border-radius: 5px;
-		padding: 5px;
-	}
-	#modal_head{
-		margin-left: 20px;
-		text-align: left;
-	}
-	#modal_head input{
-		border: none;
-		width: 500px;
-	}
-	#modal_head input:focus,
-	#modal_body textarea:focus{
-		outline: none;
-	}
-	#modal_body textarea{
-		padding: 10px;
-	}
-	#modal_body{
-		margin-top: 10px;
-	}
-	#modal_head_x{
-		position: absolute;
-		top: 20px;
-		right: 23px;
-		width: 20px;
-		height: 20px;
-		cursor: pointer;
-	}
-	#modal_body textarea{
-		width: 95%;
-		height: 95%;
-		resize: none;
-	}
-	#modal_foot{
-		margin-top: 10px;
-	}
-	#faq_main{
-		display: none;
-		width: 100%;
-		flex-direction: column;
-	}
-	.faq_board_cont{
-		display: none;
-	}
-	.faq_cont{
-		display: none;
-	}
-	.faq_btn_total_active:after {
-		content: "\2212";
-	}
-	.faq_btn_total:after {
-		content: '\002B';
-	}
-	.faq_btn_active:after {
-		content: "\2212";
-	}
-	.faq_btn:after {
-		content: '\002B';
-	}
-	
+#container {
+	width: 800px;
+	margin: 100px auto;
+}
+
+#content {
+	min-height: 100%;
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	margin: 100px auto;
+	align-content: center;
+	display: flex;
+	justify-content: flex-start;
+}
+#board_main{
+	width: 800px;
+}
+#board_list{
+	width: 600px;
+}
+#board_list th, #board_list td{
+	padding: 5px 10px;
+	border-bottom: 1px solid #c0c0c0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#board_list th{
+	width: 100%;
+	height: 100%;
+}
+#board_write_btn{
+	float: right;
+	clear: both;
+}
+.board_navi_page{
+	display: none;
+	justify-content: center;
+	padding: 0px;
+}
+.page_li{
+	list-style: none;
+	width: 25px;
+	height: 25px;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: auto 10px;
+}
+.page-link{
+	vertical-align: middle;
+	text-decoration: none;
+}
+#board_write_btn{
+	position: relative;
+}
+#board_write_modal_btn{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+#board_write_modal_overlay{
+	display: none;
+	position: absolute;
+	right: 0px;
+	bottom: -50px;
+	background-color: #fbc0bf;
+	border: 1px solid red;
+	border-radius: 10px;
+	width: 750px;
+	height: 360px;
+}
+#board_write_modal_window{
+	background-color: white;
+	margin: 15px auto;
+	width: 720px;
+	height: 320px;
+	border-radius: 5px;
+	padding: 5px;
+}
+#modal_head{
+	margin-left: 20px;
+	text-align: left;
+}
+#modal_head input{
+	border: none;
+	width: 500px;
+}
+#modal_head input:focus,
+#modal_body textarea:focus{
+	outline: none;
+}
+#modal_body textarea{
+	padding: 10px;
+}
+#modal_body{
+	margin-top: 10px;
+}
+#modal_head_x{
+	position: absolute;
+	top: 20px;
+	right: 23px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+#modal_body textarea{
+	width: 95%;
+	height: 95%;
+	resize: none;
+}
+#modal_foot{
+	margin-top: 10px;
+}
+#faq_main{
+	display: none;
+	width: 100%;
+	flex-direction: column;
+}
+.faq_board_cont{
+	display: none;
+}
+.faq_cont{
+	display: none;
+}
+.faq_btn_total_active:after {
+	content: "\2212";
+}
+.faq_btn_total:after {
+	content: '\002B';
+}
+.faq_btn_active:after {
+	content: "\2212";
+}
+.faq_btn:after {
+	content: '\002B';
+}

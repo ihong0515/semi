@@ -143,7 +143,7 @@
 					<c:if test="${user!=null }">
 					<form action="<%=request.getContextPath() %>/review_insert.do" method="post" enctype="multipart/form-data" onsubmit="return confirm('리뷰를 등록하시겠습니까?')">
 						<input type="hidden" value="${hoDTO.getHotel_photo_folder() }" name="review_hotelname">
-						<input type="hidden" value="${hoDTO.getHotel_no() }" name="review_hotelno">
+						<input type="hidden" value="${hoDTO.getHotel_no() }" name="review_hotelno" id="hotel_no_write">
 						<input type="hidden" value="${user.getUser_no() }" name="review_userno">
 						<table id="review_write_table">
 							<tr>
