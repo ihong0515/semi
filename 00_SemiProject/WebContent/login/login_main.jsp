@@ -40,13 +40,18 @@
 										x
 									</div>
 									<div class="modal_window_title">
-										ID 찾기
+										아이디 찾기
 									</div>
 									<div class="modal_window_body">
-										E-mail : <input type="text">
+										<span>이 름 : <input type="text" id="modal_id_name"></span><br>
+										<span>E-mail : <input type="text" id="modal_id_mail" class="modal_mail"></span>
+									</div>
+									<div class="modal_window_result modal_id">
+										<input type="text" placeholder="코드 입력" class="id_check_result">
+										<input type="button" onclick="emailCheck(this, 0)" value="인증 확인" class="id_check_result">
 									</div>
 									<div class="modal_window_footer">
-										<input type="button" value="메일 전송">
+										<input type="button" value="메일 전송" onclick="searchId()">
 									</div>
 								</div>
 							</div>
@@ -56,14 +61,18 @@
 										x
 										</div>
 									<div class="modal_window_title">
-										Pwd 찾기
+										비밀번호 찾기
 									</div>
 									<div class="modal_window_body">
-										ID : <input type="text"><br>
-										E-mail : <input type="text">
+										ID : <input type="text" id="modal_pwd_id"><br>
+										E-mail : <input type="text" id="modal_pwd_mail" class="modal_mail">
+									</div>
+									<div class="modal_window_result modal_pwd">
+										<input type="text" placeholder="코드 입력" class="pwd_check_result">
+										<input type="button" onclick="emailCheck(this, 1)" value="인증 확인" class="pwd_check_result">
 									</div>
 									<div class="modal_window_footer">
-										<input type="button" value="메일 전송">
+										<input type="button" value="메일 전송" onclick="searchPwd()">
 									</div>
 								</div>
 							</div>

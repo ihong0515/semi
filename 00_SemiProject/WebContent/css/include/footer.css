@@ -19,7 +19,13 @@
 	color:#CCCCCC;
 }
 
-.info_footer {
+.term_footer{
+	color:#CCCCCC;
+}
+
+.info_footer{
+	display: flex;
+	justify-content: space-around;
 	text-align: center;
 }
 

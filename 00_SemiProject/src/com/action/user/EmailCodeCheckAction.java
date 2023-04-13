@@ -13,7 +13,7 @@ public class EmailCodeCheckAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
+		//check_code, email 파라미터를 통해 인증코드가 일치하는지 여부 확인 / ajax 리턴
 		String code = request.getParameter("check_code").trim();
 		String user_email = request.getParameter("email").trim();
 		
