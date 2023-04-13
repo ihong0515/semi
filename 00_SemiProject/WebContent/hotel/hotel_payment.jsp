@@ -40,14 +40,17 @@ if(checkDate!=null){
 			<div id="payment">
 				<form method="post" action="<%=request.getContextPath() %>/hotel_reserve.do" onsubmit="return check_payment()">
 					<div id="payment_hotel">
-						<div id="payment_hotel_img">
-							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="100px" height="100px">
-						</div>
-						<div id="payment_hotel_cont">
-							${hoDTO.getHotel_name() } <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach><br>
-							${roDTO.getRoom_name() } 체크아웃 ${roDTO.getRoom_checkout() } 전<br>
-							<i class="fa fa-user-o" aria-hidden="true"></i>${roDTO.getRoom_people_min() }~${roDTO.getRoom_people_max() }<i class="fa fa-bed" aria-hidden="true"></i>${roDTO.getRoom_bed() }
-							<c:if test="${roDTO.getRoom_breakfast() }"><i class="fa fa-cutlery" aria-hidden="true"></i>조식 포함</c:if>
+						<h1>결제정보</h1>					
+						<div id ="payment_hotelwrap">
+							<div id="payment_hotel_img">
+								<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="100px" height="100px">
+							</div>
+							<div id="payment_hotel_cont">
+								${hoDTO.getHotel_name() } <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach><br>
+								${roDTO.getRoom_name() } 체크아웃 ${roDTO.getRoom_checkout() } 전<br>
+								<i class="fa fa-user-o" aria-hidden="true"></i>${roDTO.getRoom_people_min() }~${roDTO.getRoom_people_max() }<i class="fa fa-bed" aria-hidden="true"></i>${roDTO.getRoom_bed() }
+								<c:if test="${roDTO.getRoom_breakfast() }"><i class="fa fa-cutlery" aria-hidden="true"></i>조식 포함</c:if>
+							</div>
 						</div>
 						<div id="payment_hotel_date">
 							<c:if test="${!empty sessionScope.CheckDate }">
@@ -119,7 +122,6 @@ if(checkDate!=null){
 							<input type="button" value="할인 적용" id="prom_code_btn" onclick="saleCheck()"><br>
 							<span id="coupon_name"></span>
 						</div>
-					</div>
 					<div id="payment_price">
 						<h3>요금 정보</h3>
 						<table>
@@ -149,6 +151,9 @@ if(checkDate!=null){
 							</tr>
 						</table>
 					</div>
+					</div>
+					
+					
 					<div id="payment_terms">
 						해당 예약 요청 시, <input type="checkbox" class="use_terms" disabled><a href="#modal" onclick="modal_click(this)" class="use_terms">이용 약관</a>, <input type="checkbox" disabled class="privat_terms"><a href="#modal" onclick="modal_click(this)" class="privat_terms">개인정보 처리방침</a>, <input type="checkbox" disabled class="servies_terms"><a href="#modal" onclick="modal_click(this)" class="servies_terms">공급업체 서비스 약관</a> 및 <input type="checkbox" disabled class="tex_terms"><a href="#modal" onclick="modal_click(this)" class="tex_terms">세금 명세 약관</a>을 읽었으며 이에 동의합니다.
 					</div>
@@ -204,7 +209,7 @@ if(checkDate!=null){
 								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
 				            </div>
 						</div>
-				    </div>
+					</div>
 				    <div id="payment_usercard">
 						${dto.getUser_name() }
 						<c:if test="${empty usDTO }">
@@ -224,7 +229,6 @@ if(checkDate!=null){
 								<p></p>
 							</div>
 						</c:if>
-					</div>
 					<div id="payment_submit">
 						<input id="realPrice_hidden" type="hidden" name="realPrice" value="${roDTO.getRoom_price()*inoutDay }">
 						<input type="hidden" name="nomalPrice" value="${roDTO.getRoom_price()*inoutDay }">
@@ -239,6 +243,7 @@ if(checkDate!=null){
 						<input type="hidden" name="room_no" value="${roDTO.getRoom_no() }">
 						<input type="submit" value="다음 단계 : 최종 확정 >">
 					</div>
+				  </div>
 				</form>
 			</div>
 		</div>

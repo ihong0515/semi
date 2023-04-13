@@ -2,6 +2,7 @@
  * 
  */
 function serchHotelList(e){
+	
 	$.ajax({
 		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 		type: "post",
@@ -73,3 +74,48 @@ function serchHotelList(e){
 			}
 	}); // ajax함수 end
 } //lowpricelistonclick 함수 end
+
+function starClick() {
+	var buttonStar = document.getElementsByClassName("Starlocation");
+	function handleClickStar(event) {
+	
+		if (event.target.classList[1] === "clickedStarlocation") {
+			event.target.classList.remove("clickedStarlocation");
+		} else {
+			for (var i = 0; i < buttonStar.length; i++) {
+				buttonStar[i].classList.remove("clickedStarlocation");
+			}
+			event.target.classList.add("clickedStarlocation");
+		}
+	}
+	function initStar() {
+		for (var i = 0; i < buttonStar.length; i++) {
+			buttonStar[i].addEventListener("click", handleClickStar);
+		}
+	}
+	initStar();
+}
+
+function lowClick() {
+	var buttonLow = document.getElementsByClassName("lowPricelocation");
+	
+	function handleClickLow(event) {
+	
+		if (event.target.classList[1] === "clickedLowPricelocation") {
+			event.target.classList.remove("clickedLowPricelocation");
+		} else {
+			for (var i = 0; i < buttonLow.length; i++) {
+				buttonLow[i].classList.remove("clickedLowPricelocation");
+			}
+			event.target.classList.add("clickedLowPricelocation");
+		}
+	}
+		
+	function initLow() {
+		for (var i = 0; i < buttonLow.length; i++) {
+			buttonLow[i].addEventListener("click", handleClickLow);
+		}
+	}
+	
+	initLow();
+}
