@@ -1,4 +1,15 @@
 @charset "UTF-8";
+#container {
+   width: 800px;
+   margin: 100px auto;
+}
+#content {
+   min-height: 100%;
+   font-family: 'Noto Sans KR', sans-serif;
+   list-style: none;
+   margin: 100px auto;
+   align-content: center;
+}
 
 #login_main{
 	margin: 0 auto;
@@ -24,43 +35,4 @@
 #login_main_a{
 	display:flex;
 	justify-content: space-between;
-}
-#login_modal{
-	display: none;
-	position: absolute;
-	top: 60%;
-	left: 30%;
-	width: 300px;
-	height: 400px;
-}
-.modal_window_title{
-	border-bottom: 1px solid black;
-	background-color: #c0c0c0;
-}
-#id_search_modal,
-#pwd_search_modal{
-	display: flex;
-	flex-direction: column;
-	background-color: white;
-	border: 1px solid black;
-	width: 270px;
-	height: 370px;
-	margin: auto;
-}
-.modal_window_x{
-	position: absolute;
-	right: 23px;
-	width: 10px;
-	height: 10px;
-	cursor: pointer;
-}
-.modal_window_body{
-	margin-top: 100px;
-}
-.modal_window_footer{
-	margin-top: 50px;
-}
-.id_check_result,
-.pwd_check_result{
-	display: none;
 }

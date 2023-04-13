@@ -8,8 +8,8 @@
 html, body {
 	height: 100%;
 }
+
 #header {
-	height: 480px;
 	position: relative;
 	z-index: 1;
 }
@@ -46,6 +46,7 @@ html, body {
 	display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 
 #header_navi_home img{
@@ -117,7 +118,11 @@ html, body {
 	margin: 0 !important;
 }
 #header_search {
+	display: flex;
+	justify-content: center;
 	margin-top: 20px;
+	margin-left: calc(-50vw + 50%);
+	width: 100vw;
 }
 
 #location {

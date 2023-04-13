@@ -1,6 +1,8 @@
 /**
  * 
  */
+
+
 function serchHotelList(e){
 	
 	$.ajax({

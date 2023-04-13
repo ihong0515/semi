@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#content {
+	min-height: 100%;
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	align-content: center;
+	margin: 30px auto;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.modal_window_body{
+	margin-top: 50px;
+}
+.modal_window_footer{
+	margin-top: 30px;
+}
+#result_btn{
+	display: none;
+}

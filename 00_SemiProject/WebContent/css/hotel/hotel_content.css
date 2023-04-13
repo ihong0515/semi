@@ -1,5 +1,21 @@
 @charset "UTF-8";
+#container {
+	width: 800px;
+	margin: 100px auto;
+}
 
+#content {
+	min-height: 100%;
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	margin: auto;
+	margin-top: 100px;
+	align-content: center;
+}
+
+#content img{
+	border-radius: 10px;
+}
 #hotel_info{
 	display: flex;
 	justify-content: flex-start;
@@ -107,6 +123,52 @@
 	padding: 10px;
 	width: 200px;
 }
-img{
-	border-radius: 10px;
+#hotel_board{
+	position: relative;
+}
+#write_overlay{
+	position: absolute;
+	left: 20%;
+	top: -300px;
+	background-color: white;
+	width: 500px;
+	height: 300px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+#write_window{
+	margin: auto;
+	margin-top: 5px;
+	border: 1px solid black;
+	width: 95%;
+	height: 95%;
+	padding: 15px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+#write_head_title input,
+#write_body textarea{
+	width: 95%;
+	height: 90%;
+	border: 0;
+	font-style: italic;
+	resize: none;
+}
+#write_head_title input:focus,
+#write_body textarea:focus{
+	outline: none;
+}
+#write_head_x{
+	position: relative;
+	right: -10px;
+	cursor: pointer;
+	width: 10px;
+	height: 10px;
+}
+#write_body{
+	margin-top: 20px;
+	height: 180px;
+}
+#write_foot{
+	text-align: right;
 }

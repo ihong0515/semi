@@ -2,9 +2,8 @@
 hotel_list.jsp js 파일
  */
 
-
 $(function() { //onload
-	
+
 //-----JS for Price Range slider-----
 	  var parent = document.querySelector(".range_slider");
 	  if(!parent) return;

@@ -205,6 +205,25 @@
 						</td>
 					</tr>
 				</table>
+				<div id="hotel_board">
+					<input type="button" value="호텔 1:1 문의하기" id="hotel_board_btn" onclick="board_open()">
+					<div id="write_overlay">
+						<div id="write_window">
+							<div id="write_head">
+								<div id="write_head_title">
+									<input type="text" placeholder="제목을 입력하세요.">
+									<span id="write_head_x" onclick="board_close()">X</span>
+								</div>
+							</div>
+							<div id="write_body">
+								<textarea rows="" cols="" placeholder="문의 내용을 입력하세요."></textarea>
+							</div>
+							<div id="write_foot">
+								<input type="button" value="문의하기" onclick="board_write()">
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<hr>
 			<c:if test="${!empty sessionScope.VisitList }">

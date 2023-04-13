@@ -15,8 +15,10 @@ public class UserPwdContUpdateAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String id = request.getParameter("id").trim();
 		String new_pwd = request.getParameter("new_pwd").trim();
+		String email = request.getParameter("email").trim();
 		UserDAO dao = UserDAO.getInstance();
 		
+		dao.deleteEmailCode(email);
 		int re = dao.changeUserPwd(id, new_pwd);
 		
 		response.getWriter().println(re);
