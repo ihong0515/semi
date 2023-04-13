@@ -416,8 +416,6 @@ public class UserDAO {
 		return list;
 	}
 	
-	
-	
 	public List<ReserveDTO> getReservList(int user_no) {
 		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
 		try {
@@ -540,7 +538,6 @@ public class UserDAO {
 	}
 	
 	public int changeUserPwd(int no, String nowPwd, String newPwd) {
-		
 		int result = 0;
 		
 		try {
@@ -549,7 +546,7 @@ public class UserDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			rs = ps.executeQuery();
-		
+			
 			if(rs.next()) {
 				if(nowPwd.equals(rs.getString("user_pwd"))) {
 					sql = "update user1 set user_pwd = ? where user_no = ?";
@@ -561,6 +558,25 @@ public class UserDAO {
 					result = -1;
 				}
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	//changeUserPwd(String, String) Overriding
+	public int changeUserPwd(String id, String new_pwd) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "update user1 set user_pwd = ? where user_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, new_pwd);
+			ps.setString(2, id);
+			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -801,7 +817,6 @@ public class UserDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, user_no);
 			rs = ps.executeQuery();
-			
 			if(rs.next()) {
 				if(user_pwd.equals(rs.getString("user_pwd"))) {
 					sql = "delete user1 where user_no = ?";
@@ -1007,5 +1022,50 @@ public class UserDAO {
 			close();
 		}
 		return dto;
+	}
+
+	public ArrayList<String> getSearchId(String name, String mail) {
+		ArrayList<String> list = new ArrayList<String>();
+		try {
+			connect();
+			sql = "select * from user1 where user_email = ? and user_name = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mail);
+			ps.setString(2, name);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("user_id"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	public int getSearchPwd(String id, String mail) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select * from user1 where user_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				if(rs.getString("user_email").equals(mail)) {
+					result = 1; //일치
+				}else { //이메일 불일치
+					result = -1;
+				}
+			}else { //id 없음
+				result = 0;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
