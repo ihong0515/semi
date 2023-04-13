@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_join.js?ver=1"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_join.css" rel="stylesheet">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 	<div id="container">
@@ -101,11 +102,10 @@
 						
 						<tr>
 							<th>이메일</th>
-								<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-								<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-								<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 							<td>
 								<div class="ui-widget">
+									<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+									<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 									<input name="user_email" id="user_email" onkeyup="autoEmail()" autocomplete="off">
 									<input type="button" value="이메일 인증" onclick="emailSend()">
 									<br>
@@ -115,63 +115,6 @@
 							</td>
 						</tr>
 					</table>
-					<script type="text/javascript">
-						function emailSend() {
-							if($('#user_email').val()==''){
-								alert('Email 주소를 적어주세요.');
-							}else{
-								$.ajax({
-									type: "post",
-									url: "user_Join_Email_Send.do",
-									data:{
-										email: $('#user_email').val()
-									},
-									datatype: "text",
-									success: function(data){
-										if(data==1){
-											alert('이메일 도착까지 3~5분정도 소요될 수 있습니다.');
-										}else{
-											alert('이메일 전송 실패....');
-										}
-									},
-									error: function(){
-										alert('이메일 전송 중 오류 발생....');
-									}
-								});
-							}
-						}
-						function emailCheck() {
-							if($('#user_email_check').val()==''){
-								alert('인증 코드를 적어주세요.');
-							}else{
-								$.ajax({
-									type: "post",
-									url: "user_Join_Email_Check.do",
-									data:{
-										email: $('#user_email').val(),
-										check_code: $('#user_email_check').val()
-									},
-									datatype: "text",
-									success: function(data){
-										if(data==1){
-											alert("인증 성공");
-										}else if(data==-1){
-											alert("인증 번호가 다릅니다.");
-										}else{
-											alert("이메일 발송 여부를 확인하세요.")
-										}
-										
-									},
-									error: function(){
-										alert('오류 발생....');
-									}
-								});
-							}
-						}
-					
-					</script>
-					<br>
-					
 					<input type="checkbox" id="cbx_chkAll" onclick="checkFalse()">
 					<label><b>사용자 약관 전체 동의</b></label>
 					<hr color="gray">
