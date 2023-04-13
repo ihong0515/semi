@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set value="${List }" var="list" />
+<c:set value="${caName }" var="caName" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +21,9 @@
 	    		<br>
 	    		<br>
 	    		<input type="button" value="호텔 문의" id="hotel_board" onclick="hotel_board_getList()">
+	    		<br>
+	    		<br>
+	    		<input type="button" value="FAQ" id="faq_board" onclick="faq_board_getList()">
 	    	</div>
 	    	<div id="board_main">
 	    		<table id=board_list>
@@ -104,6 +109,31 @@
 					</ul>
 	    		</div>
 	    	</div>
+	    	<div id="faq_main">
+				<h2 align="center">FAQ 자주하는 질문</h2>
+				<c:if test="${empty list }">
+				<div>
+					<h3>FAQ 데이터가 없습니다.</h3>
+				</div>
+				</c:if>
+				<c:if test="${!empty list }">
+				<c:forEach items="${caName }" var="cadto">
+				<div class="faq_board_wrap">
+					<button type="button" class="faq_btn_total" onclick="faq_calling_to(this);">${cadto.getFaq_cate_name() }</button>
+					<c:forEach items="${list }" var="dto">
+					<c:if test="${dto.getFaq_category() == cadto.getFaq_cate_no()}">
+					<div class="faq_board_cont">
+						<button type="button" class="faq_btn" onclick="faq_calling(this);">${dto.getFaq_title() }</button>
+						<div class="faq_cont">
+							<p>${dto.getFaq_content() }</p>
+						</div>
+					</div>
+					</c:if>
+					</c:forEach>
+				</div>
+				</c:forEach>
+				</c:if>
+			</div>
     	</div>
     	<jsp:include page="../include/footer.jsp" />
     </div>

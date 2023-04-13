@@ -14,7 +14,7 @@
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-	    	<div id="content" align="center">
+	    	<div id="content">
 				<h2>${user_dto.getUser_name() }님 숙소 예약 내역 리스트</h2>
 				<div id=reserve_list>
 					<a class="reserv" id="reserv_N" onclick="getReserv(this)">사용 전</a>&nbsp;&nbsp;

@@ -9,21 +9,22 @@
 <meta charset="UTF-8">
 <title>등록된 결제수단 수정</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_modify_payment.js?ver=1"></script>
+<script type="text/javascript">
+	let pay_com = "${pay_dto.getPay_cardcom() }";
+</script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_modify_payment.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_modifyPayment.css" rel="stylesheet">
 </head>
 <body>
-
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-	    	<div id="content" align="center">
+	    	<div id="content">
 	    		<h2>${user_dto.getUser_name() }님의 등록된 결제 수단 정보 수정</h2>
 				<br>
 				<form method="post" action="<%=request.getContextPath()%>/user_paymentModifyOk.do" onsubmit="return modifyPaymentFormCheck()">
 					<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
+		    		<input type="hidden" name="pay_no" value="${pay_dto.getPay_no() }">
 		    		<table border="1" cellspacing="0" width="500">
-		    			<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
-		    			<input type="hidden" name="pay_no" value="${pay_dto.getPay_no() }">
 						<tr>
 							<th>카드 이름</th>
 							<td>

@@ -5,8 +5,9 @@
 	font-family : 'Noto Sans KR', sans-serif;
 	font-size : 3px;
 	margin: 50px auto;
+	background-color: rgb(232, 216, 226);
+	margin-top: 50px;
 }
-
 #footer{
 	display: flex;
 	justify-content: space-around;

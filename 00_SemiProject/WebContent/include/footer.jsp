@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>main_footer</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/footer.css">
 </head>
 <body>
 	<div id = "footer_container">
@@ -22,15 +23,15 @@
 	    		</div>
 	    		<div class = "term_footer">
 	      		<ul>
-		        	<li><a href="<%=request.getContextPath()%>/footer/privat.jsp">개인정보 처리방침</a></li>
-		        	<li><a href="<%=request.getContextPath()%>/footer/serviceterm.jsp">서비스 이용 약관</a></li>
-		        	<li><a href="<%=request.getContextPath()%>/footer/useterm.jsp">사용약관</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/privat.jsp">개인정보 처리방침</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/serviceterm.jsp">서비스 이용 약관</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/useterm.jsp">사용약관</a></li>
 	      		</ul>
 	    		</div>
 	    		<div class = "term_footer">
 	      		<ul>
-		        	<li><a href="<%=request.getContextPath()%>/footer/couponterm.jsp">쿠폰</a></li>
-		        	<li><a href="<%=request.getContextPath()%>/footer/kidterm.jsp">아동</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/couponterm.jsp">쿠폰</a></li>
+		        	<li><a href="<%=request.getContextPath()%>/terms/footer/kidterm.jsp">아동</a></li>
 	      		</ul>
 	    		</div>
 	    		<div class = "logo_footer">

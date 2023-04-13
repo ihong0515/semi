@@ -13,6 +13,8 @@
 <script type="text/javascript">
 	let board_no = "${dto.getInqho_no() }";
 	let group_no = "${dto.getInqho_group() }";
+	let step_no = "${dto.getInqho_step() }";
+	let write_check = "${dto.getInqho_write_check() }";
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/board/board_hotel_content.css">
@@ -24,7 +26,6 @@
 		<div id="content">
 			<form action="<%=request.getContextPath() %>/board_hotel_modify.do" method="post" onsubmit="return modify_check()" name="form">
 		    	<input type="hidden" value="${dto.getInqho_no() }" name="hotel_no">
-		    	<input type="hidden" value="${dto.getInqho_write_check() }" id="write_check">
 		    	<div id="board_main">
 		    		<table class="board_list">
 		    			<tr>

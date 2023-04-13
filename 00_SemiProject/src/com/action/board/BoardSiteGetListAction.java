@@ -60,8 +60,6 @@ public class BoardSiteGetListAction implements Action {
 				+ "<page>"+page+"</page>"
 				+ "<allPage>"+allPage+"</allPage>";
 		board_list += "</pagenation>";
-		
-		
 		board_list += "</board_list>";
 		response.getWriter().println(board_list);
 		

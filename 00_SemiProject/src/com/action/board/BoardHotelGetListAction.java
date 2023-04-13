@@ -22,7 +22,9 @@ public class BoardHotelGetListAction implements Action {
 		int totalRecord = 0; //전체 게시물 수
 		int allPage = 0; //전체 페이지네이션의 수
 		
-		totalRecord = BoardDAO.getInstance().getHotelBoardCount(); //전체 게시물의 수를 확인
+		UserDTO user = (UserDTO)request.getSession().getAttribute("loginUser");
+		
+		totalRecord = BoardDAO.getInstance().getHotelBoardCount(user.getUser_no()); //전체 게시물의 수를 확인
 		allPage = (int)(Math.ceil(totalRecord/(double)rowsize)); //Math.ceil() 나머지 올림 메서드
 		
 		if(request.getParameter("page") != null) {
@@ -40,9 +42,9 @@ public class BoardHotelGetListAction implements Action {
 		int startNo = (page *rowsize) - (rowsize - 1); //시작번호
 		int endNo = (page*rowsize);  //끝번호
 		
-		UserDTO user = (UserDTO)request.getSession().getAttribute("loginUser");
-		
 		ArrayList<Inquiry_HotelDTO> list = BoardDAO.getInstance().getHotelPageBoardList(user.getUser_no(), startNo, endNo);
+		
+		int listSize = totalRecord - ((page-1)*rowsize);
 		
 		String board_list = "<board_list>";
 		
@@ -51,6 +53,7 @@ public class BoardHotelGetListAction implements Action {
 			
 			board_list += "<board>"
 					+ "<board_no>"+dto.getInqho_no()+"</board_no>"
+					+ "<board_view_no>"+listSize+"</board_view_no>"
 					+ "<board_writer>"+dto.getInqho_writer()+"</board_writer>"
 					+ "<board_title>"+dto.getInqho_title()+"</board_title>"
 					+ "<board_content>"+dto.getInqho_content()+"</board_content>"
@@ -67,14 +70,14 @@ public class BoardHotelGetListAction implements Action {
 			board_list += "<board_userno>"+dto.getInqho_userno()+"</board_userno>";
 			board_list += "<board_hotelname>"+hotel_name+"</board_hotelname>";
 			board_list += "</board>";
+			
+			listSize--;
 		}
 		
 		board_list += "<pagenation>"
 				+ "<page>"+page+"</page>"
 				+ "<allPage>"+allPage+"</allPage>";
 		board_list += "</pagenation>";
-		
-		
 		board_list += "</board_list>";
 		response.getWriter().println(board_list);
 		

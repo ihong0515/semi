@@ -3,6 +3,9 @@
  */
 
 	function site_board_getList(d) {
+		$('#faq_main').hide();
+		$('#board_main').show();
+		
 		let page = $('#page_li_now_site').text();
 		if(d!=null){
 			page=parseInt(page)+parseInt(d);
@@ -22,7 +25,7 @@
 				let table = "";
 				
 				if($(data).find("board").text()==""){
-					table = "<tr><td colspan='4'><h3>등록된 게시물이 없습니다.</h3></td></tr>";
+					table = "<tr><td colspan='4' align='center'><h3>등록된 게시물이 없습니다.</h3></td></tr>";
 					$('#board_list tr:gt(0)').remove();
 					$('#board_list tr:eq(0)').after(table);
 				}else{
@@ -74,9 +77,11 @@
 				alert('게시물 불러오기 실패....');
 			}
 		});
-		
 	}
 	function hotel_board_getList(d) {
+		$('#faq_main').hide();
+		$('#board_main').show();
+		
 		if(user_no == ''){
 			alert('로그인이 필요합니다.');
 		}else{
@@ -86,7 +91,6 @@
 			}else{
 				page = 1;
 			}
-			
 			$('#board_write_btn').hide();
 			
 			$.ajax({
@@ -94,21 +98,22 @@
 				type: "post",
 				url: "board_Hotel_Get_List.do",
 				data: {
-					userNo : user_no
+					userNo : user_no,
+					page: page
 				},
 				datatype: "xml",
 				success: function(data){
 					let table = "";
 					
 					if($(data).find("board").text()==""){
-						table = "<tr><td colspan='4'><h3>등록된 게시물이 없습니다.</h3></td></tr>";
+						table = "<tr><td colspan='4' align='center'><h3>등록된 게시물이 없습니다.</h3></td></tr>";
 						$('#board_list tr:gt(0)').remove();
 						$('#board_list tr:eq(0)').after(table);
 					}else{
 						$(data).find("board").each(function() {
 							table += "<tr>";
 							table += "<td>";
-							table += $(this).find("board_no").text();
+							table += $(this).find("board_view_no").text();
 							table += "</td>";
 							table += "<td><a class='board_title_a' href='"+contextPath+"/board_Get_Hotel_Content.do?board_no="+$(this).find("board_no").text()+"'>";
 							
@@ -148,6 +153,7 @@
 						if($(data).find("page").text()!=''){
 							page = $(data).find("page").text();
 						}
+						
 						$('#page_li_now_hotel').text(page);
 						$('#page_li_lastPage').val($(data).find("allPage").text());
 					}
@@ -163,6 +169,7 @@
 		$(document).scrollTop(250);
 		$('#board_write_modal_overlay').show();
 	}
+	
 	function write_modeal_close(){
 		$('#board_write_modal_overlay').hide();
 	}
@@ -176,5 +183,39 @@
 			alert("글 내용을 입력하세요!!!");
 			f.board_content.focus();
 			return false;
+		}
+	}
+	
+	function faq_board_getList(){
+		$('.faq_cont').hide();
+		$('.faq_board_cont button').attr('class', 'faq_btn');
+		$('.faq_btn_total').attr('class', 'faq_btn_total');
+		$('#faq_main').css('display', 'flex');
+		$('#board_main').hide();	
+	}
+	
+	function faq_calling_to(self){
+		$('.faq_board_cont').slideUp();
+		$('.faq_board_wrap button').attr('class', 'faq_btn_total');
+		$('.faq_cont').slideUp();
+		$('.faq_board_cont button').attr('class', 'faq_btn');
+		if ($(self).nextAll().css('display')=='none'){
+			$(self).nextAll().slideDown();
+			$(self).attr('class', 'faq_btn_total_active');
+		}else{
+			$(self).nextAll().slideUp();
+			$(self).attr('class', 'faq_btn_total');
+		}
+	}
+	
+	function faq_calling(self){
+		$('.faq_cont').slideUp();
+		$('.faq_board_cont button').attr('class', 'faq_btn');
+		if ($(self).next().css('display')=='none'){
+			$(self).next().slideDown();
+			$(self).attr('class', 'faq_btn_active');
+		} else{
+			$(self).next().slideUp();
+			$(self).attr('class', 'faq_btn');
 		}
 	}

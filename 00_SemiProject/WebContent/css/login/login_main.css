@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+#login_main{
+	margin: 0 auto;
+}
+#login_main legend{
+	margin-left: 50px;
+}
+#login_main_wrap{
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+	width: 330px;
+	text-align: center;
+}
+.login_main_inp input{
+	width: 300px;
+	height: 40px;
+	font-size: 17px;
+}
+#login_main_btn input{
+	margin: 0 20px;
+}
+#login_main_a{
+	display:flex;
+	justify-content: space-between;
+}
+#login_modal{
+	display: none;
+	position: absolute;
+	top: 60%;
+	left: 30%;
+	width: 300px;
+	height: 400px;
+}
+
+#id_search_modal,
+#pwd_search_modal{
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border: 1px solid black;
+	width: 270px;
+	height: 370px;
+	margin: auto;
+}
+.modal_window_x{
+	position: absolute;
+	right: 23px;
+	width: 10px;
+	height: 10px;
+	cursor: pointer;
+}
+.modal_window_body{
+	margin-top: 100px;
+}
+.modal_window_footer{
+	margin-top: 50px;
+}

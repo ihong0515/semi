@@ -107,6 +107,11 @@ CREATE TABLE faq (
 	faq_content	varchar2(1000)		NOT NULL
 );
 
+create table faq_category(
+	faq_cate_no number(10) primary key,
+	faq_cate_name varchar2(500) not null;
+);
+
 CREATE TABLE inquiry_hotel (
 	inqho_no	number(10)		NOT NULL,
 	inqho_ownerno	number(10)		NOT NULL,
@@ -381,4 +386,11 @@ ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_user1_TO_site_reply_1" FOREIGN
 )
 REFERENCES user1 (
 	user_no
+) ON DELETE CASCADE;
+
+ALTER TABLE faq ADD CONSTRAINT "FK_faq_category_TO_faq_1" FOREIGN KEY (
+	faq_category
+)
+REFERENCES faq_category (
+	faq_cate_no
 ) ON DELETE CASCADE;
