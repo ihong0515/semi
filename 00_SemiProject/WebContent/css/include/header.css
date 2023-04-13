@@ -4,17 +4,28 @@
 	margin: 0;
 	padding: 0;
 }
-
+a {
+	text-decoration: none;
+	color: black;
+}
+a:hover {
+	color: #B3646B;
+	cursor: pointer;
+}
+#header a:hover {
+	color: #525252 !important;
+}
+li {
+	list-style: none;
+}
 html, body {
 	height: 100%;
 }
-
 #header {
 	height: 480px;
 	position: relative;
 	z-index: 1;
 }
-
 #header input, select {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -22,23 +33,15 @@ html, body {
 	text-align: center;
 	font-family: 'Noto Sans KR', sans-serif;
 }
-
 #header input:focus, #header select:focus {
 	outline:none;
 }
-
-#header a {
-	text-decoration: none;
-	color: black;
-}
-
 #header_navi {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 800px;
 }
-
 #header_navi_logo {
 	float: left;
 	height: 130px;
@@ -48,17 +51,14 @@ html, body {
     justify-content: flex-start;
     align-items: center;
 }
-
 #header_navi_home img{
 	width: 100%;
 	cursor: pointer;
 }
-
 #header_navi_ul {
 	flex: 4;
 	margin-left: 50px;
 }
-
 #header_navi_ul li{
 	float: left;
 	height: 20px;
@@ -73,7 +73,6 @@ html, body {
     justify-content: flex-start;
     align-items: center;
 }
-
 #header_navi_home_log a {
 	float: right;
 	flex: 1;
@@ -86,11 +85,9 @@ html, body {
 	font-family: 'Red Hat Display', sans-serif;
 	font-size: 13px;
 }
-
 #header_navi_home_log {
 	position: relative;
 }
-
 .submenu {
 	position: absolute;
 	display: none;
@@ -104,11 +101,9 @@ html, body {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 10px;
 }
-
 .submenu li {
 	padding: 3px;
 }
-
 .submenu li:hover {
 	background:#F4D2D5;
 	transition: ease 0.1s;
@@ -120,21 +115,18 @@ html, body {
 #header_search {
 	margin-top: 20px;
 }
-
 #location {
     border: 1px solid #ccc;
     vertical-align: top;
     height: 30px;
     width: 140px;
 }
-
 .checkIn, .checkOut {
 	border: 1px solid #ccc;
 	vertical-align: top;
 	height: 30px;
 	width: 130px;
 }
-
 #submit_button {
 	width: 40px;
 	height: 30px;
@@ -142,7 +134,6 @@ html, body {
 	border: 1px solid #ccc;
 	vertical-align: top;
 }
-
 #keyword {
 	border: 1px solid #ccc;
 	vertical-align: middle;
