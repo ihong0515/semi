@@ -1,19 +1,23 @@
 @charset "UTF-8";
-
-
-a{
-	text-decoration: none;
-	color: black;
-  }
-
+  
 * {
 	margin: 0;
 	padding: 0;
 }
 
-#container{
+html, body {
+	height: 100%;
+}
+
+#header_container{
 	width: 800px;
 	margin: 0 auto 100px auto;
+}
+
+#header {
+	height: 480px;
+	position: relative;
+	z-index: 1;
 }
 
 #header input, select {
