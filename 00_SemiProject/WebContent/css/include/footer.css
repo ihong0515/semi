@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 #footer_container{
-	height: 275px;
+	width : 800px;
+	height: 180px;
 	background-color:#FABAC2;
 	font-family : 'Noto Sans KR', sans-serif;
 	font-size : 3px;

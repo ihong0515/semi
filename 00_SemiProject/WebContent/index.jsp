@@ -11,7 +11,6 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/include/index.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/index.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-
 </head>
 <body>
 	<jsp:include page="include/header.jsp" />
