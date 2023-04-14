@@ -14,24 +14,16 @@
 #user_coupon_content{
 	display: flex;
 	justify-content: center;
-	
-	
 }
 #user_coupon_table{
 	width: 100%;
-	
-	
 }
 #user_coupon_row{
 	display: flex;
 	justify-content: space-around;
-	
-	
 }
 #user_coupon_col{
 	text-align: center;
-	
-	
 }
 #user_coupon_row:nth-child(1){
 	background-color: #F2F2F2;

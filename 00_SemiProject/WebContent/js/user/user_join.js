@@ -183,7 +183,7 @@ function autoEmail() {
 
     $('#user_email').autocomplete({
         source: mailArr,
-        focus: function(event, ui) {
+        focus: function() {
             return false;
         }
     });
@@ -252,7 +252,8 @@ function emailCheck() {
 			url: "user_Email_Check.do",
 			data:{
 				email: $('#user_email').val(),
-				check_code: $('#user_email_check').val()
+				check_code: $('#user_email_check').val(),
+				check: "user_join"
 			},
 			datatype: "text",
 			success: function(data){

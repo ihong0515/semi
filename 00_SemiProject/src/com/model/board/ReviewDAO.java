@@ -51,7 +51,6 @@ public class ReviewDAO {
 		}
 	}
 
-
 	public ArrayList<ReviewDTO> getReviewList(int hotel_no) {
 		ArrayList<ReviewDTO> list = new ArrayList<ReviewDTO>();
 		
@@ -70,7 +69,6 @@ public class ReviewDAO {
 				dto.setReview_writer(rs.getString("review_writer"));
 				dto.setReview_content(rs.getString("review_content"));
 				dto.setReview_date(rs.getString("review_date"));
-				dto.setReview_update(rs.getString("review_update"));
 				dto.setReview_photo(rs.getString("review_photo"));
 				dto.setReview_checkindate(rs.getString("review_checkindate"));
 				dto.setReview_point(rs.getInt("review_point"));
@@ -85,48 +83,24 @@ public class ReviewDAO {
 		return list;
 	}
 
-	public int checkReserve(ReviewDTO dto) {
+	public int checkReview(int reserv_no) {
 		int result = 0;
+		
 		try {
-			sql = "select * from reserv where reserv_userno = ?";
+			sql = "select * from review where review_reservno = ?";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, dto.getReview_userno());
+			ps.setInt(1, reserv_no);
 			rs = ps.executeQuery();
-			if(rs.next()) { //예약내역 ㅇ
-				if(rs.getString("reserv_usecheck").equalsIgnoreCase("Y")) { //사용 후
-					dto.setReview_reservno(rs.getInt("reserv_no"));
-					dto.setReview_checkindate(rs.getString("reserv_start").substring(0,10));
-					dto.setReview_roomno(rs.getInt("reserv_roomno"));
-					
-					result = checkReview(dto.getReview_reservno());
-				}else { // 사용 전
-					result = -2;
-				}
+			if(rs.next()) {
+				result = -1; // 리뷰 중복
+			}else {
+				result = 1; // 사용 가능
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
-		}
-		return result;
-	}
-
-	private int checkReview(int reserv_no) {
-		int result = 0;
-		
-		try {
-			sql = "select count(*) from review where review_reservno = ?";
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, reserv_no);
-			if(rs.next()) { // 리뷰 등록
-				result = -1;
-			}else { // 사용 가능
-				result = 1;
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return result;
 	}
@@ -142,9 +116,9 @@ public class ReviewDAO {
 				dto.setReview_no(rs.getInt(1)+1);
 			}
 			if(dto.getReview_photo()!=null) {
-				sql = "insert into review values(?, ?, ?, ?, ?, ?, ?, sysdate, default, '"+dto.getReview_photo()+"', ?, ?)";
+				sql = "insert into review values(?, ?, ?, ?, ?, ?, ?, sysdate, '"+dto.getReview_photo()+"', ?, ?)";
 			}else {
-				sql = "insert into review values(?, ?, ?, ?, ?, ?, ?, sysdate, default, default, ?, ?)";
+				sql = "insert into review values(?, ?, ?, ?, ?, ?, ?, sysdate, default, ?, ?)";
 			}
 			
 			ps = con.prepareStatement(sql);
@@ -157,7 +131,6 @@ public class ReviewDAO {
 			ps.setString(7, dto.getReview_content());
 			ps.setString(8, dto.getReview_checkindate());
 			ps.setInt(9, dto.getReview_point());
-			
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -218,7 +191,6 @@ public class ReviewDAO {
 				dto.setReview_writer(rs.getString("review_writer"));
 				dto.setReview_content(rs.getString("review_content"));
 				dto.setReview_date(rs.getString("review_date"));
-				dto.setReview_update(rs.getString("review_update"));
 				dto.setReview_photo(rs.getString("review_photo"));
 				dto.setReview_checkindate(rs.getString("review_checkindate"));
 				dto.setReview_point(rs.getInt("review_point"));

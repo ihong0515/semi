@@ -23,7 +23,7 @@ function board_close(){
 	$('#write_overlay').hide()
 }
 
-function board_write(){
+function board_write(ho_no){
 	let title = $('#write_head_title input');
 	let cont = $('#write_body textarea');
 	
@@ -43,7 +43,7 @@ function board_write(){
 					title: $('#write_head_title input').val(),
 					content: $('#write_body textarea').val(),
 					user_no: user_no,
-					hotel_no: $('#hotel_no_write').val()
+					hotel_no: ho_no
 				},
 				datatype: "text",
 				success: function(data){
@@ -61,3 +61,18 @@ function board_write(){
 		}
 	}
 }
+
+function review_check(){
+	if($('#review_content').val()==''){
+		alert('리뷰 내용을 작성하세요.');
+		$('#review_content').focus();
+		return false;
+	}else{
+		confirm('리뷰를 등록하시겠습니까?');
+	}
+}
+
+
+
+
+

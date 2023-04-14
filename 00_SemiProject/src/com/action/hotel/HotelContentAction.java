@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.action.*;
 import com.model.board.*;
 import com.model.hotel.*;
-import com.model.user.UserDAO;
+import com.model.user.*;
 
 public class HotelContentAction implements Action {
 
@@ -22,6 +22,12 @@ public class HotelContentAction implements Action {
 		
 		HttpSession session = request.getSession();
 		int hotel_no = Integer.parseInt(request.getParameter("hotel_no").trim());
+		UserDTO user = (UserDTO)session.getAttribute("loginUser");
+		
+		if(user!=null) {
+			List<ReserveDTO> reserv_list = UserDAO.getInstance().getReservList(user.getUser_no(), hotel_no);
+			request.setAttribute("Re_list", reserv_list);
+		}
 		
 		ArrayList<Date> checkdate = (ArrayList<Date>)session.getAttribute("CheckDate");
 		ArrayList<Integer> hotel_no_list = new ArrayList<Integer>();

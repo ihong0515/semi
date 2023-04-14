@@ -14,7 +14,7 @@
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-	    	<div id="content"">
+	    	<div id="content">
 	    		<h2>${user_dto.getUser_name() }님의 등록된 결제 수단 정보</h2>
 				<br>
 				
