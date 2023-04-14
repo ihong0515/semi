@@ -16,7 +16,7 @@
 				<br>
 				
 				<form method="post" action="<%=request.getContextPath() %>/user_quitOk.do">
-					<input typ="hidden" name="user_no" value="${user_dto.getuser_no() }">
+					<input typ="hidden" name="user_no" value="${user_dto.getUser_no() }">
 					<table border="1" cellspacing="0" width="400">
 						<tr>
 							<th>비밀번호 입력</th>
