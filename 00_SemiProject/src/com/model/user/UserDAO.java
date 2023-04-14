@@ -206,7 +206,6 @@ public class UserDAO {
 		}
 		return result;
 	}
-	
 
 	public int checkUserId(String id) {
 		int result = 0;
