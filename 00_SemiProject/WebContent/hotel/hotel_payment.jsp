@@ -179,7 +179,7 @@ if(checkDate!=null){
 				        <div class="modal-window privat_terms">
 				            <div class="modal-title">
 				                <h2>개인정보 처리방침</h2>
-				                <div class="close-area" onclick="modal_close()">X</div>
+				                 <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="modal-content">
 				                <jsp:include page="../terms/payment/privat_terms" />
@@ -205,7 +205,7 @@ if(checkDate!=null){
 				        <div class="modal-window tex_terms">
 				            <div class="modal-title">
 				                <h2>세금 명세 약관</h2>
-				                <div class="close-area" onclick="modal_close()">X</div>
+				               <div class="close-area" onclick="modal_close()">X</div>
 				            </div>
 				            <div class="modal-content">
 				            

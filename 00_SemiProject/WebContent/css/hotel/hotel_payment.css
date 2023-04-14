@@ -190,3 +190,6 @@
 	background-color:#c0c0c0;
     transition: 0.3s;
 }
+.modal-footer{
+	text-align: center;
+}
