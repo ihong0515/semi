@@ -18,8 +18,6 @@ public class EmailSendAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//	email , check 파라미터를 이용해서 check에 일치하는 조건에 따라 email로 메일을 발송함
-		
-		
 		String user_email = request.getParameter("email").trim();
 		String path_check = request.getParameter("check").trim();
 		
@@ -58,18 +56,31 @@ public class EmailSendAction implements Action {
 						+ " 회원가입을 위한 인증코드는 ["+code+"] 입니다.");
 				Transport.send(clsMessage);
 				result = 1;
+				response.getWriter().println(result);
+				
+				
 			}else if(path_check.equals("id_search")){
 				clsMessage.setSubject("GoCatchStay ID 찾기 이메일 인증입니다.");
 				clsMessage.setText("안녕하세요 GoCatchStay입니다."
 						+ " 아이디를 찾기 위한 인증코드는 ["+code+"] 입니다.");
 				Transport.send(clsMessage);
-				result = 1;
+				
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("/login/login_id_search.jsp");
+				return forward;
+				
 			}else if(path_check.equals("pwd_search")) {
 				clsMessage.setSubject("GoCatchStay 비밀번호 찾기 이메일 인증입니다.");
 				clsMessage.setText("안녕하세요 GoCatchStay입니다."
 						+ " 비밀번호를 찾기 위한 인증코드는 ["+code+"] 입니다.");
 				Transport.send(clsMessage);
-				result = 1;
+
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("/login/login_pwd_search.jsp");
+				return forward;
+				
 			}else { //path_check 실패
 				result = 0;
 			}
@@ -77,7 +88,6 @@ public class EmailSendAction implements Action {
 		catch( Exception e ){
 			e.printStackTrace();
 		}
-		response.getWriter().println(result);
 		return null;
 	}
 }

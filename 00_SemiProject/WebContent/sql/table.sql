@@ -315,7 +315,6 @@ CREATE TABLE review (
 	review_writer	varchar2(50)		NOT NULL,
 	review_content	varchar2(2000)		NOT NULL,
 	review_date	date		NOT NULL,
-	review_update	date	DEFAULT null	NULL,
 	review_photo	varchar2(1000)		NULL,
 	review_checkindate	date	not null,
 	review_point number(2) default 0 not null
