@@ -51,7 +51,7 @@ function pwdKorCheck(e){
 
 function pwdInput(){
 	/* 비밀번호 유효성 검사 */
-	checkPwd($('#user_pwd').val(), $('#user_id').val());
+	checkPwd($('#user_pwd').val());
 	
 	let pwd = $('#user_pwd').val();
 	let repwd = $('#user_repwd').val();
@@ -183,7 +183,7 @@ function autoEmail() {
 
     $('#user_email').autocomplete({
         source: mailArr,
-        focus: function(event, ui) {
+        focus: function() {
             return false;
         }
     });

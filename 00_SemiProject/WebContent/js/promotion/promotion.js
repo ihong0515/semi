@@ -15,19 +15,18 @@ $(document).ready(function(){
 	});
 });
 
-function getCoupon(e){
+function getCoupon(){
 	if(uid == 'null'){
 		alert('로그인이 필요한 서비스 입니다.');
 	}else{
 		$.ajax({
 			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 			type: "get",
-			url : "coupon_make.do",
+			url : contextPath+"/coupon_make.do",
 			data : {
 				prom_no : $('#prom_no_val').val()
 			},
 			datatype : "text",
-			context : this,
 			success : function(data){
 				$('#coup_result').text(data);
 			},
@@ -37,3 +36,12 @@ function getCoupon(e){
 		});
 	}
 }
+function openContent(prom_no){
+	window.open(
+		'PromotionContent.do?no='+prom_no, 
+		'myWindow', 
+		'toolbar=no;scrollbars=0;resizable=0;status=no;width=600;height=400'
+	);
+}
+
+

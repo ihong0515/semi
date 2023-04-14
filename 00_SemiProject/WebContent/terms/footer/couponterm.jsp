@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<ul style = "list-style:none";>
+<ul style = "list-style:none;">
 <li>스테이폴리오에서 제공하는 이벤트 및 혜택 등 다양한 정보를 문자메시지, 이메일 등으로 볼 수 있습니다.</li>
 <li>마케팅 정보 수신 및 활용 동의 여부와 관계없이 회원가입 및 서비스를 이용하실 수 있습니다.</li>
 

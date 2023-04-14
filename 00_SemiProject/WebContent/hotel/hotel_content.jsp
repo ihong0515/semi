@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_content.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_content.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/promotion/promotion.css">
 </head>
 <body>
 	<div id="container">

@@ -33,6 +33,7 @@ function id_check(i){
 		}
 	}
 }
+
 function pwd_check(i){
 	let id = $('.id_inp');
 	let mail = $('.mail_inp');

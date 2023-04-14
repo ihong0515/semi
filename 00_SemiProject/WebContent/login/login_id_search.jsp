@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디 찾기</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">
 	let contextPath = "<%=request.getContextPath() %>";
@@ -15,6 +15,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/login/login_search.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 	<div id="content">
 		<form method="post" id="id_form">
 			<div class="id_search_title">아이디 찾기</div>
@@ -67,6 +68,25 @@
 			</div>
 			</c:if>
 		</form>
+=======
+	<div id="container">
+		<div id="content">
+			<div class="modal_window_title">아이디 찾기</div>
+			<div class="modal_window_body">
+				<input type="text" id="name_inp" onblur="check(this)" placeholder="이름"><br>
+				<input type="text" id="email_inp" class="modal_mail" onblur="check(this)" placeholder="이메일">
+			</div>
+			<div class="modal_window_result">
+				<div id="result_btn">
+					<input type="text" placeholder="코드 입력" class="check_result">
+					<input type="button" id="codeChk_btn" onclick="emailCheck(this, 0)" value="인증 확인" class="check_result">
+				</div>
+			</div>
+			<div class="modal_window_footer">
+				<input type="submit" id="mail_btn" value="메일 전송" onclick="searchId()">
+			</div>
+		</div>
+>>>>>>> 8ff3a7d38c56886a25ed664362654a670291a166
 	</div>
 </body>
 </html>
