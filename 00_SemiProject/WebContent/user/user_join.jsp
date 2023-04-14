@@ -54,12 +54,13 @@
 					</tr>
 					<tr>
 						<th>휴대전화</th>
-						<td id="input_phone">
-							010&nbsp;&nbsp;-&nbsp;&nbsp;
-							<input type="text" name="user_phone_mid" class="user_phone" maxlength="4" placeholder="0 0 0 0">
-							&nbsp;&nbsp;-&nbsp;&nbsp;
-							<input type="text" name="user_phone_end" class="user_phone" maxlength="4" placeholder="0 0 0 0">
-							<br>
+						<td>
+							<div id="user_phone">
+								<div class="user_phone_txt">010&nbsp;&nbsp;-&nbsp;&nbsp;</div>
+								<input type="text" name="user_phone_mid" id="user_phone_mid" class="phone_number" maxlength="4" placeholder="0000">
+								<div class="user_phone_txt">&nbsp;&nbsp;-&nbsp;&nbsp;</div>
+								<input type="text" name="user_phone_end" id="user_phone_end" class="phone_number" maxlength="4" placeholder="0000">
+							</div>
 							<span id="phonecheck"></span>
 						</td>
 					</tr>
@@ -75,16 +76,16 @@
 						<th>선호 지역</th>
 						<td>
 							<select name="user_region" id="user_region">
-				               <option value="seoul">서울</option>
-				               <option value="jeju">경기</option>
-				               <option value="kwangwon">강원</option>
-				               <option value="jeonnam">전남</option>
-				               <option value="jeonbuk">전북</option>
-				               <option value="chungbuk">충북</option>
-				               <option value="chungnam">충남</option>
-				               <option value="kyungnam">경남</option>
-				               <option value="kyungbuk">경북</option>
-				               <option value="jeju">제주</option>
+								<option value="서울">서울</option>
+								<option value="경기">경기</option>
+								<option value="강원">강원</option>
+								<option value="전남">전남</option>
+								<option value="전북">전북</option>
+								<option value="충북">충북</option>
+								<option value="충남">충남</option>
+								<option value="경남">경남</option>
+								<option value="경북">경북</option>
+								<option value="제주">제주</option>
 					         </select>
 					         <br>
 							 <span id="regioncheck"></span>
@@ -107,8 +108,8 @@
 						<th>이메일 확인</th>
 						<td>
 							<div class="user_email_check">
-								<input type="text" id="user_email_check">
-								<input type="button" id="user_email_checkSubmit" value="인증번호 확인" onclick="emailCheck()">
+								<input type="text" id="user_email_check" placeholder="이메일 인증코드를 입력해주세요.">
+								<input type="button" id="user_email_checkSubmit" value="인증코드 확인" onclick="emailCheck()">
 							</div>
 						</td>
 					</tr>

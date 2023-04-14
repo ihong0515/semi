@@ -34,11 +34,13 @@ function modifyFormCheck() {
 
 /* 비밀번호 변경 모달창 */
 function show_modal() {
+	$('#modal_wrap').show();
 	$('#myModal').show();
 }
 
 function close_modal() {
 	$('#myModal').hide();
+	$('#modal_wrap').hide();
 }
 
 function pwdInput(){

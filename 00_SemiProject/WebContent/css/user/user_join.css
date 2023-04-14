@@ -32,7 +32,7 @@
  	border-spacing: 0 20px;
  	margin: 80px auto;
 }
-#joinForm #user_id, #user_pwd, #user_repwd, #user_name, #user_birth, #user_region {
+#joinForm #user_id, #user_pwd, #user_repwd, #user_name, #user_birth, #user_region, #user_phone {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -45,18 +45,24 @@
 	border-bottom-width: 1px;
 	border-bottom-color: #C3C3C3;
 	text-align: left;
+	font-size: 13px;
 }
-.user_phone {
-	width: 60px !important;
+.user_phone_txt {
+	width: auto !important;
+	height: 29px;
 	border-style: none !important;
-	margin: 12.5px;
+	float: left;
+	line-height: 29px;
+	text-align: center;
 }
-#input_phone {
-	width: 400px;
-	border-style: none;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-color: #C3C3C3;
+.phone_number {
+	width: 50px !important;
+	height: 29px;
+	border-style: none !important;
+	float: left;
+	line-height: 29px;
+	text-align: center;
+	font-family: 'Noto Sans KR', sans-serif !important;
 }
 #user_email, #user_email_check {
 	box-sizing: border-box;
@@ -106,6 +112,7 @@
 	height: 200px;
 	padding: 20px;
 	background: #F2F2F2;
+	font-size: 12px;
 }
 #agree_container {
 	margin-left: 143px;

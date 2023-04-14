@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#mypage_header {
+	text-align: center;
+}
+#mypage_title {
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 50px auto;
+}
+#mypage_username {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 30px;
+	margin-top: 20px;
+	font-weight: bold;
+}
+#mypage_txt {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 18px;
+	margin-bottom: 50px;
+	color: gray;
+}
+#mypage_hr {
+	width: 800px;
+	color: black;
+}

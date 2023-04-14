@@ -65,7 +65,7 @@ function searchPwd(){
 				}else if(data==0){
 					//pwd 없음
 					$('#result_btn').hide();
-					$('.modal_window_result').append("<span style='color:red;'>ID를 찾을 수 없습니다.</span>");
+					$('.modal_window_result').append("<span style='color:red;'>아이디를 찾을 수 없습니다.</span>");
 				}else{
 					//pwd 존재
 					$('#result_btn').show();
@@ -153,7 +153,7 @@ function idAppear(){
 		datatype: "xml",
 		success: function(data){
 			let text = "";
-			text += "<h4>일치하는 아이디 리스트</h4>";
+			text += "<h4>가입된 아이디는 다음과 같습니다.</h4>";
 			
 			$(data).find("dto").each(function(){
 				text += "<span>"+$(this).find("id").text()+"<br></span>";
