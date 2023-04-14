@@ -8,29 +8,33 @@
 <head>
 <meta charset="UTF-8">
 <title>보유 쿠폰 내역</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/user/user_coupon.css">
 </head>
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
     	<div id="content">
-			<div>
-				<h2>${user_dto.getUser_name() }님의 보유 쿠폰 내역</h2>
+    	<h2>${user_dto.getUser_name() }님의 보유 쿠폰 내역</h2>
+			<div id ="user_coupon_content">
 				<br>
-				<table border="1" cellspacing="0">
-					<tr>
-						<th>프로모션 이름</th> <th>내용</th> <th>할인율</th> <th>일련번호</th> <th>사용여부</th>
-					</tr>
-					
+				<div id = "user_coupon_table">
+					<div id = "user_coupon_row">
+						<div id = "user_coupon_col">프로모션 이름</div> 
+						<div id = "user_coupon_col">내용</div>
+						<div id = "user_coupon_col">할인율</div>
+						<div id = "user_coupon_col">일련번호</div> 
+						<div id = "user_coupon_col">사용여부</div>
+					</div>
 					<c:set var="list" value="${couponList }" />
 					<c:if test="${!empty list }">
 						<c:forEach items="${list }" var="coup_dto">
-							<tr>
-								<td>${prom_dto.getProm_name() }</td>
-								<td>${prom_dto.getProm_info() }</td>
-								<td>${coup_dto.getCoup_sale() }</td>
-								<td>${coup_dto.getCoup_serialno() }</td>
-								<td>${coup_dto.getCoup_usecheck() }</td>
-							</tr>
+							<div id = "user_coupon_row">
+								<div id = "user_coupon_col">${prom_dto.getProm_name() }</div>
+								<div id = "user_coupon_col">${prom_dto.getProm_info() }</div>
+								<div id = "user_coupon_col">${coup_dto.getCoup_sale() }</div>
+								<div id = "user_coupon_col">${coup_dto.getCoup_serialno() }</div>
+								<div id = "user_coupon_col">${coup_dto.getCoup_usecheck() }</div>
+							</div>
 						</c:forEach>
 					</c:if>
 					

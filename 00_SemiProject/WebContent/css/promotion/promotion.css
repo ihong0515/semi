@@ -1,12 +1,100 @@
 @charset "UTF-8";
-
-#container{
-	width: 800px;
-	margin: 50px auto;
-	
+#container {
+   width: 800px;
+   margin: 100px auto;
+   font-family: 'Noto Sans KR', sans-serif;
+}
+#content {
+   min-height: 100%;
+   list-style: none;
+   margin: 100px auto;
+   align-content: center;
 }
 .promotion_font{
 	text-align:center;
 	font-weight:bold;
 	font-size:10pt;
+}
+
+.promotion_title{
+	margin-top: 50px;
+	
+}
+
+#promotion_content_header{
+  background-color: #F2F2F2;
+  font-family: 'Noto Sans KR', sans-serif;
+  
+}
+#promotion_content{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+/*coupon content 영역.  */
+#promotion_content_header h1{
+  text-align: center;
+  margin-top: 30px;
+}
+
+#promotion_content_container {
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 100%;
+}
+
+
+#promtion_content_footer{
+	text-align: center;
+	background-color: #F2F2F2;
+	padding-bottom: 0px;
+}
+
+#promtion_footer_term{
+	width: auto;
+}
+
+#coup_result_area{
+	background-color: #F2F2F2;
+}
+
+#coupon_button{
+	border-radius: 1em;
+	background-color: #5E5E5E;
+	font-size: large;
+	color: #F2F2F2;
+	margin-bottom: 30px;
+}
+#coupon_button:hover{
+	background-color: #F2F2F2;
+	color : black;
+}
+
+#promotion_coupon_table{
+	text-align: center;
+	font-weight: bold;
+	
+}
+
+#coupon_frame{
+	width : 35%;
+	display : inline-block;
+	background-color: #F2F2F2;
+	border: 3px solid black;
+	border-top-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border-left-style :dashed;
+	border-right-style :dashed;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.coupon_sale_font{
+	background-color: black;
+	font-weight: bold;
+	font-size: xx-large;
+	color: white;
+	padding: auto;
+	border-radius: 10px;
 }

@@ -92,6 +92,7 @@ public class PromotionDAO {
 				dto.setProm_folder(rs.getString("prom_folder"));
 				dto.setProm_name(rs.getString("prom_name"));
 				dto.setProm_info(rs.getString("prom_info"));
+				dto.setProm_sale(rs.getInt("prom_sale"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -117,6 +118,7 @@ public class PromotionDAO {
 				dto.setProm_folder(rs.getString("prom_folder"));
 				dto.setProm_name(rs.getString("prom_name"));
 				dto.setProm_info(rs.getString("prom_info"));
+				dto.setProm_sale(rs.getInt("prom_sale"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
