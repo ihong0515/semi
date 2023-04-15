@@ -23,12 +23,10 @@ public class CrawlingSearchListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String param = request.getParameter("param").trim();
 		String url = "";
-		String keyword = "";
 		ArrayList<CrawlingDTO> list = new ArrayList<>();
 		
 		if(param.equals("google")) {
 			url = "https://www.google.com/search?q=호캉스+다녀왔어요&sxsrf=APwXEdcHyWz6UYRAIUKHKLjLS0tJAQvMqw:1680850484717&source=lnms&tbm=vid&sa=X&ved=2ahUKEwiNl7-AmJf-AhXUP3AKHcv5CiQQ_AUoA3oECAEQBQ&biw=960&bih=754&dpr=1.25";
-			keyword = "query=호캉스+다녀왔어요";
 			
 			try {
 				Connection con = Jsoup.connect(url);
@@ -42,6 +40,7 @@ public class CrawlingSearchListAction implements Action {
 					Elements c = e.select(".Uroaid");
 					Elements w = e.select(".P7xzyf");
 					String i = e.select(".VYkpsb").attr("data-url");
+					
 					String link = e.select(".DhN8Cf > a").attr("href");
 					
 					StringTokenizer st = new StringTokenizer(w.text(), "·");
@@ -54,6 +53,7 @@ public class CrawlingSearchListAction implements Action {
 					dto.setWriter(wri);;
 					dto.setContent(c.text());
 					dto.setImg(i);
+					
 					list.add(dto);
 				}
 				request.setAttribute("Check", "1");
@@ -71,7 +71,6 @@ public class CrawlingSearchListAction implements Action {
 				Connection con = Jsoup.connect(url);
 				Document doc = con.get();
 				
-				
 				Elements cont = doc.getElementsByClass("keyword_bx _item _check_visible");
 				
 				for(Element e : cont) {
@@ -82,9 +81,6 @@ public class CrawlingSearchListAction implements Action {
 					String imgsrc = e.select("._foryou_image_source").attr("data-lazysrc");
 					
 					String link = t.attr("href");
-					int endSearch = link.indexOf("query=");
-					link = link.substring(0, endSearch);
-					link += keyword;
 					
 					CrawlingDTO dto = new CrawlingDTO();
 					dto.setTitle(t.text());

@@ -11,7 +11,7 @@ $(document).ready(function(){
 		adaptiveHeight: true,
 		arrows: true,
 		prevArrow : "<button type='button' class='slick-prev'>Previous</button>",		// 이전 화살표 모양 설정
-		nextArrow : "<button type='button' class='slick-next'>Next</button>"	
+		nextArrow : "<button type='button' class='slick-next'>Next</button>"
 	});
 });
 
@@ -40,7 +40,7 @@ function openContent(prom_no){
 	window.open(
 		'PromotionContent.do?no='+prom_no, 
 		'myWindow', 
-		'toolbar=no;scrollbars=0;resizable=0;status=no;width=600;height=400'
+		'toolbar=no,scrollbars=0,resizable=0,status=no,width=800,height=900,left=250,top=0'
 	);
 }
 

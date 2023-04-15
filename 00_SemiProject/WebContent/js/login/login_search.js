@@ -102,6 +102,8 @@ function pwdInput(){
 	}
 }
 
+
+/*
 function checkPwd(pwd) {
     let result = $('#pwd_check_result');
 
@@ -121,3 +123,5 @@ function checkPwd(pwd) {
     	return true;
 	}
 }
+
+*/
