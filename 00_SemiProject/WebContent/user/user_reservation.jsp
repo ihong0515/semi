@@ -14,18 +14,21 @@
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-	    	<div id="content">
-				<h2>${user_dto.getUser_name() }님 숙소 예약 내역 리스트</h2>
-				<div id=reserve_list>
+    	<div id="content">
+			<h2>${user_dto.getUser_name() }님 숙소 예약 내역 리스트</h2>
+			<div id=reserve_list>
+				<div>
 					<a class="reserv" id="reserv_N" onclick="getReserv(this)">사용 전</a>&nbsp;&nbsp;
 					<a class="reserv" id="reserv_Y" onclick="getReserv(this)">사용 후</a>&nbsp;&nbsp;
 					<a class="reserv" id="reserv_C" onclick="getReserv(this)">취소</a>
 					<br>
-					총 <span id="reserv_count"></span>개
-					<div id="reserv_content"></div>
-					<input type="hidden" id="use_check" value="">
+					<span id="reserv_count"></span>
+				</div>
+				<div id="reserv_content">
+					<h4>버튼을 눌러 예약내역을 확인하세요.</h4>
 				</div>
 			</div>
+		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>

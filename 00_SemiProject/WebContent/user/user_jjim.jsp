@@ -18,7 +18,6 @@
     	<div id="content">
 			<div>
 				<h2>${user_dto.getUser_name() }님이 찜한 숙소</h2>
-				<br>
 				<c:if test="${!empty hotelList }">
 				<c:forEach items="${hotelList }" var="dto">
 					<ul>

@@ -16,8 +16,7 @@
 		<jsp:include page="../include/header.jsp" />
 	    	<div id="content">
 	    		<h2>${user_dto.getUser_name() }님의 등록된 결제 수단 정보</h2>
-				<br>
-				
+
 				<c:if test="${!empty pay_list }">
 					<c:forEach items="${pay_list }" var="pay_dto">
 						<ul>

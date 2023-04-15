@@ -50,7 +50,7 @@
 				<div class="crawling_main_content">
 					<div class="crawling_main_content_img">
 						<c:if test="${Check == 1 }">
-							<video src="${dto.getImg() }"  muted="muted" onmouseover="this.play()"></video>
+							<video src="${dto.getImg() }"  muted="muted" onmouseover="this.play()" ></video>
 						</c:if>
 						<c:if test="${Check != 1 }">
 							<img alt="" src="${dto.getImg() }">

@@ -19,7 +19,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 	let checkdate_param = '<%=checkDate==null %>';
 	let contextPath = '<%=request.getContextPath() %>';
 </script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/include/header.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/include/header.min.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/header.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
