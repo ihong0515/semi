@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>GoCatchStay</title>
-<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon" style="background-color: transparent;">
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/include/index.min.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/include/index.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
