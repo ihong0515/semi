@@ -1,5 +1,28 @@
 @charset "UTF-8";
 
+#container {
+   width: 800px;
+   margin: 100px auto;
+}
+#content {
+   min-height: 100%;
+   font-family: 'Noto Sans KR', sans-serif;
+   list-style: none;
+   margin: 100px auto;
+   align-content: center;
+}
+
+#insert_tb{
+	width: 500px;
+}
+#insert_tb,
+#insert_tb tr,
+#insert_tb th,
+#insert_tb td{
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
 .moveNumber {
 	text-align:center;
 	width:40px;

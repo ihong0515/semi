@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>찜한 호텔 내역</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_jjim.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user.css" rel="stylesheet">
 </head>

@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 public class BoardDAO {
 	
 	private Connection con = null;
-	private PreparedStatement pstmt = null;
+	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	private String sql = null;
 	
@@ -45,7 +45,7 @@ public class BoardDAO {
 		
 		try {
 			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
+			if(ps != null) ps.close();
 			if(con != null) con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -61,8 +61,8 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select * from inquiry_site order by inqsi_no desc";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Inquiry_SiteDTO dto = new Inquiry_SiteDTO();
 				dto.setInqsi_no(rs.getInt("inqsi_no"));
@@ -90,9 +90,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select * from inquiry_hotel where inqho_userno = ? order by inqho_no desc";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, user_no);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Inquiry_HotelDTO dto = new Inquiry_HotelDTO();
 				dto.setInqho_no(rs.getInt("inqho_no"));
@@ -124,8 +124,8 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select count(*) from inquiry_site";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt(1);
 			}
@@ -147,10 +147,10 @@ public class BoardDAO {
 					"(select row_number() over(order by inqsi_no desc) rnum, " + 
 					"b.* from inquiry_site b) " + 
 					"where rnum between ? and ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startNo);
-			pstmt.setInt(2, endNo);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, startNo);
+			ps.setInt(2, endNo);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Inquiry_SiteDTO dto = new Inquiry_SiteDTO();
 				dto.setInqsi_no(rs.getInt("inqsi_no"));
@@ -181,8 +181,8 @@ public class BoardDAO {
 			}else {
 				sql = "select count(*) from inquiry_hotel where inqho_userno = "+no;
 			}
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt(1);
 			}
@@ -211,10 +211,10 @@ public class BoardDAO {
 			}
 			sql += " where rnum between ? and ?";
 			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startNo);
-			pstmt.setInt(2, endNo);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, startNo);
+			ps.setInt(2, endNo);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Inquiry_HotelDTO dto = new Inquiry_HotelDTO();
 				dto.setInqho_no(rs.getInt("inqho_no"));
@@ -246,21 +246,21 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select count(*) from inquiry_site";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto.setInqsi_no(rs.getInt(1)+1);
 				sql = "insert into inquiry_site values(?, ?, ?, ?, sysdate, default, ?, ?, ?, ?)";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, dto.getInqsi_no());
-				pstmt.setString(2, dto.getInqsi_writer());
-				pstmt.setString(3, dto.getInqsi_title());
-				pstmt.setString(4, dto.getInqsi_content());
-				pstmt.setInt(5, dto.getInqsi_no());
-				pstmt.setInt(6, dto.getInqsi_no());
-				pstmt.setInt(7, dto.getInqsi_no());
-				pstmt.setInt(8, dto.getInqsi_userno());
-				result = pstmt.executeUpdate();
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getInqsi_no());
+				ps.setString(2, dto.getInqsi_writer());
+				ps.setString(3, dto.getInqsi_title());
+				ps.setString(4, dto.getInqsi_content());
+				ps.setInt(5, dto.getInqsi_no());
+				ps.setInt(6, dto.getInqsi_no());
+				ps.setInt(7, dto.getInqsi_no());
+				ps.setInt(8, dto.getInqsi_userno());
+				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -277,9 +277,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select * from inquiry_site where inqsi_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto = new Inquiry_SiteDTO();
 				dto.setInqsi_no(rs.getInt("inqsi_no"));
@@ -305,11 +305,11 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "update inquiry_site set inqsi_title = ?, inqsi_content = ?, inqsi_update = sysdate where inqsi_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dto.getInqsi_title());
-			pstmt.setString(2, dto.getInqsi_content());
-			pstmt.setInt(3, dto.getInqsi_no());
-			result = pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getInqsi_title());
+			ps.setString(2, dto.getInqsi_content());
+			ps.setInt(3, dto.getInqsi_no());
+			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -325,9 +325,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "delete from inquiry_site where inqsi_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			result = pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			result = ps.executeUpdate();
 			if(result>0) {
 				sequence_site(no);
 			}
@@ -345,9 +345,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "update inquiry_site set inqsi_no = inqsi_no -1 where inqsi_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -360,9 +360,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select * from inquiry_site_reply where inqsi_siteno = ? order by inqre_no desc";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Inquiry_Site_ReplyDTO dto = new Inquiry_Site_ReplyDTO();
 				dto.setInqre_no(rs.getInt("inqre_no"));
@@ -387,18 +387,18 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select count(*) from inquiry_site_reply";
-			pstmt=con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto.setInqre_no(rs.getInt(1)+1);
 				
 				sql = "insert into inquiry_site_reply values(?, ?, ?, ?, sysdate)";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, dto.getInqre_no());
-				pstmt.setInt(2, dto.getInqsi_siteno());
-				pstmt.setInt(3, dto.getInqre_userno());
-				pstmt.setString(4, dto.getInqre_content());
-				result = pstmt.executeUpdate();
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getInqre_no());
+				ps.setInt(2, dto.getInqsi_siteno());
+				ps.setInt(3, dto.getInqre_userno());
+				ps.setString(4, dto.getInqre_content());
+				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -416,9 +416,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "delete from inquiry_site_reply where inqre_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			result = pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			result = ps.executeUpdate();
 			if(result>0) {
 				sequence_reply(no);
 			}
@@ -434,9 +434,9 @@ public class BoardDAO {
 	private void sequence_reply(int no) {
 		try {
 			sql = "update inquiry_site_reply set inqre_no = inqre_no -1 where inqre_no > ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -448,9 +448,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select * from inquiry_hotel where inqho_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto = new Inquiry_HotelDTO();
 				dto.setInqho_no(rs.getInt("inqho_no"));
@@ -481,11 +481,11 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "update inquiry_hotel set inqho_title = ?, inqho_content = ?, inqho_update = sysdate where inqho_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dto.getInqho_title());
-			pstmt.setString(2, dto.getInqho_content());
-			pstmt.setInt(3, dto.getInqho_no());
-			result = pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getInqho_title());
+			ps.setString(2, dto.getInqho_content());
+			ps.setInt(3, dto.getInqho_no());
+			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -501,9 +501,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select inqho_no from inquiry_hotel where inqho_group = ? order by inqho_no desc"; //삭제 글 리스트
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, group);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, group);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				delList.add(rs.getInt("inqho_no"));
 			}
@@ -522,9 +522,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select inqho_group from inquiry_hotel where inqho_no > ? and inqho_step = 1"; //삭제글보다 높은 글 중 원글 리스트
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				list.add(rs.getInt("inqho_group"));
 			}
@@ -541,9 +541,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "update inquiry_hotel set inqho_group = inqho_group -1 where inqho_group = ?"; //위 원글 리스트들 그룹 -1
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, group);
-			pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, group);
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -558,9 +558,9 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "delete from inquiry_hotel where inqho_no = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			result = pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			result = ps.executeUpdate();
 			if(result>0) {
 				sequence_hotel(no);
 			}
@@ -576,9 +576,9 @@ public class BoardDAO {
 	private void sequence_hotel(int no) {
 		try {
 			sql = "update inquiry_hotel set inqho_no = inqho_no - 1 where inqho_no > ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			pstmt.executeUpdate();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -591,8 +591,8 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select * from faq";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				FaqDTO dto = new FaqDTO();
 				dto.setFaq_no(rs.getInt("faq_no"));
@@ -616,8 +616,8 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select * from faq_category order by faq_cate_no";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				FaqCateNameDTO dto = new FaqCateNameDTO();
 				dto.setFaq_cate_no(rs.getInt("faq_cate_no"));
@@ -639,23 +639,23 @@ public class BoardDAO {
 		try {
 			openConn();
 			sql = "select count(*) from inquiry_hotel";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto.setInqho_no(rs.getInt(1)+1);
 				
 				sql = "insert into inquiry_hotel values(?, ?, ?, ?, ?, ?, sysdate, default, ?, 1, ?, ?)";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, dto.getInqho_no());
-				pstmt.setInt(2, dto.getInqho_ownerno());
-				pstmt.setInt(3, dto.getInqho_hotelno());
-				pstmt.setString(4, dto.getInqho_writer());
-				pstmt.setString(5, dto.getInqho_title());
-				pstmt.setString(6, dto.getInqho_content());
-				pstmt.setInt(7, dto.getInqho_no());
-				pstmt.setInt(8, dto.getInqho_userno());
-				pstmt.setString(9, dto.getInqho_write_check());
-				result = pstmt.executeUpdate();
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getInqho_no());
+				ps.setInt(2, dto.getInqho_ownerno());
+				ps.setInt(3, dto.getInqho_hotelno());
+				ps.setString(4, dto.getInqho_writer());
+				ps.setString(5, dto.getInqho_title());
+				ps.setString(6, dto.getInqho_content());
+				ps.setInt(7, dto.getInqho_no());
+				ps.setInt(8, dto.getInqho_userno());
+				ps.setString(9, dto.getInqho_write_check());
+				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>등록된 결제수단 수정</title>
+<title>결제 수단 수정</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">
 	let pay_com = "${pay_dto.getPay_cardcom() }";
@@ -23,7 +24,7 @@
 			<form method="post" action="<%=request.getContextPath()%>/user_paymentModifyOk.do" onsubmit="return modifyPaymentFormCheck()">
 				<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
 	    		<input type="hidden" name="pay_no" value="${pay_dto.getPay_no() }">
-	    		<table border="1" cellspacing="0" width="500">
+	    		<table id="modify_tb">
 					<tr>
 						<th>카드 이름</th>
 						<td>

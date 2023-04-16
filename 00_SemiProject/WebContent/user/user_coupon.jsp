@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>보유 쿠폰 내역</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/user/user_coupon.css">
 </head>
 <body>

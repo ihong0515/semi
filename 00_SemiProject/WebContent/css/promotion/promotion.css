@@ -17,6 +17,9 @@
 	font-weight:bold;
 	font-size:10pt;
 }
+.promotion_image{
+	margin: auto;
+}
 
 /* promotion_content.jsp */
 #promotion_content_header{

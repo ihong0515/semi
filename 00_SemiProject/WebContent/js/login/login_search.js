@@ -85,12 +85,12 @@ function pwd_check(i){
 
 function pwdInput(){
 	let pwd = $('#repwd').val();
-	let repwd = $('#repwd_check').val();
+	let repwd = $('#repwd_check');
 	let result = $('#pwd_check_result');
 	/*비밀번호 유효성 검사*/
-	if(checkPwd($(pwd))){
-		if(pwd != "" || repwd != "") {
-			if(pwd==repwd) { // 일치
+	if(checkPwd(pwd)){
+		if(pwd != "" || repwd.val() != "") {
+			if(pwd==repwd.val()) { // 일치
 				$(result).show();
 				$(result).html('<font color="blue">비밀번호가 일치합니다.</font>');
 			} else { // 불일치
@@ -102,26 +102,25 @@ function pwdInput(){
 	}
 }
 
-
-/*
 function checkPwd(pwd) {
     let result = $('#pwd_check_result');
 
 	if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
-		$(result).show();
+		$(result).html('');
 		$(result).html('<font color="red">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</font>');
+		$(result).show();
 		$('#repwd').val('').focus();
 		return false;
     } else if(/(\w)\1\1\1/.test(pwd)) {
-		$(result).show();
+		$(result).html('');
 		$(result).html('<font color="red">같은 문자를 4번 이상 사용하실 수 없습니다.</font>');
+		$(result).show();
 		$('#repwd').val('').focus();
 		return false;
 	} else {
-		$(result).show();
+		$(result).html('');
 		$(result).html('<font color="blue">사용가능한 비밀번호입니다.</font>');
+		$(result).show();
     	return true;
 	}
 }
-
-*/

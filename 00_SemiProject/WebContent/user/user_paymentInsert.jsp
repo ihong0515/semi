@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>새 결제수단 등록</title>
+<title>새 결제 수단 추가</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_payment.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_insertPayment.css" rel="stylesheet">
 </head>
@@ -16,7 +17,7 @@
 	    <div id="content">
     		<h2>새 결제수단 등록</h2>
 			<form method="post" action="<%=request.getContextPath()%>/user_insertPaymentOk.do?user_no=${user_dto.getUser_no()}">
-	    		<table border="1" cellspacing="0" width="500">
+	    		<table id="insert_tb">
 					<tr>
 						<th>카드 이름</th>
 						<td>

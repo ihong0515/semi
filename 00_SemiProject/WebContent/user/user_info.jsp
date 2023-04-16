@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 상세 정보</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/user/user_info.css">
 </head>
 <body>
