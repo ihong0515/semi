@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>main.jsp</title>
+<title>로그인</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/login/login_main.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/login/login_main.js"></script>
 </head>

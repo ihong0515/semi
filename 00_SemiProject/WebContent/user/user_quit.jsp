@@ -6,7 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 탈퇴</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/user/user_quit.css">
 </head>
 <body>
 	<div id="container">
@@ -14,8 +16,8 @@
     	<div id="content">
 			<h2>탈퇴 시 비밀번호 확인</h2>
 			<form method="post" action="<%=request.getContextPath() %>/user_quitOk.do">
-				<input typ="hidden" name="user_no" value="${user_dto.getUser_no() }">
-				<table border="1" cellspacing="0" width="400">
+				<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
+				<table id="quit_tb">
 					<tr>
 						<th>비밀번호 입력</th>
 						<td><input type="password" name="user_pwd"></td>

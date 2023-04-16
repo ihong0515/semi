@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_join.js?ver=1"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/user/user_join.css">

@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 찾기</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">let contextPath = "<%=request.getContextPath() %>";</script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/login/login_search.css">
@@ -17,24 +18,22 @@
 			<div class="search_title">비밀번호 찾기</div>
 			<div class="search_body">
 				<span>
-					ID : 
 					<c:if test="${empty id}">
-					<input type="text" name="id" class="id_inp">
+					<input type="text" name="id" class="id_inp" placeholder="ID :">
 					</c:if>
 					
 					<c:if test="${!empty id}">
-					<input type="text" name="id" class="id_inp" value="${id }">
+					<input type="text" name="id" class="id_inp" value="${id }" readonly="readonly">
 					</c:if>
 					
 				</span><br>
 				<span>
-					E-mail : 
 					<c:if test="${empty mail}">
-					<input type="text" name="email" class="mail_inp">
+					<input type="text" name="email" class="mail_inp" placeholder="E-mail :">
 					</c:if>
 					
 					<c:if test="${!empty mail}">
-					<input type="text" name="email" class="mail_inp" value="${mail }">
+					<input type="text" name="email" class="mail_inp" value="${mail }" readonly="readonly">
 					</c:if>
 					
 				</span>

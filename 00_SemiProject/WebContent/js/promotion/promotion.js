@@ -2,16 +2,16 @@
  * 
  */
 $(document).ready(function(){
-	$('.promotion_list').slick({
+	$('.promotion_list').not('.slick-initialized').slick({
 		dots: true,
 		dotsClass : "slick-dots", 
 		infinite: true,
 		speed: 300,
 		slidesToShow: 1,
 		adaptiveHeight: true,
-		arrows: true,
-		prevArrow : "<button type='button' class='slick-prev'>Previous</button>",		// 이전 화살표 모양 설정
-		nextArrow : "<button type='button' class='slick-next'>Next</button>"
+		autoplay: true,
+		autoplaySpeed: 3000,
+		arrows: false
 	});
 });
 

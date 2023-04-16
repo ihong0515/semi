@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">
 	let contextPath = "<%=request.getContextPath() %>";
@@ -20,24 +21,23 @@
 			<div class="search_title">아이디 찾기</div>
 			<div class="search_body">
 				<span>
-					이 름 : 
 					<c:if test="${empty name}">
-					<input type="text" name="name" class="name_inp">
+					<input placeholder="이름 :" type="text" name="name" class="name_inp">
 					</c:if>
 					
 					<c:if test="${!empty name}">
-					<input type="text" name="name" class="name_inp" value="${name }">
+					<input type="text" name="name" class="name_inp" value="${name }" readonly="readonly">
 					</c:if>
 					
 				</span><br>
 				<span>
-					E-mail : 
+					
 					<c:if test="${empty mail}">
-					<input type="text" name="email" class="mail_inp">
+					<input placeholder="E-mail :" type="text" name="email" class="mail_inp">
 					</c:if>
 					
 					<c:if test="${!empty mail}">
-					<input type="text" name="email" class="mail_inp" value="${mail }">
+					<input type="text" name="email" class="mail_inp" value="${mail }" readonly="readonly">
 					</c:if>
 					
 				</span>

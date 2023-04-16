@@ -13,7 +13,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${hoDTO.getHotel_name() }</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_content.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_content.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/promotion/promotion.css">
