@@ -18,7 +18,6 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="../include/header.jsp" />
     	<div id="content">
     		<jsp:include page="../user/user_mypage_header.jsp"/>
 			<div id="modifyPayment_table">

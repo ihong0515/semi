@@ -16,6 +16,7 @@
 <script src="<%=request.getContextPath()%>/js/promotion/promotion.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://kit.fontawesome.com/e6bfca85af.js" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/promotion/promotion.css">
@@ -23,6 +24,7 @@
 <body>
 	<div id = "promotion_content_header">
 		<img src="<%=request.getContextPath()%>/image/include/logo2.png" width="200px">
+
 		<h1>Get Coupon</h1>
 	</div>
 	<div id="promotion_content_container">
@@ -60,27 +62,23 @@
 		<div id="coup_result_area" >
 			<p id="coup_result"></p>
 		</div>
-		</c:if>
-		<div id="promtion_content_footer">
-			<h4>예약 규정</h4>
-			<p id="promtion_footer_term">
-				<b>프로모션 기간</b>: 2023년 6월 30일까지.<br>
-				<b>플랫폼</b>: 트립닷컴 앱, 웹사이트, 모바일 웹사이트.<br>
-				<b>원 플러스 원(1+1) 프로모션</b>:<br>
-				<b>3.1.</b> 프로모션 기간 동안 트립닷컴 플랫폼에서 에어 마카오가 운항하는 1+1 혜택이
-				적용된 마카오행 직항 왕복 항공권 특가를 제공합니다. 2인 예매 시 1+1 혜택이 제공됩니다.<br>
-				(여행 날짜는 반드시 2023년 9월 30일 이전이어야 함)<br>
-				(※ 안내: 프로모션 페이지에 표시된 가격은 1+1 혜택이 적용된 1인 왕복 항공권 특가)<br>
-				<b>3.2.</b> 항공편 가는편과 오는편 사이에는 반드시 2~7일 기간이 있어야 합니다.<br>
-				<b>3.3.</b> 대상 탑승객 유형: 좌석이 필요한 성인, 어린이, 유아. 상기 가격은 실제 할인이 적용된 가격으로 상황에 따라 변경될 수 있습니다.
-				가격, 잔여 수량, 관련 이용약관은 트립닷컴을 참고하세요. 항공사는 판매 상황에 따라 가격을 조절하고 이용 가능 좌석
-				수를 조정할 권리가 있습니다. 항공편별 이용 가능 좌석 수는 해당 항공사에서 제공하는 좌석 수에 따라 결정되며, 선착순
-				이용을 원칙으로 합니다. 변경 및 취소 : 자발적 취소는 불가하며, 변경 시 같은 예약에 포함된 모든 탑승객의 항공권을
-				함께 변경해야 합니다. 항공권은 1회에 한 해 무료로 자발적 변경이 가능합니다. 노쇼(No-show) 이전에 항공권을
-				변경하지 않은 경우, 노쇼(No-Show) 시 1회에 한해 무료 자발적 변경이 허용됩니다. 두 번째 또는 추가 변경
-				요청은 허용되지 않습니다. 논쟁 시, Trip.com 및 Air Macau에 최종 해석 권한이 있습니다.
-			</p>
+
+		<div id = "promtion_content_footer">
+			<i class="fa fa-info-circle" aria-hidden="true"></i>  유의사항
+			<div id = "coupon_terms">
+				<ul>
+					<li>- 등록된 상품권 중 최근 1년 이내 사용한 상품권, 유효기간이 만료된 상품권은 ‘사용 완료’에서 확인하실 수 있습니다.</li>
+					<li>- 상품권 유효기간은 발행일로부터 5년이며, 등록한 시점과는 무관합니다.</li>
+					<li>- 상품권을 등록 후에는 제3자에게 양도 및 삭제가 불가합니다.</li>	
+					<li>- 등록된 상품권은 스크래치가 개봉된 상품권이므로, 타인에게 유출되지 않도록 실물 상품권을 보관해주시기 바랍니다.</li>	
+					<li>- 등록 상품권 사용제한
+							기차여행 등 일부 온라인 상품의 경우, 상품권번호, 비밀번호 재입력이 필요하오니 반드시 실물 	상품권을 보관해주시기 바랍니다.
+							일부 오프라인 매장 사용제한 (티마크 호텔, 그랜드티마크 호텔 등)</li>	
+					<li>- 사용 후 잔액에 대한 “즉시재발행” 상품권의 경우 사용가능한 상품권 등록까지 영업 일 기준 최대 1~2일 정도 소요될 수 있습니다.</li>	
+				</ul>
+			</div>
 		</div>
+		</c:if>
 	</div>
 </body>
 </html>
