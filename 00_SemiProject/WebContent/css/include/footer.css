@@ -39,6 +39,7 @@
 	font-weight: bold;
 	border-style: none;
 	background: #F4ABAB;
+	cursor: pointer;
 }
 #second_footer {
 	display: flex;

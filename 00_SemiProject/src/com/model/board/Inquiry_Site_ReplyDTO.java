@@ -2,7 +2,7 @@ package com.model.board;
 
 public class Inquiry_Site_ReplyDTO {
 	private int inqre_no;
-	private int inqsi_siteno;
+	private int inqre_siteno;
 	private int inqre_userno;
 	private String inqre_content;
 	private String inqre_date;
@@ -13,11 +13,11 @@ public class Inquiry_Site_ReplyDTO {
 	public void setInqre_no(int inqre_no) {
 		this.inqre_no = inqre_no;
 	}
-	public int getInqsi_siteno() {
-		return inqsi_siteno;
+	public int getInqre_siteno() {
+		return inqre_siteno;
 	}
-	public void setInqsi_siteno(int inqsi_siteno) {
-		this.inqsi_siteno = inqsi_siteno;
+	public void setInqre_siteno(int inqre_siteno) {
+		this.inqre_siteno = inqre_siteno;
 	}
 	public int getInqre_userno() {
 		return inqre_userno;
