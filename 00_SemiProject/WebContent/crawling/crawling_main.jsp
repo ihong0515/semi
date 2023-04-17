@@ -15,7 +15,7 @@
     	<div id="content" align="center">
 			<c:if test="${empty param.param }">
 			<div id="crawling_side1">
-				<h1>How about us?</h1>
+				<div id = crawling_title>Hotel Review</div>
 				<ul>
 					<li>
 						<img class="crawling_side_icon" alt="" src="<%=request.getContextPath() %>/image/icon/google3.jpg" onclick="location.href='<%=request.getContextPath() %>/crawling_main.do?param=google'">

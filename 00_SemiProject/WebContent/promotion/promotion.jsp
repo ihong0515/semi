@@ -18,7 +18,7 @@
 		<div class="content" align = "center">
 			<c:set  var="promotion_list" value = "${Promotion}" />	
 			<c:if test="${!empty Promotion}">
-	        <h1 class="promotion_title">Promotion</h1>
+	        <div class="promotion_title">Promotion</div>
 	        	<script type="text/javascript" src="<%=request.getContextPath()%>/js/slick/slick.js"></script>
 	        	<script src="<%=request.getContextPath()%>/js/promotion/promotion.js"></script>
 	        	<div class="promotion_list">
