@@ -11,6 +11,56 @@
    margin: 100px auto;
    align-content: center;
 }
+#content h2 {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 25px;
+}
 #reserv_content img:hover{
 	cursor: pointer;
+}
+#reserve_list {
+	margin: 30px auto;
+	border-collapse: separate;
+ 	border-spacing: 0 20px;
+ 	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+#reserv_button {
+	display: flex;
+	width: 800px;
+	align-content: stretch;
+	margin: 0 auto;
+}
+#reserv_content {
+	display: flex;
+	width: 800px;
+	align-content: stretch;
+	margin: 0 auto;
+}
+.reserv {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 50px;
+	width: 100px;
+	border-style: none;
+	float: left;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: 10px;
+	line-height: 50px;
+}
+.reserv:hover {
+	background: #F2F2F2;
+	color: black;
+}
+#reserv_content {
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
 }
