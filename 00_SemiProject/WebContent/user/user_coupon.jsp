@@ -15,7 +15,7 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
     	<div id="content">
-    	<h2>${user_dto.getUser_name() }님의 보유 쿠폰 내역</h2>
+    	<div id ="user_coupon_table_title">${user_dto.getUser_name() }' s coupon history</div>
 			<div id ="user_coupon_content">
 				<div id = "user_coupon_table">
 					<div id = "user_coupon_row">
@@ -39,12 +39,28 @@
 					</c:if>
 					
 					<c:if test="${empty list }" var="coup_dto">
-						<tr>
-							<td colspan="5" align="center">
-								<p>등록된 쿠폰이 없습니다.</p>
-							</td>
-						</tr>
+						<div id = "user_coupon_row">
+							<div id = "user_coupon_col">
+								<i class="fa fa-question-circle" aria-hidden="true"></i><p>등록된 쿠폰이 없습니다.</p>
+							</div>
+						</div>
 					</c:if>
+				</div>
+				
+				<div id = "coupon_terms_title">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>  유의사항
+				</div>
+				<div id = "coupon_terms">
+					<ul>
+						<li>- 등록된 상품권 중 최근 1년 이내 사용한 상품권, 유효기간이 만료된 상품권은 ‘사용 완료’에서 확인하실 수 있습니다.</li>
+						<li>- 상품권 유효기간은 발행일로부터 5년이며, 등록한 시점과는 무관합니다.</li>
+						<li>- 상품권을 등록 후에는 제3자에게 양도 및 삭제가 불가합니다.</li>	
+						<li>- 등록된 상품권은 스크래치가 개봉된 상품권이므로, 타인에게 유출되지 않도록 실물 상품권을 보관해주시기 바랍니다.</li>	
+						<li>- 등록 상품권 사용제한
+								기차여행 등 일부 온라인 상품의 경우, 상품권번호, 비밀번호 재입력이 필요하오니 반드시 실물 	상품권을 보관해주시기 바랍니다.
+								일부 오프라인 매장 사용제한 (티마크 호텔, 그랜드티마크 호텔 등)</li>	
+						<li>- 사용 후 잔액에 대한 “즉시재발행” 상품권의 경우 사용가능한 상품권 등록까지 영업 일 기준 최대 1~2일 정도 소요될 수 있습니다.</li>	
+					</ul>
 				</div>
 			</div>
 		</div>

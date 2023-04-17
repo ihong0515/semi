@@ -1,19 +1,24 @@
 @charset "UTF-8";
 #container {
-  	width: 800px;
-  	margin: 100px auto;
-	margin-top:100px;
+   width: 800px;
+   margin: 100px auto;
+   font-family: 'Noto Sans KR', sans-serif;
 }
 
 #content {
   	min-height: 100%;
-  	font-family: 'Noto Sans KR', sans-serif;
   	list-style: none;
   	margin: 100px auto;
-  	align-content: center;
   	background-color: white;
   	display: flex;
 	flex-direction: column;
+	font-size: 13px;
+}
+#crawling_title{
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 	25px;
+	margin-top: 30px;
+	text-align: center;
 }
 #crawling_side1{
 	width: 100%;
@@ -85,7 +90,7 @@
 .crawling_main_content_img{
 	display: flex;
 	justify-content: center;
- 		align-items: center;
+ 	align-items: center;
 }
 .crawling_main_content_img img{
 	width: 150px;
@@ -94,10 +99,11 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
- 		align-items: center;
- 		box-sizing: border-box;
- 		padding: 10px;
- 		
+ 	align-items: center;
+ 	box-sizing: border-box;
+ 	padding: 10px;
+ 	margin-left: 10px;	
+ 	margin-bottom: 10px;
 }
 .crawling_main_content_txt{
 	text-align: left;

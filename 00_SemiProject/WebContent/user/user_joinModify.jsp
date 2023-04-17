@@ -92,7 +92,7 @@
 						<tr>
 							<th>선호지역</th>
 							<td>
-								<select name="user_region" id="user_region" value="${user_dto.getUser_region()}">
+								<select name="user_region" id="user_region">
 									<option value="서울">서울</option>
 									<option value="경기">경기</option>
 									<option value="강원">강원</option>
