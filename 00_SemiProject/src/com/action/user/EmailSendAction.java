@@ -81,6 +81,23 @@ public class EmailSendAction implements Action {
 				forward.setPath("/login/login_pwd_search.jsp");
 				return forward;
 				
+			}else if(path_check.equals("apply_owner")){
+				String name = request.getParameter("apply_name");
+				String business = request.getParameter("apply_business");
+				String phone = request.getParameter("apply_phone");
+				String req = request.getParameter("apply_req");
+				
+				clsMessage.setSubject(name+" 상담 요청");
+				clsMessage.setContent("이름 : "+name+"<br>"
+						+ "사업자번호 : "+business+"<br>"
+						+ "연락처 : "+phone+"<br>"
+						+ "요청사항 : "+req, "text/html; charset=UTF-8");
+				Transport.send(clsMessage);
+				
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(true);
+				forward.setPath("index_move.do");
+				return forward;
 			}else { //path_check 실패
 				result = 0;
 			}
