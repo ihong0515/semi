@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사이트별 호텔 리뷰</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/crawling/crawling.css">
 </head>
 <body>
@@ -18,7 +19,7 @@
 				<div id = crawling_title>Hotel Review</div>
 				<ul>
 					<li>
-						<img class="crawling_side_icon" alt="" src="<%=request.getContextPath() %>/image/icon/google3.jpg" onclick="location.href='<%=request.getContextPath() %>/crawling_main.do?param=google'">
+						<img class="crawling_side_icon" alt="" src="<%=request.getContextPath() %>/image/icon/google.jpg" onclick="location.href='<%=request.getContextPath() %>/crawling_main.do?param=google'">
 					</li>
 					<li>
 						<img class="crawling_side_icon" alt="" src="<%=request.getContextPath() %>/image/icon/naver.jpg" onclick="location.href='<%=request.getContextPath() %>/crawling_main.do?param=naver'">
@@ -50,7 +51,7 @@
 				<div class="crawling_main_content">
 					<div class="crawling_main_content_img">
 						<c:if test="${Check == 1 }">
-							<video src="${dto.getImg() }"  muted="muted" onmouseover="this.play()"></video>
+							<video src="${dto.getImg() }"  muted="muted" onmouseover="this.play()" ></video>
 						</c:if>
 						<c:if test="${Check != 1 }">
 							<img alt="" src="${dto.getImg() }">

@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+#container {
+   width: 800px;
+   margin: 100px auto;
+}
+#content {
+   min-height: 100%;
+   font-family: 'Noto Sans KR', sans-serif;
+   list-style: none;
+   margin: 100px auto;
+   align-content: center;
+   text-align: center;
+}
+#apply_tb{
+	width: 400px;
+	height: 300px;
+	margin: 50px auto;
+}
+#apply_tb, 
+#apply_tb tr,
+#apply_tb th,
+#apply_tb td{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+#apply_tb th,
+#apply_tb td{
+	padding: 5px 10px;
+}
+#apply_tb input,
+#apply_tb textarea{
+	border: 0;
+	width: 95%;
+	height: 95%;
+	resize: none;
+	padding: 5px;
+	box-sizing: border-box;
+	outline: none;
+	border-bottom-color: #C3C3C3;
+	font-size: 20px;
+}
+#apply_tb input:hover,
+#apply_tb textarea:hover{
+	background-color: #FCF0F1;
+	border-bottom-color: #CC8F8F;
+}
+#apply_tb textarea::placeholder{
+	font-size: 12px;
+	font-style: italic;
+}

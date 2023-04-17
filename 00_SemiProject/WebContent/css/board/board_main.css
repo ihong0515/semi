@@ -13,6 +13,11 @@
 	display: flex;
 	justify-content: flex-start;
 }
+#board_sidebar{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+}
 #board_main{
 	width: 800px;
 }

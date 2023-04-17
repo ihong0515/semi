@@ -1,4 +1,6 @@
 @charset "UTF-8";
+
+/* promotion.jsp */
 #container {
    width: 800px;
    margin: 100px auto;
@@ -9,30 +11,36 @@
    list-style: none;
    margin: 100px auto;
    align-content: center;
+   text-align: center;
 }
 .promotion_font{
-	text-align:center;
 	font-weight:bold;
 	font-size:10pt;
 }
+
 
 .promotion_title{
 	margin-top: 50px;
 	font-family: 'Red Hat Display', sans-serif;
 	font-size: 25px;
 }
+.promotion_image{
+	margin: auto;
+}
 
+/* promotion_content.jsp */
 #promotion_content_header{
   background-color: #F2F2F2;
   font-family: 'Noto Sans KR', sans-serif;
-  
+  width: 789px;
+  margin-left: -10px;
+  padding: 10px 20px 0px 20px;
+  box-sizing: border-box;
 }
 #promotion_content{
   margin-top: 50px;
   margin-bottom: 50px;
 }
-
-
 /*coupon content 영역.  */
 #promotion_content_title{
 	font-family: 'Red Hat Display', sans-serif;
@@ -40,20 +48,23 @@
 	margin-top: 30px;
 	text-align: center;
 }
-
 #promotion_content_container {
  	margin-top: 50px;
 	text-align: center;
   	font-family: 'Noto Sans KR', sans-serif;
   	width: 100%;
 }
-
-
 #promtion_content_footer{
+
 	text-align: left;
 	background-color: #F2F2F2;
-	padding-bottom: 0px;
+	text-align: left;
+	width: 789px;
+	margin-left: -10px;
+	padding: 10px 20px;
+	box-sizing: border-box;
 }
+
 
 #coupon_terms{
 	width : auto;
@@ -72,10 +83,14 @@
 	list-style: none;
 }	
 
+
+#promtion_footer_term{
+	width: auto;
+}
+
 #coup_result_area{
 	background-color: #F2F2F2;
 }
-
 #coupon_button{
 	border-radius: 1em;
 	background-color: #5E5E5E;
@@ -87,13 +102,10 @@
 	background-color: #F2F2F2;
 	color : black;
 }
-
 #promotion_coupon_table{
 	text-align: center;
 	font-weight: bold;
-	
 }
-
 #coupon_frame{
 	width : 35%;
 	display : inline-block;

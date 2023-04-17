@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>보유 쿠폰 내역</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/user/user_coupon.css">
 </head>
 <body>
@@ -16,7 +17,6 @@
     	<div id="content">
     	<div id ="user_coupon_table_title">${user_dto.getUser_name() }' s coupon history</div>
 			<div id ="user_coupon_content">
-				<br>
 				<div id = "user_coupon_table">
 					<div id = "user_coupon_row">
 						<div id = "user_coupon_col">프로모션 이름</div> 

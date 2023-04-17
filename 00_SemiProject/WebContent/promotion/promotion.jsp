@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set  var="promotion_list" value = "${Promotion}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<title>프로모션 리스트</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slick/slick.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/slick/slick-theme.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/promotion/promotion.css">
@@ -15,8 +17,7 @@
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-		<div class="content" align = "center">
-			<c:set  var="promotion_list" value = "${Promotion}" />	
+		<div id="content">
 			<c:if test="${!empty Promotion}">
 	        <div class="promotion_title">Promotion</div>
 	        	<script type="text/javascript" src="<%=request.getContextPath()%>/js/slick/slick.js"></script>
