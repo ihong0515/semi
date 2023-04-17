@@ -47,7 +47,7 @@
 					<tr>
 						<th>카드사</th>
 						<td>
-							<select name="pay_cardcom" id="pay_cardcom" onchange="etc_card(this)" value="${pay_dto.getPay_cardcom() }">
+							<select name="pay_cardcom" id="pay_cardcom" onchange="etc_card(this)">
 								<option value="우리카드">우리카드</option>
 								<option value="KB국민카드">KB국민카드</option>
 								<option value="BC카드">BC카드</option>

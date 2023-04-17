@@ -19,7 +19,7 @@ public class ReplySiteInsertContentAction implements Action {
 		String cont = request.getParameter("board_cont");
 		
 		Inquiry_Site_ReplyDTO dto = new Inquiry_Site_ReplyDTO();
-		dto.setInqsi_siteno(bo_no);
+		dto.setInqre_siteno(bo_no);
 		dto.setInqre_userno(user_no);
 		dto.setInqre_content(cont);
 		
