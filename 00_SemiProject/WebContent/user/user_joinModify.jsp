@@ -7,10 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보 수정</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="<%=request.getContextPath() %>/js/user/user_modify.js?ver=2"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_modify.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/css/user/user_pwdChange_modal.css" rel="stylesheet">
 </head>
 <body>
 	<div id="container">

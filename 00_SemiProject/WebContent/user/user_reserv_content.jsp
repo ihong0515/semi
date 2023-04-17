@@ -10,7 +10,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 예약 정보</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/user/user_reserv_content.css">
 </head>
 <body>

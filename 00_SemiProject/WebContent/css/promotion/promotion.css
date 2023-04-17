@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-<<<<<<< Updated upstream
-#container{
-	width: 800px;
-	margin: 50px auto;
-	
-=======
-/* promotion.jsp */
 #container {
    width: 800px;
    margin: auto;
@@ -18,10 +11,85 @@
    margin: 100px auto;
    align-content: center;
    text-align: center;
->>>>>>> Stashed changes
 }
 .promotion_font{
-	text-align:center;
 	font-weight:bold;
 	font-size:10pt;
+}
+.promotion_image{
+	margin: auto;
+}
+
+/* promotion_content.jsp */
+#promotion_content_header{
+  background-color: #F2F2F2;
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 789px;
+  margin-left: -10px;
+  padding: 10px 20px 0px 20px;
+  box-sizing: border-box;
+}
+#promotion_content{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/*coupon content 영역.  */
+#promotion_content_header h1{
+  text-align: center;
+  margin-top: 30px;
+}
+#promotion_content_container {
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 100%;
+}
+#promtion_content_footer{
+	background-color: #F2F2F2;
+	text-align: left;
+	width: 789px;
+	margin-left: -10px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+}
+#promtion_footer_term{
+	width: auto;
+}
+#coup_result_area{
+	background-color: #F2F2F2;
+}
+#coupon_button{
+	border-radius: 1em;
+	background-color: #5E5E5E;
+	font-size: large;
+	color: #F2F2F2;
+	margin-bottom: 30px;
+}
+#coupon_button:hover{
+	background-color: #F2F2F2;
+	color : black;
+}
+#promotion_coupon_table{
+	text-align: center;
+	font-weight: bold;
+}
+#coupon_frame{
+	width : 35%;
+	display : inline-block;
+	background-color: #F2F2F2;
+	border: 3px solid black;
+	border-top-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border-left-style :dashed;
+	border-right-style :dashed;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.coupon_sale_font{
+	background-color: black;
+	font-weight: bold;
+	font-size: xx-large;
+	color: white;
+	padding: auto;
+	border-radius: 10px;
 }

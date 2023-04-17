@@ -2,32 +2,31 @@
  * 
  */
 $(document).ready(function(){
-	$('.promotion_list').slick({
+	$('.promotion_list').not('.slick-initialized').slick({
 		dots: true,
 		dotsClass : "slick-dots", 
 		infinite: true,
 		speed: 300,
 		slidesToShow: 1,
 		adaptiveHeight: true,
-		arrows: true,
-		prevArrow : "<button type='button' class='slick-prev'>Previous</button>",		// 이전 화살표 모양 설정
-		nextArrow : "<button type='button' class='slick-next'>Next</button>"	
+		autoplay: true,
+		autoplaySpeed: 3000,
+		arrows: false
 	});
 });
 
-function getCoupon(e){
+function getCoupon(){
 	if(uid == 'null'){
 		alert('로그인이 필요한 서비스 입니다.');
 	}else{
 		$.ajax({
 			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 			type: "get",
-			url : "coupon_make.do",
+			url : contextPath+"/coupon_make.do",
 			data : {
 				prom_no : $('#prom_no_val').val()
 			},
 			datatype : "text",
-			context : this,
 			success : function(data){
 				$('#coup_result').text(data);
 			},
@@ -37,3 +36,12 @@ function getCoupon(e){
 		});
 	}
 }
+function openContent(prom_no){
+	window.open(
+		'PromotionContent.do?no='+prom_no, 
+		'myWindow', 
+		'toolbar=no,scrollbars=0,resizable=0,status=no,width=800,height=900,left=250,top=0'
+	);
+}
+
+

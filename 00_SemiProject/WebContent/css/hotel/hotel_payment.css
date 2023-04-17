@@ -27,7 +27,7 @@
 #payment_hotelwrap{
 	display:flex;
 	flex-direction: column;
-	background-color: #EEADB3;	
+	background-color: #D7D3D3;;	
 }
 #payment_hotel_date{
 	text-align: center;
@@ -53,8 +53,8 @@
 	margin-left: 10px;
 }
 #payment_price{
-	background-color: black;
-	color: white;
+	background-color: #D7D3D3;
+	color: black;
 }
 #payment_hotel_userInfo{
 	display: flex;
@@ -148,7 +148,6 @@
 	position: relative;
 	top: 0px;
 	padding: 10px;
-	overflow: auto;
 }
 .modal-title {
 	padding-left: 10px;
@@ -171,6 +170,8 @@
 	padding: 0px 10px;
 	text-shadow: 1px 1px 2px gray;
 	color: black;
+	height: 320px;
+	overflow: auto;
 }
 .modal_content_inp{
 	width: 30px;
@@ -191,5 +192,6 @@
     transition: 0.3s;
 }
 .modal-footer{
+	margin-top: 20px;
 	text-align: center;
 }

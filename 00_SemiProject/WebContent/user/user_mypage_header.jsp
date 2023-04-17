@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>user_mypage_header</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/user/user_mypage_header.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

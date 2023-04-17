@@ -1,6 +1,5 @@
 @charset "UTF-8";
-<<<<<<< Updated upstream
-=======
+
 #container {
    width: 800px;
    margin: auto;
@@ -12,8 +11,6 @@
    margin: 100px auto;
    align-content: center;
 }
->>>>>>> Stashed changes
-
 #content div{
 	margin-bottom: 20px;
 }

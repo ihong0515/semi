@@ -1,13 +1,8 @@
 @charset "UTF-8";
 #container {
   	width: 800px;
-<<<<<<< Updated upstream
-  	margin: 100px auto;
-margin-top:100px;
-=======
   	margin: auto;
-	margin-top:100px;
->>>>>>> Stashed changes
+  	margin-top:100px;
 }
 
 #content {
@@ -29,10 +24,12 @@ margin-top:100px;
 	border-radius: 7px;
 	cursor: pointer;
 }
+
 #crawling_side1 ul{
 	display: flex;
 	justify-content:space-around;
 	padding: 0;
+	margin-top: 50px;
 }
 #crawling_side1 ul li{
 	list-style: none;

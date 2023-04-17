@@ -8,13 +8,16 @@
 <c:set var="roomList" value="${RoomList }"/>
 <c:set var="reviewList" value="${ReviewList }"/>
 <c:set var="user" value="${sessionScope.loginUser }"/>
+<c:set var="reservList" value="${Re_list }" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${hoDTO.getHotel_name() }</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_content.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_content.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/promotion/promotion.css">
 </head>
 <body>
 	<div id="container">
@@ -82,7 +85,7 @@
 							<div class="room_content_img">
 								<div>
 								<c:forEach begin="1" end="${roDTO.getRoom_photo_folder_size() }" var="i">
-									<img onclick="nextSlideImg(this)" alt="" src="<%=request.getContextPath() %>/image/hotel${roDTO.getRoom_photo_folder() }${i }.jpg" width="100" height="100" onclick="">
+									<img onclick="nextSlideImg(this)" alt="" src="<%=request.getContextPath() %>/image/hotel${roDTO.getRoom_photo_folder() }${i }.jpg" width="100" height="100">
 								</c:forEach>
 								</div>
 								<span class="next_img">&#62;</span>
@@ -140,23 +143,28 @@
 					</c:if>
 				</div>
 				<div id="review_write">
-					<c:if test="${user!=null }">
-					<form action="<%=request.getContextPath() %>/review_insert.do" method="post" enctype="multipart/form-data" onsubmit="return confirm('리뷰를 등록하시겠습니까?')">
+					<c:if test="${!empty reservList}">
+					<form action="<%=request.getContextPath() %>/review_insert.do" method="post" enctype="multipart/form-data" onsubmit="return review_check()">
 						<input type="hidden" value="${hoDTO.getHotel_photo_folder() }" name="review_hotelname">
-						<input type="hidden" value="${hoDTO.getHotel_no() }" name="review_hotelno" id="hotel_no_write">
-						<input type="hidden" value="${user.getUser_no() }" name="review_userno">
 						<table id="review_write_table">
 							<tr>
-								<td colspan="2">
+								<td>
 									Rating : <input type="number" name="review_point" min="0" max="10" value="10">
+								</td>
+								<td align="right">
+									<select id="review_reservno" name="review_reservno">
+										<c:forEach items="${reservList }" var="dto">
+										<option value="${dto.getReserv_no() }">${dto.getReserv_roomname() }</option>
+										</c:forEach>
+									</select>
 								</td>
 							</tr>
 							<tr>
 								<th>
-									<input value="${user.getUser_id() }" readonly="readonly" style="width: 50px;" name="review_userid">
+									<input value="${user.getUser_name() }" readonly="readonly" style="width: 50px;" name="review_username">
 								</th>
 								<td>
-									<textarea rows="5" cols="50" name="review_content"></textarea>
+									<textarea id="review_content" rows="5" cols="50" name="review_content"></textarea>
 								</td>
 							</tr>
 							<tr>
@@ -171,8 +179,8 @@
 						</div>
 					</form>
 					</c:if>
-					<c:if test="${user==null }">
-					<a href='<%=request.getContextPath()%>/user_login_page.do'>로그인을 하세요.</a>
+					<c:if test="${empty reservList}">
+					<h4>예약 정보가 있어야 리뷰를 작성하실 수 있습니다.</h4>
 					</c:if>
 				</div>
 			</div>
@@ -219,7 +227,7 @@
 								<textarea rows="" cols="" placeholder="문의 내용을 입력하세요."></textarea>
 							</div>
 							<div id="write_foot">
-								<input type="button" value="문의하기" onclick="board_write()">
+								<input type="button" value="문의하기" onclick="board_write(${hoDTO.getHotel_no() })">
 							</div>
 						</div>
 					</div>

@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>고객문의</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/board/board_main.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/board/board_main.js"></script>
 </head>

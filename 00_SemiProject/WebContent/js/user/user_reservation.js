@@ -14,8 +14,8 @@ function getReserv(self){
 		url: "user_getReserv.do",
 		dataType: "xml",
 		success: function(data) {
-			var str = "";
-			var count = 0;
+			let str = "";
+			let count = 0;
 			$(data).find("reserv").each(function() {
 				let price = $(this).find("reserv_realprice").text();
 				let resultPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -28,8 +28,12 @@ function getReserv(self){
 				str += "₩ " + resultPrice;
 				count++;
 			});
-			$("#reserv_content").append(str);
-			$("#reserv_count").append(count);
+			$("#reserv_content").html(str);
+			if(count==0){
+				$("#reserv_count").append("<h4>예약내역이 없습니다.</h4>");
+			}else{
+				$("#reserv_count").append("<b>예약내역</b> : "+count+" <b>개</b>");
+			}
 		},
 		error: function() {
 			$("#reserv_content").text("오류 발생");

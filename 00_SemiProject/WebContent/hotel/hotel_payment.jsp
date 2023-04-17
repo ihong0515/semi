@@ -26,7 +26,8 @@ if(checkDate!=null){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${hoDTO.getHotel_name() } 결제 페이지</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript">
 	let check_price_param = '${roDTO.getRoom_price() * inoutDay}';
 </script>
