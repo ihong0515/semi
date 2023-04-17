@@ -39,7 +39,7 @@
 				</c:if>
 				<c:if test="${empty hotelList }">
 					<ul>
-						<li colspan="2" align="center">
+						<li>
 							<p>찜한 호텔이 없습니다.</p>
 						</li>
 					</ul>
