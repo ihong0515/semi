@@ -23,7 +23,8 @@
 					<a class="reserv" id="reserv_N" onclick="getReserv(this)">사용 전</a>
 					<a class="reserv" id="reserv_Y" onclick="getReserv(this)">사용 후</a>
 					<a class="reserv" id="reserv_C" onclick="getReserv(this)">취소</a>
-					<br>
+				</div>
+				<div id="reserv_span">
 					<span id="reserv_count"></span>
 				</div>
 				<div id="reserv_content">

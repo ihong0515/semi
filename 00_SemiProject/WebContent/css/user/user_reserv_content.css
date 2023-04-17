@@ -7,12 +7,37 @@
 #content {
    min-height: 100%;
    font-family: 'Noto Sans KR', sans-serif;
-   list-style: none;
-   margin: 100px auto;
+   margin: 0 auto;
    align-content: center;
 }
-#content div{
-	margin-bottom: 20px;
+#content h2 {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 25px;
+}
+#reserv_detail_table {
+	margin: 30px auto;
+	border-collapse: separate;
+ 	border-spacing: 0 20px;
+ 	display: flex;
+	flex-direction: column;
+}
+#reserv_detail_table table {
+	margin: 30px auto;
+}
+#reserv_detail_table th {
+	text-align: left;
+	padding-right: 20px;
+	vertical-align: bottom;
+	padding-bottom: 6px;
+}
+#reserv_detail_table td {
+	height: 40px;
+	padding: 5px;
+	border-style: none;
+	border-bottom: solid 1px #C3C3C3;
+	font-size: 16px;
+	vertical-align: bottom;
 }
 .cancle_info_content{
 	display: flex;
@@ -21,8 +46,46 @@
 .cancle_info_head{
 	text-align: center;
 	vertical-align: middle;
-	width: 150px;
 }
-.cancle_info_body{
-	margin-left: 20px;
+#cancle_btn {
+	width: 495px;
+	align-content: stretch;
+	margin: 0 auto;
+}
+#cancle_btn button {
+	margin: 20px auto;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 50px;
+	width: 495px;
+	border-style: none;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+#cancle_btn button:hover {
+	background: #F2F2F2;
+	color: black;
+}
+#cancel_detail_table {
+	margin: 0 auto;
+	border-collapse: separate;
+ 	border-spacing: 0 20px;
+ 	display: flex;
+	flex-direction: column;
+}
+#cancel_detail_table table {
+	margin: 30px auto;
+}
+.cancel_info_title {
+	text-align: left!important;
+	padding-left: 0!important;
+	padding-right: 20px!important;
+	vertical-align: top!important;
+	padding-bottom: 6px!important;
+	border-style: none!important;
+	font-weight: bold!important;
 }
