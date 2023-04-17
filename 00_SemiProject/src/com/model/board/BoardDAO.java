@@ -366,7 +366,7 @@ public class BoardDAO {
 			while(rs.next()) {
 				Inquiry_Site_ReplyDTO dto = new Inquiry_Site_ReplyDTO();
 				dto.setInqre_no(rs.getInt("inqre_no"));
-				dto.setInqsi_siteno(rs.getInt("inqsi_siteno"));
+				dto.setInqre_siteno(rs.getInt("inqre_siteno"));
 				dto.setInqre_userno(rs.getInt("inqre_userno"));
 				dto.setInqre_content(rs.getString("inqre_content"));
 				dto.setInqre_date(rs.getString("inqre_date"));
@@ -395,7 +395,7 @@ public class BoardDAO {
 				sql = "insert into inquiry_site_reply values(?, ?, ?, ?, sysdate)";
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, dto.getInqre_no());
-				ps.setInt(2, dto.getInqsi_siteno());
+				ps.setInt(2, dto.getInqre_siteno());
 				ps.setInt(3, dto.getInqre_userno());
 				ps.setString(4, dto.getInqre_content());
 				result = ps.executeUpdate();

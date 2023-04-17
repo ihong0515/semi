@@ -101,7 +101,7 @@ if(checkDate!=null){
 									<option value="017">017</option>
 									<option value="019">019</option>
 								</select>
-								<input type="text" placeholder="0000-0000" id="userPhone_body" name="userPhone_body">
+								<input type="text" placeholder="0000-0000" id="userPhone_body" name="userPhone_body" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="8">
 							</fieldset>
 						</div>
 						<div id="payment_hotel_userReq">

@@ -124,7 +124,7 @@ CREATE TABLE inquiry_hotel (
 	inqho_group	number(10)		NOT NULL,
 	inqho_step	number(10)		NULL,
 	inqho_userno number(10) not null,
-	inqho_write_check not null check(inqho_write_check in('O', 'U'))
+	inqho_write_check varchar2(5) not null check(inqho_write_check in('O', 'U'))
 );
 
 CREATE TABLE inquiry_site (
@@ -136,11 +136,15 @@ CREATE TABLE inquiry_site (
 	inqsi_update	date	DEFAULT null	NULL,
 	inqsi_userno number(10) not null
 );
-create table inquiry_site_reply (
-	inqsi_reply_no number(10) not null,
-	inq
 
+CREATE TABLE inquiry_site_reply (
+   inqre_no   number(10)      NOT NULL,
+   inqre_siteno   number(10)      NOT NULL,
+   inqre_userno   number(10)      NOT NULL,
+   inqre_content   varchar2(1000)      NOT NULL,
+   inqre_date   date   NOT NULL
 );
+
 
 CREATE TABLE payment (
 	pay_no number(10)		NOT NULL,
@@ -156,14 +160,6 @@ create table email_check(
 	user_email varchar2(50),
 	email_code varchar2(50),
 	code_check varchar2(5) default 'N' check(code_check in('Y','N'))
-);
-
-CREATE TABLE inquiry_site_reply (
-	inqre_no	number(10)		NOT NULL,
-	inqsi__siteno	number(10)		NOT NULL,
-	inqre_userno	number(10)		NOT NULL,
-	inqre_content	varchar2(1000)		NOT NULL,
-	inqre_date	date		NOT NULL
 );
 
 ALTER TABLE inquiry_site_reply ADD CONSTRAINT "PK_INQUIRY_SITE_REPLY" PRIMARY KEY (
