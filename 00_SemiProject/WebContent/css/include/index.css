@@ -59,7 +59,6 @@
 	display: flex;
 	justify-content: space-around;
 	padding-top: 20px;
-	padding-bottom: 20px;
 	width: 800px;
 	margin: auto;
 }
@@ -67,14 +66,14 @@
 	margin-left: calc(-50vw + 50%);
 	background: #FCF0F1;
 	width: 100vw;
-	height: 367px;
+	height: 390px;
 }
+
 .low_list_Table{
 	background: #D7D3D3;
 	display: flex;
 	justify-content: space-around;
 	padding-top: 20px;
-	padding-bottom: 20px;
 	width: 800px;
 	margin: auto;
 }
@@ -83,7 +82,41 @@
 	background: #D7D3D3;
 	width: 100vw;
 	align-items: center;
-	height: 367px;
+	height: 387px;
+}
+.index_hotel_content {
+	background: white;
+}
+.hotel_like {
+	font-size: 15px;
+	font-weight: bolder;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+.hotel_star {
+	font-size: 13px!important; 
+	color: #F2D06B;
+}
+.hotel_review {
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+.hotel_review_count {
+	font-size: 10px!important;
+}
+.hotel_hashtag {
+	padding-bottom: 5px; 
+	font-size: 13px;
+	color: #F24B59;
+	padding-left: 10px;
+}
+.hotel_minprice {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	font-weight: bold; 
 }
 .prom_banner {
 	height: 500px;
@@ -96,4 +129,5 @@
 }
 .hotel_like_check{
 	cursor: pointer;
+	padding-right: 10px;
 }

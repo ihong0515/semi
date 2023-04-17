@@ -22,7 +22,7 @@ public class EmailSendAction implements Action {
 		String path_check = request.getParameter("check").trim();
 		
 		final String user = "semisendemail@gmail.com";
-	    final String password = "xvctfjjreuhukttx";
+	    final String password = "myupjospwrkioumf";
 	    String code = UserDAO.getInstance().insertEmailCode(user_email);
 	    int result = 0;
 		try{

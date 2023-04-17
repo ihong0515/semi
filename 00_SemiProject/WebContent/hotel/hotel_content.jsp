@@ -27,56 +27,67 @@
 			<div id="hotel_all_info">
 				<div id="hotel_info">
 					<div id="hotel_info_img">
-						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="250" height="250">
+						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="300" height="300">
 					</div>
 					<div id="hotel_info_detail">
-						${hoDTO.getHotel_name() }
-						<%--jjim 표시 --%>
-						<c:set var="check" value="-1" />
-						<c:forEach items="${user.getUser_jjimList() }" var="jjim">
-							<c:if test="${jjim==hoDTO.getHotel_no() }">
-								<c:set var="check" value="1" />
+						<div id="hotel_info_detail_star">
+							<c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach>
+						</div>
+						<div id="hotel_info_detail_name">
+							${hoDTO.getHotel_name() }
+							<span id="hotel_info_detail_jjim">
+								<%--jjim 표시 --%>
+								<c:set var="check" value="-1" />
+								<c:forEach items="${user.getUser_jjimList() }" var="jjim">
+									<c:if test="${jjim==hoDTO.getHotel_no() }">
+										<c:set var="check" value="1" />
+									</c:if>
+								</c:forEach>
+								<c:if test="${check == 1}">
+									<span class="hotel_like_check" onclick="likeDelete(this, ${hoDTO.getHotel_no() })"><i class="fa fa-heart" aria-hidden="true"></i></span>
+								</c:if>
+								<c:if test="${check == -1}">
+									<span class="hotel_like_check" onclick="likeInsert(this, ${hoDTO.getHotel_no() })"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+								</c:if>
+								<%--jjim 표시 end --%>
+							</span>
+						</div>
+						
+						<div id="hotel_info_detail_point">
+							${hoDTO.getHotel_point() }/10.0
+						</div>
+						<div id="hotel_info_detail_addr">
+							${hoDTO.getHotel_addr() }
+						</div>
+						<div id="hotel_info_detail_icon">
+							<c:if test="${hpDTO.isHp_wifi() }">
+								<i class="fa fa-wifi" aria-hidden="true"></i>
 							</c:if>
-						</c:forEach>
-						<c:if test="${check == 1}">
-							<span class="hotel_like_check" onclick="likeDelete(this, ${hoDTO.getHotel_no() })"><i class="fa fa-heart" aria-hidden="true"></i></span>
-						</c:if>
-						<c:if test="${check == -1}">
-							<span class="hotel_like_check" onclick="likeInsert(this, ${hoDTO.getHotel_no() })"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
-						</c:if>
-						<%--jjim 표시 end --%>
-						<br>
-						<c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach> ${hoDTO.getHotel_point() }/10.0<br>
-						<br>
-						${hoDTO.getHotel_addr() }<br>
-						<hr>
-						<c:if test="${hpDTO.isHp_wifi() }">
-							<i class="fa fa-wifi" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_tub() }">
-							<i class="fa fa-bath" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_pool() }">
-							<i class="fa fa-wifi" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_restaurant() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_parking() }">
-							<i class="fa fa-car" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_fitness() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_bar() }">
-							<i class="fa fa-beer" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_terrace() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
-						<c:if test="${hpDTO.isHp_sauna() }">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
-						</c:if>
+							<c:if test="${hpDTO.isHp_tub() }">
+								<i class="fa fa-bath" aria-hidden="true"></i>
+							</c:if>
+							<c:if test="${hpDTO.isHp_pool() }">
+								<i class="fa fa-wifi" aria-hidden="true"></i>
+							</c:if>
+							<c:if test="${hpDTO.isHp_restaurant() }">
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+							</c:if>
+							<c:if test="${hpDTO.isHp_parking() }">
+								<i class="fa fa-car" aria-hidden="true"></i>
+							</c:if>
+							<c:if test="${hpDTO.isHp_fitness() }">
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+							</c:if>
+							<c:if test="${hpDTO.isHp_bar() }">
+								<i class="fa fa-beer" aria-hidden="true"></i>
+							</c:if>
+							<c:if test="${hpDTO.isHp_terrace() }">
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+							</c:if>
+							<c:if test="${hpDTO.isHp_sauna() }">
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+							</c:if>
+						</div>
 					</div>
 				</div>
 				<div id="room_info">
@@ -189,28 +200,28 @@
 				<h5>호텔 정보</h5>
 				<table>
 					<tr>
-						<th>
-							설립 연도 : ${hoDTO.getHotel_establish() }
-						</th>
-						<th>
-							객실 수 : ${hoDTO.getHotel_room_count() }
-						</th>
-						<th>
-							연락처 : ${hoDTO.getHotel_phone() }
-						</th>
+						<th>설립 연도</th>
+						<td>${hoDTO.getHotel_establish() }</td>
 					</tr>
 					<tr>
-						<th>
-							Email : ${hoDTO.getHotel_email() }
-						</th>
-						<th colspan="2">
-							Address : ${hoDTO.getHotel_addr() }
-						</th>
+						<th>객실 수</th>
+						<td>${hoDTO.getHotel_room_count() }</td>
 					</tr>
 					<tr>
-						<td>
-							${hoDTO.getHotel_info() }
-						</td>
+						<th>연락처</th>
+						<td>${hoDTO.getHotel_phone() }</td>
+					</tr>
+					<tr>
+						<th>Email</th>
+						<td>${hoDTO.getHotel_email() }</td>
+					</tr>
+					<tr>
+						<th>Address</th>
+						<td>${hoDTO.getHotel_addr() }</td>
+					</tr>
+					<tr>
+						<th>호텔 정보</th>
+						<td>${hoDTO.getHotel_info() }</td>
 					</tr>
 				</table>
 				<div id="hotel_board">

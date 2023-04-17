@@ -37,8 +37,8 @@ public class UserGetReservAction implements Action {
 				result += "<reserv_no>"+dto.getReserv_no()+"</reserv_no>";
 				result += "<reserv_hotelname>"+dto.getReserv_hotelname()+"</reserv_hotelname>";
 				result += "<reserv_roomname>"+dto.getReserv_roomname()+"</reserv_roomname>";
-				result += "<reserv_start>"+dto.getReserv_start().subSequence(5, 7)+"월"+dto.getReserv_start().subSequence(8, 10)+"일</reserv_start>";
-				result += "<reserv_end>"+dto.getReserv_end().subSequence(5, 7)+"월"+dto.getReserv_end().subSequence(8, 10)+"일</reserv_end>";
+				result += "<reserv_start>"+dto.getReserv_start().subSequence(0, 4)+"년 "+dto.getReserv_start().subSequence(5, 7)+"월 "+dto.getReserv_start().subSequence(8, 10)+"일</reserv_start>";
+				result += "<reserv_end>"+dto.getReserv_end().subSequence(0, 4)+"년 "+dto.getReserv_end().subSequence(5, 7)+"월 "+dto.getReserv_end().subSequence(8, 10)+"일</reserv_end>";
 				result += "<reserv_realprice>"+dto.getReserv_realprice()+"</reserv_realprice>";
 				result += "<photo>"+photo+"</photo>";
 				result += "</reserv>";

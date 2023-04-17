@@ -11,6 +11,10 @@
 <script type="text/javascript">let contextPath = "<%=request.getContextPath() %>";</script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/login/login_search.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/login/login_search.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div id="content">
@@ -43,14 +47,14 @@
 			
 				<c:if test="${empty id }">
 				<div id="result_send">
-					<input type="button" value="메일 전송" onclick="pwd_check(1)">
+					<input type="button" id="mail_send_btn" value="메일 전송" onclick="pwd_check(1)">
 				</div>
 				</c:if>
 			
 				<c:if test="${check==1 }">
 				<div id="result_btn">
 					<input type="text" placeholder="코드 입력" id="check_code" name="check_code">
-					<input type="button" value="인증 확인" onclick="pwd_check(2)">
+					<input type="button" id="result_button" value="인증 확인" onclick="pwd_check(2)">
 				</div>
 				</c:if>
 			
@@ -63,7 +67,7 @@
 						비밀번호 확인 : <br>
 						<input type="password" id="repwd_check" onchange="pwdInput()"><br>
 						<span id="pwd_check_result"></span>
-						<br><input type="button" value="비밀번호 변경" onclick="pwd_check(3)">
+						<br><input type="button" id="newpwd" value="비밀번호 변경" onclick="pwd_check(3)">
 					</div>
 				</div>
 				</c:if>
