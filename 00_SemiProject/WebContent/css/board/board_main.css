@@ -18,21 +18,43 @@
 	justify-content: flex-start;
 	flex-direction: column;
 }
+#board_sidebar input{
+	border: none;
+	outline: none;
+ 	box-shadow: none;
+ 	width : 100px;
+ 	height: 35px;
+ 	margin-top: 30px;
+	background-color: white;
+	border: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+}
+#board_sidebar input:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+}
 #board_main{
 	width: 800px;
+	font-size : 13px;
 }
 #board_list{
 	width: 600px;
 }
+#board_list tr{
+	border : 3px solid #c0c0c0;
+}
+
+
 #board_list th, #board_list td{
 	padding: 5px 10px;
-	border-bottom: 1px solid #c0c0c0;
 	white-space: nowrap;
 	overflow: hidden;
 }
 #board_list th{
 	width: 100%;
 	height: 100%;
+	
 }
 #board_write_btn{
 	float: right;
