@@ -14,6 +14,9 @@ public class HotelReserveAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		String phonebody = request.getParameter("userPhone_body").trim();
+		
 		ReserveDTO dto = new ReserveDTO();
 		
 		dto.setReserv_hotelno(Integer.parseInt(request.getParameter("hotel_no").trim()));
@@ -35,7 +38,8 @@ public class HotelReserveAction implements Action {
 		dto.setReserv_request(request.getParameter("payment_hotel_userReq").trim());
 		dto.setReserv_payment(Integer.parseInt(request.getParameter("card_no").trim()));
 		dto.setReserv_ins(Integer.parseInt(request.getParameter("reserv_ins").trim()));
-		dto.setReserv_phone(request.getParameter("userPhone_head")+"-"+request.getParameter("userPhone_body_first").trim());
+		dto.setReserv_phone(request.getParameter("userPhone_head")+"-"+phonebody.substring(0,4)+"-"+phonebody.substring(4));
+		System.out.println(dto.getReserv_phone());
 
 		int re = UserDAO.getInstance().insertReservContent(dto);
 		if(re>0) {
