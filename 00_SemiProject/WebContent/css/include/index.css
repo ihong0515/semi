@@ -2,7 +2,7 @@
 
 #container {
 	width: 800px;
-	margin: 100px auto;
+	margin: auto;
 }
 #content {
 	min-height: 100%;

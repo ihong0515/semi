@@ -1,6 +1,5 @@
 @charset "UTF-8";
-<<<<<<< Updated upstream
-=======
+
 #container {
    width: 800px;
    margin: auto;
@@ -12,8 +11,14 @@
    margin: 100px auto;
    align-content: center;
 }
->>>>>>> Stashed changes
 
-#reserv_content img:hover{
-	cursor: pointer;
+#quit_tb{
+	width: 500px;
+}
+#quit_tb,
+#quit_tb tr,
+#quit_tb th,
+#quit_tb td{
+	border: 1px solid black;
+	border-collapse: collapse;
 }

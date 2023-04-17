@@ -1,9 +1,24 @@
 @charset "UTF-8";
 
+<<<<<<< Updated upstream
 #container{
 	width: 800px;
 	margin: 50px auto;
 	
+=======
+/* promotion.jsp */
+#container {
+   width: 800px;
+   margin: auto;
+   font-family: 'Noto Sans KR', sans-serif;
+}
+#content {
+   min-height: 100%;
+   list-style: none;
+   margin: 100px auto;
+   align-content: center;
+   text-align: center;
+>>>>>>> Stashed changes
 }
 .promotion_font{
 	text-align:center;
