@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.moveNumber {
+	text-align:center;
+	width:40px;
+}
+#container {
+	width: 800px;
+	margin: auto;
+}
+#content {
+	min-height: 100%;
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	margin: 100px auto;
+	align-content: center;
+}
+#content input:focus, select:focus {
+	outline:none;
+}
+#content input::placeholder {
+	color: #737373;
+	font-size: 13px;
+}
+#content h2 {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 25px;
+}
+#newPayment_table {
+	margin: 30px auto;
+	border-collapse: separate;
+ 	border-spacing: 0 20px;
+ 	display: flex;
+	flex-direction: column;
+}
+#newPayment_table table {
+	margin: 30px auto;
+}
+#newPayment_table th {
+	text-align: left;
+	padding-right: 20px;
+	vertical-align: bottom;
+	padding-bottom: 6px;
+}
+#newPayment_table td {
+	height: 40px;
+	width: 300px;
+	padding: 5px;
+	border-style: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #C3C3C3;
+	font-size: 16px;
+	vertical-align: bottom;
+}
+#newPayment_table #pay_name, #pay_cardcom, #pay_cvc, #pay_pwd, #pay_date {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 40px;
+	padding: 5px;
+	border-style: none;
+	text-align: left;
+	font-size: 13px;
+}
+#newPayment_table #pay_name, #pay_cvc {
+	width: 300px;
+}
+#newPayment_table #pay_pwd {
+	width: 60px;
+}
+.card_number_txt {
+	width: auto !important;
+	height: 29px;
+	border-style: none !important;
+	float: left;
+	line-height: 29px;
+	text-align: center;
+}
+.moveNumber {
+	width: 50px !important;
+	height: 29px;
+	border-style: none !important;
+	float: left;
+	line-height: 29px;
+	text-align: center;
+	font-family: 'Noto Sans KR', sans-serif !important;
+}
+#newPayment_table #etc_input{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 30px;
+	width: 200px;
+	border-style: none;
+	font-size: 13px;
+	color: black;
+	padding-left: 10px;
+	background: #F2F2F2;
+}
+#newPayment_table #submit_button_div {
+	width: 495px;
+	height: 70px;
+	align-content: stretch;
+	margin: auto;
+}
+#newPayment_table #submit_button {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 50px;
+	width: 495px;
+	border-style: none;
+	float: left;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: 10px auto;
+}
+#newPayment_table #submit_button:hover {
+	background: #F2F2F2;
+	color: black;
+}
