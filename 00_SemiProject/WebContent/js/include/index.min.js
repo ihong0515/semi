@@ -2,9 +2,9 @@
  * 
  */
 
-function serchHotelList(e){
-	
-	$.ajax({
+async function serchHotelList(e){
+
+	await $.ajax({
 		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 		type: "post",
 		url : "hotel_IndexSearch.do",

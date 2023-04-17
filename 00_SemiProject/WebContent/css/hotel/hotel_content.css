@@ -11,9 +11,6 @@
 	align-content: center;
 }
 
-#content img{
-	border-radius: 10px;
-}
 #hotel_info{
 	display: flex;
 	justify-content: flex-start;
@@ -28,11 +25,21 @@
 #room_info{
 	margin-top: 30px;
 }
+.room_content{
+	display: flex;
+	justify-content: flex-start;
+	padding: 30px;
+}
 .room_content_img img:nth-child(n+2){
 	display: none;
 }
 .room_content_img{
 	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+}
+.room_content_img img{
+	border-radius: 10px;
 }
 .next_img{
 	font-size: 20px;
@@ -40,20 +47,8 @@
 	margin: auto 0 auto 5px;
 	font-weight: bold;
 }
-.room_content{
-	display: flex;
-	justify-content: flex-start;
-	padding: 30px;
-}
-.room_content_img{
-	display: flex;
-	justify-content: space-between;
-}
-
 .room_content_info{
 	margin-left: 30px;
-}
-.room_content_info{
 	display: flex;
 	justify-content: flex-start;
 }
@@ -170,4 +165,7 @@
 }
 #write_foot{
 	text-align: right;
+}
+.hotel_like_check{
+	cursor: pointer;
 }

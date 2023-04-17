@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>찜한 호텔 내역</title>
+<link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_jjim.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user.css" rel="stylesheet">
 </head>
@@ -18,7 +19,6 @@
     	<div id="content">
 			<div>
 				<h2>${user_dto.getUser_name() }님이 찜한 숙소</h2>
-				<br>
 				<c:if test="${!empty hotelList }">
 				<c:forEach items="${hotelList }" var="dto">
 					<ul>

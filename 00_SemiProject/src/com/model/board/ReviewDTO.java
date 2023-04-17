@@ -9,7 +9,6 @@ public class ReviewDTO {
 	private String review_writer;
 	private String review_content;
 	private String review_date;
-	private String review_update;
 	private String review_photo;
 	private String review_checkindate;
 	private int review_point;
@@ -55,12 +54,6 @@ public class ReviewDTO {
 	}
 	public void setReview_date(String review_date) {
 		this.review_date = review_date;
-	}
-	public String getReview_update() {
-		return review_update;
-	}
-	public void setReview_update(String review_update) {
-		this.review_update = review_update;
 	}
 	public String getReview_photo() {
 		return review_photo;
