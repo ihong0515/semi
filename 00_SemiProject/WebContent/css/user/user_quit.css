@@ -11,13 +11,96 @@
    margin: 100px auto;
    align-content: center;
 }
-#quit_tb{
-	width: 500px;
+#content input:focus, select:focus {
+	outline:none;
 }
-#quit_tb,
-#quit_tb tr,
-#quit_tb th,
-#quit_tb td{
-	border: 1px solid black;
-	border-collapse: collapse;
+#content input::placeholder {
+	color: #737373;
+	font-size: 13px;
+}
+#content h2 {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 25px;
+}
+#quit_table {
+	margin: 30px auto;
+	border-collapse: separate;
+ 	border-spacing: 0 20px;
+ 	display: flex;
+	flex-direction: column;
+}
+#quit_table table {
+	margin: 30px auto;
+}
+#quit_table th {
+	text-align: center;
+}
+#quit_table td {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	height: 40px;
+	width: 300px;
+	padding: 5px;
+	border-style: none;
+	font-size: 16px;
+	vertical-align: bottom;
+}
+#user_pwd {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 30px;
+	width:340px;
+	border-style: none;
+	font-size: 13px;
+	color: black;
+	padding-left: 10px;
+	background: #F2F2F2;
+}
+#quit_table #button_div {
+	width: 495px;
+	height: 70px;
+	align-content: stretch;
+	margin: auto;
+}
+#quit_table #submit_button {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 50px;
+	width: 495px;
+	border-style: none;
+	float: left;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: 10px auto;
+}
+#quit_table #submit_button:hover {
+	background: #F2F2F2;
+	color: black;
+}
+#quit_table #reset_button {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 50px;
+	width: 495px;
+	border-style: none;
+	float: left;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: 10px auto;
+}
+#quit_table #reset_button:hover {
+	background: #F2F2F2;
+	color: black;
 }

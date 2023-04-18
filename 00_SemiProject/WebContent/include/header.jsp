@@ -32,7 +32,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 			<div id="header_navi_logo">
 				<img src="<%=request.getContextPath() %>/image/include/logo2.png" onclick="location.href='<%=request.getContextPath()%>/index_move.do'" width="200px">
 			</div>
-				<div id="header_navi_ul"><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
+			<div id="header_navi_ul"><!--상단 우측 로그인 회원가입, 비밀번호 찾기  -->
 				<ul>
 					<li><a href="<%=request.getContextPath() %>/hotel_mapping_list.do">Hotel in Map</a></li>
 					<li><a href="<%=request.getContextPath() %>/crawling_hotel.do">Review</a></li>

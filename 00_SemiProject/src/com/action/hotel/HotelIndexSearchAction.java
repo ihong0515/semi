@@ -49,6 +49,7 @@ public class HotelIndexSearchAction implements Action {
 			str += "<hotel_photo_folder>" + dto.getHotel_photo_folder() + "</Hotel_photo_folder>";
 			str += "<hotel_name>" + dto.getHotel_name() + "</hotel_name>";
 			str += "<hotel_star>" + dto.getHotel_star() + "</hotel_star>";
+			str += "<hotel_point>" + dto.getHotel_point() + "</hotel_point>";
 			str += "<hotel_price_min>" + dto.getHotel_price_min() + "</hotel_price_min>";
 			str += "<hotel_info>" + dto.getHotel_info() + "</hotel_info>";
 			str += "<hotel_jjim_check>"+jjim_check+"</hotel_jjim_check>";

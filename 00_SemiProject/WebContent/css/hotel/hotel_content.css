@@ -10,18 +10,32 @@
 	margin: 100px auto;
 	align-content: center;
 }
-
 #hotel_info{
 	display: flex;
-	justify-content: flex-start;
+	text-align: left;
 }
 #hotel_info_img{
-	margin: 0px 50px;
+	margin: 0;
+	float: left;
 }
 #hotel_info_detail{
 	width: 300px;
-	margin-left: 50px;
+	float: right;
+	padding-left: 20px;
 }
+#hotel_info_detail_star {
+	color: #F2D06B;
+}
+#hotel_info_detail_name {
+	font-size: 30px;
+	margin-bottom: 20px;
+	vertical-align: middle;
+}
+#hotel_info_detail_jjim {
+	font-size: 20px!important;
+	height: 55px;
+}
+
 #room_info{
 	margin-top: 30px;
 }

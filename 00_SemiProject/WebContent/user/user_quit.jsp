@@ -14,22 +14,23 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
     	<div id="content">
-			<h2>탈퇴 시 비밀번호 확인</h2>
-			<form method="post" action="<%=request.getContextPath() %>/user_quitOk.do">
-				<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
-				<table id="quit_tb">
-					<tr>
-						<th>비밀번호 입력</th>
-						<td><input type="password" name="user_pwd"></td>
-					</tr>
-					<tr>
-			           <td colspan="2" align="center">
-			              <input type="submit" value="회원 탈퇴">&nbsp;&nbsp;
-			              <input type="reset" value="다시작성">
-			           </td>
-			        </tr>
-				</table>
-			</form>
+    		<jsp:include page="../user/user_mypage_header.jsp"/>
+			<div id="quit_table">
+				<h2>비밀번호 재확인</h2>
+				<form method="post" action="<%=request.getContextPath() %>/user_quitOk.do">
+					<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
+					<table id="quit_tb">
+						<tr>
+							<th>비밀번호 입력</th>
+							<td><input type="password" name="user_pwd" id="user_pwd" placeholder="Password"></td>
+						</tr>
+					</table>
+					<div id="button_div">
+			              <input type="submit" id="submit_button" value="회원 탈퇴">
+			              <input type="reset" id="reset_button" value="다시작성">
+			        </div>
+				</form>
+			</div>
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>

@@ -20,12 +20,13 @@ function getReserv(self){
 				let price = $(this).find("reserv_realprice").text();
 				let resultPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 				
-				str += "<img onclick=\'location.href=\""+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"\"\' src='"+contextPath+"/image/hotel/"+$(this).find("photo").text()+"/main.jpg' style='width:100px; height:100px;'><br>";
-				str += "<a href='"+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"'>"+$(this).find("reserv_hotelname").text()+"</a><br>";
-				str += $(this).find("reserv_roomname").text()+"<br>";
-				str += "체크인: " + $(this).find("reserv_start").text()+"<br>";
-				str += "체크아웃: " + $(this).find("reserv_end").text()+"<br>";
-				str += "₩ " + resultPrice;
+				str += "<div id='content_div'><div id='img_div'><img onclick=\'location.href=\""+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"\"\' src='"+contextPath+"/image/hotel/"+$(this).find("photo").text()+"/main.jpg' style='width:130px; height:130px;'></div>";
+				str += "<div id='text_div'><ul><li style='font-size: 20px'><strong><a href='"+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"'>"+$(this).find("reserv_hotelname").text()+"</a></strong></li>";
+				str += "<li style='font-size: 16px'>" + $(this).find("reserv_roomname").text()+"</li>";
+				str += "<li style='font-size: 16px'>체크인: " + $(this).find("reserv_start").text()+"</li>";
+				str += "<li style='font-size: 16px'>체크아웃: " + $(this).find("reserv_end").text()+"</li></ul></div>";
+				str += "<div id='btn_div'><strong>₩ " + resultPrice + "</strong>";
+				str += "<button onclick=\'location.href=\""+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"\"\'>예약 세부 정보</button></div></div><br><br>";
 				count++;
 			});
 			$("#reserv_content").html(str);
