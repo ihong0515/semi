@@ -22,7 +22,7 @@ public class EmailSendAction implements Action {
 		String path_check = request.getParameter("check").trim();
 		
 		final String user = "semisendemail@gmail.com";
-	    final String password = "xvctfjjreuhukttx";
+	    final String password = "myupjospwrkioumf";
 	    String code = UserDAO.getInstance().insertEmailCode(user_email);
 	    int result = 0;
 		try{
@@ -51,9 +51,9 @@ public class EmailSendAction implements Action {
 			//제목 + 내용
 			if(path_check.equals("user_join")) {
 				clsMessage.setSubject("GoCatchStay 회원가입 이메일 인증입니다.");
-				clsMessage.setText("안녕하세요 GoCatchStay입니다."
-						+ "GoCatchStay에 오신것을 환영합니다. "
-						+ " 회원가입을 위한 인증코드는 ["+code+"] 입니다.");
+				clsMessage.setContent("안녕하세요 GoCatchStay입니다.<br>"
+						+ "GoCatchStay에 오신것을 환영합니다.<br>"
+						+ " 회원가입을 위한 인증코드는 ["+code+"] 입니다.", "text/html; charset=UTF-8");
 				Transport.send(clsMessage);
 				result = 1;
 				response.getWriter().println(result);
@@ -61,8 +61,8 @@ public class EmailSendAction implements Action {
 				
 			}else if(path_check.equals("id_search")){
 				clsMessage.setSubject("GoCatchStay ID 찾기 이메일 인증입니다.");
-				clsMessage.setText("안녕하세요 GoCatchStay입니다."
-						+ " 아이디를 찾기 위한 인증코드는 ["+code+"] 입니다.");
+				clsMessage.setContent("안녕하세요 GoCatchStay입니다.<br>"
+						+ "회원님의 아이디를 찾기 위한 인증코드는 ["+code+"] 입니다.", "text/html; charset=UTF-8");
 				Transport.send(clsMessage);
 				
 				ActionForward forward = new ActionForward();
@@ -72,8 +72,8 @@ public class EmailSendAction implements Action {
 				
 			}else if(path_check.equals("pwd_search")) {
 				clsMessage.setSubject("GoCatchStay 비밀번호 찾기 이메일 인증입니다.");
-				clsMessage.setText("안녕하세요 GoCatchStay입니다."
-						+ " 비밀번호를 찾기 위한 인증코드는 ["+code+"] 입니다.");
+				clsMessage.setContent("안녕하세요 GoCatchStay입니다.<br>"
+						+ "회원님의 비밀번호를 찾기 위한 인증코드는 ["+code+"] 입니다.", "text/html; charset=UTF-8");
 				Transport.send(clsMessage);
 
 				ActionForward forward = new ActionForward();

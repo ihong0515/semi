@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#container{
+	width: 800px;
+	margin: 50px auto;
+	text-align: center;
+}
+#content{
+	margin: 100px auto;
+	width: 400px;
+}
+#login input{
+	height: 50px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+}
+#search{
+	display: flex;
+	justify-content: space-between;
+	width: 270px;
+	margin: auto;
+	margin-bottom: 30px;
+}
+#btn input{
+	margin-bottom: 20px;
+	width: 100px;
+	height: 50px;
+}
