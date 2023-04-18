@@ -17,9 +17,10 @@
 	font-weight: bold;
 }
 #payment_hotel > div{
-	border: thin solid#5E5E5E;
+	
 	margin-bottom: 50px;
 	text-align: left;
+	background-color: #FAF8F8;	
 }
 #payment h1 {
 	text-align: center;
@@ -28,7 +29,6 @@
 #payment_hotelwrap{
 	display:flex;
 	flex-direction: column;
-	background-color:#c0c0c0;	
 }
 #payment_hotel_date{
 	text-align: center;

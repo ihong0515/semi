@@ -15,23 +15,37 @@ html{
    align-content: center;
    text-align: center;
 }
-.promotion_font{
-	font-weight:bold;
-	font-size:10pt;
-}
-
-
 .promotion_title{
 	margin-top: 50px;
 	font-family: 'Red Hat Display', sans-serif;
 	font-size: 25px;
 }
+.promotion_font{
+	font-weight:bold;
+	font-size:10pt;
+}
+#promotion_content{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .promotion_image{
 	margin: auto;
 }
 
-/* promotion_content.jsp */
-#promotion_content_header{
+
+
+
+
+
+
+
+
+
+
+
+/*coupon content 영역.  */
+
+#coupon_content_header{
   background-color: #F2F2F2;
   font-family: 'Noto Sans KR', sans-serif;
   width: 100vw;
@@ -39,22 +53,63 @@ html{
   padding: 10px 20px 0px 20px;
   box-sizing: border-box;
 }
-#promotion_content{
-  margin-top: 50px;
-  margin-bottom: 50px;
+#coupon_content_container {
+	display: flex;
+ 	margin-top: 50px;
+	text-align: center;
+  	font-family: 'Noto Sans KR', sans-serif;
+  	width: 100%;
+  	flex-direction: column;
+    align-items: center;
 }
-/*coupon content 영역.  */
-#promotion_content_title{
+#coupon_content_title{
 	font-family: 'Red Hat Display', sans-serif;
 	font-size: 25px;
 	margin-top: 30px;
 	text-align: center;
 }
-#promotion_content_container {
- 	margin-top: 50px;
-	text-align: center;
-  	font-family: 'Noto Sans KR', sans-serif;
-  	width: 100%;
+#coupon_frame{
+	flex-direction:column;
+	height: 251px;
+    width: 489px;
+	display:flex;
+	align-items: center;
+	background-image: url('../../image/coupon/coupon_frame3.jpg');
+  	background-repeat: no-repeat;
+  	background-size:cover;
+  	font-size: 16px;
+  	align-content: center;
+  	justify-content: center;
+}
+#coupon_back_image{
+	
+}
+#coupon_title{
+	text-decoration: underline;	
+	margin-bottom: 15px;	
+}
+#coupon_content div{
+	margin-bottom: 25px;
+}
+.coupon_sale{
+	margin-bottom: 15px;
+	width:100%;
+}
+.coupon_sale_font{
+	font-weight: bold;
+	font-size: 60px;
+	margin-right: 10px;
+	padding: 5px 8px 5px 8px;
+}
+#coupon_content{
+	display:flex;
+	flex-direction:column;
+	margin-bottom: 0px;
+  	margin-right: 80px;
+  	height: 100%;
+}
+#coupon_content .row{
+	height: 20%;
 }
 #coupon_frame{
 	display:flex;
