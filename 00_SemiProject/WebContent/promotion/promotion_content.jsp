@@ -53,7 +53,6 @@
 		<div id="coup_result_area" >
 			<p id="coup_result"></p>
 		</div>
-
 		<div id = "promtion_content_footer">
 			<i class="fa fa-info-circle" aria-hidden="true"></i>  유의사항
 			<div id = "coupon_terms">
