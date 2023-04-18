@@ -9,7 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">
 	let contextPath = "<%=request.getContextPath() %>";
 </script>
@@ -24,18 +23,18 @@
 			<div id="hotel_list_hotel" class="hotel_sidebar">
 				<span id="hotel_x" onclick="close_menu(this)">X</span>
 				<ul>
-					<li><input class="insert_btn" type="button" value="호텔 등록"></li>
+					<li><input class="insert_btn" type="button" value="호텔 등록" onclick="location.href='<%=request.getContextPath() %>/owner_hotel_insert.do'"></li>
 					<li>호텔 목록</li>
 					<li>
 						<ul>
 							<li>
-							<select onchange="open_room_list(this)">
-								<option value="">:::::::::::::::</option>
-								<c:forEach items="${ho_list }" var="ho">
-								<option value="${ho.getHotel_no() }">
-									${ho.getHotel_name() }
-								</option>
-								</c:forEach>
+								<select onchange="open_room_list(this)">
+									<option value="">:::::::::::::::</option>
+									<c:forEach items="${ho_list }" var="ho">
+									<option value="${ho.getHotel_no() }">
+										${ho.getHotel_name() }
+									</option>
+									</c:forEach>
 								</select>
 							</li>
 						</ul>

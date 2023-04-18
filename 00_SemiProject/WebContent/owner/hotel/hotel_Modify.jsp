@@ -7,10 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script type="text/javascript">
-	let contextPath = "<%=request.getContextPath() %>";
-</script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel_modify.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel_modify.css">
 </head>
@@ -142,7 +138,8 @@
 				</table>
 				<div id="modify_btn">
 					<input type="submit" value="수정">&nbsp;&nbsp;
-					<input type="button" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='<%=request.getContextPath() %>/owner_hotel_delete_ok.do?no=${dto.getHotel_no() }'}" value="삭제">
+					<input type="button" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='<%=request.getContextPath() %>/owner_hotel_delete_ok.do?no=${dto.getHotel_no() }'}" value="삭제">&nbsp;&nbsp;
+					<input type="button" onclick="location.href='<%=request.getContextPath() %>/owner_hotel_list.do'" value="목록">
 				</div>
 			</form>
 		</div>
