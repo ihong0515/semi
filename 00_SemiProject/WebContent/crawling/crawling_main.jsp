@@ -59,8 +59,8 @@
 					</div>
 					<div class="crawling_main_content_wrap">
 						<div class="crawling_main_content_txt">
-							<h5>${dto.getWriter() }</h5>
-							<h4><a href="${dto.getLink() }">${dto.getTitle() }</a></h4>
+							<div class = "crawling_writer">${dto.getWriter() }</div>
+							<div class = "crawling_link"><a href="${dto.getLink() }">${dto.getTitle() }</a></div>
 						</div>
 						<p>${dto.getContent() }</p>
 					</div>
