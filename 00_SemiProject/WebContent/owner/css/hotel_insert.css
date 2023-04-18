@@ -11,6 +11,12 @@
 table {
 	margin: auto;
 }
+table th{
+	width: 100px;
+}
+table td{
+	width: 150px;
+}
 textarea{
 	width: 100%;
 	height: 150px;
@@ -18,4 +24,7 @@ textarea{
 }
 table input {
 	width: 95%;
+}
+table input[name=phone]{
+	width: 27%;
 }

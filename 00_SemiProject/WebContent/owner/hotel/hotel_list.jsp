@@ -9,9 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	let contextPath = "<%=request.getContextPath() %>";
-</script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel_list.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel_list.css">
 </head>
@@ -81,7 +78,7 @@
 					</tr>
 					<tr>
 						<th>
-							전체 룸 갯수
+							객실 수
 						</th>
 						<td class="info_insert">
 						</td>

@@ -109,7 +109,7 @@
 					<input type="hidden" value="${dto.getRoom_no() }" name="no"> 
 					<input type="submit" value="수정">&nbsp;&nbsp;
 					<input type="button" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='<%=request.getContextPath() %>/owner_room_delete.do?no=${dto.getRoom_no() }'}" value="삭제">&nbsp;&nbsp;
-					<input type="button" onclick="location.href='<%=request.getContextPath() %>/owner_hotel_list.do'" value="목록">
+					<input type="button" onclick="list_move()" value="목록">
 				</div>
 			</form>
 		</div>

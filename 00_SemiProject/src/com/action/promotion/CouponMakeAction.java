@@ -36,14 +36,10 @@ public class CouponMakeAction implements Action {
 		}else if(check.equals("-1")){
 			coupon_no = "발급된 쿠폰을 이미 사용하셨습니다.";
 		}else {
-			coupon_no = "이미 쿠폰을 수령하셨습니다.\r\n 보유하신 쿠폰 번호는 \r\n " + check;
+			coupon_no = "이미 쿠폰을 수령하셨습니다.<br> 보유하신 쿠폰 번호는 <br> " + check;
 		}
-		
-		
 		//유저보유 쿠폰 or 사용 불가 -1 or 새로운 쿠폰
 		out.println(coupon_no);
-			
 		return null;
 	}
-
 }

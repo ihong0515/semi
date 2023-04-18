@@ -13,6 +13,7 @@ import com.action.Action;
 import com.action.ActionForward;
 import com.model.hotel.HotelDTO;
 import com.model.owner.OwnerDAO;
+import com.model.owner.OwnerDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -31,10 +32,13 @@ public class OwnerHotelInsertOkAction implements Action {
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
 		HotelDTO dto = new HotelDTO();
+		OwnerDTO od = (OwnerDTO)request.getSession().getAttribute("loginOwner");
+		dto.setHotel_ownerNo(od.getOwner_no());
 		String hotel_name = multi.getParameter("name").trim();
 		dto.setHotel_name(hotel_name);
 		dto.setHotel_addr(multi.getParameter("addr").trim());
-		dto.setHotel_phone(multi.getParameter("phone").trim());
+		String[] ph = multi.getParameterValues("phone");
+		dto.setHotel_phone(ph[0]+"-"+ph[1]+"-"+ph[2]);
 		dto.setHotel_location(multi.getParameter("location").trim());
 		dto.setHotel_email(multi.getParameter("email").trim());
 		dto.setHotel_room_count(Integer.parseInt(multi.getParameter("count").trim()));

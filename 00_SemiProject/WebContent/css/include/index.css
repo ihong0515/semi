@@ -11,6 +11,7 @@
 	margin: 100px auto;
 	align-content: center;
 }
+
 #title {
 	margin-bottom: 50px;
 	text-align: center;
@@ -126,6 +127,7 @@
 	margin-bottom: 100px;
 	height: 125px;
 	text-align: center;
+	cursor: pointer;
 }
 .hotel_like_check{
 	cursor: pointer;

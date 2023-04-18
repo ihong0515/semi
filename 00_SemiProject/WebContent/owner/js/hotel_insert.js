@@ -1,73 +1,57 @@
 /**
  * 
  */
-
-
-function submit_ins(){
-	let f = $('#insert_form');
-	
-	if(f.name.value=''){
-		alert('');
+function insert_check(){
+	if(f.name.value==''){
+		alert('호텔 이름을 입력하세요');
 		f.name.focus();
 		return false;
-	}else if(f.addr.value=''){
-		alert('');
+	}else if(f.addr.value==''){
+		alert('주소를 입력하세요.');
 		f.addr.focus();
 		return false;
-	}else if(f.phone.value=''){
-		alert('');
-		f.phone.focus();
-		return false;
-	}else if(f.location.value=''){
-		alert('');
+	}else if(f.location.value==''){
+		alert('지역을 입력하세요.');
 		f.location.focus();
 		return false;
-	}else if(f.email.value=''){
-		alert('');
+	}else if(f.email.value==''){
+		alert('이메일을 입력하세요.');
 		f.email.focus();
 		return false;
-	}else if(f.count.value=''){
-		alert('');
+	}else if(f.count.value==''){
+		alert('객실 수를 입력하세요.');
 		f.count.focus();
 		return false;
-	}else if(f.est.value=''){
-		alert('');
+	}else if(f.est.value==''){
+		alert('설립 연도를 입력하세요.');
 		f.est.focus();
 		return false;
-	}else if(f.pri_min.value=''){
-		alert('');
+	}else if(f.pri_min.value==''){
+		alert('최저가를 입력하세요.');
 		f.pri_min.focus();
 		return false;
-	}else if(f.pri_max.value=''){
-		alert('');
+	}else if(f.pri_max.value==''){
+		alert('최고가를 입력하세요.');
 		f.pri_max.focus();
 		return false;
-	}else if(f.peo_min.value=''){
-		alert('');
+	}else if(f.peo_min.value==''){
+		alert('최저 투숙객을 입력하세요.');
 		f.peo_min.focus();
 		return false;
-	}else if(f.star.value=''){
-		alert('');
+	}else if(f.peo_max.value==''){
+		alert('최고 투숙객을 입력하세요.');
+		f.peo_max.focus();
+		return false;
+	}else if(f.star.value==''){
+		alert('호텔 성급을 입력하세요.');
 		f.star.focus();
 		return false;
-	}else if(f.hashtag.eq(0).value=''){
-		alert('');
-		f.hashtag.focus();
-		return false;
-	}else if(f.hashtag.eq(1).value=''){
-		alert('');
-		f.hashtag.focus();
-		return false;
-	}else if(f.hashtag.eq(2).value=''){
-		alert('');
-		f.hashtag.focus();
-		return false;
-	}else if(f.info.value=''){
-		alert('');
+	}else if(f.info.value==''){
+		alert('호텔 정보를 입력하세요.');
 		f.info.focus();
 		return false;
-	}else if(f.file.value=''){
-		alert('');
+	}else if(f.file.value==''){
+		alert('호텔의 메인 사진을 등록하세요.');
 		f.file.focus();
 		return false;
 	}else{

@@ -32,13 +32,11 @@
 	border-bottom: thin solid#C3C3C3;
 	flex-wrap:wrap;
 	margin-top: 10px;
-	
 }
 
 #user_jjim_row:nth-child(1){
 	background-color: #F2F2F2;
 	border-top: 1px solid black;
-	
 }
 #user_jjim_col{
 	align-content : center;	
@@ -48,8 +46,10 @@
 	text-align: center;
 }
 #user_jjim_col:nth-child(1){
-	
 	margin-top: 20px;
+}
+#user_jjim_col:nth-child(2){
+	margin-left: -150px;
 }
 #jjim_button{
 	margin-top: 30px;
@@ -62,7 +62,6 @@
 	border: thin solid#5E5E5E;
 	color: #5E5E5E;
 }
-
 #jjim_content_info{
 	margin-top:10px;
 	text-align: left;

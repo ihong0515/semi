@@ -22,7 +22,7 @@ public class OwnerRoomDeleteAction implements Action {
 			return forward;
 		}else {
 			response.getWriter().println("<script>"
-					+ "alert('등록 호텔 삭제를 실패하였습니다.');"
+					+ "alert('등록 객실의 삭제를 실패하였습니다.');"
 					+ "history.back();"
 					+ "</script>");
 			return null;

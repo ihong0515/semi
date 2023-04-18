@@ -7,13 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel_insert.css">
+<script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel_insert.js"></script>
 </head>
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 		<div id="content">
 			<h2>호텔 등록 페이지</h2>
-			<form action="<%=request.getContextPath() %>/owner_hotel_insert_ok.do" method="post" id="insert_form" name="f" enctype="multipart/form-data">
+			<form action="<%=request.getContextPath() %>/owner_hotel_insert_ok.do" method="post" onsubmit="return insert_check()" name="f" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<th>
@@ -36,7 +37,7 @@
 							연락처
 						</th>
 						<td>
-							<input type="text" name="phone">
+							<input type="text" name="phone" placeholder="010">-<input type="text" name="phone" placeholder="0000">-<input type="text" name="phone" placeholder="0000">
 						</td>
 					</tr>
 					<tr>
@@ -57,7 +58,7 @@
 					</tr>
 					<tr>
 						<th>
-							전체 룸 갯수
+							객실 수
 						</th>
 						<td>
 							<input type="text" name="count">
@@ -133,8 +134,8 @@
 					</tr>
 				</table>
 				<div id="modify_btn">
-					<a href="javascript:submit_ins()">등록</a>&nbsp;&nbsp;
-					<a href="<%=request.getContextPath() %>/owner_hotel_list.do">목록</a>
+					<input value="등록" type="submit">&nbsp;&nbsp;
+					<input type="button" onclick="list_move()" value="목록">
 				</div>
 			</form>
 		</div>

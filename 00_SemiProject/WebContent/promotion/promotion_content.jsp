@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="dto" value="${Promotion}}"/>
+<c:set var="dto" value="${Promotion}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,38 +22,29 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/promotion/promotion.css">
 </head>
 <body>
-	<div id = "promotion_content_header">
+	<div id = "coupon_content_header">
 		<img src="<%=request.getContextPath()%>/image/include/logo2.png" width="200px">
-
-		<h1>Get Coupon</h1>
 	</div>
-	<div id="promotion_content_container">
+	<div id="coupon_content_container">
+		<div id = "coupon_content_title">Get Coupon</div>
 		<c:if test="${!empty dto}">
-		<div id="promotion_coupon_table">
-			<div id="row">
-				<div id="col">
-					<img src="<%=request.getContextPath()%>/image/promotion/${dto.getProm_folder()}/main.jpg">
+		<div id="promotion_content_image">
+			<div class ="row">
+				<img src="<%=request.getContextPath()%>/image/promotion/${dto.getProm_folder()}/main.jpg">
+			</div>
+	    </div>
+	    <div id = "coupon_frame">
+			<div id="coupon_content">
+				<div class = "row">
+					<h3 id = "coupon_title"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ${dto.getProm_name()}</h3>
+				</div>
+				<div class = "row">
+					<span class="coupon_sale_font">${dto.getProm_sale()}%</span>
+				</div>
+				<div class = "row" id = "coup_result">
+					${dto.getProm_info()}
 				</div>
 			</div>
-			<div id="coupon_frame">	
-				<div id="coupon_cont">
-					<div id="row">
-						<div id="col">
-							<h3>${dto.getProm_name()}</h3>
-						</div>
-					</div>
-					<div id="row">
-						<div id="col" class="coupon_sale">
-							<span class="coupon_sale_font">${dto.getProm_sale()}%</span>Discount
-						</div>
-					</div>
-					<div id="row">
-						<div id="col">
-							${dto.getProm_info()}
-						</div>
-					</div>
-				</div>
-			</div>	
 		</div>
 		<div id="coupon_button_area">
 			<input type="hidden" value="${dto.getProm_no()}" id="prom_no_val">
@@ -62,7 +53,6 @@
 		<div id="coup_result_area" >
 			<p id="coup_result"></p>
 		</div>
-
 		<div id = "promtion_content_footer">
 			<i class="fa fa-info-circle" aria-hidden="true"></i>  유의사항
 			<div id = "coupon_terms">
