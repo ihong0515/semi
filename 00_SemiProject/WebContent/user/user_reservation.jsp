@@ -16,13 +16,15 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
     	<div id="content">
-			<h2>${user_dto.getUser_name() }님 숙소 예약 내역 리스트</h2>
-			<div id=reserve_list>
-				<div>
-					<a class="reserv" id="reserv_N" onclick="getReserv(this)">사용 전</a>&nbsp;&nbsp;
-					<a class="reserv" id="reserv_Y" onclick="getReserv(this)">사용 후</a>&nbsp;&nbsp;
+    		<jsp:include page="../user/user_mypage_header.jsp"/>
+			<div id="reserve_list">
+				<h2>숙소 예약 내역</h2>
+				<div id="reserv_button">
+					<a class="reserv" id="reserv_N" onclick="getReserv(this)">사용 전</a>
+					<a class="reserv" id="reserv_Y" onclick="getReserv(this)">사용 후</a>
 					<a class="reserv" id="reserv_C" onclick="getReserv(this)">취소</a>
-					<br>
+				</div>
+				<div id="reserv_span">
 					<span id="reserv_count"></span>
 				</div>
 				<div id="reserv_content">

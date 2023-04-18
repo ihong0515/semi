@@ -28,7 +28,7 @@ function getCoupon(){
 			},
 			datatype : "text",
 			success : function(data){
-				$('#coup_result').text(data);
+				$('#coup_result').html(data);
 			},
 			error : function(){
 				alert('에러입니다.');

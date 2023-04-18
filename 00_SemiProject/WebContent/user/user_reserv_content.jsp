@@ -18,75 +18,96 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 		<div id="content">
-			<div id="user_info">
-				예약자 : ${dto.getReserv_username() }
+			<jsp:include page="../user/user_mypage_header.jsp"/>
+			<div id="reserv_detail_table">
+				<h2>예약 세부 정보</h2>
+				<table>
+					<tr>
+						<th>예약자</th>
+						<td>${dto.getReserv_username() }</td>
+					</tr>
+					<tr>
+						<th>예약 호텔 </th>
+						<td>${dto.getReserv_hotelname() }</td>
+					</tr>
+					<tr>
+						<th>예약 상품 </th>
+						<td>${dto.getReserv_roomname() }</td>
+					</tr>
+					<tr>
+						<th>체크인/체크아웃</th>
+						<td>${dto.getReserv_start().substring(0,10) } ~ ${dto.getReserv_end().substring(0,10) } / 총 ${dto.getReserv_daycount() } 박</td>
+					</tr>
+					<tr>
+						<th>결제 카드</th>
+						<td>${payDto.getPay_name() } / 할부 : ${dto.getReserv_ins() } 개월</td>
+					</tr>
+					<tr>
+						<th>원가</th>
+						<td>${dto.getReserv_nomalprice() }</td>
+					</tr>
+					<tr>
+						<th>적용 쿠폰 </th>
+						<td>
+							<c:if test="${!empty promDto.getProm_name() }">
+								${promDto.getProm_name() }
+							</c:if>
+							<c:if test="${empty promDto.getProm_name() }">
+								<p style="color: #C7C7C7">없음</p>
+							</c:if>
+						</td>
+					</tr>
+					<tr>
+						<th>결제 금액</th>
+						<td>${dto.getReserv_realprice() }</td>
+					</tr>
+				</table>
 			</div>
-			<div id="hotel_info">
-				예약 호텔 : ${dto.getReserv_hotelname() }
+			<hr>
+			<div id="cancel_detail_table">
+				<c:if test="${dto.getReserv_usecheck() =='N' }">
+					<table>
+						<tr>
+							<td rowspan="2" class="cancel_info_title">고객센터 운영시간</td>
+							<td>09시~익일 03시/연중무휴</td>
+						</tr>
+						<tr>
+							<td>제휴점 및 예약조건에 따라 취소 환불 규정이 다를 수 있음.<br></td>
+						</tr>
+						<tr></tr>
+						<tr>
+							<td rowspan="4" class="cancel_info_title">무료취소 가능 여부</td>
+							<td>당일 제외 무료취소 기본 제공</td>
+						</tr>
+						<tr>
+							<td>여행 업체에서 동의/허용하거나 (선)결제 및 취소 정책</td>
+						</tr>
+						<tr>
+							<td>달리 명시되어 있지 않는 한, (환불 불가)</td>
+						</tr>
+						<tr>
+							<td>선결제 금액은 어떠한 경우에도 환급하지 않음</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div id="cancle_btn">
+									<button onclick="location.href=''">예약 취소 및 환불을 요청합니다.</button>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</c:if>
+				<c:if test="${dto.getReserv_usecheck() =='Y' }">
+					<div class="cancel_status">
+						사용완료된 상품입니다.
+					</div>
+				</c:if>
+				<c:if test="${dto.getReserv_usecheck() =='C' }">
+					<div class="cancel_status">
+						결제 취소된 상품입니다.
+					</div>
+				</c:if>
 			</div>
-			<div id="room_info">
-				<div>
-					예약 상품 : ${dto.getReserv_roomname() }
-					<br>
-					${dto.getReserv_start().substring(5,10) } ~ ${dto.getReserv_end().substring(5,10) }
-					<br>
-					총 ${dto.getReserv_daycount() } 박
-				</div>
-			</div>
-			<div id="payment_info">
-				<div>
-					결제 카드 : ${payDto.getPay_name() } / 할부 : ${dto.getReserv_ins() } 개월
-				</div>
-				<div>
-					원 가 : ${dto.getReserv_nomalprice() }<br>
-					적용 쿠폰 : 
-					<c:if test="${!empty promDto.getProm_name() }">
-						${promDto.getProm_name() }
-					</c:if>
-					<c:if test="${empty promDto.getProm_name() }">
-						-
-					</c:if>
-					<br>
-					결제 금액 : ${dto.getReserv_realprice() }
-				</div>
-			</div>
-			<c:if test="${dto.getReserv_usecheck() =='N' }">
-				<div id="cancle_info">
-				<div class="cancle_info_content">
-					<p class="cancle_info_head">
-						고객센터 운영시간 :
-					</p>
-					<p class="cancle_info_body">
-						09시~익일 03시/연중무휴<br>
-						제휴점 및 예약조건에 따라 취소 환불 규정이 다를 수 있음.
-					</p>
-				</div>
-				<div class="cancle_info_content">
-					<p class="cancle_info_head">
-						무료취소 가능 여부
-					</p>
-					<p class="cancle_info_body">
-						당일 제외 무료취소 기본 제공<br>
-						여행 업체에서 동의/허용하거나 (선)결제 및 취소 정책<br>
-						 달리 명시되어 있지 않는 한, (환불 불가)<br>
-						 선결제 금액은 어떠한 경우에도 환급하지 않음
-					</p>
-				</div>
-			</div>
-			<div id="cancle_btn">
-				<span onclick="location.href=''">예약 취소 및 환불을 요청합니다.</span>
-			</div>
-			</c:if>
-			<c:if test="${dto.getReserv_usecheck() =='Y' }">
-			<div>
-				사용완료된 상품입니다.
-			</div>
-			</c:if>
-			<c:if test="${dto.getReserv_usecheck() =='C' }">
-			<div>
-				결제 취소된 상품입니다.
-			</div>
-			</c:if>
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>

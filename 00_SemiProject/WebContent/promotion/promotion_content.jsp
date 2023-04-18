@@ -22,40 +22,30 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/promotion/promotion.css">
 </head>
 <body>
-	<div id = "promotion_content_header">
+	<div id = "coupon_content_header">
 		<img src="<%=request.getContextPath()%>/image/include/logo2.png" width="200px">
 	</div>
-	<div id="promotion_content_container">
-		<h1>Get Coupon</h1>
+	<div id="coupon_content_container">
+		<div id = "coupon_content_title">Get Coupon</div>
 		<c:if test="${!empty dto}">
 		<div id="promotion_content_image">
-			<div ic="row">
-				<div id="col">
-					<img src="<%=request.getContextPath()%>/image/promotion/${dto.getProm_folder()}/main.jpg">
-				</div>
+			<div class ="row">
+				<img src="<%=request.getContextPath()%>/image/promotion/${dto.getProm_folder()}/main.jpg">
 			</div>
 	    </div>
-		<div id="coupon_frame">	
-			<div id="coupon_back_image">
-				<div id="coupon_content">
-					<div id="row">
-						<div id="col">
-							<h3 id = "coupon_title"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ${dto.getProm_name()}</h3>
-						</div>
-					</div>
-					<div id="row">
-						<div id="col" class="coupon_sale">
-							<span class="coupon_sale_font">${dto.getProm_sale()}%</span>
-						</div>
-					</div>
-					<div id="row">
-						<div id="col">
-							${dto.getProm_info()}
-						</div>
-					</div>
+	    <div id = "coupon_frame">
+			<div id="coupon_content">
+				<div class = "row">
+					<h3 id = "coupon_title"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ${dto.getProm_name()}</h3>
+				</div>
+				<div class = "row">
+					<span class="coupon_sale_font">${dto.getProm_sale()}%</span>
+				</div>
+				<div class = "row" id = "coup_result">
+					${dto.getProm_info()}
 				</div>
 			</div>
-		</div>	
+		</div>
 		<div id="coupon_button_area">
 			<input type="hidden" value="${dto.getProm_no()}" id="prom_no_val">
 			<input id="coupon_button" type="button" value="coupon" onclick="getCoupon()" >

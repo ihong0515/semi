@@ -30,7 +30,7 @@ body {
 	margin-bottom: 30px;
 	float: left;
 }
-.search_body input[type=text] {
+.search_body input {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -40,18 +40,26 @@ body {
 	margin-bottom: 10px;
 	padding: 5px;
 	border-style: none;
-	border-bottom-style: solid;
-	border-bottom-color: #C3C3C3;
 	cursor: pointer;
-}
-.search_body input[type=text]:hover {
-	background: #FCF0F1;
-	border-bottom-color: #CC8F8F;
+	background: #F2F2F2;
 }
 .search_foot {
 	margin-top: 30px;
 }
-#result_send input {
+#check_code {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 40px;
+	width: 300px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border-style: none;
+	cursor: pointer;
+	background: #F7D9DA;
+}
+.search_foot input[type="button"] {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -59,28 +67,21 @@ body {
 	height: 40px;
 	width: 300px;
 	background: black;
-	font-family: 'Noto Sans KR', sans-serif;
 	color: white;
 	border: none;
 	margin: 0;
 	cursor: pointer;
 }
-#result_btn input[type=button] {
+#repwd, #repwd_check {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	font-family: 'Noto Sans KR', sans-serif;
 	height: 40px;
 	width: 300px;
-	background: #F2F2F2;
-	font-family: 'Noto Sans KR', sans-serif;
-	color: white;
-	border: none;
-	margin: 0;
+	margin-bottom: 10px;
+	padding: 5px;
+	border-style: none;
 	cursor: pointer;
-}
-#result_List {
-	font-size: 15px;
-	color: black;
-	font-family: 'Noto Sans KR', sans-serif;
+	background: #F2F2F2;
 }

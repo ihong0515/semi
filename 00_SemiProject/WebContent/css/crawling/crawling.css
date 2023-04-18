@@ -1,10 +1,9 @@
 @charset "UTF-8";
 #container {
    width: 800px;
-   margin: 100px auto;
+   margin: auto;
    font-family: 'Noto Sans KR', sans-serif;
 }
-
 #content {
   	min-height: 100%;
   	list-style: none;
@@ -29,7 +28,6 @@
 	border-radius: 7px;
 	cursor: pointer;
 }
-
 #crawling_side1 ul{
 	display: flex;
 	justify-content:space-around;

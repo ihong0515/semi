@@ -80,7 +80,7 @@ CREATE TABLE owner (
 	owner_name	varchar2(30)		NOT NULL,
 	owner_phone	varchar2(40)		NOT NULL,
 	owner_email	varchar2(100)		NOT NULL,
-	owner_birth	varchar2(30)		NOT NULL
+	owner_business	varchar2(100)		NOT NULL
 );
 
 CREATE TABLE promotion (
@@ -161,147 +161,6 @@ create table email_check(
 	email_code varchar2(50),
 	code_check varchar2(5) default 'N' check(code_check in('Y','N'))
 );
-
-ALTER TABLE inquiry_site_reply ADD CONSTRAINT "PK_INQUIRY_SITE_REPLY" PRIMARY KEY (
-	inqre_no
-);
-
-ALTER TABLE hotel ADD CONSTRAINT "PK_HOTEL" PRIMARY KEY (
-	hotel_no
-);
-
-ALTER TABLE room ADD CONSTRAINT "PK_ROOM" PRIMARY KEY (
-	room_no
-);
-
-ALTER TABLE user1 ADD CONSTRAINT "PK_USER1" PRIMARY KEY (
-	user_no
-);
-
-ALTER TABLE reserv ADD CONSTRAINT "PK_RESERV" PRIMARY KEY (
-	reserv_no
-);
-
-ALTER TABLE owner ADD CONSTRAINT "PK_OWNER" PRIMARY KEY (
-	owner_no
-);
-
-ALTER TABLE promotion ADD CONSTRAINT "PK_PROMOTION" PRIMARY KEY (
-	prom_no
-);
-
-ALTER TABLE coupon ADD CONSTRAINT "PK_COUPON" PRIMARY KEY (
-	coup_no
-);
-
-ALTER TABLE faq ADD CONSTRAINT "PK_FAQ" PRIMARY KEY (
-	faq_no
-);
-
-ALTER TABLE inquiry_hotel ADD CONSTRAINT "PK_INQUIRY_HOTEL" PRIMARY KEY (
-	inqho_no
-);
-
-ALTER TABLE inquiry_site ADD CONSTRAINT "PK_INQUIRY_SITE" PRIMARY KEY (
-	inqsi_no
-);
-
-
-ALTER TABLE hotel ADD CONSTRAINT "FK_owner_TO_hotel_1" FOREIGN KEY (
-	hotel_ownerno
-)
-REFERENCES owner (
-	owner_no
-) ON DELETE CASCADE;
-
-ALTER TABLE room ADD CONSTRAINT "FK_hotel_TO_room_1" FOREIGN KEY (
-	room_hotelno
-)
-REFERENCES hotel (
-	hotel_no
-) ON DELETE CASCADE;
-
-ALTER TABLE reserv ADD CONSTRAINT "FK_hotel_TO_reserv_1" FOREIGN KEY (
-	reserv_hotelno
-)
-REFERENCES hotel (
-	hotel_no
-) ON DELETE CASCADE;
-
-ALTER TABLE reserv ADD CONSTRAINT "FK_room_TO_reserv_1" FOREIGN KEY (
-	reserv_roomno
-)
-REFERENCES room (
-	room_no
-) ON DELETE CASCADE;
-
-ALTER TABLE reserv ADD CONSTRAINT "FK_user1_TO_reserv_1" FOREIGN KEY (
-	reserv_userno
-)
-REFERENCES user1 (
-	user_no
-) ON DELETE CASCADE;
-
-ALTER TABLE reserv ADD CONSTRAINT "FK_promotion_TO_reserv_1" FOREIGN KEY (
-	reserv_promno
-)
-REFERENCES promotion (
-	prom_no
-) ON DELETE CASCADE;
-
-ALTER TABLE reserv ADD CONSTRAINT "FK_coupon_TO_reserv_1" FOREIGN KEY (
-	reserv_coupno
-)
-REFERENCES coupon (
-	coup_no
-) ON DELETE CASCADE;
-
-ALTER TABLE coupon ADD CONSTRAINT "FK_promotion_TO_coupon_1" FOREIGN KEY (
-	coup_promno
-)
-REFERENCES promotion (
-	prom_no
-) ON DELETE CASCADE;
-
-ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_owner_TO_inq_hotel_1" FOREIGN KEY (
-	inqho_ownerno
-)
-REFERENCES owner (
-	owner_no
-) ON DELETE CASCADE;
-
-ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_hotel_TO_inq_hotel_1" FOREIGN KEY (
-	inqho_hotelno
-)
-REFERENCES hotel (
-	hotel_no
-) ON DELETE CASCADE;
-
-ALTER TABLE payment ADD CONSTRAINT "PK_PAYMENT" PRIMARY KEY (
-	pay_no
-);
-
-ALTER TABLE payment ADD CONSTRAINT "FK_user1_TO_payment_1" FOREIGN KEY (
-	pay_userno
-)
-REFERENCES user1 (
-	user_no
-) ON DELETE CASCADE;
-
-create table hotelpolicy(
-    hp_hotelno number(10) references hotel(hotel_no) on delete cascade,
-
-    hp_wifi varchar2(10) default 0 check(hp_wifi in(1,0)),
-    hp_parking varchar2(10) default 0 check(hp_parking in(1,0)),
-    hp_tub varchar2(10) default 0 check(hp_tub in(1,0)),
-    hp_pool varchar2(10) default 0 check(hp_pool in(1,0)),
-    hp_restaurant varchar2(10) default 0 check(hp_restaurant in(1,0)),
-    hp_fitness varchar2(10) default 0 check(hp_fitness in(1,0)),
-    hp_bar varchar2(10) default 0 check(hp_bar in(1,0)),
-    hp_terrace varchar2(10) default 0 check(hp_terrace in(1,0)),
-    hp_sauna varchar2(10) default 0 check(hp_sauna in(1,0))
-);
-
 CREATE TABLE review (
 	review_no	number(10)		NOT NULL,
 	review_userno	number(10)		NOT NULL,
@@ -316,16 +175,145 @@ CREATE TABLE review (
 	review_point number(2) default 0 not null
 );
 
+
+-- 프라이머리키 조건 설정
+ALTER TABLE inquiry_site_reply ADD CONSTRAINT "PK_INQUIRY_SITE_REPLY" PRIMARY KEY (
+	inqre_no
+);
+ALTER TABLE hotel ADD CONSTRAINT "PK_HOTEL" PRIMARY KEY (
+	hotel_no
+);
+ALTER TABLE room ADD CONSTRAINT "PK_ROOM" PRIMARY KEY (
+	room_no
+);
+ALTER TABLE user1 ADD CONSTRAINT "PK_USER1" PRIMARY KEY (
+	user_no
+);
+ALTER TABLE reserv ADD CONSTRAINT "PK_RESERV" PRIMARY KEY (
+	reserv_no
+);
+ALTER TABLE owner ADD CONSTRAINT "PK_OWNER" PRIMARY KEY (
+	owner_no
+);
+ALTER TABLE promotion ADD CONSTRAINT "PK_PROMOTION" PRIMARY KEY (
+	prom_no
+);
+ALTER TABLE coupon ADD CONSTRAINT "PK_COUPON" PRIMARY KEY (
+	coup_no
+);
+ALTER TABLE faq ADD CONSTRAINT "PK_FAQ" PRIMARY KEY (
+	faq_no
+);
+ALTER TABLE inquiry_hotel ADD CONSTRAINT "PK_INQUIRY_HOTEL" PRIMARY KEY (
+	inqho_no
+);
+ALTER TABLE inquiry_site ADD CONSTRAINT "PK_INQUIRY_SITE" PRIMARY KEY (
+	inqsi_no
+);
+ALTER TABLE payment ADD CONSTRAINT "PK_PAYMENT" PRIMARY KEY (
+	pay_no
+);
 ALTER TABLE review ADD CONSTRAINT "PK_REVIEW" PRIMARY KEY (
 	review_no
 );
+
+
+--외래키 조건설정
+ALTER TABLE hotel ADD CONSTRAINT "FK_owner_TO_hotel_1" FOREIGN KEY (
+	hotel_ownerno
+)
+REFERENCES owner (
+	owner_no
+) ON DELETE CASCADE;
+
+
+ALTER TABLE room ADD CONSTRAINT "FK_hotel_TO_room_1" FOREIGN KEY (
+	room_hotelno
+)
+REFERENCES hotel (
+	hotel_no
+) ON DELETE CASCADE;
+
+
+ALTER TABLE reserv ADD CONSTRAINT "FK_hotel_TO_reserv_1" FOREIGN KEY (
+	reserv_hotelno
+)
+REFERENCES hotel (
+	hotel_no
+) ON DELETE SET NULL;
+
+
+ALTER TABLE reserv ADD CONSTRAINT "FK_room_TO_reserv_1" FOREIGN KEY (
+	reserv_roomno
+)
+REFERENCES room (
+	room_no
+) ON DELETE SET NULL;
+
+
+ALTER TABLE reserv ADD CONSTRAINT "FK_user1_TO_reserv_1" FOREIGN KEY (
+	reserv_userno
+)
+REFERENCES user1 (
+	user_no
+) ON DELETE CASCADE;
+
+
+ALTER TABLE reserv ADD CONSTRAINT "FK_promotion_TO_reserv_1" FOREIGN KEY (
+	reserv_promno
+)
+REFERENCES promotion (
+	prom_no
+) ON DELETE SET NULL;
+
+
+ALTER TABLE reserv ADD CONSTRAINT "FK_coupon_TO_reserv_1" FOREIGN KEY (
+	reserv_coupno
+)
+REFERENCES coupon (
+	coup_no
+) ON DELETE SET NULL;
+
+
+ALTER TABLE coupon ADD CONSTRAINT "FK_promotion_TO_coupon_1" FOREIGN KEY (
+	coup_promno
+)
+REFERENCES promotion (
+	prom_no
+) ON DELETE CASCADE;
+
+
+ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_owner_TO_inq_hotel_1" FOREIGN KEY (
+	inqho_ownerno
+)
+REFERENCES owner (
+	owner_no
+) ON DELETE CASCADE;
+
+
+ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_hotel_TO_inq_hotel_1" FOREIGN KEY (
+	inqho_hotelno
+)
+REFERENCES hotel (
+	hotel_no
+) ON DELETE CASCADE;
+
+
+ALTER TABLE payment ADD CONSTRAINT "FK_user1_TO_payment_1" FOREIGN KEY (
+	pay_userno
+)
+REFERENCES user1 (
+	user_no
+) ON DELETE CASCADE;
+
 
 ALTER TABLE review ADD CONSTRAINT "FK_user1_TO_review_1" FOREIGN KEY (
 	review_userno
 )
 REFERENCES user1 (
 	user_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
+
 
 ALTER TABLE review ADD CONSTRAINT "FK_hotel_TO_review_1" FOREIGN KEY (
 	review_hotelno
@@ -334,12 +322,14 @@ REFERENCES hotel (
 	hotel_no
 ) ON DELETE CASCADE;
 
+
 ALTER TABLE review ADD CONSTRAINT "FK_reserv_TO_review_1" FOREIGN KEY (
 	review_reservno
 )
 REFERENCES reserv (
 	reserv_no
 ) ON DELETE CASCADE;
+
 
 ALTER TABLE review ADD CONSTRAINT "FK_room_TO_review_1" FOREIGN KEY (
 	review_roomno
@@ -348,12 +338,14 @@ REFERENCES room (
 	room_no
 ) ON DELETE CASCADE;
 
+
 ALTER TABLE coupon ADD CONSTRAINT "FK_user1_TO_coupon_5" FOREIGN KEY (
 	coup_userno
 )
 REFERENCES user1 (
 	user_no
 ) ON DELETE CASCADE;
+
 
 ALTER TABLE inquiry_site ADD CONSTRAINT "FK_user1_site_1" FOREIGN KEY (
 	inqsi_userno
@@ -362,12 +354,14 @@ REFERENCES user1 (
 	user_no
 ) ON DELETE CASCADE;
 
+
 ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_user1_hotel_1" FOREIGN KEY (
 	inqho_userno
 )
 REFERENCES user1 (
 	user_no
 ) ON DELETE CASCADE;
+
 
 ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_inquiry_site_TO_site_reply_1" FOREIGN KEY (
 	inqsi__siteno
@@ -376,6 +370,7 @@ REFERENCES inquiry_site (
 	inqsi_no
 ) ON DELETE CASCADE;
 
+
 ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_user1_TO_site_reply_1" FOREIGN KEY (
 	inqre_userno
 )
@@ -383,9 +378,25 @@ REFERENCES user1 (
 	user_no
 ) ON DELETE CASCADE;
 
+
 ALTER TABLE faq ADD CONSTRAINT "FK_faq_category_TO_faq_1" FOREIGN KEY (
 	faq_category
 )
 REFERENCES faq_category (
 	faq_cate_no
 ) ON DELETE CASCADE;
+
+
+create table hotelpolicy(
+    hp_hotelno number(10) references hotel(hotel_no) on delete cascade,
+
+    hp_wifi varchar2(10) default 0 check(hp_wifi in(1,0)),
+    hp_parking varchar2(10) default 0 check(hp_parking in(1,0)),
+    hp_tub varchar2(10) default 0 check(hp_tub in(1,0)),
+    hp_pool varchar2(10) default 0 check(hp_pool in(1,0)),
+    hp_restaurant varchar2(10) default 0 check(hp_restaurant in(1,0)),
+    hp_fitness varchar2(10) default 0 check(hp_fitness in(1,0)),
+    hp_bar varchar2(10) default 0 check(hp_bar in(1,0)),
+    hp_terrace varchar2(10) default 0 check(hp_terrace in(1,0)),
+    hp_sauna varchar2(10) default 0 check(hp_sauna in(1,0))
+);
