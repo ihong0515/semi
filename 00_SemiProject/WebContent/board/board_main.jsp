@@ -19,11 +19,9 @@
     	<div id="content" align="center">
 	    	<div id="board_sidebar">
 	    		<input type="button" value="사이트 문의" id="site_board" onclick="site_board_getList()">	    		
-	    		<br>
-	    		<br>
+	    		
 	    		<input type="button" value="호텔 문의" id="hotel_board" onclick="hotel_board_getList()">
-	    		<br>
-	    		<br>
+	    		
 	    		<input type="button" value="FAQ" id="faq_board" onclick="faq_board_getList()">
 	    	</div>
 	    	<div id="board_main">
@@ -111,7 +109,7 @@
 	    		</div>
 	    	</div>
 	    	<div id="faq_main">
-				<h2 align="center">FAQ 자주하는 질문</h2>
+				<div id = "faq_title"><i class="fa fa-headphones" aria-hidden="true"></i>  FAQ 자주하는 질문</div>
 				<c:if test="${empty list }">
 				<div>
 					<h3>FAQ 데이터가 없습니다.</h3>
@@ -120,13 +118,13 @@
 				<c:if test="${!empty list }">
 				<c:forEach items="${caName }" var="cadto">
 				<div class="faq_board_wrap">
-					<button type="button" class="faq_btn_total" onclick="faq_calling_to(this);">${cadto.getFaq_cate_name() }</button>
+					<button type="button" class="faq_btn_total" onclick="faq_calling_to(this);"><i class="fa fa-question-circle-o" aria-hidden="true"></i>  ${cadto.getFaq_cate_name() }</button>
 					<c:forEach items="${list }" var="dto">
 					<c:if test="${dto.getFaq_category() == cadto.getFaq_cate_no()}">
 					<div class="faq_board_cont">
 						<button type="button" class="faq_btn" onclick="faq_calling(this);">${dto.getFaq_title() }</button>
 						<div class="faq_cont">
-							<p>${dto.getFaq_content() }</p>
+							<p><i class="fa fa-smile-o" aria-hidden="true"></i>  ${dto.getFaq_content() }</p>
 						</div>
 					</div>
 					</c:if>

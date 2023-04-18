@@ -1,4 +1,7 @@
 @charset "UTF-8";
+html{
+	overflow-x: hidden;
+}
 
 #container {
    width: 800px;
@@ -31,7 +34,7 @@
 #promotion_content_header{
   background-color: #F2F2F2;
   font-family: 'Noto Sans KR', sans-serif;
-  width: 789px;
+  width: 100vw;
   margin-left: -10px;
   padding: 10px 20px 0px 20px;
   box-sizing: border-box;
@@ -53,27 +56,65 @@
   	font-family: 'Noto Sans KR', sans-serif;
   	width: 100%;
 }
+#coupon_frame{
+	display:flex;
+	flex-direction:column;
+	width : 50%;
+	height: 50%;
+	margin: 30px auto;
+	justify-content: center;
+	align-items: left;
+}
+#coupon_title{
+	text-decoration: underline;	
+	margin-bottom: 15px;	
+}
+#coupon_back_image{
+	display:flex;
+	flex-direction:column;
+	justify-content: space-around;
+	background-image: url('../../image/coupon/coupon_frame3.jpg');
+  	background-repeat: no-repeat;
+  	background-size:cover;
+  	width: 100%;
+  	height: 191px;
+  	font-size: 13px;
+}
+#coupon_content div{
+	margin-bottom: 25px;
+}
+.coupon_sale{
+	margin-bottom: 15px;
+	width:100%;
+}
+.coupon_sale_font{
+	font-weight: bold;
+	font-size: 40px;
+	margin-right: 10px;
+	border:3px solid #5E5E5E;
+	background-color: white;
+	padding: 5px 8px 5px 8px;
+}
+#coupon_content{
+	margin-bottom: 20px;
+  	margin-right: 50px;
+}
 #promtion_content_footer{
-
 	text-align: left;
 	background-color: #F2F2F2;
 	text-align: left;
-	width: 789px;
+	width: 100vw;
 	margin-left: -10px;
 	padding: 10px 20px;
 	box-sizing: border-box;
+	
 }
-
-
 #coupon_terms{
 	width : auto;
 	margin-bottom: 20px;
 	margin-top: 20px;
 	font-size: x-small;
 }	
-
-
-
 #coupon_terms ul{
 	margin-top: 20px;
 	margin-left: 10px;
@@ -81,47 +122,21 @@
 	margin-bottom : 20px;
 	list-style: none;
 }	
-
-
 #promtion_footer_term{
 	width: auto;
 }
-
 #coup_result_area{
 	background-color: #F2F2F2;
 }
 #coupon_button{
-	border-radius: 1em;
+	border-radius: inherit;
 	background-color: #5E5E5E;
 	font-size: large;
 	color: #F2F2F2;
 	margin-bottom: 30px;
+	padding: 3px 3px 3px 3px;
 }
 #coupon_button:hover{
 	background-color: #F2F2F2;
 	color : black;
-}
-#promotion_coupon_table{
-	text-align: center;
-	font-weight: bold;
-}
-#coupon_frame{
-	width : 35%;
-	display : inline-block;
-	background-color: #F2F2F2;
-	border: 3px solid black;
-	border-top-left-radius: 25px;
-	border-bottom-right-radius: 25px;
-	border-left-style :dashed;
-	border-right-style :dashed;
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-.coupon_sale_font{
-	background-color: black;
-	font-weight: bold;
-	font-size: xx-large;
-	color: white;
-	padding: auto;
-	border-radius: 10px;
 }
