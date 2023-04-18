@@ -245,7 +245,7 @@ public class BoardDAO {
 		
 		try {
 			openConn();
-			sql = "select count(*) from inquiry_site";
+			sql = "select max(inqsi_no) from inquiry_site";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {
@@ -328,9 +328,6 @@ public class BoardDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			result = ps.executeUpdate();
-			if(result>0) {
-				sequence_site(no);
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -340,20 +337,7 @@ public class BoardDAO {
 		
 		return result;
 	}
-
-	private void sequence_site(int no) {
-		try {
-			openConn();
-			sql = "update inquiry_site set inqsi_no = inqsi_no -1 where inqsi_no = ?";
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, no);
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
+	
 	public ArrayList<Inquiry_Site_ReplyDTO> getSiteReplyList(int no) {
 		ArrayList<Inquiry_Site_ReplyDTO> list = new ArrayList<Inquiry_Site_ReplyDTO>();
 		
@@ -386,7 +370,7 @@ public class BoardDAO {
 		
 		try {
 			openConn();
-			sql = "select count(*) from inquiry_site_reply";
+			sql = "select max(inqre_no) from inquiry_site_reply";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {
@@ -419,9 +403,6 @@ public class BoardDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			result = ps.executeUpdate();
-			if(result>0) {
-				sequence_reply(no);
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -429,18 +410,6 @@ public class BoardDAO {
 			closeConn();
 		}
 		return result;
-	}
-
-	private void sequence_reply(int no) {
-		try {
-			sql = "update inquiry_site_reply set inqre_no = inqre_no -1 where inqre_no > ?";
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, no);
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public Inquiry_HotelDTO getHotelBoardContent(int no) {
@@ -638,7 +607,7 @@ public class BoardDAO {
 		
 		try {
 			openConn();
-			sql = "select count(*) from inquiry_hotel";
+			sql = "select max(inqho_no) from inquiry_hotel";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {

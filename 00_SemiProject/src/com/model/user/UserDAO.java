@@ -309,7 +309,7 @@ public class UserDAO {
 		
 		try {
 			connect();
-			sql = "select count(*) from reserv";
+			sql = "select max(reserv_no) from reserv";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {
@@ -818,20 +818,6 @@ public class UserDAO {
 		return result;
 	}
 	
-	public void updateSequencePayment(int pay_no) {
-		try {
-			connect();
-			sql = "update payment set pay_no = pay_no - 1 where pay_no > ?";
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, pay_no);
-			ps.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-	}
-	
 	public int quitUser(int user_no, String user_pwd) {
 		int result = 0;
 		try {
@@ -856,20 +842,6 @@ public class UserDAO {
 			close();
 		}
 		return result;
-	}
-	
-	public void updateSequenceUser(int user_no) {
-		try {
-			connect();
-			sql = "update user1 set user_no = user_no - 1 where user_no > ?";
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, user_no);
-			ps.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
 	}
 	
 	public String getReservListbyStatus(String status) {

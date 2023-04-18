@@ -245,10 +245,5 @@ public class PromotionDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
 	}
 }

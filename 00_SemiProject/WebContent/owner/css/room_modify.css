@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#container{
+	width: 800px;
+	margin: 50px auto;
+	text-align: center;
+}
+#content{
+	margin: 100px auto;
+	display: flex;
+	justify-content: center;
+}
+table{
+	margin: auto;
+}
+.room_img{
+	width: 200px;
+	height: 100px;
+}
+#img_wrap{
+	width: 410px;
+}

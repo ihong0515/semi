@@ -34,7 +34,5 @@ public class UserReservationAction implements Action {
 		forward.setPath("user/user_reservation.jsp");
 		
 		return forward;
-		
 	}
-
 }

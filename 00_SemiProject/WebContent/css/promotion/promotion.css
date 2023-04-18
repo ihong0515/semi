@@ -1,5 +1,5 @@
 @charset "UTF-8";
-html{
+body{
 	overflow-x: hidden;
 }
 
@@ -31,16 +31,6 @@ html{
 .promotion_image{
 	margin: auto;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /*coupon content 영역.  */
@@ -80,9 +70,6 @@ html{
   	font-size: 16px;
   	align-content: center;
   	justify-content: center;
-}
-#coupon_back_image{
-	
 }
 #coupon_title{
 	text-decoration: underline;	

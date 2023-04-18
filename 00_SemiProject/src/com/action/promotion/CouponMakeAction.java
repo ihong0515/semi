@@ -38,12 +38,8 @@ public class CouponMakeAction implements Action {
 		}else {
 			coupon_no = "이미 쿠폰을 수령하셨습니다.<br> 보유하신 쿠폰 번호는 <br> " + check;
 		}
-		
-		
 		//유저보유 쿠폰 or 사용 불가 -1 or 새로운 쿠폰
 		out.println(coupon_no);
-			
 		return null;
 	}
-
 }

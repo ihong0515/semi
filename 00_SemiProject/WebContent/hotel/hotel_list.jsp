@@ -107,7 +107,6 @@
 						</ul>
 					</form>
 				</nav>
-				
 				<c:if test="${!empty hotel_list }">
 						<div class="cnt">
 						<c:forEach items="${hotel_list }" var="dto">
@@ -145,7 +144,7 @@
 				</c:if>
 				<c:if test="${empty hotel_list }">
 					<div id = "none_list">
-						<h2>조건에 맞는 호텔 리스트가 없습니다.</h4>
+						<h2>조건에 맞는 호텔 리스트가 없습니다.</h2>
 					</div>
 				</c:if>
 			</div>
