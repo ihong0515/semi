@@ -48,8 +48,10 @@
 	text-align: center;
 }
 #user_jjim_col:nth-child(1){
-	
 	margin-top: 20px;
+}
+#user_jjim_col:nth-child(2){
+	margin-left: -150px;
 }
 #jjim_button{
 	margin-top: 30px;

@@ -115,7 +115,6 @@ public class HotelDAO {
 		ArrayList<RoomDTO> list = new ArrayList<>();
 		
 		try {
-			
 			sql = "select * from room where room_hotelno = ? order by room_price";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);

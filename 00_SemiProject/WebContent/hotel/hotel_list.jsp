@@ -88,7 +88,7 @@
 				</form>
 			</div>
 			<div id="main">
-				<nav>
+				<nav id = "hotel_list_nav">
 					<form method="post">
 						<c:forEach items="${hotel_list }" var="dto">
 							<input type="hidden" name="hotel_list" value="${dto.getHotel_no() }">
@@ -103,10 +103,11 @@
 				</nav>
 				
 				<c:if test="${!empty hotel_list }">
+					<div id = "hotel_cnt">
 					<c:forEach items="${hotel_list }" var="dto">
 						<div class="cnt">
 							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${dto.getHotel_photo_folder()}/main.jpg" width="150px" height="150px" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'">
-							<div>
+							<div id = "cnt_wrap">
 								<a href="<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }">${dto.getHotel_name() }</a>
 								<%--jjim 표시 --%>
 								<c:set var="check" value="-1" />
@@ -129,8 +130,9 @@
 								최저가 : ${dto.getHotel_price_min() }원
 								<input type="button" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'" value="예약하기">
 							</div>
+						</c:forEach>
 						</div>
-					</c:forEach>
+					</div>	
 				</c:if>
 				<c:if test="${empty hotel_list }">
 					<div>

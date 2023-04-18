@@ -12,31 +12,64 @@
 	align-content: center;
 	display: flex;
 	justify-content: flex-start;
+	align-items: flex-start;
 }
 #board_sidebar{
 	display: flex;
-	justify-content: flex-start;
+	align-items: center;
 	flex-direction: column;
 }
-#board_main{
+#board_sidebar input{
+	border: none;
+	outline: none;
+ 	box-shadow: none;
+ 	width : 100px;
+ 	height: 35px;
+ 	margin-top: 30px;
+	background-color: white;
+	border: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+}
+#board_sidebar input:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+}
+#board_main,
+#faq_main{
+	margin-top:30px;
 	width: 800px;
+	font-size : 13px;
 }
 #board_list{
 	width: 600px;
 }
+#board_list tr:nth-child(1){
+	border-bottom : 1px solid #c0c0c0;
+	background-color: #F2F2F2;
+}
+
 #board_list th, #board_list td{
 	padding: 5px 10px;
-	border-bottom: 1px solid #c0c0c0;
 	white-space: nowrap;
 	overflow: hidden;
 }
 #board_list th{
 	width: 100%;
 	height: 100%;
+	
 }
+
+#board_list td{
+	text-align: center;	
+	border-bottom : 1px solid #c0c0c0;
+}	
 #board_write_btn{
 	float: right;
 	clear: both;
+}
+#board_navi{
+	margin-top: 30px;
 }
 .board_navi_page{
 	display: none;
@@ -45,11 +78,16 @@
 }
 .page_li{
 	list-style: none;
-	width: 25px;
-	height: 25px;
-	border: 1px solid black;
+	width: 20px;
+	height: 20px;
+	border: thin solid#C3C3C3;
 	border-radius: 5px;
 	margin: auto 10px;
+	padding-bottom: 3px;
+}
+.page_li:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
 }
 .page-link{
 	vertical-align: middle;
@@ -62,14 +100,24 @@
 	position: absolute;
 	top: 0px;
 	right: 0px;
+	border: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: black;
+	font-size: 11px;
+	background-color: #F2F2F2;
+	
+}
+#board_write_modal_btn:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
 }
 #board_write_modal_overlay{
 	display: none;
 	position: absolute;
 	right: 0px;
-	bottom: -50px;
-	background-color: #fbc0bf;
-	border: 1px solid red;
+	top: -160px;
+	background-color: #525252;
+	border: 1px solid #525252;
 	border-radius: 10px;
 	width: 750px;
 	height: 360px;
@@ -81,6 +129,7 @@
 	height: 320px;
 	border-radius: 5px;
 	padding: 5px;
+	padding-top: 10px;
 }
 #modal_head{
 	margin-left: 20px;
@@ -116,17 +165,94 @@
 #modal_foot{
 	margin-top: 10px;
 }
+#modal_foot input{
+	width:18%;
+	border: thin solid#C3C3C3;
+	border-radius: 5px;
+	margin: auto 10px;
+	padding-bottom: 3px;
+}
+#modal_foot input:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+}	
 #faq_main{
 	display: none;
 	width: 100%;
 	flex-direction: column;
 }
+#faq_title{
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.faq_board_wrap{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 .faq_board_cont{
 	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .faq_cont{
 	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 11px;
 }
+.faq_btn_total{
+	width:115px;
+	height:27px;
+	border: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+	font-size: 11px;
+	background-color: white;
+}
+.faq_btn_total:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+	
+}
+.faq_btn_total_active{
+	width:115px;
+	height:27px;
+	border: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+	font-size: 11px;
+	background-color: white;
+}
+.faq_btn_total_active:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+}
+.faq_btn{
+	border:none;
+	border-bottom: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+	font-size: 11px;
+	background-color: white;
+}
+.faq_btn:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+}
+.faq_btn_active{
+	background-color: white;
+	border:none;
+	border-bottom: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+	font-size: 11px;
+}
+.faq_btn_active:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+}
+
 .faq_btn_total_active:after {
 	content: "\2212";
 }
