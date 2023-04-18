@@ -3,6 +3,7 @@ package com.action.board;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,10 +24,12 @@ public class ReviewInsertAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties"));
-		prop.load(fis);
-		fis.close();
+		prop.load(new InputStreamReader(fis));
+		
 		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\review";
+		System.out.println(System.getenv("USERPROFILE").substring(3));
+		
 		
 		int fileSize = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
