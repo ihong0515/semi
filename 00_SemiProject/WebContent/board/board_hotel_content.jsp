@@ -5,6 +5,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set value="${Dto }" var="dto" />
 <c:set value="${HoDto }" var="hoDto" />
+<c:set value="${O_dto }" var="o_dto" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,8 +81,21 @@
 		    			</tr>
 		    			<tr>
 		    				<td class="board_list_content" colspan="6">
-			    				<% pageContext.setAttribute("newLine", "\r\n"); %>
-								${fn:replace(dto.getInqho_content(), newLine, '<br/>')}
+		    					<c:if test="${!empty o_dto }">
+		    					<% pageContext.setAttribute("newLine", "\r\n"); %>
+								${fn:replace(o_dto.getInqho_content(), newLine, '<br/>')}
+		    					<br><br>
+		    					<hr><br>
+		    					&nbsp;&nbsp;&nbsp;└>RE: <br>
+		    					</c:if>
+			    				<p style="padding-left: 20px;">
+								${fn:replace(dto.getInqho_content(), newLine, '<br/>')}</p>
+								
+								<c:if test="${!empty o_dto }">
+								<br><br>
+		    					<hr><br>
+								<span style="opacity: 0.4;">※자세한 문의 사항은 ${hoDto.getHotel_phone() }으로 연락 바랍니다.</span>
+								</c:if>
 		    				</td>
 		    			</tr>
 		    		</table>

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 #container {
-
    width: 800px;
    margin: 100px auto;
    font-family: 'Noto Sans KR', sans-serif;
@@ -27,7 +26,6 @@
 }
 .board_list td,
 .board_list th{
-	
 	padding: 10px 10px;
 }
 .board_list th{
@@ -64,7 +62,6 @@
 .board_btn{
 	margin-top: 30px;
 	text-align: center;
-	
 }
 .board_btn input{
 	border:none;

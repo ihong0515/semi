@@ -18,6 +18,9 @@ function mapping_searchLandmark(e) {
 				table += "<div id='landmark_addr'>" + $(this).find("landmark_addr").text() + "</div>";
 				table += "<div id='landmark_info'>" + $(this).find("landmark_info").text() + "</div></div></div>";
 			});
+			$('body').stop().animate({
+				scrollTop:'500'
+			}, 300);
 			$('#mapping_landmark_list').html('')
 			$('#mapping_landmark_list').append(table);
 		},
@@ -33,5 +36,7 @@ function changeimg(img) {
 }
 
 function goTop(){
-	$('html').scrollTop(0);
+	$('body').stop().animate({
+		scrollTop:'0'
+	}, 300);
 }

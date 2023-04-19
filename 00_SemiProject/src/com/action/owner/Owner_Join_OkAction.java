@@ -1,8 +1,6 @@
 package com.action.owner;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,11 +31,9 @@ public class Owner_Join_OkAction implements Action {
 		dto.setOwner_email(owner_email);
 		dto.setOwner_business(owner_business);
 		
-		
 		OwnerDAO dao = OwnerDAO.getInstance();
 		
 		int check = dao.insertOwner(dto);
-		
 		
 		if(check > 0) {
 			ActionForward forward = new ActionForward();
@@ -51,9 +47,5 @@ public class Owner_Join_OkAction implements Action {
 					+ "</script>");
 			return null;
 		}
-		
-		
-		
 	}
-
 }

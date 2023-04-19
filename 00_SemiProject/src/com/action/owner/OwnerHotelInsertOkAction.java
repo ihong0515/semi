@@ -71,6 +71,22 @@ public class OwnerHotelInsertOkAction implements Action {
 		
 		int re = OwnerDAO.getInstance().insertHotelContent(dto);
 		
+		String[] str = {
+				multi.getParameter("wifi"),
+				multi.getParameter("park"),
+				multi.getParameter("tub"),
+				multi.getParameter("pool"),
+				multi.getParameter("rest"),
+				multi.getParameter("fit"),
+				multi.getParameter("bar"),
+				multi.getParameter("tera"),
+				multi.getParameter("sau")
+			};
+		OwnerDAO.getInstance().insertPolicyContent(dto.getHotel_no() ,str);
+		
+		
+		
+		
 		if(re>0) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);

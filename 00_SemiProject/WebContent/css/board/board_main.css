@@ -220,7 +220,6 @@
 .faq_btn_total:hover{
 	border: thin solid#5E5E5E;
 	color: #5E5E5E;
-	
 }
 .faq_btn_total_active{
 	width:115px;
@@ -259,7 +258,6 @@
 	border: thin solid#5E5E5E;
 	color: #5E5E5E;
 }
-
 .faq_btn_total_active:after {
 	content: "\2212";
 }

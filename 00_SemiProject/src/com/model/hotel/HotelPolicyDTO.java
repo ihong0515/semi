@@ -11,6 +11,7 @@ public class HotelPolicyDTO {
 	private boolean hp_bar;
 	private boolean hp_terrace;
 	private boolean hp_sauna;
+	
 	public int getHp_hotelNo() {
 		return hp_hotelNo;
 	}

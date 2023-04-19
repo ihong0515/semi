@@ -4,17 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>지역별 호텔 리스트</title>
+<title>지역별 명소</title>
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/mapping/mapping_landmark.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/mapping/mapping_main.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div id="fullpage">
+	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-		<div class="section">
+		<div id="content">
 			<h2>지도를 클릭해보세요!</h2>
 			<div id="mapping" align="center">
 				<img alt="" src="<%=request.getContextPath() %>/image/map/koreaMap.png" usemap="#mapping_area" id="mapping_img">
@@ -43,7 +41,7 @@
 				<button type="button" onclick="goTop()">맨 위로 ↑</button>
 			</div>
 		</div>
-		<div id="mapping_landmark_list"></div>
+		<div id="mapping_landmark_list">1</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>

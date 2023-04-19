@@ -41,14 +41,13 @@ function reply_getList(){
 				table += "</b> / <b>";
 				table += $(this).find("reply_date").text();
 				table += "</b>";
-				table += " <input type='button' value='삭제' onclick='delete_reply("+$(this).find("reply_no").text()+")'>";
+				table += " <input type='button' value='삭제' onclick=\"if(confirm(\'댓글을 삭제합니다.\')){delete_reply("+$(this).find("reply_no").text()+")}\">";
 				table += "</p>";
 				table += "<p id = reply_view_content>";
 				table += "&nbsp;&nbsp;&nbsp;"
 				table += $(this).find("reply_content").text();
 				table += "</p>";
 			});
-			console.log(table);
 			if(table==""){
 				$('#reply_view').html("<h3>댓글이 없습니다.</h3>")
 			}else{

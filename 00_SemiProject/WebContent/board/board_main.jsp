@@ -20,10 +20,8 @@
       <h2>1:1 문의 내역</h2>
     	<div id="content" align="center">
 	    	<div id="board_sidebar">
-	    		<input type="button" value="사이트 문의" id="site_board" onclick="site_board_getList()">	    		
-	    		
+	    		<input type="button" value="사이트 문의" id="site_board" onclick="site_board_getList()">
 	    		<input type="button" value="호텔 문의" id="hotel_board" onclick="hotel_board_getList()">
-	    		
 	    		<input type="button" value="FAQ" id="faq_board" onclick="faq_board_getList()">
 	    	</div>
 	    	<div id="board_main">

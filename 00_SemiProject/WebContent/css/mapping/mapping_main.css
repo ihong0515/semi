@@ -3,12 +3,12 @@
 #mapping_landmark_list{
 	margin: 100px auto;
 }
-#fullpage {
+#container {
 	width: 800px;
 	margin: 0 auto;
 	font-family: 'Noto Sans KR', sans-serif;
 }
-.section h2 {
+#content h2 {
 	font-size: 32px;
 	text-align: center;
 	font-weight: 600;
