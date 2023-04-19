@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#container{
+	width: 800px;
+	margin: 50px auto;
+	text-align: center;
+}
+#content{
+	margin: 100px auto;
+	width: 600px;
+}
+#content_main{
+	text-align: left;
+}
+#content_main table{
+	margin: auto;
+	
+	width: 100%;
+	text-align: center;
+}
+#content_main table,
+#content_main tr,
+#content_main td,
+#content_main th{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+td, th{
+	padding: 5px 10px;
+}

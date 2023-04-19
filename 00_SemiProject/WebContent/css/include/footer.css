@@ -51,6 +51,7 @@
 }
 #logo_footer {
 	float: right;
+	cursor: pointer;
 }
 #faq_footer {
 	float: right;

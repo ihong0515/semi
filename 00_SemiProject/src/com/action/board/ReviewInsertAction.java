@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import com.action.Action;
 import com.action.ActionForward;
 import com.model.board.ReviewDAO;
 import com.model.board.ReviewDTO;
+import com.model.hotel.HotelDAO;
 import com.model.user.ReserveDTO;
 import com.model.user.UserDAO;
 import com.oreilly.servlet.MultipartRequest;
@@ -60,19 +62,31 @@ public class ReviewInsertAction implements Action {
 					File path1 = new File(homedir);
 					if(!path1.exists()) {
 						path1.mkdir();
-						homedir += "\\"+dto.getReview_writer();
-						File path2 = new File(homedir);
-						if(!path2.exists()) {
-							path2.mkdir();
-						}
 					}
-					saveFolder += "\\"+hotel_name+"\\"+dto.getReview_writer();
-					file.renameTo(new File(saveFolder+"\\"+fileName));
+					homedir += "\\"+dto.getReview_writer();
+					File path2 = new File(homedir);
+					if(!path2.exists()) {
+						path2.mkdir();
+					}
+					file.renameTo(new File(saveFolder+"\\"+hotel_name+"\\"+dto.getReview_writer()+"\\"+fileName));
 					dto.setReview_photo(hotel_name+"/"+dto.getReview_writer()+"/"+fileName);
+					System.out.println(saveFolder+"\\"+hotel_name+"\\"+dto.getReview_writer()+"\\"+fileName);
 				}
 				int result = ReviewDAO.getInstance().insertReviewContent(dto);
 				
 				if(result>0) {
+					
+					ArrayList<ReviewDTO> point_list = ReviewDAO.getInstance().getReviewList(hotel_no);
+					int point_sum = 0;
+					
+					
+					for(ReviewDTO d : point_list) {
+						point_sum += d.getReview_point();
+					}
+					int point_result = (int)Math.ceil(point_sum / point_list.size());
+					
+					HotelDAO.getInstance().setHotelPoint(hotel_no, point_result);
+					
 					ActionForward forward = new ActionForward();
 					
 					forward.setRedirect(true);

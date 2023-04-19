@@ -28,3 +28,6 @@ table input {
 table input[name=phone]{
 	width: 27%;
 }
+table input[type=checkbox]{
+	width: 10px;
+}

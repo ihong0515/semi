@@ -389,7 +389,6 @@ REFERENCES faq_category (
 
 create table hotelpolicy(
     hp_hotelno number(10) references hotel(hotel_no) on delete cascade,
-
     hp_wifi varchar2(10) default 0 check(hp_wifi in(1,0)),
     hp_parking varchar2(10) default 0 check(hp_parking in(1,0)),
     hp_tub varchar2(10) default 0 check(hp_tub in(1,0)),
