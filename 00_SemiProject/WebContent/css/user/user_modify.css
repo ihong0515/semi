@@ -72,13 +72,13 @@
 }
 #container {
 	width: 800px;
-	margin: 100px auto;
+	margin: auto;
 }
 #content {
 	min-height: 100%;
 	font-family: 'Noto Sans KR', sans-serif;
 	list-style: none;
-	margin: 100px auto;
+	margin: auto;
 	align-content: center;
 }
 #content input:focus, select:focus {
@@ -95,6 +95,8 @@
  	border-spacing: 0 20px;
  	display: flex;
 	flex-direction: column;
+	width: 495px;
+	align-content: stretch;
 }
 #modify_table table {
 	margin: 30px auto;
@@ -121,11 +123,6 @@
 }
 #id_td, #name_td, #email_td {
 	color: #A1A1A1;
-}
-#modify_table {
-	width: 495px;
-	align-content: stretch;
-	margin: 0 auto;
 }
 #modify_button_div {
 	width: 495px;

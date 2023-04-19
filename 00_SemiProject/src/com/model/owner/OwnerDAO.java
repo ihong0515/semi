@@ -39,7 +39,6 @@ private static OwnerDAO instance;
 			DataSource ds = (DataSource)ctx.lookup("jdbc/myoracle");
 			con = ds.getConnection();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -50,7 +49,6 @@ private static OwnerDAO instance;
 			if(ps!=null) ps.close();
 			if(con!=null) con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -71,7 +69,6 @@ private static OwnerDAO instance;
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -97,7 +94,6 @@ private static OwnerDAO instance;
 				dto.setOwner_business(rs.getString("owner_business"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -144,7 +140,6 @@ private static OwnerDAO instance;
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -180,7 +175,6 @@ private static OwnerDAO instance;
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -228,7 +222,6 @@ private static OwnerDAO instance;
 			ps.setInt(15, dto.getHotel_no());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -245,7 +238,6 @@ private static OwnerDAO instance;
 			ps.setInt(1, no);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -283,7 +275,6 @@ private static OwnerDAO instance;
 			ps.setInt(10, dto.getRoom_no());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -300,7 +291,6 @@ private static OwnerDAO instance;
 			ps.setInt(1, no);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -341,7 +331,6 @@ private static OwnerDAO instance;
 				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();

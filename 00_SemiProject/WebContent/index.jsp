@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-int ran_num=(int)((Math.random()*10)+1);
+int ran_num=(int)((Math.random()*7)+1);
 %>
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@ int ran_num=(int)((Math.random()*10)+1);
 				<div class="star_list_Table"></div>		
 			</div>
 			<div class="prom_banner">
-				<img src="<%=request.getContextPath() %>/image/include/prom_banner/<%=ran_num %>.png" onclick="location.href='<%=request.getContextPath()%>/PromotionList.do'" width="800px">
+				<img src="<%=request.getContextPath() %>/image/include/prom_banner/<%=ran_num %>.jpg" onclick="location.href='<%=request.getContextPath()%>/PromotionList.do'" width="800px">
 			</div>
 			<div id="title">
 				<h1 class="list_title">최저가순 추천</h1>

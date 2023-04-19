@@ -35,7 +35,6 @@ public class HotelSearchSortAction implements Action {
 			Constructor constructor =  sortFiled.getConstructor();
 			Collections.sort(list, (Comparator<HotelDTO>)constructor.newInstance());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

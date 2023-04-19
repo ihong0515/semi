@@ -98,15 +98,6 @@ body{
 #coupon_content .row{
 	height: 20%;
 }
-#coupon_frame{
-	display:flex;
-	flex-direction:column;
-	width : 50%;
-	height: 50%;
-	margin: 30px auto;
-	justify-content: center;
-	align-items: left;
-}
 #coupon_title{
 	text-decoration: underline;	
 	margin-bottom: 15px;	

@@ -239,7 +239,6 @@ public class UserDAO {
 				result = 1;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -350,7 +349,6 @@ public class UserDAO {
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -365,7 +363,6 @@ public class UserDAO {
 			ps.setInt(1, reserv_coupno);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -388,7 +385,6 @@ public class UserDAO {
 				list.add(rs.getInt("reserv_roomno"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -743,7 +739,6 @@ public class UserDAO {
 				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -892,7 +887,6 @@ public class UserDAO {
 			ps.setString(2, code);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -917,7 +911,6 @@ public class UserDAO {
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -934,7 +927,6 @@ public class UserDAO {
 			ps.setString(1, user_email);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -949,7 +941,6 @@ public class UserDAO {
 			ps.setString(1, user_email);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -969,7 +960,6 @@ public class UserDAO {
 				result = rs.getString("code_check");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -1011,7 +1001,6 @@ public class UserDAO {
 				dto.setReserv_phone(rs.getString("reserv_phone"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -1032,7 +1021,6 @@ public class UserDAO {
 				list.add(rs.getString("user_id"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
@@ -1057,7 +1045,6 @@ public class UserDAO {
 				result = 0;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;

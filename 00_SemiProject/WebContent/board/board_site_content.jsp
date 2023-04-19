@@ -77,6 +77,7 @@
 		    			<tr>
 		    				<td colspan="6">
 		    					<div id="board_reply">
+		    					<p id = "reply_title"><b>comment</b></p>
 		    						<div id="reply_view">
 		    						</div>
 		    						<div id="reply_write">

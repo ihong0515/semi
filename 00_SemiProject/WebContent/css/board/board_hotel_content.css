@@ -10,26 +10,38 @@
    list-style: none;
    margin: 100px auto;
    align-content: center;
+   font-size: 12px;
 }
 .board_list{
+	background-color : #FCFCFC;
 	margin: 0 auto;
-	border: 1px solid red;
+	border: thin solid#C3C3C3;
 	border-radius: 5px;
 	padding: 10px;
 	width: 700px;
 	height: 300px;
+	border-spacing: 10px;
+}
+.board_list tr{
+	border-bottom : 1px solid #c0c0c0;
 }
 .board_list td,
 .board_list th{
-	border-bottom: 1px solid #fbc0bf;
-	padding: 5px 10px;
+	
+	padding: 10px 10px;
 }
 .board_list th{
 	text-align: left;
-	height: 20px;
+	height: 30px;
+	background-color: #F5F5F5;
+	width: 100px;
+}
+.board_list th:nth-last-child(1){
+	background: none;
 }
 .board_list_content{
 	vertical-align: top;
+	background-color: white;
 }
 .board_list_content textarea,
 #modify_board_list input[type=text]{
@@ -78,4 +90,17 @@
 .board_btn{
 	margin-top: 30px;
 	text-align: center;
+	
+}
+.board_btn input{
+	border:none;
+	border: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+	font-size: 11px;
+	background-color: white;
+}
+.board_btn input:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
 }

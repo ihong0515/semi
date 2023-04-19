@@ -37,7 +37,6 @@ public class PromotionDAO {
 			DataSource ds = (DataSource)ctx.lookup("jdbc/myoracle");
 			con = ds.getConnection();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -48,7 +47,6 @@ public class PromotionDAO {
 			if(ps!=null) ps.close();
 			if(con!=null) con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -71,7 +69,6 @@ public class PromotionDAO {
 				dto.setCoup_usecheck(rs.getString("coup_usecheck"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -96,7 +93,6 @@ public class PromotionDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			close();
@@ -121,7 +117,6 @@ public class PromotionDAO {
 				dto.setProm_sale(rs.getInt("prom_sale"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -168,7 +163,6 @@ public class PromotionDAO {
 				result = "1";
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -193,7 +187,6 @@ public class PromotionDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -212,7 +205,6 @@ public class PromotionDAO {
 				coup_serial = couponCheck();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -242,7 +234,6 @@ public class PromotionDAO {
 				ps.executeUpdate();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
