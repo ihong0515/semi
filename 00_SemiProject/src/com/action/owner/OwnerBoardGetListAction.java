@@ -20,7 +20,6 @@ public class OwnerBoardGetListAction implements Action {
 		
 		String str = "<boards>";
 		for(Inquiry_HotelDTO i : list) {
-			System.out.println(i.getInqho_no());
 			str += "<board>";
 			str += "<board_no>"+i.getInqho_no()+"</board_no>"
 				+ "<board_writer>"+i.getInqho_writer()+"</board_writer>"

@@ -4,6 +4,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set value="${Dto }" var="dto"/>
 <c:set value="${Hotel }" var="hotel"/>
+<c:set value="${loginOwner }" var="owner" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,10 +66,23 @@
 	   			<tr>
 	   				<td class="board_list_content" colspan="6">
 	    				<% pageContext.setAttribute("newLine", "\r\n"); %>
-						${fn:replace(dto.getInqho_content(), newLine, '<br/>')}</p>
+						${fn:replace(dto.getInqho_content(), newLine, '<br/>')}
 	   				</td>
 	   			</tr>
 	   		</table>
+	   		<div>
+	   			<table>
+	   				<tr>
+	   					<th>${owner.getOwner_name() }</th>
+	   					<th><input type="text" name="title"></th>
+	   				</tr>
+	   				<tr>
+	   					<td colspan="2">
+	   						
+	   					</td>
+	   				</tr>
+	   			</table>
+   			</div>
 		</div>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
