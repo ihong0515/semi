@@ -36,7 +36,6 @@ public class BoardDAO {
 			DataSource ds = (DataSource)ctx.lookup("jdbc/myoracle");
 			con = ds.getConnection();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -48,7 +47,6 @@ public class BoardDAO {
 			if(ps != null) ps.close();
 			if(con != null) con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -76,7 +74,6 @@ public class BoardDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -110,7 +107,6 @@ public class BoardDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -130,7 +126,6 @@ public class BoardDAO {
 				count = rs.getInt(1);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -163,7 +158,6 @@ public class BoardDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -187,7 +181,6 @@ public class BoardDAO {
 				count = rs.getInt(1);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -232,7 +225,6 @@ public class BoardDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -263,7 +255,6 @@ public class BoardDAO {
 				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			closeConn();
@@ -291,7 +282,6 @@ public class BoardDAO {
 				dto.setInqsi_userno(rs.getInt("inqsi_userno"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			closeConn();
@@ -311,7 +301,6 @@ public class BoardDAO {
 			ps.setInt(3, dto.getInqsi_no());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -329,7 +318,6 @@ public class BoardDAO {
 			ps.setInt(1, no);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -357,7 +345,6 @@ public class BoardDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -385,7 +372,6 @@ public class BoardDAO {
 				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -404,7 +390,6 @@ public class BoardDAO {
 			ps.setInt(1, no);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -436,7 +421,6 @@ public class BoardDAO {
 				dto.setInqho_write_check(rs.getString("inqho_write_check"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -456,7 +440,6 @@ public class BoardDAO {
 			ps.setInt(3, dto.getInqho_no());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -477,7 +460,6 @@ public class BoardDAO {
 				delList.add(rs.getInt("inqho_no"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -498,7 +480,6 @@ public class BoardDAO {
 				list.add(rs.getInt("inqho_group"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -514,7 +495,6 @@ public class BoardDAO {
 			ps.setInt(1, group);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -534,7 +514,6 @@ public class BoardDAO {
 				sequence_hotel(no);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -549,7 +528,6 @@ public class BoardDAO {
 			ps.setInt(1, no);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -571,7 +549,6 @@ public class BoardDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -594,7 +571,6 @@ public class BoardDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeConn();
@@ -627,7 +603,6 @@ public class BoardDAO {
 				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;

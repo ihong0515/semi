@@ -17,11 +17,9 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
     	<div id="content">
+    		<jsp:include page="../user/user_mypage_header.jsp"/>
 			<div id = "user_jjim_content">
-				<div id = "user_jjim_title">
-					${user_dto.getUser_name() }님이 찜한 숙소
-				</div>
-				<br>
+				<h2>${user_dto.getUser_name() }님이 찜한 숙소</h2>
 				<div id = "user_jjim_table">
 					<div id ="user_jjim_row">
 						<div id = "user_jjim_col">상품정보</div>

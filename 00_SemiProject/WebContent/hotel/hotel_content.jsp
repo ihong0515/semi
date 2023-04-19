@@ -34,9 +34,10 @@
 						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/room1/3.jpg" width="100" height="100">
 					</div>
 					<div id="hotel_info_detail">
-						<div id="hotel_info_detail_star">
+						<span id="hotel_info_detail_star_txt">${hoDTO.getHotel_star() }성급</span>
+						<span id="hotel_info_detail_star">
 							<c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach>
-						</div>
+						</span>
 						<div id="hotel_info_detail_name">
 							${hoDTO.getHotel_name() }
 							<span id="hotel_info_detail_jjim">
@@ -68,6 +69,15 @@
 						</div>
 						<div id="hotel_info_detail_point">
 							평점 ${hoDTO.getHotel_point() } / 10.0
+						</div>
+						<div id="hotel_info_detail_price">
+							<div id="left">
+								<p id="txt1">1박 요금 최저가</p>
+								<p id="txt2">객실 세금/봉사료 포함</p>
+							</div>
+							<div id="right">
+								<strong><fmt:formatNumber value="${hoDTO.getHotel_price_min() }" pattern="#,###" /><span>원~</span></strong>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -287,56 +297,58 @@
 				<div id="review_list">
 					<c:if test="${!empty reviewList }">
 					<div id="hotel_review_table">
-						<c:forEach items="${reviewList }" var="reDTO">
-						<div class="hotel_review_div">
-							<div class="hotel_review_content_head">
-								<div class="hotel_review_content_table">
-									<table>
-										<tr>
-											<th>작성자</th>
-											<td>${reDTO.getReview_writer() }</td>
-										</tr>
-										<tr>
-											<th>투숙일</th>
-											<td>${reDTO.getReview_checkindate().substring(5,10) }</td>
-										</tr>
-										<tr>
-											<c:forEach items="${roomList }" var="roDTO">
-												<c:if test="${roDTO.getRoom_no() == reDTO.getReview_roomno() }">
-													<th><i class="fa fa-bed" aria-hidden="true"></i></th>
-													<td>${roDTO.getRoom_name() }</td>
-												</c:if>
-											</c:forEach>
-										</tr>
-										<tr>
-											<th>작성일</th>
-											<td>${reDTO.getReview_date().substring(2,10) }</td>
-										</tr>
-										<tr>
-											<th>평점</th>
-											<td>${reDTO.getReview_point() }/10</td>
-										</tr>
-									</table>
+						<div id="hotel_review_table_div">
+							<c:forEach items="${reviewList }" var="reDTO">
+							<div class="hotel_review_div">
+								<div class="hotel_review_content_head">
+									<div class="hotel_review_content_table">
+										<table>
+											<tr>
+												<th>작성자</th>
+												<td>${reDTO.getReview_writer() }</td>
+											</tr>
+											<tr>
+												<th>투숙일</th>
+												<td>${reDTO.getReview_checkindate().substring(5,10) }</td>
+											</tr>
+											<tr>
+												<c:forEach items="${roomList }" var="roDTO">
+													<c:if test="${roDTO.getRoom_no() == reDTO.getReview_roomno() }">
+														<th><i class="fa fa-bed" aria-hidden="true"></i></th>
+														<td>${roDTO.getRoom_name() }</td>
+													</c:if>
+												</c:forEach>
+											</tr>
+											<tr>
+												<th>작성일</th>
+												<td>${reDTO.getReview_date().substring(2,10) }</td>
+											</tr>
+											<tr>
+												<th>평점</th>
+												<td>${reDTO.getReview_point() }/10</td>
+											</tr>
+										</table>
+									</div>
 								</div>
-							</div>
-							<div class="hotel_review_content_body">
-								<div id="hotel_review_txt">
-									<% pageContext.setAttribute("newLine", "\r\n"); %>
-									${fn:replace(reDTO.getReview_content(), newLine, '<br/>')}
+								<div class="hotel_review_content_body">
+									<div id="hotel_review_txt">
+										<% pageContext.setAttribute("newLine", "\r\n"); %>
+										${fn:replace(reDTO.getReview_content(), newLine, '<br/>')}
+									</div>
 								</div>
-								<div id="review_delete_btn">
-									<c:if test="${user.getUser_no() == reDTO.getReview_userno() || user.getUser_no() == 1}">
-										<input class="hotel_review_content_delete" type="button" onclick="location.href='<%=request.getContextPath() %>/review_delete.do?review_no=${reDTO.getReview_no() }&hotel_no=${hoDTO.getHotel_no() }'" value="리뷰 삭제">
+								<div class="hotel_review_content_image">
+									<c:if test="${reDTO.getReview_photo()!=null }">
+										<img alt="" src="<%=request.getContextPath() %>/image/review/${reDTO.getReview_photo() }" width="130" height="130">
 									</c:if>
 								</div>
 							</div>
-							<div class="hotel_review_content_image">
-								<c:if test="${reDTO.getReview_photo()!=null }">
-									<img alt="" src="<%=request.getContextPath() %>/image/review/${reDTO.getReview_photo() }" width="130" height="130">
+							<div id="review_delete_btn">
+								<c:if test="${user.getUser_no() == reDTO.getReview_userno() || user.getUser_no() == 1}">
+									<input class="hotel_review_content_delete" type="button" onclick="location.href='<%=request.getContextPath() %>/review_delete.do?review_no=${reDTO.getReview_no() }&hotel_no=${hoDTO.getHotel_no() }'" value="리뷰 삭제">
 								</c:if>
 							</div>
+							</c:forEach>
 						</div>
-						</c:forEach>
 					</div>
 					</c:if>
 					<c:if test="${empty reviewList }">
@@ -354,13 +366,19 @@
 								<tr>
 									<th>별점</th>
 									<td>
-										<input type="number" name="review_point" min="0" max="10" value="10">
+										<div class="rating_box">
+											<div class="rating">
+												★★★★★
+												<span class="rating_star">★★★★★</span>
+										    	<input type="range" name="review_point" id="starInput" value="1" step="1" min="0" max="10" onclick="starDrag()">
+											</div>
+										</div>
 									</td>
 									<td rowspan="2">
 										<textarea id="review_content" rows="5" cols="50" name="review_content" placeholder="이용하신 호텔에 대한 리뷰를 작성해주세요 :)!"></textarea>
 									</td>
 								</tr>
-								<tr>
+								<tr id="second_line">
 									<th>객실 종류</th>
 									<td>
 										<select id="review_reservno" name="review_reservno">

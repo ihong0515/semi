@@ -36,7 +36,6 @@ public class HotelDAO {
 			DataSource ds = (DataSource)ctx.lookup("jdbc/myoracle");
 			con = ds.getConnection();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -47,7 +46,6 @@ public class HotelDAO {
 			if(ps!=null) ps.close();
 			if(con!=null) con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -103,7 +101,6 @@ public class HotelDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -145,7 +142,6 @@ public class HotelDAO {
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -191,7 +187,6 @@ public class HotelDAO {
 				dto.setHotel_hashtag(hashtag);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -222,7 +217,6 @@ public class HotelDAO {
 				dto.setHp_sauna(rs.getInt("hp_Sauna")!=0);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -255,7 +249,6 @@ public class HotelDAO {
 				dto.setRoom_breakfast(rs.getString("room_breakfast"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -301,7 +294,6 @@ public class HotelDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -365,7 +357,6 @@ public class HotelDAO {
 				detail_list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
