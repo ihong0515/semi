@@ -17,7 +17,7 @@ function mapping_searchHotel(e) {
 			
 			$(data).find("hotel").each(function(){
 				table += "<div>";
-				table += "<p><img onclick='location.href=\"/00_SemiProject/hotel_get_Content.do?hotel_no="+$(this).find("hotel_no").text()+"\"' src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.jpg' style='width:200px; height:200px;' id='mapping_img_hotel'></p>";
+				table += "<p><img onclick='location.href=\"/00_SemiProject/hotel_get_Content.do?hotel_no="+$(this).find("hotel_no").text()+"\"' src='/00_SemiProject/image/hotel/" + $(this).find("hotel_photo_folder").text() + "/main.png' style='width:200px; height:200px;' id='mapping_img_hotel'></p>";
 				
 				table += "<p><a href='/00_SemiProject/hotel_get_Content.do?hotel_no="+$(this).find("hotel_no").text()+"'>"+$(this).find("hotel_name").text()+"</a><br>";
 				let star = $(this).find("hotel_star").text();
@@ -57,4 +57,8 @@ function fullpageUse(){
 		verticalCentered: true,
 		anchors:['map_anchor']
 	});
+}
+
+function goTop(){
+	$('html').scrollTop(0);
 }
