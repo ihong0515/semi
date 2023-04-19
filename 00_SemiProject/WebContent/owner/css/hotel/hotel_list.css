@@ -9,8 +9,12 @@
 	margin: 100px auto;
 	display: flex;
 }
+
 .insert_btn{
 	margin-bottom: 10px;
+}
+#room_btn{
+	display: none;
 }
 #hotel_sidebar ul{
 	width: 100%;

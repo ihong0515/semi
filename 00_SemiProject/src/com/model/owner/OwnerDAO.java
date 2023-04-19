@@ -337,6 +337,42 @@ private static OwnerDAO instance;
 		}
 		return result;
 	}
+
+	public int insertRoomContent(RoomDTO dto) {
+		int result = 0;
+		
+		try {
+			sql = "select max(room_no) from room";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto.setRoom_no(rs.getInt(1)+1);
+				
+				sql = "insert into room values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getRoom_no());
+				ps.setInt(2, dto.getRoom_hotelno());
+				ps.setString(3, dto.getRoom_name());
+				ps.setInt(4, dto.getRoom_price());
+				ps.setString(5, dto.getRoom_bed());
+				ps.setString(6, dto.getRoom_size());
+				ps.setInt(7, dto.getRoom_people_min());
+				ps.setInt(8, dto.getRoom_people_max());
+				ps.setString(9, dto.getRoom_photo_folder());
+				ps.setInt(10, dto.getRoom_photo_folder_size());
+				ps.setString(11, dto.getRoom_checkin());
+				ps.setString(12, dto.getRoom_checkout());
+				ps.setString(13, dto.getRoom_breakfast());
+				result = ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
 	
 
 

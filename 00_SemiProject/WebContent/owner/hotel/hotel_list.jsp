@@ -9,8 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel_list.js"></script>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel_list.css">
+<script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel/hotel_list.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/hotel_list.css">
 </head>
 <body>
 	<div id="container">
@@ -141,7 +141,8 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="button" class="hotel_btn" onclick="location.href='<%=request.getContextPath() %>/owner_hotel_update.do?no='" value="편집">
+							<input type="button" class="hotel_btn" onclick="" value="편집">
+							<input type="button" value="편의기능" id="hp_btn" onclick="">
 						</td>
 					</tr>
 				</table>
@@ -202,7 +203,7 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="button" class="room_btn" onclick="location.href='<%=request.getContextPath() %>/owner_room_update.do?no='" value="편집">
+							<input type="button" class="room_btn" onclick="" value="편집">
 						</td>
 					</tr>
 				</table>
@@ -211,8 +212,8 @@
 			<div id="hotel_list_room" class="hotel_sidebar">
 				<span id="room_x" onclick="close_menu(this)">X</span>
 				<ul>
-					<li><input class="insert_btn" type="button" value="룸 등록"></li>
-					<li>룸 리스트</li>
+					<li><input class="insert_btn" id="room_btn" type="button" value="객실 등록" onclick="location.href='<%=request.getContextPath() %>/owner_room_insert.do"></li>
+					<li>객실 리스트</li>
 					<li>
 						<select id="room_list" onchange="open_room_content(this)">
 							<option value="">:::::::::::</option>

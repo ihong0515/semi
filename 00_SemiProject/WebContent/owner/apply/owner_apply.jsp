@@ -7,8 +7,8 @@
 <title>입점 문의</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
-<link href="<%=request.getContextPath() %>/owner/css/owner_apply.css" rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/owner_apply.js"></script>
+<link href="<%=request.getContextPath() %>/owner/css/apply/owner_apply.css" rel="stylesheet">
+<script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/apply/owner_apply.js"></script>
 </head>
 <body>
 	<div id="container">

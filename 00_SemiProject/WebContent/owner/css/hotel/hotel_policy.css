@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+#container{
+	width: 800px;
+	margin: 50px auto;
+	text-align: center;
+}
+#content{
+	margin: 100px auto;
+}
+
+table{
+	margin: auto;
+}

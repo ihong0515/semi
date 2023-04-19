@@ -13,7 +13,7 @@
 	}
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/header.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/include/header.css">
 </head>
 <body>
 	<div id="header">

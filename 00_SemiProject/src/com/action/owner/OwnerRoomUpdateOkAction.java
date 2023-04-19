@@ -87,6 +87,8 @@ public class OwnerRoomUpdateOkAction implements Action {
 				}else {
 					System.out.println("압축 풀기 실패");
 				}
+			}else {
+				System.out.println("파일 이동 실패");
 			}
 		}
 		
@@ -99,7 +101,7 @@ public class OwnerRoomUpdateOkAction implements Action {
 			return forward;
 		}else {
 			response.getWriter().println("<script>"
-					+ "alert('호텔 수정에 실패하였습니다.');"
+					+ "alert('객실 수정에 실패하였습니다.');"
 					+ "history.back();"
 					+ "</script>");
 			return null;
