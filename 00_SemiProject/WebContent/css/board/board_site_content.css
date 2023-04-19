@@ -33,6 +33,9 @@
 	background-color: #F5F5F5;
 	width: 100px;
 }
+.board_list th:nth-last-child(1){
+	background: none;
+}
 .board_list_content{
 	vertical-align: top;
 	background-color: white;
@@ -50,7 +53,7 @@
 #reply_view p{
 	position: relative;
 	margin-bottom: 5px;
-	background-color: #F5F5F5;
+	
 }
 #reply_view_content{
 	background-color: white;

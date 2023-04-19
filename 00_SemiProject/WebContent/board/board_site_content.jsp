@@ -33,14 +33,14 @@
 		    					${dto.getInqsi_no() }
 		    				</td>
 		    				<th>
-		    					Writer.
+		    					작성자
 		    				</th>
 		    				<td style="width: 100px;"> 
 		    					${dto.getInqsi_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqsi_update() }">
 		    				<th style="width: 50px;">
-		    					Date.
+		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqsi_date().substring(0,10) }
@@ -48,7 +48,7 @@
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqsi_update() }">
 		    				<th style="width: 50px;">
-		    					UpDate.
+		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqsi_update().substring(0,10) }
@@ -57,7 +57,7 @@
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Title.
+		    					제목
 		    				</th>
 		    				<td colspan="5" style="width: 200px;"> 
 		    					${dto.getInqsi_title() }
@@ -65,7 +65,7 @@
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Cont.
+		    					문의내용
 		    				</th>
 		    			</tr>
 		    			<tr>
@@ -77,7 +77,7 @@
 		    			<tr>
 		    				<td colspan="6">
 		    					<div id="board_reply">
-		    					<p id = "reply_title"><b>comment</b></p>
+		    					<p id = "reply_title"><b><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;comment</b></p>
 		    						<div id="reply_view">
 		    						</div>
 		    						<div id="reply_write">
@@ -97,6 +97,11 @@
 		    		</table>
 		    		<table class="board_list" id="modify_board_list">
 		    			<tr>
+		    				<td colspan="6"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+		    				&nbsp;변경사항을 입력해주세요.&nbsp;
+		    				<i class="fa fa-exclamation-circle" aria-hidden="true"></i></td>
+		    			</tr>
+		    			<tr>
 		    				<th style="width: 40px;">
 		    					No.
 		    				</th>
@@ -104,14 +109,14 @@
 		    					${dto.getInqsi_no() }
 		    				</td>
 		    				<th>
-		    					Writer.
+		    					작성자
 		    				</th>
 		    				<td style="width: 100px;"> 
 		    					${dto.getInqsi_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqsi_update() }">
 		    				<th style="width: 50px;">
-		    					Date.
+		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqsi_date().substring(0,10) }
@@ -119,7 +124,7 @@
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqsi_update() }">
 		    				<th style="width: 50px;">
-		    					UpDate.
+		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqsi_update().substring(0,10) }
@@ -128,7 +133,7 @@
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Title.
+		    					제목
 		    				</th>
 		    				<td colspan="5" style="width: 200px;"> 
 		    					<input type="text" name="site_title" value="${dto.getInqsi_title() }">
@@ -136,7 +141,7 @@
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Cont.
+		    					문의내용
 		    				</th>
 		    			</tr>
 		    			<tr>

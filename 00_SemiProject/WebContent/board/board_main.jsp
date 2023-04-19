@@ -44,7 +44,7 @@
 	    			</tr>
 	    			<tr>
 	    				<th colspan="5">
-	    					버튼을 눌러 게시물을 불러오세요.
+	    					<span id = "none_board_list">버튼을 눌러 게시물을 불러오세요.</span>
 	    				</th>
 	    			<tr>
 	    		</table>
