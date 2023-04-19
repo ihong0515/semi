@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <title>GoCatchStay Owner Page</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/index.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/owner_index.js"></script>

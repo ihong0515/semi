@@ -36,6 +36,7 @@ function getCoupon(){
 		});
 	}
 }
+
 function openContent(prom_no){
 	window.open(
 		'PromotionContent.do?no='+prom_no, 
@@ -43,5 +44,3 @@ function openContent(prom_no){
 		'toolbar=no,scrollbars=0,resizable=0,status=no,width=800,height=900,left=250,top=0'
 	);
 }
-
-

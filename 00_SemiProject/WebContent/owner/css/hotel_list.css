@@ -46,6 +46,7 @@
 	position: absolute;
 	right: 10px;
 	top: 2px;
+	cursor: pointer;
 }
 #hotel_list_room{
 	right: 0

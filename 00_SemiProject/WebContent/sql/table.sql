@@ -224,7 +224,7 @@ ALTER TABLE hotel ADD CONSTRAINT "FK_owner_TO_hotel_1" FOREIGN KEY (
 )
 REFERENCES owner (
 	owner_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE room ADD CONSTRAINT "FK_hotel_TO_room_1" FOREIGN KEY (
@@ -232,7 +232,7 @@ ALTER TABLE room ADD CONSTRAINT "FK_hotel_TO_room_1" FOREIGN KEY (
 )
 REFERENCES hotel (
 	hotel_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE reserv ADD CONSTRAINT "FK_hotel_TO_reserv_1" FOREIGN KEY (
@@ -256,7 +256,7 @@ ALTER TABLE reserv ADD CONSTRAINT "FK_user1_TO_reserv_1" FOREIGN KEY (
 )
 REFERENCES user1 (
 	user_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE reserv ADD CONSTRAINT "FK_promotion_TO_reserv_1" FOREIGN KEY (
@@ -280,7 +280,7 @@ ALTER TABLE coupon ADD CONSTRAINT "FK_promotion_TO_coupon_1" FOREIGN KEY (
 )
 REFERENCES promotion (
 	prom_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_owner_TO_inq_hotel_1" FOREIGN KEY (
@@ -288,7 +288,7 @@ ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_owner_TO_inq_hotel_1" FOREIGN KEY (
 )
 REFERENCES owner (
 	owner_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_hotel_TO_inq_hotel_1" FOREIGN KEY (
@@ -296,7 +296,7 @@ ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_hotel_TO_inq_hotel_1" FOREIGN KEY (
 )
 REFERENCES hotel (
 	hotel_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE payment ADD CONSTRAINT "FK_user1_TO_payment_1" FOREIGN KEY (
@@ -304,7 +304,7 @@ ALTER TABLE payment ADD CONSTRAINT "FK_user1_TO_payment_1" FOREIGN KEY (
 )
 REFERENCES user1 (
 	user_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE review ADD CONSTRAINT "FK_user1_TO_review_1" FOREIGN KEY (
@@ -320,7 +320,7 @@ ALTER TABLE review ADD CONSTRAINT "FK_hotel_TO_review_1" FOREIGN KEY (
 )
 REFERENCES hotel (
 	hotel_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE review ADD CONSTRAINT "FK_reserv_TO_review_1" FOREIGN KEY (
@@ -328,7 +328,7 @@ ALTER TABLE review ADD CONSTRAINT "FK_reserv_TO_review_1" FOREIGN KEY (
 )
 REFERENCES reserv (
 	reserv_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE review ADD CONSTRAINT "FK_room_TO_review_1" FOREIGN KEY (
@@ -336,7 +336,7 @@ ALTER TABLE review ADD CONSTRAINT "FK_room_TO_review_1" FOREIGN KEY (
 )
 REFERENCES room (
 	room_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE coupon ADD CONSTRAINT "FK_user1_TO_coupon_5" FOREIGN KEY (
@@ -344,7 +344,7 @@ ALTER TABLE coupon ADD CONSTRAINT "FK_user1_TO_coupon_5" FOREIGN KEY (
 )
 REFERENCES user1 (
 	user_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE inquiry_site ADD CONSTRAINT "FK_user1_site_1" FOREIGN KEY (
@@ -352,7 +352,7 @@ ALTER TABLE inquiry_site ADD CONSTRAINT "FK_user1_site_1" FOREIGN KEY (
 )
 REFERENCES user1 (
 	user_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_user1_hotel_1" FOREIGN KEY (
@@ -360,7 +360,7 @@ ALTER TABLE inquiry_hotel ADD CONSTRAINT "FK_user1_hotel_1" FOREIGN KEY (
 )
 REFERENCES user1 (
 	user_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_inquiry_site_TO_site_reply_1" FOREIGN KEY (
@@ -368,7 +368,7 @@ ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_inquiry_site_TO_site_reply_1" 
 )
 REFERENCES inquiry_site (
 	inqsi_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_user1_TO_site_reply_1" FOREIGN KEY (
@@ -376,7 +376,7 @@ ALTER TABLE inquiry_site_reply ADD CONSTRAINT "FK_user1_TO_site_reply_1" FOREIGN
 )
 REFERENCES user1 (
 	user_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 ALTER TABLE faq ADD CONSTRAINT "FK_faq_category_TO_faq_1" FOREIGN KEY (
@@ -384,7 +384,7 @@ ALTER TABLE faq ADD CONSTRAINT "FK_faq_category_TO_faq_1" FOREIGN KEY (
 )
 REFERENCES faq_category (
 	faq_cate_no
-) ON DELETE CASCADE;
+) ON DELETE SET NULL;
 
 
 create table hotelpolicy(

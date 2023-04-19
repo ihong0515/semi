@@ -26,10 +26,7 @@ public class ReviewInsertAction implements Action {
 		FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties"));
 		prop.load(new InputStreamReader(fis));
 		
-		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\review";
-		System.out.println(System.getenv("USERPROFILE").substring(3));
-		
 		
 		int fileSize = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());

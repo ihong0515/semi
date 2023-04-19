@@ -221,12 +221,11 @@ private static OwnerDAO instance;
 			ps.setInt(11, dto.getHotel_people_min());
 			ps.setInt(12, dto.getHotel_people_max());
 			ps.setInt(13, dto.getHotel_star());
-			int i = 14;
-			for(String s : dto.getHotel_hashtag()) {
-				ps.setString(i, s);
-				i++;
-			}
-			ps.setInt(13, dto.getHotel_no());
+			
+			String str = dto.getHotel_hashtag().get(0)+","+dto.getHotel_hashtag().get(1)+","+dto.getHotel_hashtag().get(2);
+			
+			ps.setString(14, str);
+			ps.setInt(15, dto.getHotel_no());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -236,6 +235,120 @@ private static OwnerDAO instance;
 		}
 		return result;
 	}
+
+	public int deleteHotelContent(int no) {
+		int result = 0;
+		
+		try {
+			sql = "delete from hotel where hotel_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	public int updateRoomContent(RoomDTO dto) {
+		int result = 0;
+		
+		try {
+			sql = "update room set room_name = ?, "
+					+ "room_price = ?, "
+					+ "room_bed = ?, "
+					+ "room_size = ?, "
+					+ "room_people_min = ?, "
+					+ "room_people_max = ?, "
+					+ "room_checkin = ?, "
+					+ "room_checkout = ?, ";
+			if(dto.getRoom_photo_folder_size()!=0) {
+				sql += "room_photo_folder_size = '"+dto.getRoom_photo_folder_size()+"', ";
+			}
+			sql += "room_breakfast = ? "
+				+ "where room_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getRoom_name());
+			ps.setInt(2, dto.getRoom_price());
+			ps.setString(3, dto.getRoom_bed());
+			ps.setString(4, dto.getRoom_size());
+			ps.setInt(5, dto.getRoom_people_min());
+			ps.setInt(6, dto.getRoom_people_max());
+			ps.setString(7, dto.getRoom_checkin());
+			ps.setString(8, dto.getRoom_checkout());
+			ps.setString(9, dto.getRoom_breakfast());
+			ps.setInt(10, dto.getRoom_no());
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	public int deleteRoomContent(int no) {
+		int result = 0;
+		
+		try {
+			sql = "delete from room where room_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	public int insertHotelContent(HotelDTO dto) {
+		int result = 0;
+		
+		try {
+			sql = "select max(hotel_no) from hotel";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto.setHotel_no(rs.getInt(1)+1);
+				
+				sql = "insert into hotel values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default, ?)";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getHotel_no());
+				ps.setInt(2, dto.getHotel_ownerNo());
+				ps.setString(3, dto.getHotel_name());
+				ps.setString(4, dto.getHotel_phone());
+				ps.setString(5, dto.getHotel_addr());
+				ps.setString(6, dto.getHotel_location());
+				ps.setString(7, dto.getHotel_email());
+				ps.setString(8, dto.getHotel_info());
+				ps.setInt(9, dto.getHotel_room_count());
+				ps.setInt(10, dto.getHotel_establish());
+				ps.setString(11, dto.getHotel_photo_folder());
+				ps.setInt(12, dto.getHotel_price_min());
+				ps.setInt(13, dto.getHotel_price_max());
+				ps.setInt(14, dto.getHotel_people_min());
+				ps.setInt(15, dto.getHotel_people_max());
+				ps.setInt(16, dto.getHotel_star());
+				String str = dto.getHotel_hashtag().get(0)+","+dto.getHotel_hashtag().get(1)+","+dto.getHotel_hashtag().get(2);
+				ps.setString(17, str);
+				result = ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+	
 
 
 }

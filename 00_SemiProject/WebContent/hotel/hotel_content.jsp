@@ -254,7 +254,7 @@
 						<div class="room_content">
 							<div class="room_content_img">
 								<c:forEach begin="1" end="${roDTO.getRoom_photo_folder_size() }" var="i">
-									<img onclick="nextSlideImg(this)" alt="" src="<%=request.getContextPath() %>/image/hotel${roDTO.getRoom_photo_folder() }${i }.jpg" width="150" height="150">
+									<img onclick="nextSlideImg(this)" alt="" src="<%=request.getContextPath() %>/image/hotel/${roDTO.getRoom_photo_folder() }/${i }.jpg" width="100" height="100">
 								</c:forEach>
 							</div>
 							<div class="room_content_info">
@@ -325,7 +325,7 @@
 									${fn:replace(reDTO.getReview_content(), newLine, '<br/>')}
 								</div>
 								<div id="review_delete_btn">
-									<c:if test="${user.getUser_no() == reDTO.getReview_userno() }">
+									<c:if test="${user.getUser_no() == reDTO.getReview_userno() || user.getUser_no() == 1}">
 										<input class="hotel_review_content_delete" type="button" onclick="location.href='<%=request.getContextPath() %>/review_delete.do?review_no=${reDTO.getReview_no() }&hotel_no=${hoDTO.getHotel_no() }'" value="리뷰 삭제">
 									</c:if>
 								</div>

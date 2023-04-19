@@ -40,7 +40,9 @@ function open_room_list(self){
 				$('.info_insert').eq(10).text($(data).find("ho_peo_max").text());
 				$('.info_insert').eq(11).text($(data).find("ho_star").text());
 				$('.info_insert').eq(12).text($(data).find("ho_hash").text());
-				$('.info_insert').eq(13).text($(data).find("ho_info").text());
+				
+				let inf = $(data).find("ho_info").text().replace(/(?:\r\n|\r|\n)/g, '<br>');
+				$('.info_insert').eq(13).html(inf);
 				
 				$('#room_list option:eq(0)').after(str);
 				close_menu('#room_x');
