@@ -250,16 +250,13 @@ public class BoardDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				dto.setInqsi_no(rs.getInt(1)+1);
-				sql = "insert into inquiry_site values(?, ?, ?, ?, sysdate, default, ?, ?, ?, ?)";
+				sql = "insert into inquiry_site values(?, ?, ?, ?, sysdate, default, ?)";
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, dto.getInqsi_no());
 				ps.setString(2, dto.getInqsi_writer());
 				ps.setString(3, dto.getInqsi_title());
 				ps.setString(4, dto.getInqsi_content());
-				ps.setInt(5, dto.getInqsi_no());
-				ps.setInt(6, dto.getInqsi_no());
-				ps.setInt(7, dto.getInqsi_no());
-				ps.setInt(8, dto.getInqsi_userno());
+				ps.setInt(5, dto.getInqsi_userno());
 				result = ps.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -343,7 +340,7 @@ public class BoardDAO {
 		
 		try {
 			openConn();
-			sql = "select * from inquiry_site_reply where inqsi_siteno = ? order by inqre_no desc";
+			sql = "select * from inquiry_site_reply where inqre_siteno = ? order by inqre_no desc";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			rs = ps.executeQuery();

@@ -10,27 +10,32 @@
 	list-style: none;
 	margin: 100px auto;
 	align-content: center;
+	font-size: 12px;
 }
 
 .board_list{
+	background-color : #FCFCFC;
 	margin: 0 auto;
-	border: 1px solid red;
+	border: thin solid#C3C3C3;
 	border-radius: 5px;
 	padding: 10px;
 	width: 700px;
 	height: 300px;
+	border-spacing: 10px;
 }
 .board_list td,
 .board_list th{
-	border-bottom: 1px solid #fbc0bf;
-	padding: 5px 10px;
+	padding: 10px 10px;
 }
 .board_list th{
 	text-align: left;
-	height: 20px;
+	height: 30px;
+	background-color: #F5F5F5;
+	width: 100px;
 }
 .board_list_content{
 	vertical-align: top;
+	background-color: white;
 }
 .board_list_content textarea,
 #modify_board_list input[type=text]{
@@ -39,9 +44,35 @@
 	border: 0;
 	resize: none;
 }
+#reply_title{
+	margin-bottom: 5px;
+}
+#reply_view p{
+	position: relative;
+	margin-bottom: 5px;
+	background-color: #F5F5F5;
+}
+#reply_view_content{
+	background-color: white;
+	width: 90%;
+}
+#reply_view input{
+	border:none;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+	font-size: 9px;
+	position: absolute;
+	right: 0;
+	background-color: #FCFCFC;
+}
+#reply_view input:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
+}
 #reply_write{
 	display: flex;
 	justify-content: flex-start;
+	margin-top: 10px;
 }
 .board_list_content textarea:focus,
 #modify_board_list input[type=text]:focus{
@@ -58,25 +89,41 @@
 	height: 95%;
 }
 #reply_write_body textarea{
-	border: 1px solid #fbc0bf;
+	background-color : white;
+	border : none;
 	resize: none;
 	width: 95%;
 	height: 95%;
+	border: thin solid#C3C3C3;
 }
 #reply_write_body textarea:focus{
-	outline-color: #ec1c24;
+	outline-color: #C3C3C3;
 }
 #reply_write_btn input{
 	widows: 95%;
 	height: 95%;
-	background-color: #fbc0bf;
-	color: red;
-	border: 1px solid red;
+	background-color: white;
+	color: #8F8F8F;
+	border: thin solid#C3C3C3;
+	font-size: 11px;
 }
 #reply_write_btn input:hover{
-	background-color: white;
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
 }
 .board_btn{
 	margin-top: 30px;
 	text-align: center;
+}
+.board_btn input{
+	border:none;
+	border: thin solid#C3C3C3;
+	padding: 5px 10px 5px 10px;
+	color: #8F8F8F;
+	font-size: 11px;
+	background-color: white;
+}
+.board_btn input:hover{
+	border: thin solid#5E5E5E;
+	color: #5E5E5E;
 }

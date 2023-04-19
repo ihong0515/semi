@@ -38,12 +38,13 @@ function reply_getList(){
 			$(data).find("reply").each(function(){
 				table += "<p><b>";
 				table += $(this).find("reply_user_name").text();
-				table += "</b> / ";
+				table += "</b> / <b>";
 				table += $(this).find("reply_date").text();
-				table += " / ";
-				table += "<input type='button' value='삭제' onclick='delete_reply("+$(this).find("reply_no").text()+")'>";
+				table += "</b>";
+				table += " <input type='button' value='삭제' onclick='delete_reply("+$(this).find("reply_no").text()+")'>";
 				table += "</p>";
-				table += "<p>";
+				table += "<p id = reply_view_content>";
+				table += "&nbsp;&nbsp;&nbsp;"
 				table += $(this).find("reply_content").text();
 				table += "</p>";
 			});
