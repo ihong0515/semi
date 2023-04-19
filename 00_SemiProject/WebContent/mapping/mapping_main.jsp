@@ -20,8 +20,8 @@
 				<a href="<%=request.getContextPath() %>/index.jsp"><i class="fa fa-home" aria-hidden="true"></i></a>
 			</div>
 			<div id="mapping" align="center">
-				<img alt="" src="<%=request.getContextPath() %>/image/map/koreaMap.jpg" usemap="#mapping_area" id="mapping_img">
-				<map name="mapping_area">
+				<img alt="" src="<%=request.getContextPath() %>/image/map/seoul.png" usemap="#mapping_area" id="mapping_img">
+				<%-- <map name="mapping_area">
 					<area shape="poly" alt="서울" title="" coords="110,34,116,38,125,33,131,39,128,51,135,53,132,64,136,66,131,85,131,90,151,82,153,92,145,97,140,106,145,113,130,127,117,136,110,125,99,126,88,134,79,128,74,135,66,111,54,121,52,110,54,94,52,91,46,93,37,88,43,80,48,69,61,81,75,74,79,52,90,49,94,59,100,58,98,47,103,40" 
 					onmouseover="changeimg('<%=request.getContextPath() %>/image/map/seoul.jpg')" onmouseout="changeimg('<%=request.getContextPath() %>/image/map/koreaMap.jpg')" onclick="mapping_searchHotel(this)" target="" />
 					<area shape="poly" alt="경기" title="" coords="237,47,248,57,256,53,261,57,270,57,272,64,281,70,281,77,276,79,275,90,280,100,283,97,296,106,293,110,295,119,293,125,290,137,290,142,282,141,285,148,270,150,267,155,258,161,248,157,242,158,240,155,236,161,229,160,224,151,220,144,215,137,218,129,225,130,212,115,214,112,208,99,195,102,193,81,208,87,216,85,218,70,226,64,233,55" 
@@ -42,7 +42,7 @@
 					onmouseover="changeimg('<%=request.getContextPath() %>/image/map/junnam.jpg')" onmouseout="changeimg('<%=request.getContextPath() %>/image/map/koreaMap.jpg')" onclick="mapping_searchHotel(this)" target="" />
 					<area shape="poly" alt="제주" title="" coords="89,306,115,304,131,313,130,327,114,338,95,342,61,341,56,329,69,313,83,308" 
 					onmouseover="changeimg('<%=request.getContextPath() %>/image/map/jeju.jpg')" onmouseout="changeimg('<%=request.getContextPath() %>/image/map/koreaMap.jpg')" onclick="mapping_searchHotel(this)" target="" />
-				</map>
+				</map> --%>
 			</div>
 		</div>
 		<div class="section" data-anchor="hotel_list_anchor">
