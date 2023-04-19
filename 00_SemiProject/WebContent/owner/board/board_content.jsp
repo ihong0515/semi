@@ -64,8 +64,8 @@
 	   			</tr>
 	   			<tr>
 	   				<td class="board_list_content" colspan="6">
-	    				<% pageContext.setAttribute("newLine", "\r\n"); %>
-						${fn:replace(dto.getInqho_content(), newLine, '<br/>')}</p>
+	    					<% pageContext.setAttribute("newLine", "\r\n"); %>
+						${fn:replace(dto.getInqho_content(), newLine, '<br/>')}
 	   				</td>
 	   			</tr>
 	   		</table>
