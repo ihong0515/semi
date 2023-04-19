@@ -35,7 +35,6 @@ public class ReviewDAO {
 			DataSource ds = (DataSource)ctx.lookup("jdbc/myoracle");
 			con = ds.getConnection();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -46,7 +45,6 @@ public class ReviewDAO {
 			if(ps!=null) ps.close();
 			if(con!=null) con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -75,7 +73,6 @@ public class ReviewDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -97,7 +94,6 @@ public class ReviewDAO {
 				result = 1; // 사용 가능
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -133,7 +129,6 @@ public class ReviewDAO {
 			ps.setInt(9, dto.getReview_point());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -153,7 +148,6 @@ public class ReviewDAO {
 				sequence(review_no);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -168,7 +162,6 @@ public class ReviewDAO {
 			ps.setInt(1, review_no);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -196,7 +189,6 @@ public class ReviewDAO {
 				dto.setReview_point(rs.getInt("review_point"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();
@@ -216,7 +208,6 @@ public class ReviewDAO {
 				fileName = rs.getString("review_photo");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return fileName;

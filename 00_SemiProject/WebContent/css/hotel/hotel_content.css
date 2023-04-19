@@ -13,7 +13,7 @@
 #hotel_info {
 	display: flex;
 	text-align: left;
-	justify-content: center;
+	justify-content: flex-start;
 }
 #hotel_info_big_img {
 	margin: 5px;
@@ -28,19 +28,25 @@
 	margin: 5px;
 }
 #hotel_info_detail {
-	width: 300px;
+	width: 340px;
 	float: right;
 	padding-left: 20px;
 }
 #hotel_info_detail_star {
 	color: #F2D06B;
 }
+#hotel_info_detail_star_txt {
+	color: #BA5756;
+	font-size: 13px;
+	line-height: 13px;
+}
 #hotel_info_detail_name {
-	font-size: 26px;
-	margin-bottom: 20px;
+	font-size: 30px;
+	margin-top: 10px;
+	margin-bottom: 30px;
 	vertical-align: middle;
-	font-weight: 400;
-	line-height: 36px;
+	font-weight: 600;
+	line-height: 26px;
 	letter-spacing: -1px;
 }
 #hotel_info_detail_jjim {
@@ -83,6 +89,38 @@
 	font-size: 14px;
 	font-weight: 700;
 	vertical-align: middle;
+	border-bottom: 1px solid #ddd;
+}
+#hotel_info_detail_price {
+	width: 100%;
+}
+#hotel_info_detail_price #left {
+	width: 50%;
+	float: left;
+}
+#hotel_info_detail_price #left #txt1 {
+	font-family: 15px;
+	font-weight: 600;
+	margin-bottom: 3px;
+}
+#hotel_info_detail_price #left #txt2 {
+	font-size: 13px;
+	color: #888;
+}
+#hotel_info_detail_price #right {
+	width: 50%;
+	float: right;
+	text-align: right;
+}
+#hotel_info_detail_price #right strong {
+	display: inline-block;
+	font-size: 32px;
+	font-weight: 600;
+}
+#hotel_info_detail_price #right span {
+	font-size: 22px;
+	font-weight: 400;
+	padding-left: 3px;
 }
 #room_info {
 	margin-top: 30px;
@@ -205,7 +243,6 @@
 	background-color: black;
 }
 .hotel_review_div {
-	padding: 10px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -213,11 +250,11 @@
 #hotel_review_table {
 	border-bottom: 1px solid #ddd;
 }
+#hotel_review_table_div {
+	padding: 10px;
+}
 .hotel_review_content_head {
 	width: 150px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 }
 .hotel_review_content_head table {
 	font-size: 14px;
@@ -263,7 +300,7 @@
 	border: 0;
 }
 #review_write textarea {
-	width: 560px;
+	width: 450px;
 	margin: 10px;
 	background: #F2F2F2;
 	padding: 10px;
@@ -281,6 +318,9 @@ textarea:focus {
 	font-size: 14px;
 	color: black;
 	text-align: left;
+}
+#second_line {
+	line-height: 60px;
 }
 #review_write_table th, td {
 	padding-left: 5px;
@@ -427,4 +467,36 @@ textarea:focus {
 	background: #f5f5f5;
 	padding: 4px 12px;
 	border-radius: 4px;
+}
+
+/* 별점 구현 */
+.rating_box {
+  display: flex;
+}
+
+.rating {
+  position: relative!important;
+  color: #ddd;
+  font-size: 20px;
+  text-align: center;
+}
+
+#starInput {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.rating_star {
+  width: 0;
+  color: #ffc107;
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  pointer-events: none;
 }

@@ -58,7 +58,6 @@ public class CrawlingSearchListAction implements Action {
 				}
 				request.setAttribute("Check", "1");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -93,7 +92,6 @@ public class CrawlingSearchListAction implements Action {
 				
 				request.setAttribute("Check", "2");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -124,7 +122,6 @@ public class CrawlingSearchListAction implements Action {
 				}
 				request.setAttribute("Check", "3");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else {

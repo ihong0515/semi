@@ -15,7 +15,8 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
     	<div id="content">
-    	<div id ="user_coupon_table_title">${user_dto.getUser_name() }' s coupon history</div>
+	    	<jsp:include page="../user/user_mypage_header.jsp"/>
+	    	<h2>${user_dto.getUser_name() }' s coupon history</h2>
 			<div id ="user_coupon_content">
 				<div id = "user_coupon_table">
 					<div id = "user_coupon_row">

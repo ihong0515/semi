@@ -16,6 +16,8 @@
 <body>
 	<div id="container">
       <jsp:include page="../include/header.jsp" />
+      <jsp:include page="../user/user_mypage_header.jsp"/>
+      <h2>1:1 문의 내역</h2>
     	<div id="content" align="center">
 	    	<div id="board_sidebar">
 	    		<input type="button" value="사이트 문의" id="site_board" onclick="site_board_getList()">	    		

@@ -8,7 +8,7 @@
 	min-height: 100%;
 	font-family: 'Noto Sans KR', sans-serif;
 	list-style: none;
-	margin: 100px auto;
+	margin: auto;
 	align-content: center;
 }
 #content h2 {
@@ -17,14 +17,14 @@
 	font-size: 25px;
 }
 #payment_table {
-	margin: 30px auto;
+	margin: auto;
 	border-collapse: separate;
  	border-spacing: 0 20px;
  	display: flex;
 	flex-direction: column;
 }
 #payment_table table {
-	margin: 30px auto;
+	margin: 10px auto;
 }
 #payment_table th {
 	text-align: left;
@@ -86,9 +86,9 @@
 }
 #newPayment_button_div {
 	width: 495px;
-	height: 70px;
+	height: 50px;
 	align-content: stretch;
-	margin: auto;
+	margin: 30px auto;
 }
 #newPayment_button {
 	box-sizing: border-box;
@@ -103,7 +103,6 @@
 	background: black;
 	color: white;
 	cursor: pointer;
-	margin: 10px auto;
 }
 #newPayment_button:hover {
 	background: #F2F2F2;
