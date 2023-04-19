@@ -1,12 +1,44 @@
 @charset "UTF-8";
 
-#mapping_hotel_list{
-	display: flex;
-	justify-content: space-around;
+#mapping_landmark_list{
+	margin: 100px auto;
 }
-#mapping_a{
+#fullpage {
+	width: 800px;
+	margin: 0 auto;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.section h2 {
+	font-size: 32px;
 	text-align: center;
+	font-weight: 600;
+	margin: 30px auto;
 }
-#mapping_img_hotel:hover{
-	cursor: pointer;
-}	
+#landmark_location {
+	font-size: 32px;
+	font-weight: 900;
+}
+#entire_div {
+	padding: 17px;
+	display: flex;
+}
+#etc_div {
+	display: flex;
+	flex-direction: column;
+	padding-left: 17px;
+}
+#landmark_img {
+	width: 245px;
+}
+#landmark_name {
+	font-size: 18px;
+	margin-bottom: 5px;
+	font-weight: 600;
+}
+#landmark_addr {
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+#landmark_info {
+	font-size: 13px;
+}
