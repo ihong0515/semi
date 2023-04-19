@@ -37,14 +37,14 @@
 		    					${dto.getInqho_no() }
 		    				</td>
 		    				<th>
-		    					Writer.
+		    					작성자
 		    				</th>
 		    				<td style="width: 100px;"> 
 		    					${dto.getInqho_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqho_update() }">
 		    				<th style="width: 50px;">
-		    					Date.
+		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqho_date().substring(0,10) }
@@ -52,7 +52,7 @@
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqho_update() }">
 		    				<th style="width: 50px;">
-		    					UpDate.
+		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqho_update().substring(0,10) }
@@ -61,18 +61,21 @@
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Title.
+		    					제목
 		    				</th>
-		    				<td colspan="3" style="width: 200px;"> 
+		    				<td colspan="2" style="width: 200px;"> 
 		    					${dto.getInqho_title() }
 		    				</td>
+		    				<th>
+		    					hotel
+		    				</th>
 		    				<td colspan="2">
 		    					${hoDto.getHotel_name() }
 		    				</td>
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Cont.
+		    					<i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;문의내역
 		    				</th>
 		    			</tr>
 		    			<tr>
@@ -84,6 +87,11 @@
 		    		</table>
 		    		<table class="board_list" id="modify_board_list">
 		    			<tr>
+		    				<td colspan="6"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+		    				&nbsp;변경사항을 입력해주세요.&nbsp;
+		    				<i class="fa fa-exclamation-circle" aria-hidden="true"></i></td>
+		    			</tr>
+		    			<tr>
 		    				<th style="width: 40px;">
 		    					No.
 		    				</th>
@@ -91,14 +99,14 @@
 		    					${dto.getInqho_no() }
 		    				</td>
 		    				<th>
-		    					Writer.
+		    					작성자
 		    				</th>
 		    				<td style="width: 100px;"> 
 		    					${dto.getInqho_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqho_update() }">
 		    				<th style="width: 50px;">
-		    					Date.
+		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqho_date().substring(0,10) }
@@ -106,7 +114,7 @@
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqho_update() }">
 		    				<th style="width: 50px;">
-		    					UpDate.
+		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
 		    				<td>
 		    					${dto.getInqho_update().substring(0,10) }
@@ -115,18 +123,21 @@
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Title.
+		    					제목
 		    				</th>
-		    				<td colspan="3" style="width: 200px;">
+		    				<td colspan="2" style="width: 200px;">
 		    					<input type="text" name="hotel_title" value="${dto.getInqho_title() }">
 		    				</td>
+		    				<th>
+		    					hotel
+		    				</th>
 		    				<td colspan="2">
 		    					${hoDto.getHotel_name() }
 		    				</td>
 		    			</tr>
 		    			<tr>
 		    				<th>
-		    					Cont.
+		    					<i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;문의내역
 		    				</th>
 		    			</tr>
 		    			<tr>
