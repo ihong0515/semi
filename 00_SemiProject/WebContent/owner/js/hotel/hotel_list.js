@@ -25,8 +25,12 @@ function open_room_list(self){
 					
 					str += "<option value='"+no+"'>"+name+"</option>";
 				});
-				let path = $('.hotel_btn').attr('onclick')+"+'"+$(data).find("ho_no").text()+"'";
+				
+				let num = $(data).find("ho_no").text();
+				let path ="location.href='"+contextPath+"/owner_hotel_update.do?no="+num+"'";
 				$('.hotel_btn').attr('onclick', path);
+				let path2 = "location.href='"+contextPath+"/owner_hotel_policy.do?no="+num+"'";
+				$('#hp_btn').attr('onclick', path2);
 				$('.info_insert').eq(0).text($(data).find("ho_name").text());
 				$('.info_insert').eq(1).text($(data).find("ho_addr").text());
 				$('.info_insert').eq(2).text($(data).find("ho_phone").text());
@@ -44,6 +48,9 @@ function open_room_list(self){
 				let inf = $(data).find("ho_info").text().replace(/(?:\r\n|\r|\n)/g, '<br>');
 				$('.info_insert').eq(13).html(inf);
 				
+				$('#room_btn').show();
+				$('#room_btn').attr('onclick', '');
+				$('#room_btn').attr('onclick', "location.href='"+contextPath+"/owner_room_insert.do?ho_no="+$(data).find("ho_no").text()+"'");
 				$('#room_list option:eq(0)').after(str);
 				close_menu('#room_x');
 				close_menu('#hotel_x');
@@ -75,7 +82,7 @@ function open_room_content(self){
 			datatype: "xml",
 			success: function(data){
 				
-				let path = $('.room_btn').attr('onclick')+"+'"+$(data).find("no").text()+"'";
+				let path = "location.href='"+contextPath+"/owner_room_update.do?no="+$(data).find("no").text()+"'";
 				$('.room_btn').attr('onclick', path);
 				$('.info_insert_room').eq(0).text($(data).find("name").text());
 				$('.info_insert_room').eq(1).text($(data).find("price").text());

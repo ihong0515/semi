@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel_insert.css">
-<script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel_insert.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/hotel_insert.css">
+<script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel/hotel_insert.js"></script>
 </head>
 <body>
 	<div id="container">

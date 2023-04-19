@@ -51,9 +51,4 @@ public class Inquiry_SiteDTO {
 	public void setInqsi_userno(int inqsi_userno) {
 		this.inqsi_userno = inqsi_userno;
 	}
-	
-	
-	
-	
-	
 }

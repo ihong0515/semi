@@ -70,6 +70,7 @@ public class ImageZipControll {
 				}
 			}
 		}
+		//압축 풀기 후 압집파일 삭제
 		zipFile.delete();
 		
 		return isChk;
