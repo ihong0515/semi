@@ -61,32 +61,6 @@
 #modify_board_list{
 	display: none;
 }
-#reply_write_head{
-	width: 100px;
-}
-#reply_write_body{
-	width: 95%;
-	height: 95%;
-}
-#reply_write_body textarea{
-	border: 1px solid #fbc0bf;
-	resize: none;
-	width: 95%;
-	height: 95%;
-}
-#reply_write_body textarea:focus{
-	outline-color: #ec1c24;
-}
-#reply_write_btn input{
-	widows: 95%;
-	height: 95%;
-	background-color: #fbc0bf;
-	color: red;
-	border: 1px solid red;
-}
-#reply_write_btn input:hover{
-	background-color: white;
-}
 .board_btn{
 	margin-top: 30px;
 	text-align: center;
