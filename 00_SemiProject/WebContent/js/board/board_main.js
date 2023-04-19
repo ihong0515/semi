@@ -106,7 +106,7 @@
 					let table = "";
 					
 					if($(data).find("board").text()==""){
-						table = "<tr><td colspan='4' align='center'><h3>등록된 게시물이 없습니다.</h3></td></tr>";
+						table = "<tr><td colspan='4' align='center'><h2>등록된 게시물이 없습니다.</h2></td></tr>";
 						$('#board_list tr:gt(0)').remove();
 						$('#board_list tr:eq(0)').after(table);
 					}else{

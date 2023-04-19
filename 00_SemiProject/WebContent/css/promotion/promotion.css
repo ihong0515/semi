@@ -120,14 +120,6 @@ body{
 	margin-bottom: 15px;
 	width:100%;
 }
-.coupon_sale_font{
-	font-weight: bold;
-	font-size: 40px;
-	margin-right: 10px;
-	border:3px solid #5E5E5E;
-	background-color: white;
-	padding: 5px 8px 5px 8px;
-}
 #coupon_content{
 	margin-bottom: 20px;
   	margin-right: 50px;
@@ -140,7 +132,6 @@ body{
 	margin-left: -10px;
 	padding: 10px 20px;
 	box-sizing: border-box;
-	
 }
 #coupon_terms{
 	width : auto;

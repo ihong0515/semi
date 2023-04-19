@@ -374,9 +374,32 @@ public class HotelDAO {
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+		}finally {
+			close();
+		}
+	}
+	
+	public ArrayList<LandmarkDTO> getLandmarkIndexSearch(String location){
+		ArrayList<LandmarkDTO> list = new ArrayList<LandmarkDTO>();
+		try {
+			sql = "select * from landmark where landmark_location = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, location);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				LandmarkDTO dto = new LandmarkDTO();
+				dto.setLandmark_location(rs.getString("landmark_location"));
+				dto.setLandmark_image(rs.getString("landmark_image"));
+				dto.setLandmark_name(rs.getString("landmark_name"));
+				dto.setLandmark_info(rs.getString("landmark_info"));
+				dto.setLandmark_addr(rs.getString("landmark_addr"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
+		return list;
 	}
 }

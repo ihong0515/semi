@@ -50,6 +50,10 @@
 #board_list{
 	width: 600px;
 }
+#none_board_list{
+	margin: auto;
+	font-size: 18px;
+}
 #board_list tr:nth-child(1){
 	border-bottom : 1px solid #c0c0c0;
 	background-color: #F2F2F2;
@@ -65,7 +69,7 @@
 	height: 100%;
 }
 #board_list td{
-	text-align: center;	
+	text-align: left;	
 	border-bottom : 1px solid #c0c0c0;
 }	
 #board_write_btn{
@@ -119,7 +123,7 @@
 	position: absolute;
 	right: 0px;
 	top: -160px;
-	background-color: #525252;
+	background-color: #F5F5F5;
 	border: 1px solid #525252;
 	border-radius: 10px;
 	width: 750px;
@@ -216,7 +220,6 @@
 .faq_btn_total:hover{
 	border: thin solid#5E5E5E;
 	color: #5E5E5E;
-	
 }
 .faq_btn_total_active{
 	width:115px;
@@ -255,7 +258,6 @@
 	border: thin solid#5E5E5E;
 	color: #5E5E5E;
 }
-
 .faq_btn_total_active:after {
 	content: "\2212";
 }

@@ -399,3 +399,11 @@ create table hotelpolicy(
     hp_terrace varchar2(10) default 0 check(hp_terrace in(1,0)),
     hp_sauna varchar2(10) default 0 check(hp_sauna in(1,0))
 );
+
+CREATE TABLE LANDMARK (
+LANDMARK_LOCATION VARCHAR2(100 BYTE) NOT NULL,
+LANDMARK_IMAGE VARCHAR2(1000 BYTE),
+LANDMARK_NAME VARCHAR2(100 BYTE),
+LANDMARK_INFO VARCHAR2(1000 BYTE),
+LANDMARK_ADDR VARCHAR2(100)
+);

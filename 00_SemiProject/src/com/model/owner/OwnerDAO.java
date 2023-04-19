@@ -76,6 +76,36 @@ private static OwnerDAO instance;
 		}
 		return result;
 	}
+	public int insertOwner(OwnerDTO dto) {
+		int result = 0, count = 0;
+		try {
+			connect();
+			sql = "select max(owner_no) from owner";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+			sql = "insert into owner values(?,?,?,?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, count + 1);
+			ps.setString(2, dto.getOwner_id());
+			ps.setString(3, dto.getOwner_pwd());
+			ps.setString(4, dto.getOwner_name());
+			ps.setString(5, dto.getOwner_phone());
+			ps.setString(6, dto.getOwner_email());
+			ps.setString(7,dto.getOwner_business());
+			result = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
 
 	public OwnerDTO getOwnerContent(String id) {
 		OwnerDTO dto = null;
