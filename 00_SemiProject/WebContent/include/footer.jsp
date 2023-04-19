@@ -41,7 +41,7 @@
 			<div id="third_footer">
 				<div id="link_footer">
 		      		<ul>
-		      			<li><a href="board/faq_main.jsp">고객문의(FAQ)&nbsp;|&nbsp;</a></li>
+		      			<li><a href="javascript:move_footer_board()">고객문의(FAQ)&nbsp;|&nbsp;</a></li>
 			        	<li><a href="<%=request.getContextPath()%>/terms/footer/privat.jsp">개인정보처리방침&nbsp;|&nbsp;</a></li>
 			        	<li><a href="<%=request.getContextPath()%>/terms/footer/serviceterm.jsp">서비스 이용 약관&nbsp;|&nbsp;</a></li>
 			        	<li><a href="<%=request.getContextPath()%>/terms/footer/useterm.jsp">사용약관&nbsp;|&nbsp;</a></li>
