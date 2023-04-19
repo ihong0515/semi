@@ -9,10 +9,4 @@
 }
 #mapping_img_hotel:hover{
 	cursor: pointer;
-}
-.sec_nav{
-	position: absolute;
-	top: 50px;
-	left: 50px;
-	font-size: 40px;
-}
+}	
