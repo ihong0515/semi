@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/policy_modify.css">
 </head>
 <body>
 	<div id="container">
@@ -69,13 +70,12 @@
 						</th>
 					</tr>
 				</table>
-				<div>
+				<div id="button_div">
 					<input type="submit" value="수정">
 					<input type="button" value="목록" onclick="list_move()">
 				</div>
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

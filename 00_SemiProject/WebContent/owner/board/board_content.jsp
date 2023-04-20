@@ -53,8 +53,8 @@
 	   				</td>
 	   			</tr>
 	   			<tr>
-	   				<th colspan="2">
-	   					-문의내역-
+	   				<th colspan="6">
+	   					문의내용
 	   				</th>
 	   			</tr>
 	   			<tr>
@@ -92,7 +92,6 @@
    			</form>
    			</c:if>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

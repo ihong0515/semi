@@ -96,26 +96,26 @@ public class CrawlingSearchListAction implements Action {
 			}
 			
 		}else if(param.equals("nate")) {
-			url = "https://search.daum.net/nate?w=blog&enc=utf8&q=가족끼리호텔다녀왔어요";
+			url = "https://search.daum.net/nate?nil_suggest=btn&w=tot&DA=SBC&q=가족끼리호텔다녀왔어요";
 			
 			try {
 				Connection con = Jsoup.connect(url);
 				Document doc = con.get();
 				
-				Elements cont = doc.getElementsByClass("list_info mg_cont clear").select("li");
+				Elements cont = doc.getElementsByTag("c-card");
 				
 				for(Element e : cont) {
 					
-					Elements t = e.select(".f_link_b");
-					Elements c = e.select(".f_eb");
-					Elements w = e.select(".f_nb");
-					String imgsrc = e.select(".thumb_img").attr("src");
-					String link = t.attr("href");
-					
+					Elements t = e.select("c-menu-share");
+					Elements c = e.select("c-contents-desc");
+					Elements w = e.select("c-frag");
+					String imgsrc = t.attr("data-image");
+					String link =  t.attr("data-link");
+					if(t.attr("data-title")=="")break;
 					CrawlingDTO dto = new CrawlingDTO();
-					dto.setTitle(t.text());
+					dto.setTitle(t.attr("data-title"));
 					dto.setLink(link);
-					dto.setWriter(w.text().substring(11));;
+					dto.setWriter(w.text());;
 					dto.setContent(c.text());
 					dto.setImg(imgsrc);
 					list.add(dto);

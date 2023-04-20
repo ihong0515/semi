@@ -99,13 +99,12 @@
 						</td>
 					</tr>
 				</table>
-				<div>
-					<input type="submit" value="등록">&nbsp;&nbsp;
+				<div id="button_div">
+					<input type="submit" value="등록">
 					<input type="button" onclick="list_move()" value="목록">
 				</div>
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </body>

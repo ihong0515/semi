@@ -17,7 +17,7 @@
 		<div id="content">
 			<h2>호텔 1:1문의 확인</h2>
 			<div id="content_main">
-				<select onchange="get_hotel_cont(this)">
+				<select id="select_hotel" onchange="get_hotel_cont(this)">
 					<option value="">::::::::호텔::::::::</option>
 					<c:forEach items="${ho_list }" var="ho">
 					<option value="${ho.getHotel_no() }">
@@ -27,10 +27,10 @@
 				</select>
 				<table id="result">
 					<tr>
-						<th style="width: 30px;">
+						<th style="width: 40px;">
 							No.
 						</th>
-						<th>
+						<th style="width: 200px;">
 							Title.
 						</th>
 						<th style="width: 100px;">
@@ -44,7 +44,6 @@
 				</table>
 			</div>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

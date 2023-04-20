@@ -415,18 +415,20 @@
 				<div class="title_txt">
 					<strong>최근 본 호텔</strong>
 				</div>
-				<c:forEach items="${visitList }" var="visitDTO">
-				<div id="visit_hotel_cont">
-					<div class="visit_hotel_cont_img">
-						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${visitDTO.getHotel_photo_folder() }/main.jpg" width="150" height="150" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${visitDTO.getHotel_no() }'">
+				<div id="visit_hotel_cont_div">
+					<c:forEach items="${visitList }" var="visitDTO">
+					<div id="visit_hotel_cont">
+						<div class="visit_hotel_cont_img">
+							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${visitDTO.getHotel_photo_folder() }/main.jpg" width="150" height="150" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${visitDTO.getHotel_no() }'">
+						</div>
+						<div class="visit_hotel_cont_txt">
+							<p><a href="<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${visitDTO.getHotel_no() }">${visitDTO.getHotel_name() }</a><br>
+							${visitDTO.getHotel_star() }성급<br>
+							별점 ${visitDTO.getHotel_point() }/10.0</p>
+						</div>
 					</div>
-					<div class="visit_hotel_cont_txt">
-						<p><a href="<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${visitDTO.getHotel_no() }">${visitDTO.getHotel_name() }</a><br>
-						${visitDTO.getHotel_star() }성급<br>
-						별점 : ${visitDTO.getHotel_point() }/10.0</p>
-					</div>
+					</c:forEach>
 				</div>
-				</c:forEach>
 			</div>
 			</c:if>
 		</div>
