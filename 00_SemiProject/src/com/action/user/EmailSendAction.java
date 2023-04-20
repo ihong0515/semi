@@ -98,7 +98,29 @@ public class EmailSendAction implements Action {
 				forward.setRedirect(true);
 				forward.setPath("index_move.do");
 				return forward;
-			}else { //path_check 실패
+			}else if(path_check.equals("owner_id_search")){
+				clsMessage.setSubject("GoCatchStay ID 찾기 이메일 인증입니다.");
+				clsMessage.setContent("안녕하세요 GoCatchStay입니다.<br>"
+						+ "회원님의 아이디를 찾기 위한 인증코드는 ["+code+"] 입니다.", "text/html; charset=UTF-8");
+				Transport.send(clsMessage);
+				
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("owner/manage/id_search.jsp");
+				return forward;
+			}
+			else if(path_check.equals("owner_pwd_search")) {
+				clsMessage.setSubject("GoCatchStay 비밀번호 찾기 이메일 인증입니다.");
+				clsMessage.setContent("안녕하세요 GoCatchStay입니다.<br>"
+						+ "회원님의 비밀번호를 찾기 위한 인증코드는 ["+code+"] 입니다.", "text/html; charset=UTF-8");
+				Transport.send(clsMessage);
+
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("owner/manage/pwd_search.jsp");
+				return forward;
+			}
+			else { //path_check 실패
 				result = 0;
 			}
 		}

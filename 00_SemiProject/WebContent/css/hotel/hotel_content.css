@@ -352,6 +352,10 @@ textarea:focus {
 	justify-content: flex-start;
 	flex-direction: column;
 }
+#visit_hotel_cont_div {
+	display: flex;
+	justify-content: flex-start;
+}
 #visit_hotel_cont{
 	padding: 10px;
 	width: 200px;

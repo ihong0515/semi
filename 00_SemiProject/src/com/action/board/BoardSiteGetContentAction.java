@@ -34,6 +34,5 @@ public class BoardSiteGetContentAction implements Action {
 					+ "</script>");
 			return null;
 		}
-		
 	}
 }

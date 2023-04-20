@@ -78,8 +78,8 @@ private static OwnerDAO instance;
 	}
 	public int insertOwner(OwnerDTO dto) {
 		int result = 0, count = 0;
+		
 		try {
-			connect();
 			sql = "select max(owner_no) from owner";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -98,7 +98,6 @@ private static OwnerDAO instance;
 			ps.setString(6, dto.getOwner_email());
 			ps.setString(7,dto.getOwner_business());
 			result = ps.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -106,9 +105,100 @@ private static OwnerDAO instance;
 		}
 		return result;
 	}
+	
+	public int checkUserId(String id) {
+		int result = 0;
+		
+		try {
+			sql = "select * from owner where owner_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				result = -1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public ArrayList<String> getSearchId(String name, String mail) {
+		ArrayList<String> list = new ArrayList<String>();
+		
+		try {
+			sql = "select * from owner where owner_email = ? and owner_name = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mail);
+			ps.setString(2, name);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("owner_id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public void deleteEmailCode(String user_email) {
+		try {
+			sql = "delete from email_check where user_email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+	
+	public int changeUserPwd(String id, String new_pwd) {
+		int result = 0;
+		
+		try {
+			sql = "update owner set owner_pwd = ? where owner_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, new_pwd);
+			ps.setString(2, id);
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	public int getSearchPwd(String id, String mail) {
+		int result = 0;
+		
+		try {
+			sql = "select * from owner where owner_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				if(rs.getString("owner_email").equals(mail)) {
+					result = 1; //일치
+				}else { //이메일 불일치
+					result = -1;
+				}
+			}else { //id 없음
+				result = 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	public OwnerDTO getOwnerContent(String id) {
 		OwnerDTO dto = null;
+		
 		try {
 			sql = "select * from owner where owner_id = ?";
 			ps = con.prepareStatement(sql);
@@ -136,7 +226,7 @@ private static OwnerDAO instance;
 		ArrayList<HotelDTO> list = new ArrayList<>();
 		
 		try {
-			sql = "select * from hotel where hotel_ownerno = ?";
+			sql = "select * from hotel where hotel_ownerno = ? order by hotel_no";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, owner_no);
 			rs = ps.executeQuery();
@@ -181,7 +271,6 @@ private static OwnerDAO instance;
 
 	public ArrayList<RoomDTO> getRoomList(int hotel_no) {
 		ArrayList<RoomDTO> list = new ArrayList<RoomDTO>();
-		
 		
 		try {
 			sql = "select * from room where room_hotelno = ? order by room_no";
@@ -230,7 +319,7 @@ private static OwnerDAO instance;
 					+ "hotel_people_min = ?, "
 					+ "hotel_people_max = ?, "
 					+ "hotel_star = ?, "
-					+ "hotel_hashtag = ?, "
+					+ "hotel_hashtag = ? "
 					+ "where hotel_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getHotel_name());
@@ -527,7 +616,25 @@ private static OwnerDAO instance;
 		}
 		return result;
 	}
-	
 
-
+	public int updateOwnerContent(OwnerDTO dto) {
+		int result = 0;
+		
+		try {
+			sql = "update owner set owner_name = ?, owner_pwd = ?, owner_phone = ?, owner_email = ?, owner_update = sysdate where owner_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getOwner_name());
+			ps.setString(2, dto.getOwner_pwd());
+			ps.setString(3, dto.getOwner_phone());
+			ps.setString(4, dto.getOwner_email());
+			ps.setInt(5, dto.getOwner_no());
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
 }

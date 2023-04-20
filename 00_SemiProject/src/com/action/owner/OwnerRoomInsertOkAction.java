@@ -3,6 +3,7 @@ package com.action.owner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class OwnerRoomInsertOkAction implements Action {
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties"));
-		prop.load(fis);
+		prop.load(new InputStreamReader(fis));
 		fis.close();
 		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\hotel";
@@ -83,8 +84,6 @@ public class OwnerRoomInsertOkAction implements Action {
 					return null;
 				}
 			}else {
-				System.out.println("압축풀기 실패");
-				
 				response.getWriter().println("<script>"
 						+ "alert('사진파일 처리중 오류가 발생했습니다.');"
 						+ "history.back();"
@@ -92,8 +91,6 @@ public class OwnerRoomInsertOkAction implements Action {
 				return null;
 			}
 		}else {
-			System.out.println("파일 이동 실패");
-			
 			response.getWriter().println("<script>"
 					+ "alert('사진파일 처리중 오류가 발생했습니다.');"
 					+ "history.back();"

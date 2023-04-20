@@ -73,9 +73,6 @@ function review_check(){
 }
 
 function starDrag() {
-		var starInput = $('#starInput').val()*10;
-		$(".rating_star").css('width', starInput);
-	}
-
-
-
+	let starInput = $('#starInput').val()*10;
+	$(".rating_star").css('width', starInput);
+}

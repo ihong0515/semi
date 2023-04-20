@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.model.owner.OwnerDAO;
 import com.model.user.UserDAO;
 
 public class EmailCodeCheckAction implements Action {
@@ -74,7 +75,55 @@ public class EmailCodeCheckAction implements Action {
 						+ "</script>");
 				return null;
 			}
-		}else {
+		}else if(path_check.equals("owner_id_search")){
+			if(re>0) {
+				OwnerDAO dao = OwnerDAO.getInstance();
+				String name = request.getParameter("name").trim();
+				ArrayList<String> idList = dao.getSearchId(name, user_email);
+				dao.deleteEmailCode(user_email);
+				
+				request.setAttribute("check", "2");
+				request.setAttribute("id_List", idList);
+				request.setAttribute("name", name);
+				request.setAttribute("mail", user_email);
+				
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("owner/manage/id_search.jsp");
+				return forward;
+				
+			}else {
+				response.getWriter().println("<script>"
+						+ "alert('인증코드가 다릅니다.');"
+						+ "history.back();"
+						+ "</script>");
+				return null;
+			}
+			
+		}
+		else if(path_check.equals("owner_pwd_search")) {
+			if(re>0) {
+				OwnerDAO dao = OwnerDAO.getInstance();
+				String id = request.getParameter("id").trim();
+				dao.deleteEmailCode(user_email);
+				
+				request.setAttribute("check", "2");
+				request.setAttribute("id", id);
+				request.setAttribute("mail", user_email);
+				
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("owner/manage/pwd_search.jsp");
+				return forward;
+			}else {
+				response.getWriter().println("<script>"
+						+ "alert('인증코드가 다릅니다.');"
+						+ "history.back();"
+						+ "</script>");
+				return null;
+			}
+		}
+		else {
 			return null;
 		}
 	}

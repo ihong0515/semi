@@ -56,7 +56,6 @@ public class BoardHotelDeleteContentAction implements Action {
 					+ "history.back();"
 					+ "</script>");
 			return null;
-			
 		}
 	}
 }

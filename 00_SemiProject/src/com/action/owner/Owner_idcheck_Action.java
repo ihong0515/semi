@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.action.user.EmailSendAction;
+import com.model.owner.OwnerDAO;
 
-public class OwnerApplySendMailAction implements Action {
+public class Owner_idcheck_Action implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
-		return new EmailSendAction().execute(request, response);
+		String owner_Id = request.getParameter("paramId").trim();
+		OwnerDAO dao = OwnerDAO.getInstance();
+		int res = dao.checkUserId(owner_Id);
+		response.getWriter().println(res);
+		return null;
 	}
 }

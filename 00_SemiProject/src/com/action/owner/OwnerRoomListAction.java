@@ -21,7 +21,6 @@ public class OwnerRoomListAction implements Action {
 		ArrayList<RoomDTO> list = OwnerDAO.getInstance().getRoomList(hotel_no);
 		HotelDTO dto = HotelDAO.getInstance().getHotelContent(hotel_no);
 		
-		
 		String str = "<info>";
 		for(RoomDTO r : list) {
 			str += "<room>";

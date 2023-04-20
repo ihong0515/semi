@@ -78,13 +78,13 @@ public class PromotionDAO {
 	
 	public List<PromotionDTO>getpromotionList(){
 		List<PromotionDTO>list = new ArrayList<PromotionDTO>();
-		PromotionDTO dto = null;
+		
 		try {
 			sql = "select * from promotion";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				dto =new PromotionDTO();
+				PromotionDTO dto = new PromotionDTO();
 				dto.setProm_no(rs.getInt("prom_no"));
 				dto.setProm_folder(rs.getString("prom_folder"));
 				dto.setProm_name(rs.getString("prom_name"));
@@ -98,7 +98,8 @@ public class PromotionDAO {
 			close();
 		}
 		return list;
-	}//list end
+	}
+	
 	public PromotionDTO getPromotionContent(int no) {
 		PromotionDTO dto = null;
 		
@@ -122,7 +123,7 @@ public class PromotionDAO {
 			close();
 		}
 		return dto;
-	}//promotion content end
+	}
 	
 	public String makeCoupon() {
 		final char[] possibleCharacters =
@@ -148,7 +149,6 @@ public class PromotionDAO {
 		
 		try {
 			sql = "select * from coupon where coup_userno = ? and coup_promno = ?";
-			
 			ps = con.prepareStatement(sql);
 			ps.setInt(1,user_no);
 			ps.setInt(2, prom_no);
@@ -196,6 +196,7 @@ public class PromotionDAO {
 	
 	public String couponCheck() {
 		String coup_serial = makeCoupon();
+		
 		try {
 			sql = "select coup_serialno from coupon where coup_serialno = ?";
 			ps = con.prepareStatement(sql);

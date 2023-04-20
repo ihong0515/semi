@@ -1,30 +1,35 @@
 /**
  * 
  */
+function hotel_delete(){
+	location.href=contextPath+'/owner_hotel_delete.do?no='+$('#no').val();
+}
+
 function check_pwd(){
-	if($('#owner_modi_pwd').val()==$('#owner_modi_repwd')){
-		if(f.name.val==''){
+	if($('#owner_modi_pwd').val()==$('#owner_modi_repwd').val()){
+		if(f.name.value==''){
 			alert('이름을 입력하세요.');
-			f.name.focuse();
+			f.name.focus();
 			return false;
-		}else if(f.pwd.val==''){
+		}else if(f.pwd.value==''){
 			alert('비밀번호를 입력하세요.');
-			f.pwd.focuse();
+			f.pwd.focus();
 			return false;
-		}else if(f.phone.val==''){
+		}else if(f.phone.value==''){
 			alert('연락처을 입력하세요.');
-			f.phone.focuse();
+			f.phone.focus();
 			return false;
-		}else if(f.email.val==''){
+		}else if(f.email.value==''){
 			alert('이메일을 입력하세요.');
-			f.email.focuse();
+			f.email.focus();
 			return false;
 		}else{
 			return true;
 		}
 	}else{
-		$('#owner_modi_repwd').parent().gt(1).remove();
-		$('#owner_modi_repwd').after("<font color='red'>비밀번호를 확인하세요.</font>");
+		$('#pwd_result').html("");
+		$('#pwd_result').html("<font style='font-size: 12px;color:red;'>비밀번호를 확인하세요.</font>");
+		f.pwd.focus();
 		return false;
 	}
 }

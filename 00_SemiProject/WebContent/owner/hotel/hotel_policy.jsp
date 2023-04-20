@@ -68,12 +68,11 @@
 					</th>
 				</tr>
 			</table>
-			<div>
+			<div id="button_div">
 				<input type="button" value="편집" onclick="location.href='<%=request.getContextPath() %>/owner_policy_modify.do?no=${dto.getHp_hotelNo() }'">
 				<input type="button" value="목록" onclick="list_move()">
 			</div>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

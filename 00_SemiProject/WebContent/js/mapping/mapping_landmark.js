@@ -9,6 +9,21 @@ function mapping_searchLandmark(e) {
 		datatype: "xml",
 		success: function(data){
 			let table = "";
+			let location = $(data).find("landmark_location").text();
+			
+			table += "<div id='title_div'><h2>";
+			if(location.match("gangwon")) table += "강원도의 즐길거리";
+			if(location.match("gyeonggi")) table += "경기도의 즐길거리";
+			if(location.match("gyeongnam")) table += "경상남도의 즐길거리";
+			if(location.match("gyeongbuk")) table += "경상북도의 즐길거리";
+			if(location.match("seoul")) table += "서울의 즐길거리";
+			if(location.match("jeonnam")) table += "전라남도의 즐길거리";
+			if(location.match("jeonbuk")) table += "전라북도의 즐길거리";
+			if(location.match("jeju")) table += "제주도의 즐길거리";
+			if(location.match("chungnam")) table += "충청남도의 즐길거리";
+			if(location.match("chungbuk")) table += "충청북도의 즐길거리";
+			
+			table += "</h2></div>";
 			
 			$(data).find("landmark").each(function(){
 				table += "<div id='entire_div'>";
@@ -19,7 +34,7 @@ function mapping_searchLandmark(e) {
 				table += "<div id='landmark_info'>" + $(this).find("landmark_info").text() + "</div></div></div>";
 			});
 			$('body').stop().animate({
-				scrollTop:'500'
+				scrollTop:'950'
 			}, 300);
 			$('#mapping_landmark_list').html('')
 			$('#mapping_landmark_list').append(table);

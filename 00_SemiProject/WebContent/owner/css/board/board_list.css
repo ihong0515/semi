@@ -8,9 +8,13 @@
 #content{
 	margin: 100px auto;
 	width: 600px;
+	min-height: 100%;
 }
 #content_main{
 	text-align: left;
+}
+#select_hotel{
+	margin: 20px 0;
 }
 #content_main table{
 	margin: auto;
@@ -21,12 +25,34 @@
 #content_main tr,
 #content_main td,
 #content_main th{
-	border: 1px solid black;
-	border-collapse: collapse;
+	border-spacing: 2px;
 }
 #content_main td, 
 #content_main th{
 	padding: 5px 10px;
+}
+#result{
+	width: 600px;
+}
+#result tr:nth-child(1){
+	border-bottom : 1px solid #c0c0c0;
+	background-color: #F2F2F2;
+}
+#result th, #result td{
+	padding: 5px 10px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#result tr td:nth-child(2){
+	text-align: left;
+}
+#result th{
+	width: 100%;
+	height: 100%;
+}
+#result td{
+	text-align: center;	
+	border-bottom : 1px solid #c0c0c0;
 }
 #content_main td:nth-child(2){
 	text-align: left;

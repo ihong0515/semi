@@ -39,7 +39,6 @@ public class ReviewDeleteAction implements Action {
 					}
 					ho_file.delete();
 				}
-				
 			}
 			
 			ActionForward forward = new ActionForward();
@@ -54,7 +53,5 @@ public class ReviewDeleteAction implements Action {
 					+ "</script>");
 			return null;
 		}
-		
 	}
-
 }

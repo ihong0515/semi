@@ -17,6 +17,51 @@ table{
 	width: 200px;
 	height: 100px;
 }
-#img_wrap{
-	width: 410px;
+table{
+	margin: auto;
+}
+#content{
+	margin: 100px auto;
+}
+table, tr, th, td{
+	padding: 5px 10px;
+	border: solid 1px #C3C3C3;
+	border-collapse: collapse;
+}
+table{
+	margin: 30px auto;
+}
+table th{
+	padding-right: 16px;
+	padding-bottom: 6px;
+	width: 150px;;
+}
+table td{
+	height: 40px;
+	width: 350px;
+	padding: 5px;
+	font-size: 16px;
+	text-align: left;
+}
+textarea{
+	height: 150px;
+	width: 525px;
+	resize: none;
+	padding: 10px;
+}
+table input {
+	width: 95%;
+	padding: 3px;
+	border: none;
+}
+#button_div input{
+	box-sizing: border-box;
+	height: 50px;
+	width: 100px;
+	border-style: none;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: 18px;
 }
