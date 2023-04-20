@@ -40,10 +40,15 @@ public class Owner_Join_OkAction implements Action {
 		
 		
 		if(check > 0) {
-			ActionForward forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("owner_index.jsp");
-			return forward;
+			/*
+			 * ActionForward forward = new ActionForward(); forward.setRedirect(false);
+			 * forward.setPath("owner/owner_index.jsp"); return forward;
+			 */
+			response.getWriter().println("<script>"
+					+ "alert('회원가입에 성공했습니다..');"
+					+ "window.close();"
+					+ "</script>");
+			return null;
 		} else {
 			response.getWriter().println("<script>"
 					+ "alert('회원가입에 실패했습니다.');"

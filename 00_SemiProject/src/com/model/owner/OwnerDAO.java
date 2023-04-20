@@ -106,6 +106,94 @@ private static OwnerDAO instance;
 		}
 		return result;
 	}
+	public int checkUserId(String id) {
+		int result = 0;
+		try {
+			connect();
+			sql = "select * from owner where owner_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				result = -1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	public ArrayList<String> getSearchId(String name, String mail) {
+		ArrayList<String> list = new ArrayList<String>();
+		try {
+			connect();
+			sql = "select * from owner where owner_email = ? and owner_name = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mail);
+			ps.setString(2, name);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("owner_id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public void deleteEmailCode(String user_email) {
+		try {
+			connect();
+			sql = "delete from email_check where user_email = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, user_email);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+	public int changeUserPwd(String id, String new_pwd) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "update owner set owner_pwd = ? where owner_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, new_pwd);
+			ps.setString(2, id);
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	public int getSearchPwd(String id, String mail) {
+		int result = 0;
+		
+		try {
+			connect();
+			sql = "select * from owner where owner_id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				if(rs.getString("owner_email").equals(mail)) {
+					result = 1; //일치
+				}else { //이메일 불일치
+					result = -1;
+				}
+			}else { //id 없음
+				result = 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	public OwnerDTO getOwnerContent(String id) {
 		OwnerDTO dto = null;
