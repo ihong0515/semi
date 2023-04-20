@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/board/reply_modify.css">
 </head>
 <body>
 	<div id="container">
@@ -27,16 +28,15 @@
 						내용
 					</th>
 					<td>
-						<textarea rows="" cols="">${dto.getInqho_content() }</textarea>
+						<textarea id="cont" rows="" cols="">${dto.getInqho_content() }</textarea>
 					</td>
 				</tr>
 			</table>
-			<div>
+			<div class="button_div">
 				<input type="submit" value="수정">
 				<input type="button" value="삭제">
 			</div>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>
