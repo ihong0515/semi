@@ -73,36 +73,36 @@
 		    		</div>
 	    			<input type="hidden" value="" id="page_li_lastPage">
 	    			<ul class='board_navi_page' id="board_navi_site">
-		    			<li class="page_li">
+		    			<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList()">&#171;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList('-1')">&#60;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" id="page_li_now_site">1</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList('+1')">&#62;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList('+10')">&#187;</a>
 						</li>
 					</ul>
 					<ul class='board_navi_page' id="board_navi_hotel">
-		    			<li class="page_li">
+		    			<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList()">&#171;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList('-1')">&#60;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" id="page_li_now_hotel">1</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList('+1')">&#62;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList('+10')">&#187;</a>
 						</li>
 					</ul>

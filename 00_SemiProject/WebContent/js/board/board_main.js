@@ -55,8 +55,8 @@
 						}
 						table += "</tr>";
 					});
-					if($('#board_list tr th:eq(2)').text()=='Hotel.'){
-						$('#board_list tr th:eq(2)').remove();
+					if($('#board_list tr th:eq(3)').text()=='Hotel.'){
+						$('#board_list tr th:eq(3)').remove();
 					}
 					$('#board_list tr:gt(0)').remove();
 					$('#board_list tr:eq(0)').after(table);
@@ -118,16 +118,16 @@
 							table += "<td><a class='board_title_a' href='"+contextPath+"/board_Get_Hotel_Content.do?board_no="+$(this).find("board_no").text()+"'>";
 							
 							if($(this).find("board_step").text()>1){
-								table += "└>Re:　";
+								table += "　　";
 							}
 							
 							table += $(this).find("board_title").text();
-							table += "</a></td>";
-							table += "<td>";
-							table += $(this).find("board_hotelname").text();
-							table += "</td>";
+							table += "</a></td>";7
 							table += "<td>";
 							table += $(this).find("board_writer").text();
+							table += "</td>";
+							table += "<td>";
+							table += $(this).find("board_hotelname").text();
 							table += "</td>";
 							if($(this).find("board_update").text()=='null'){
 								table += "<td>";
@@ -140,8 +140,8 @@
 							}
 							table += "</tr>";
 						});
-						if($('#board_list tr th:eq(2)').text()!='Hotel.'){
-							$('#board_list tr th:eq(1)').after("<th style='width: 100px;'>Hotel.</th>");
+						if($('#board_list tr th:eq(3)').text()!='Hotel.'){
+							$('#board_list tr th:eq(2)').after("<th style='width: 100px;'>Hotel.</th>");
 						}
 						
 						$('#board_navi_site').css('display', 'none');
@@ -218,4 +218,8 @@
 			$(self).next().slideUp();
 			$(self).attr('class', 'faq_btn');
 		}
+	}
+	
+	function click_a(self){
+		$(self).children('a').get(0).click();
 	}

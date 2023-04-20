@@ -22,6 +22,11 @@ function get_hotel_cont(self){
 							tab += "</td>";
 							tab += "<td>";
 							tab += "<a href='javascript:move_board("+$(this).find("board_no").text()+")'>"
+							
+							if($(this).find("board_step").text()>1){
+								tab += "　　";
+							}
+							
 							tab += $(this).find("board_title").text();
 							tab += "</a>";
 							tab += "</td>";
@@ -53,6 +58,6 @@ function get_hotel_cont(self){
 	}
 }
 
-function move_board(no){
+function move_board(no,step){
 	location.href=contextPath+"/owner_board_content.do?no="+no;
 }
