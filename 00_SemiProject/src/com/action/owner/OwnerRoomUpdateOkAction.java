@@ -30,9 +30,6 @@ public class OwnerRoomUpdateOkAction implements Action {
 		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\hotel";
 		
-		System.out.println(System.getenv("USERPROFILE"));
-		System.out.println(saveFolder);
-		
 		int fileSize = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		

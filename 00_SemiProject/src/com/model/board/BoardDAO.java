@@ -319,7 +319,6 @@ public class BoardDAO {
 		}finally {
 			closeConn();
 		}
-		
 		return result;
 	}
 	
@@ -373,7 +372,6 @@ public class BoardDAO {
 		}finally {
 			closeConn();
 		}
-		
 		return result;
 	}
 
@@ -396,6 +394,7 @@ public class BoardDAO {
 
 	public Inquiry_HotelDTO getHotelBoardContent(int no) {
 		Inquiry_HotelDTO dto = null;
+		
 		try {
 			openConn();
 			sql = "select * from inquiry_hotel where inqho_no = ?";
@@ -601,6 +600,8 @@ public class BoardDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			closeConn();
 		}
 		return result;
 	}

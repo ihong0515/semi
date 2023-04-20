@@ -23,8 +23,8 @@
 				<div id="btn">
 					<p id="search">
 						<span>
-							<a href="javascript:openSearchPage('<%=request.getContextPath() %>/owner/manage/id_search.jsp')">아이디 찾기</a>
-							<a href="javascript:openSearchPage('<%=request.getContextPath() %>/owner/manage/pwd_search.jsp')">비밀번호 찾기</a>|
+							<a href="javascript:openSearchPage('<%=request.getContextPath() %>/owner/manage/id_search.jsp')">아이디 찾기</a> | 
+							<a href="javascript:openSearchPage('<%=request.getContextPath() %>/owner/manage/pwd_search.jsp')">비밀번호 찾기</a>
 						</span>
 						<span>
 							<a href="javascript:openSearchPage('<%=request.getContextPath() %>/owner_join.do')">회원가입</a>

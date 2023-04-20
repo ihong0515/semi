@@ -18,7 +18,6 @@ public class OwnerLoginAction implements Action {
 		
 		int re = OwnerDAO.getInstance().LoginCheck(id, pwd);
 		
-		
 		if(re==1) {
 			OwnerDTO dto = OwnerDAO.getInstance().getOwnerContent(id);
 			request.getSession().setAttribute("loginOwner", dto);

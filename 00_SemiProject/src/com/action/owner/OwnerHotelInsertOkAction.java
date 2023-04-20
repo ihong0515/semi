@@ -85,9 +85,6 @@ public class OwnerHotelInsertOkAction implements Action {
 			};
 		OwnerDAO.getInstance().insertPolicyContent(dto.getHotel_no() ,str);
 		
-		
-		
-		
 		if(re>0) {
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(true);

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.action.Action;
 import com.action.ActionForward;
 import com.model.owner.OwnerDAO;
-import com.model.user.UserDAO;
 
 public class Owner_idcheck_Action implements Action {
 
@@ -20,5 +19,4 @@ public class Owner_idcheck_Action implements Action {
 		response.getWriter().println(res);
 		return null;
 	}
-
 }

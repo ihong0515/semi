@@ -41,5 +41,4 @@ public class HotelSearchDetailAction implements Action {
 		forward.setPath("hotel/hotel_list.jsp");
 		return forward;
 	}
-
 }

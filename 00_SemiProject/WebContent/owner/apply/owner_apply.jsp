@@ -15,7 +15,7 @@
 		<jsp:include page="../../include/header.jsp" />
 		<div id="content">
 			<h2>입점 문의</h2>
-			<form action="<%=request.getContextPath() %>/owner_apply_sendmail.do" method="post" onsubmit="return check_apply()" id="apply_form">
+			<form action="<%=request.getContextPath() %>/user_Email_Send.do" method="post" onsubmit="return check_apply()" id="apply_form">
 			<table id=apply_tb>
 				<tr>
 					<td height="50px">
@@ -39,7 +39,7 @@
 				</tr>
 			</table>
 			<div id="apply_info">
-				요청사항이 없을 경우 영업일 기준 09:00 ~ 18:00 내에 연락드립니다.
+				요청사항이 없을 경우 영업일 기준 10:00 ~ 17:00 내에 연락드립니다.
 			</div>
 			<div id="apply_btn">
 				<input type="hidden" value="semisendemail@gmail.com" name="email">

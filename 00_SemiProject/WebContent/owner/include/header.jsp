@@ -19,8 +19,8 @@
 </head>
 <body>
 	<div id="header">
-		<c:if test="${!empty loginOwner }">
 		<ul>
+		<c:if test="${!empty loginOwner }">
 			<li>
 				<a href="<%=request.getContextPath() %>/owner_hotel_list.do">호텔 관리</a>
 			</li>
@@ -33,9 +33,15 @@
 			<li>
 				<a href="javascript:if(confirm('로그아웃 하시겠습니까?')){location.href='<%=request.getContextPath() %>/owner_logout.do'}">로그아웃</a>
 			</li>
+		</c:if>
+		<c:if test="${empty loginOwner }">
+			<li>
+				<a href="<%=request.getContextPath() %>/owner_index_move.do">홈</a>
+			</li>
+		</c:if>
 		</ul>
 		<hr>
-		</c:if>
+		
 	</div>
 </body>
 </html>

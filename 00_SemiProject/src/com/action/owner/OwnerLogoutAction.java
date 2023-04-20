@@ -19,5 +19,4 @@ public class OwnerLogoutAction implements Action {
 		forward.setPath("owner_index_move.do");
 		return forward;
 	}
-
 }

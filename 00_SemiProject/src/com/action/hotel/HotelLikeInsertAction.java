@@ -22,5 +22,4 @@ public class HotelLikeInsertAction implements Action {
 		
 		return null;
 	}
-
 }

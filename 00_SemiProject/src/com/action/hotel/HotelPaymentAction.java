@@ -40,5 +40,4 @@ public class HotelPaymentAction implements Action {
 		forward.setPath("hotel/hotel_payment.jsp");
 		return forward;
 	}
-
 }

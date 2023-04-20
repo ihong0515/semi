@@ -113,9 +113,10 @@ public class CrawlingSearchListAction implements Action {
 					String link =  t.attr("data-link");
 					if(t.attr("data-title")=="")break;
 					CrawlingDTO dto = new CrawlingDTO();
+					String wt = w.text();
 					dto.setTitle(t.attr("data-title"));
 					dto.setLink(link);
-					dto.setWriter(w.text());;
+					dto.setWriter(wt.substring(15, wt.length()-11));;
 					dto.setContent(c.text());
 					dto.setImg(imgsrc);
 					list.add(dto);

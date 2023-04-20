@@ -41,5 +41,4 @@ public class MappingLandmarkSearchAction implements Action {
 		out.println(str);
 		return null;
 	}
-
 }

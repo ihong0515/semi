@@ -8,13 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.action.Action;
 import com.action.ActionForward;
 import com.model.owner.OwnerDAO;
-import com.model.user.UserDAO;
 
 public class OwnerPwdContUpdateAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
 		String id = request.getParameter("id").trim();
 		String new_pwd = request.getParameter("repwd").trim();
 		OwnerDAO dao = OwnerDAO.getInstance();

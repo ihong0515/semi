@@ -36,7 +36,6 @@
 					
 				</span>
 			</div>
-			
 			<div class="search_foot">
 			
 				<c:if test="${empty id }">

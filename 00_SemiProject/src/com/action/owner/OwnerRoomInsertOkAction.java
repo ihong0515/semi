@@ -84,8 +84,6 @@ public class OwnerRoomInsertOkAction implements Action {
 					return null;
 				}
 			}else {
-				System.out.println("압축풀기 실패");
-				
 				response.getWriter().println("<script>"
 						+ "alert('사진파일 처리중 오류가 발생했습니다.');"
 						+ "history.back();"
@@ -93,8 +91,6 @@ public class OwnerRoomInsertOkAction implements Action {
 				return null;
 			}
 		}else {
-			System.out.println("파일 이동 실패");
-			
 			response.getWriter().println("<script>"
 					+ "alert('사진파일 처리중 오류가 발생했습니다.');"
 					+ "history.back();"

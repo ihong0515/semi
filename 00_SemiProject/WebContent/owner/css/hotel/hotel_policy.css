@@ -22,8 +22,6 @@ table, tr, th, td{
 }
 #button_div input{
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
 	height: 50px;
 	width: 100px;
 	border-style: none;

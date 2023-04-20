@@ -10,7 +10,6 @@ import com.action.Action;
 import com.action.ActionForward;
 import com.action.user.EmailSendAction;
 import com.model.owner.OwnerDAO;
-import com.model.user.UserDAO;
 
 public class OwnerIdSearchAction implements Action {
 
@@ -38,5 +37,4 @@ public class OwnerIdSearchAction implements Action {
 			return null;
 		}
 	}
-
 }

@@ -14,8 +14,6 @@
 }
 .insert_btn{
 	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
 	height: 30px;
 	width: 100px;
 	border-style: none;

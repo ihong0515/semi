@@ -36,10 +36,6 @@ public class Owner_Join_OkAction implements Action {
 		int check = dao.insertOwner(dto);
 		
 		if(check > 0) {
-			/*
-			 * ActionForward forward = new ActionForward(); forward.setRedirect(false);
-			 * forward.setPath("owner/owner_index.jsp"); return forward;
-			 */
 			response.getWriter().println("<script>"
 					+ "alert('회원가입에 성공했습니다..');"
 					+ "window.close();"

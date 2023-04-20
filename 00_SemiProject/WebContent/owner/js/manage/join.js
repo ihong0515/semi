@@ -40,8 +40,6 @@ function checkId(e){
 	});
 }
 
-
-
 /* 회원가입 버튼 클릭 결과 ----------------------------------------------------------------------------- */
 function joinFormCheck() {
 	if($('#owner_id').val() == "") {
@@ -122,7 +120,6 @@ function pwdInput(){
 	}
 }
 
-
 function checkPwd(pwd) {
     if(!/^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
 		$("#pwdcheck").text("");
@@ -140,5 +137,3 @@ function checkPwd(pwd) {
 		$("#pwdcheck").append('<font color="blue">사용가능한 비밀번호입니다.</font>');
     }
 }
-
-

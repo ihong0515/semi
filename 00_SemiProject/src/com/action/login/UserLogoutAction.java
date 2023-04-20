@@ -22,7 +22,6 @@ public class UserLogoutAction implements Action {
 		 
 		forward.setRedirect(false);
 		forward.setPath("index.jsp");
-		
 		return forward;
 	}
 }
