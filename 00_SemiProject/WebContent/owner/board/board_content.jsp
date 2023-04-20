@@ -49,7 +49,12 @@
 	   					갱신일
 	   				</th>
 	   				<td style="width: 50px;">
-	   					${dto.getInqho_update().substring(5,10) }
+	   				<c:if test="${!empty dto.getInqho_update() }">
+	   				${dto.getInqho_update().substring(5,10) }
+	   				</c:if>
+	   				<c:if test="${empty dto.getInqho_update() }">
+	   					-
+	   				</c:if>
 	   				</td>
 	   			</tr>
 	   			<tr>

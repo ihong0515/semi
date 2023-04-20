@@ -14,11 +14,12 @@ function get_hotel_cont(self){
 			datatype: "xml",
 			success: function(data){
 				let tab = "";
+				let i = 1;
 				if($(data).find("board").text()!=""){
 					$(data).find("board").each(function(){
 						tab += "<tr>";
 							tab += "<td>";
-							tab += $(this).find("board_no").text();
+							tab += i;
 							tab += "</td>";
 							tab += "<td>";
 							tab += "<a href='javascript:move_board("+$(this).find("board_no").text()+")'>"
@@ -41,6 +42,7 @@ function get_hotel_cont(self){
 							}
 							tab += "</td>";
 						tab += "</tr>";
+						i++;
 					});
 					$('#result tr:gt(0)').remove();
 					$('#result tr:eq(0)').after(tab);
