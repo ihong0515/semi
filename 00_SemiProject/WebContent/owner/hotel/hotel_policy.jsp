@@ -8,87 +8,71 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel_policy.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/hotel_policy.css">
 </head>
 <body>
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 		<div id="content">
-			<h2>${hotel.getHotel_name() }의 부가기능</h2>
+			<h2>${hotel.getHotel_name() }의 편의기능</h2>
 			<table>
 				<tr>
 					<th>
+						<c:if test="${dto.isHp_wifi() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_wifi() }"><input type="checkbox" disabled="disabled"></c:if>
 						와이파이
 					</th>
 					<th>
+						<c:if test="${dto.isHp_parking() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_parking() }"><input type="checkbox" disabled="disabled"></c:if>
 						주차
 					</th>
 					<th>
+						<c:if test="${dto.isHp_tub() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_tub() }"><input type="checkbox" disabled="disabled"></c:if>
 						욕조
 					</th>
 				</tr>
 				<tr>
-					<td>
-						${dto.isHp_wifi() }
-					</td>
-					<td>
-						${dto.isHp_parking() }
-					</td>
-					<td>
-						${dto.isHp_tub() }
-					</td>
-				</tr>
-				<tr>
 					<th>
+						<c:if test="${dto.isHp_pool() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_pool() }"><input type="checkbox" disabled="disabled"></c:if>
 						수영장
 					</th>
 					<th>
+						<c:if test="${dto.isHp_restaurant() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_restaurant() }"><input type="checkbox" disabled="disabled"></c:if>
 						식당
 					</th>
 					<th>
+						<c:if test="${dto.isHp_fitness() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_fitness() }"><input type="checkbox" disabled="disabled"></c:if>
 						헬스장
 					</th>
 				</tr>
 				<tr>
-					<td>
-						${dto.isHp_pool() }
-					</td>
-					<td>
-						${dto.isHp_restaurant() }
-					</td>
-					<td>
-						${dto.isHp_fitness() }
-					</td>
-				</tr>
-				<tr>
 					<th>
+						<c:if test="${dto.isHp_bar() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_bar() }"><input type="checkbox" disabled="disabled"></c:if>
 						바
 					</th>
 					<th>
+						<c:if test="${dto.isHp_terrace() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_terrace() }"><input type="checkbox" disabled="disabled"></c:if>
 						테라스
 					</th>
 					<th>
+						<c:if test="${dto.isHp_sauna() }"><input type="checkbox" checked disabled="disabled"></c:if>
+						<c:if test="${!dto.isHp_sauna() }"><input type="checkbox" disabled="disabled"></c:if>
 						사우나
 					</th>
 				</tr>
-				<tr>
-					<td>
-						${dto.isHp_bar() }
-					</td>
-					<td>
-						${dto.isHp_terrace() }
-					</td>
-					<td>
-						${dto.isHp_sauna() }
-					</td>
-				</tr>
 			</table>
-			<div>
+			<div id="button_div">
 				<input type="button" value="편집" onclick="location.href='<%=request.getContextPath() %>/owner_policy_modify.do?no=${dto.getHp_hotelNo() }'">
-				<input type="button" value="목록" >
+				<input type="button" value="목록" onclick="list_move()">
 			</div>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

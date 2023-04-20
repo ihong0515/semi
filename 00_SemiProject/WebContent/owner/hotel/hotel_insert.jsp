@@ -20,7 +20,7 @@
 						<th>
 							호텔 이름
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="name">
 						</td>
 					</tr>
@@ -28,7 +28,7 @@
 						<th>
 							주소
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="addr">
 						</td>
 					</tr>
@@ -36,15 +36,15 @@
 						<th>
 							연락처
 						</th>
-						<td>
-							<input type="text" name="phone" placeholder="010">-<input type="text" name="phone" placeholder="0000">-<input type="text" name="phone" placeholder="0000">
+						<td colspan="2">
+							<input type="text" name="phone" placeholder="010">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000">
 						</td>
 					</tr>
 					<tr>
 						<th>
 							지역
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="location">
 						</td>
 					</tr>
@@ -52,7 +52,7 @@
 						<th>
 							이메일
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="email">
 						</td>
 					</tr>
@@ -60,7 +60,7 @@
 						<th>
 							객실 수
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="count">
 						</td>
 					</tr>
@@ -68,7 +68,7 @@
 						<th>
 							설립연도
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="est">
 						</td>
 					</tr>
@@ -76,7 +76,7 @@
 						<th>
 							최저가
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="pri_min">
 						</td>
 					</tr>
@@ -84,7 +84,7 @@
 						<th>
 							최고가
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="pri_max">
 						</td>
 					</tr>
@@ -92,7 +92,7 @@
 						<th>
 							최저 투숙객
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="peo_min">
 						</td>
 					</tr>
@@ -100,7 +100,7 @@
 						<th>
 							최고 투숙객
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="text" name="peo_max">
 						</td>
 					</tr>
@@ -108,7 +108,7 @@
 						<th>
 							성급
 						</th>
-						<td>
+						<td colspan="2">
 							<input type="number" min="1" max="5" name="star">
 						</td>
 					</tr>
@@ -116,19 +116,52 @@
 						<th>
 							해쉬 태그
 						</th>
-						<td>
-							<input type="text" name="hashtag"><br>
-							<input type="text" name="hashtag"><br>
-							<input type="text" name="hashtag">
+						<td colspan="2">
+							<input type="text" name="hashtag" id="hashtag"><br>
+							<input type="text" name="hashtag" id="hashtag"><br>
+							<input type="text" name="hashtag" id="hashtag">
 						</td>
 					</tr>
+					<tr align="left">
+						<th>
+							<input type="checkbox" name="wifi" id="wifi">&nbsp;<label for="wifi">와이파이</label>
+						</th>
+						<th>
+							<input type="checkbox" name="park" id="park">&nbsp;<label for="park">주차</label>
+						</th>
+						<th>
+							<input type="checkbox" name="tub" id="tub">&nbsp;<label for="tub">욕조</label>
+						</th>
+					</tr>
+					<tr align="left">
+						<th>
+							<input type="checkbox" name="pool" id="pool">&nbsp;<label for="pool">수영장</label>
+						</th>
+						<th>
+							<input type="checkbox" name="rest" id="rest">&nbsp;<label for="rest">식당</label>
+						</th>
+						<th>
+							<input type="checkbox" name="fit" id="fit">&nbsp;<label for="fit">헬스장</label>
+						</th>
+					</tr>
+					<tr align="left">
+						<th>
+							<input type="checkbox" name="bar" id="bar">&nbsp;<label for="bar">바</label>
+						</th>
+						<th>
+							<input type="checkbox" name="tera" id="tera">&nbsp;<label for="tera">테라스</label>
+						</th>
+						<th>
+							<input type="checkbox" name="sau" id="sau">&nbsp;<label for="sau">사우나</label>
+						</th>
+					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="3">
 							<textarea name="info" rows="" cols="" placeholder="호텔 정보"></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="3">
 							<input type="file" name="file">
 						</td>
 					</tr>
@@ -139,7 +172,6 @@
 				</div>
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

@@ -161,7 +161,7 @@ if(checkDate!=null){
 						</div>
 					</div>
 					<div id="payment_terms">
-						해당 예약 요청 시, <input type="checkbox" class="use_terms" disabled><a href="#modal" onclick="modal_click(this)" class="use_terms">이용 약관</a>, <input type="checkbox" disabled class="privat_terms"><a href="#modal" onclick="modal_click(this)" class="privat_terms">개인정보 처리방침</a>, <input type="checkbox" disabled class="servies_terms"><a href="#modal" onclick="modal_click(this)" class="servies_terms">공급업체 서비스 약관</a> 및 <input type="checkbox" disabled class="tex_terms"><a href="#modal" onclick="modal_click(this)" class="tex_terms">세금 명세 약관</a>을 읽었으며 이에 동의합니다.
+						해당 예약 요청 시, <input type="checkbox" class="use_terms" disabled><a href="#modal" onclick="modal_click(this)" class="use_terms">이용 약관</a>, <input type="checkbox" disabled class="privat_terms"><a href="#modal" onclick="modal_click(this)" class="privat_terms">개인정보 처리방침</a>, <input type="checkbox" disabled class="servies_terms"><a href="#modal" onclick="modal_click(this)" class="servies_terms">공급업체 서비스 약관</a>을 읽었으며 이에 동의합니다.
 					</div>
 					<div id="modal" class="modal-overlay">
 				        <div class="modal-window use_terms">
@@ -203,19 +203,6 @@ if(checkDate!=null){
 								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
 				            </div>
 				        </div>
-				        <div class="modal-window tex_terms">
-				            <div class="modal-title">
-				                <h2>세금 명세 약관</h2>
-				               <div class="close-area" onclick="modal_close()">X</div>
-				            </div>
-				            <div class="modal-content">
-				            
-				            </div>
-				            <div class="modal-footer">
-				            	<input type="button" value="동의" onclick="modal_check(this)">&nbsp;&nbsp;
-								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
-				            </div>
-						</div>
 					</div>
 				    <div id="payment_usercard">
 						${dto.getUser_name() }

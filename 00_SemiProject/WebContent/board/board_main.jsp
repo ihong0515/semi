@@ -20,10 +20,8 @@
       <h2>1:1 문의 내역</h2>
     	<div id="content" align="center">
 	    	<div id="board_sidebar">
-	    		<input type="button" value="사이트 문의" id="site_board" onclick="site_board_getList()">	    		
-	    		
+	    		<input type="button" value="사이트 문의" id="site_board" onclick="site_board_getList()">
 	    		<input type="button" value="호텔 문의" id="hotel_board" onclick="hotel_board_getList()">
-	    		
 	    		<input type="button" value="FAQ" id="faq_board" onclick="faq_board_getList()">
 	    	</div>
 	    	<div id="board_main">
@@ -44,7 +42,7 @@
 	    			</tr>
 	    			<tr>
 	    				<th colspan="5">
-	    					<span id = "none_board_list">버튼을 눌러 게시물을 불러오세요.</span>
+	    					<span id="none_board_list">버튼을 눌러 게시물을 불러오세요.</span>
 	    				</th>
 	    			<tr>
 	    		</table>
@@ -75,36 +73,36 @@
 		    		</div>
 	    			<input type="hidden" value="" id="page_li_lastPage">
 	    			<ul class='board_navi_page' id="board_navi_site">
-		    			<li class="page_li">
+		    			<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList()">&#171;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList('-1')">&#60;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" id="page_li_now_site">1</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList('+1')">&#62;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:site_board_getList('+10')">&#187;</a>
 						</li>
 					</ul>
 					<ul class='board_navi_page' id="board_navi_hotel">
-		    			<li class="page_li">
+		    			<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList()">&#171;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList('-1')">&#60;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" id="page_li_now_hotel">1</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList('+1')">&#62;</a>
 						</li>
-						<li class="page_li">
+						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList('+10')">&#187;</a>
 						</li>
 					</ul>

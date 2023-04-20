@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/manage/join.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/manage/join.css">
 </head>
 <body>
-	<div id = "container">
+	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 		<div id = "content" align = "center">
 			<h1>Owner회원가입</h1>
@@ -41,7 +42,7 @@
 					<tr>	
 						<th>사업자명</th>
 						<td>
-							<input type = "text" name = "owner_name" id="owner_name" placeholder="홍사장">
+							<input type="text" name="owner_name" id="owner_name" placeholder="홍사장">
 							<br>
 							<span id="namecheck"></span>
 						</td>
@@ -51,9 +52,9 @@
 						<td>
 							<input type="text" name="owner_phone"  class="phone_number" maxlength="3" placeholder="000">
 							-
-							<input type="text" name="owner_phone"  class="phone_number" maxlength="4" placeholder="0000">
+							<input type="text" name="owner_phone" class="phone_number" maxlength="4" placeholder="0000">
 							-
-							<input type="text" name="owner_phone"  class="phone_number" maxlength="4" placeholder="0000">
+							<input type="text" name="owner_phone" class="phone_number" maxlength="4" placeholder="0000">
 							<span id="phonecheck"></span>
 						</td>
 					</tr>
@@ -71,20 +72,17 @@
 						<div>
 							<input type="text" name="owner_business" class="owner_business" maxlength="3" placeholder="000">
 							-
-							<input type="text" name="owner_business"  class="owner_business" maxlength="2" placeholder="00">
+							<input type="text" name="owner_business" class="owner_business" maxlength="2" placeholder="00">
 							-
-							<input type="text" name="owner_business"  class="owner_business" maxlength="5" placeholder="00000">
+							<input type="text" name="owner_business" class="owner_business" maxlength="5" placeholder="00000">
 							<span id="owner_business_check"></span>
 						</div>
 						</td>
 					</tr>
-					<tr>
-						<td colspan = 2><input type = "submit" value = "가입"></td>
-					</tr>
 				</table>
+				<input type="submit" value="가입" id="button">
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

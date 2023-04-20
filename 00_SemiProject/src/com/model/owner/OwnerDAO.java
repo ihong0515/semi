@@ -11,9 +11,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.model.board.Inquiry_HotelDTO;
 import com.model.hotel.HotelDTO;
 import com.model.hotel.RoomDTO;
-import com.model.user.UserDTO;
 
 public class OwnerDAO {
 private static OwnerDAO instance;
@@ -318,7 +318,7 @@ private static OwnerDAO instance;
 					+ "hotel_people_min = ?, "
 					+ "hotel_people_max = ?, "
 					+ "hotel_star = ?, "
-					+ "hotel_hashtag = ?, "
+					+ "hotel_hashtag = ? "
 					+ "where hotel_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getHotel_name());
@@ -489,6 +489,129 @@ private static OwnerDAO instance;
 			e.printStackTrace();
 		}finally {
 			close();
+		}
+		return result;
+	}
+
+	public int updatePolicyContent(int no, String[] str) {
+		int result = 0; 
+		
+		try {
+			sql = "update hotelpolicy set hp_wifi = ?, "
+					+ "hp_parking = ?, "
+					+ "hp_tub = ?, "
+					+ "hp_pool = ?, "
+					+ "hp_restaurant = ?, "
+					+ "hp_fitness = ?, "
+					+ "hp_bar = ?, "
+					+ "hp_terrace = ?, "
+					+ "hp_sauna = ? "
+					+ "where ho_hotelno = ?";
+			ps = con.prepareStatement(sql);
+			for(int i = 0; i<str.length;i++) {
+				if(str[i].equals("on")) {
+					ps.setString((i+1), "Y");
+				}else {
+					ps.setString((i+1), "N");
+				}
+			}
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	public void insertPolicyContent(int hotel_no, String[] str) {
+		try {
+			sql = "insert into hotelpolicy values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, hotel_no);
+			for(int i=0;i<str.length;i++) {
+				if(str[i].equals("on")) {
+					ps.setString((i+2), "Y");
+				}else {
+					ps.setString((i+2), "N");
+				}
+			}
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+
+	public ArrayList<Inquiry_HotelDTO> getBoardList(int no) {
+		ArrayList<Inquiry_HotelDTO> list = new ArrayList<Inquiry_HotelDTO>();
+		
+		try {
+			sql = "select * from (select row_number() over(order by inqho_group desc, INQHO_STEP) rnum, b.* from inquiry_hotel b ) where inqho_hotelno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Inquiry_HotelDTO dto = new Inquiry_HotelDTO();
+				dto.setInqho_no(rs.getInt("inqho_no"));
+				dto.setInqho_ownerno(rs.getInt("inqho_ownerno"));
+				dto.setInqho_hotelno(rs.getInt("inqho_hotelno"));
+				dto.setInqho_writer(rs.getString("inqho_writer"));
+				dto.setInqho_title(rs.getString("inqho_title"));
+				dto.setInqho_content(rs.getString("inqho_content"));
+				dto.setInqho_date(rs.getString("inqho_date"));
+				dto.setInqho_update(rs.getString("inqho_update"));
+				dto.setInqho_group(rs.getInt("inqho_group"));
+				dto.setInqho_step(rs.getInt("inqho_step"));
+				dto.setInqho_userno(rs.getInt("inqho_userno"));
+				dto.setInqho_write_check(rs.getString("inqho_write_check"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+
+	public int insertBoardReplyContent(Inquiry_HotelDTO dto) {
+		int result = 0;
+		
+		try {
+			sql = "select max(inqho_no) from inquiry_hotel";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto.setInqho_no(rs.getInt(1)+1);
+				
+				sql = "select max(inqho_step) from inquiry_hotel where inqho_group = ?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getInqho_group());
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					dto.setInqho_step(rs.getInt(1)+1);
+					
+					sql = "insert into inquiry_hotel values(?, ?, ?, ?, ?, ?, sysdate, default, ?, ?, ?, ?)";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, dto.getInqho_no());
+					ps.setInt(2, dto.getInqho_ownerno());
+					ps.setInt(3, dto.getInqho_hotelno());
+					ps.setString(4, dto.getInqho_writer());
+					ps.setString(5, dto.getInqho_title());
+					ps.setString(6, dto.getInqho_content());
+					ps.setInt(7, dto.getInqho_group());
+					ps.setInt(8, dto.getInqho_step());
+					ps.setInt(9, dto.getInqho_userno());
+					ps.setString(10, dto.getInqho_write_check());
+					result = ps.executeUpdate();
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return result;
 	}

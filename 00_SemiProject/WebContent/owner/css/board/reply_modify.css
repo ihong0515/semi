@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#container{
+	width: 800px;
+	margin: 50px auto;
+	text-align: center;
+}
+#content{
+	margin: 100px auto;
+	width: 600px;
+}
+#content h2{
+	margin-bottom: 30px;
+}
+#content table input{
+	padding: 5px 10px;
+	width: 500px;
+}
+#content table{
+	margin: auto;
+}
+#content table, tr, td, th{
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 5px 10px;
+}
+#content th{
+	background: #F2F2F2;
+}
+#content td{
+	text-align: left;
+}
+#reply{
+	margin-top: 50px;
+	padding: 10px;
+}
+#cont{
+	height: 200px;
+	resize: none;
+	width: 500px;
+	padding: 5px 10px;
+}
+.button_div{
+	margin-top: 30px;
+}
+.button_div input{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	height: 50px;
+	width: 100px;
+	border-style: none;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: 18px;
+}

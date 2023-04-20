@@ -389,7 +389,6 @@ REFERENCES faq_category (
 
 create table hotelpolicy(
     hp_hotelno number(10) references hotel(hotel_no) on delete cascade,
-
     hp_wifi varchar2(10) default 0 check(hp_wifi in(1,0)),
     hp_parking varchar2(10) default 0 check(hp_parking in(1,0)),
     hp_tub varchar2(10) default 0 check(hp_tub in(1,0)),
@@ -399,4 +398,12 @@ create table hotelpolicy(
     hp_bar varchar2(10) default 0 check(hp_bar in(1,0)),
     hp_terrace varchar2(10) default 0 check(hp_terrace in(1,0)),
     hp_sauna varchar2(10) default 0 check(hp_sauna in(1,0))
+);
+
+CREATE TABLE LANDMARK (
+LANDMARK_LOCATION VARCHAR2(100 BYTE) NOT NULL,
+LANDMARK_IMAGE VARCHAR2(1000 BYTE),
+LANDMARK_NAME VARCHAR2(100 BYTE),
+LANDMARK_INFO VARCHAR2(1000 BYTE),
+LANDMARK_ADDR VARCHAR2(100)
 );

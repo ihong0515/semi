@@ -3,6 +3,7 @@ package com.action.owner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -23,7 +24,7 @@ public class OwnerHotelInsertOkAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties"));
-		prop.load(fis);
+		prop.load(new InputStreamReader(fis));
 		fis.close();
 		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\hotel";
@@ -70,6 +71,22 @@ public class OwnerHotelInsertOkAction implements Action {
 		dto.setHotel_photo_folder(hotel_name);
 		
 		int re = OwnerDAO.getInstance().insertHotelContent(dto);
+		
+		String[] str = {
+				multi.getParameter("wifi"),
+				multi.getParameter("park"),
+				multi.getParameter("tub"),
+				multi.getParameter("pool"),
+				multi.getParameter("rest"),
+				multi.getParameter("fit"),
+				multi.getParameter("bar"),
+				multi.getParameter("tera"),
+				multi.getParameter("sau")
+			};
+		OwnerDAO.getInstance().insertPolicyContent(dto.getHotel_no() ,str);
+		
+		
+		
 		
 		if(re>0) {
 			ActionForward forward = new ActionForward();

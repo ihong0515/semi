@@ -105,15 +105,14 @@
 					<img class="room_img" alt="" src="<%=request.getContextPath() %>/image/hotel/${dto.getRoom_photo_folder() }/${i }.jpg">
 					</c:forEach>
 				</div>
-				<div>
+				<div id="button_div">
 					<input type="hidden" value="${dto.getRoom_no() }" name="no"> 
-					<input type="submit" value="수정">&nbsp;&nbsp;
-					<input type="button" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='<%=request.getContextPath() %>/owner_room_delete.do?no=${dto.getRoom_no() }'}" value="삭제">&nbsp;&nbsp;
+					<input type="submit" value="수정">
+					<input type="button" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='<%=request.getContextPath() %>/owner_room_delete.do?no=${dto.getRoom_no() }'}" value="삭제">
 					<input type="button" onclick="list_move()" value="목록">
 				</div>
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

@@ -19,6 +19,11 @@ public class BoardHotelGetContentAction implements Action {
 		
 		HotelDTO hoDto = HotelDAO.getInstance().getHotelContent(dto.getInqho_hotelno());
 		
+		if(dto.getInqho_step()>1) {
+			Inquiry_HotelDTO o_dto = BoardDAO.getInstance().getHotelBoardContent(dto.getInqho_group());
+			request.setAttribute("O_dto", o_dto);
+		}
+		
 		request.setAttribute("Dto", dto);
 		request.setAttribute("HoDto", hoDto);
 		

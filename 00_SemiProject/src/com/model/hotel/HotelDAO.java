@@ -346,7 +346,7 @@ public class HotelDAO {
 				dto.setHotel_star(rs.getInt("hotel_star"));
 				dto.setHotel_point(rs.getInt("hotel_point"));
 
-				String hash = rs.getNString("hotel_hashtag");
+				String hash = rs.getString("hotel_hashtag");
 				StringTokenizer st = new StringTokenizer(hash, ",");
 				ArrayList<String> hashtag = new ArrayList<String>();
 				while(st.hasMoreTokens()) {
@@ -363,5 +363,43 @@ public class HotelDAO {
 		}
 		return detail_list;
 	}
+
+	public void setHotelPoint(int hotel_no, int point_result) {
+		
+		try {
+			sql = "update hotel set hotel_point = ? where hotel_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, point_result);
+			ps.setInt(2, hotel_no);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+		}finally {
+			close();
+		}
+	}
 	
+	public ArrayList<LandmarkDTO> getLandmarkIndexSearch(String location){
+		ArrayList<LandmarkDTO> list = new ArrayList<LandmarkDTO>();
+		try {
+			sql = "select * from landmark where landmark_location = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, location);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				LandmarkDTO dto = new LandmarkDTO();
+				dto.setLandmark_location(rs.getString("landmark_location"));
+				dto.setLandmark_image(rs.getString("landmark_image"));
+				dto.setLandmark_name(rs.getString("landmark_name"));
+				dto.setLandmark_info(rs.getString("landmark_info"));
+				dto.setLandmark_addr(rs.getString("landmark_addr"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
 }
