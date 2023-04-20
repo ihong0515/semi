@@ -44,11 +44,11 @@
 #board_main,
 #faq_main{
 	margin-top:30px;
-	width: 800px;
 	font-size : 13px;
 }
-#faq_main{
-	margin-right: 100px;
+#board_main{
+	width: 100%;
+	margin-left: 40px;
 }
 #board_list{
 	width: 600px;
@@ -99,10 +99,15 @@
 	border-radius: 5px;
 	margin: auto 10px;
 	padding-bottom: 3px;
+	cursor: pointer;
 }
 .page_li:hover{
 	border: thin solid#5E5E5E;
 	color: #5E5E5E;
+	
+}
+.page_li:hover > a{
+	color: #B3646B;
 }
 .page-link{
 	vertical-align: middle;
@@ -113,8 +118,8 @@
 }
 #board_write_modal_btn{
 	position: absolute;
-	top: 0px;
-	right: 0px;
+	top: -2px;
+	right: 32px;
 	border: thin solid#C3C3C3;
 	padding: 5px 10px 5px 10px;
 	color: black;
@@ -194,6 +199,7 @@
 	display: none;
 	width: 100%;
 	flex-direction: column;
+	margin-right: 100px;
 }
 #faq_title{
 	font-family: 'Red Hat Display', sans-serif;

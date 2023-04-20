@@ -38,7 +38,7 @@ public class HotelSearchSortAction implements Action {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("List", list);
+		request.setAttribute("Hotel_List", list);
 		
 		forward.setRedirect(false);
 		forward.setPath("hotel/hotel_list.jsp");

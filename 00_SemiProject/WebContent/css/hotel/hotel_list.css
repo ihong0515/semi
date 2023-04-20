@@ -17,9 +17,6 @@
 	background-color: #FAF8F8;
 }
 #bed_search{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
 	font-size: 13px;
 }
 #main{
@@ -169,7 +166,7 @@
 	border: thin solid #FAF8F8;
 	box-sizing: border-box;
 }
-#search_title{
+.search_title{
 	font-weight: bold;
 	font-size:14px;
 	font-family: 'Red Hat Display', sans-serif;
