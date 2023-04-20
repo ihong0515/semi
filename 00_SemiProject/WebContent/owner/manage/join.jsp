@@ -6,12 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/manage/join.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/manage/join.css">
 </head>
 <body>
-	<div id = "container">
+	<div id="container">
 		<jsp:include page="../include/header.jsp" />
-		<div id = "content" align="center">
-			<h1>Owner회원가입</h1>
+		<div id="content" align="center">
+			<h2>Owner 회원가입</h2>
 			<form method="post" name="joinForm" id="joinForm" action="<%=request.getContextPath()%>/owner_Join_ok.do">
 				<table>
 					<tr>
@@ -32,7 +33,7 @@
 					<tr>	
 						<th>비밀번호 확인</th>
 						<td>
-							<input type = "password" name="owner_repwd" id="owner_repwd" placeholder="비밀번호를 확인해주세요.">
+							<input type="password" name="owner_repwd" id="owner_repwd" placeholder="비밀번호를 확인해주세요.">
 							<br>
 							<span id="repwdcheck"></span>
 						</td>
@@ -77,13 +78,10 @@
 						</div>
 						</td>
 					</tr>
-					<tr>
-						<td colspan="2"><input type="submit" value="가입"></td>
-					</tr>
 				</table>
+				<input type="submit" value="가입" id="button">
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

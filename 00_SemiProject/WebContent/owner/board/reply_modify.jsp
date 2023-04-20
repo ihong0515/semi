@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/board/reply_modify.css">
 </head>
 <body>
 	<div id="container">
@@ -32,14 +33,13 @@
 						</td>
 					</tr>
 				</table>
-				<div>
+				<div class="button_div">
 					<input type="hidden" value="${dto.getInqho_no() }" name="no">
 					<input type="submit" value="수정">
 					<input type="button" value="삭제" onclick="<%=request.getContextPath() %>/owner_reply_delete.do?no=${dto.getInqho_no() }">
 				</div>
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

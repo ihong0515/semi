@@ -3,6 +3,7 @@ package com.action.owner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -25,7 +26,7 @@ public class OwnerHotelUpdateOkAction implements Action {
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties"));
-		prop.load(fis);
+		prop.load(new InputStreamReader(fis));
 		fis.close();
 		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\hotel";
