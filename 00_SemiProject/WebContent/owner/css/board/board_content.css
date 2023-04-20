@@ -9,12 +9,29 @@
 	margin: 100px auto;
 	width: 600px;
 }
-#content table,
-#content tr,
-#content td,
-#content th{
-	border: 1px solid black;
+.board_list{
+	margin: auto;
 }
-#answer{
+.board_list,
+.board_list tr, 
+.board_list td,
+.board_list th{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+#reply{
+	margin-top: 50px;
+	padding: 10px;
+}
+#cont{
+	width: 95%;
+	height: 200px;
+	resize: none;
+}
+#reply_title{
+	text-align: left;
+	margin-bottom: 10px;
+}
+#reply_foot{
 	margin-top: 20px;
 }

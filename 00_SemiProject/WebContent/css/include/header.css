@@ -140,6 +140,7 @@ html, body {
 	text-align: center;
 	border: 1px solid #ccc;
 	vertical-align: top;
+	cursor: pointer;
 }
 #keyword {
 	border: 1px solid #ccc;

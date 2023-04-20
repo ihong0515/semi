@@ -42,14 +42,8 @@
 	   				<th>
 	   					제목
 	   				</th>
-	   				<td style="width: 200px;"> 
+	   				<td colspan="3" style="width: 200px;"> 
 	   					${dto.getInqho_title() }
-	   				</td>
-	   				<th>
-	   					hotel
-	   				</th>
-	   				<td>
-	   					${hoDto.getHotel_name() }
 	   				</td>
 	   				<th style="width: 50px;">
 	   					갱신일
@@ -70,19 +64,33 @@
 	   				</td>
 	   			</tr>
 	   		</table>
+	   		<c:if test="${dto.getInqho_step()!=1 }">
 	   		<div>
-	   			<table id="answer">
-	   				<tr>
-	   					<th colspan="2">${owner.getOwner_name() }</th>
-	   					<th colspan="4"><input type="text" name="title" placeholder="제목 입력"></th>
-	   				</tr>
-	   				<tr>
-	   					<td colspan="2">
-	   						
-	   					</td>
-	   				</tr>
-	   			</table>
-   			</div>
+	   			<input type="button" value="편집" onclick="location.href='<%=request.getContextPath() %>/owner_board_modify.do?no=${dto.getInqho_no() }'">
+	   			<input type="button" value="목록" onclick="board_move()">
+	   		</div>
+	   		</c:if>
+	   		<c:if test="${dto.getInqho_step()==1 }">
+	   		<form action="<%=request.getContextPath() %>/owner_reply_insert.do" method="post" id="reply" onsubmit="">
+	   			<h3>문의내역 답글달기</h3>
+	   			<div id="reply_main">
+	   				<div id="reply_title">
+	   					제목 : <input type="text" name="title" value="└>RE: ${dto.getInqho_title() }">
+	   				</div>
+	   				<div id="reply_body">
+	   					<textarea id="cont" name="cont" rows="" cols="" placeholder="내용"></textarea>
+	   				</div>
+	   				<div id="reply_foot">
+	   					<input type="hidden" value="${hotel.getHotel_name() }" name="ho_name" >
+	   					<input type="hidden" value="${hotel.getHotel_no() }" name="ho_no" >
+	   					<input type="hidden" value="${dto.getInqho_group() }" name="group" >
+	   					<input type="hidden" value="${dto.getInqho_userno() }" name="user_no" >
+	   					<input type="submit" value="답글 등록">&nbsp;&nbsp;
+	   					<input type="button" value="목록" onclick="board_move()">
+	   				</div>
+	   			</div>
+   			</form>
+   			</c:if>
 		</div>
 	</div>
 </body>

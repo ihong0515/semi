@@ -489,6 +489,44 @@ private static OwnerDAO instance;
 		}
 		return list;
 	}
+
+	public int insertBoardReplyContent(Inquiry_HotelDTO dto) {
+		int result = 0;
+		
+		try {
+			sql = "select max(inqho_no) from inquiry_hotel";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto.setInqho_no(rs.getInt(1)+1);
+				
+				sql = "select max(inqho_step) from inquiry_hotel where inqho_group = ?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, dto.getInqho_group());
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					dto.setInqho_step(rs.getInt(1)+1);
+					
+					sql = "insert into inquiry_hotel values(?, ?, ?, ?, ?, ?, sysdate, default, ?, ?, ?, ?)";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, dto.getInqho_no());
+					ps.setInt(2, dto.getInqho_ownerno());
+					ps.setInt(3, dto.getInqho_hotelno());
+					ps.setString(4, dto.getInqho_writer());
+					ps.setString(5, dto.getInqho_title());
+					ps.setString(6, dto.getInqho_content());
+					ps.setInt(7, dto.getInqho_group());
+					ps.setInt(8, dto.getInqho_step());
+					ps.setInt(9, dto.getInqho_userno());
+					ps.setString(10, dto.getInqho_write_check());
+					result = ps.executeUpdate();
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 
 

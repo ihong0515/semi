@@ -27,7 +27,8 @@
 #content_main th{
 	border-spacing: 2px;
 }
-td, th{
+#content_main td, 
+#content_main th{
 	padding: 5px 10px;
 }
 #result{
@@ -52,4 +53,7 @@ td, th{
 #result td{
 	text-align: center;	
 	border-bottom : 1px solid #c0c0c0;
+}
+#content_main td:nth-child(2){
+	text-align: left;
 }
