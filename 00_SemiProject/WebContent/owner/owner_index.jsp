@@ -15,6 +15,7 @@
 		<div id="content">
 			<c:if test="${empty loginOwner }">
 			<form action="<%=request.getContextPath() %>/owner_login.do" method="post" onsubmit="return login_check()">
+				<h2 id="title">관리자 로그인</h2>
 				<div id="login">
 					<input type="text" placeholder="ID :" name="owner_id"><br>
 					<input type="password" placeholder="PWD :" name="owner_pwd">
@@ -41,7 +42,6 @@
 			</div>
 			</c:if>
 		</div>
-		<jsp:include page="include/footer.jsp" />
 	</div>
 </body>
 </html>

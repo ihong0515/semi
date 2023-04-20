@@ -2,32 +2,66 @@
 
 #container{
 	width: 800px;
-	margin: 50px auto;
+	margin: auto;
 	text-align: center;
 }
 #content{
 	margin: 100px auto;
 }
-table {
-	margin: auto;
+table, tr, th, td{
+	padding: 5px 10px;
+	border: solid 1px #C3C3C3;
+	border-collapse: collapse;
+}
+table{
+	margin: 30px auto;
 }
 table th{
-	width: 100px;
+	padding-right: 16px;
+	padding-bottom: 6px;
+	width: 150px;;
 }
 table td{
-	width: 150px;
+	height: 40px;
+	width: 350px;
+	padding: 5px;
+	font-size: 16px;
+	text-align: left;
 }
 textarea{
-	width: 100%;
 	height: 150px;
+	width: 525px;
 	resize: none;
+	padding: 10px;
 }
 table input {
 	width: 95%;
+	padding: 3px;
+	border: none;
 }
 table input[name=phone]{
-	width: 27%;
+	width: 40px;
+	text-align: center;
 }
 table input[type=checkbox]{
-	width: 10px;
+	width: 12px;
+}
+#hashtag{
+	margin-bottom: 5px;
+}
+label{
+	height: 40px;
+}
+#modify_btn input{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	height: 50px;
+	width: 100px;
+	border-style: none;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: 18px;
 }

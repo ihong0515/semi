@@ -25,7 +25,7 @@
 					<li>
 						<ul>
 							<li>
-								<select onchange="open_room_list(this)">
+								<select onchange="open_room_list(this)" id="select_hotel">
 									<option value="">:::::::::::::::</option>
 									<c:forEach items="${ho_list }" var="ho">
 									<option value="${ho.getHotel_no() }">
@@ -35,6 +35,12 @@
 								</select>
 							</li>
 						</ul>
+					<li><input class="insert_btn" id="room_btn" type="button" value="객실 등록" onclick="location.href='<%=request.getContextPath() %>/owner_room_insert.do"></li>
+					<li>객실 리스트</li>
+					<li>
+						<select id="room_list" onchange="open_room_content(this)">
+							<option value="">:::::::::::</option>
+						</select>
 					</li>
 				</ul>
 			</div>
@@ -140,9 +146,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<input type="button" class="hotel_btn" onclick="" value="편집">
-							<input type="button" value="편의기능" id="hp_btn" onclick="">
+						<td colspan="2" class="button_wrap">
+							<input class="h_button hotel_btn" type="button" onclick="" value="편집">
+							<input class="h_button" type="button" value="편의기능" id="hp_btn" onclick="">
 						</td>
 					</tr>
 				</table>
@@ -202,27 +208,13 @@
 						<td class="info_insert_room"></td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<input type="button" class="room_btn" onclick="" value="편집">
+						<td colspan="2" align="center">
+							<input type="button" class="room_btn button" onclick="" value="편집">
 						</td>
 					</tr>
 				</table>
 			</div>
-			<div id="room_open" onclick="open_menu(this)">三</div>
-			<div id="hotel_list_room" class="hotel_sidebar">
-				<span id="room_x" onclick="close_menu(this)">X</span>
-				<ul>
-					<li><input class="insert_btn" id="room_btn" type="button" value="객실 등록" onclick="location.href='<%=request.getContextPath() %>/owner_room_insert.do"></li>
-					<li>객실 리스트</li>
-					<li>
-						<select id="room_list" onchange="open_room_content(this)">
-							<option value="">:::::::::::</option>
-						</select>
-					</li>
-				</ul>
-			</div>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

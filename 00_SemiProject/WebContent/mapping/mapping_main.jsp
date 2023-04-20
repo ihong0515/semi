@@ -13,7 +13,7 @@
 	<div id="container">
 		<jsp:include page="../include/header.jsp" />
 		<div id="content">
-			<h2>지도를 클릭해보세요!</h2>
+			<h2>지역별 관광명소</h2>
 			<div id="mapping" align="center">
 				<img alt="" src="<%=request.getContextPath() %>/image/map/koreaMap.png" usemap="#mapping_area" id="mapping_img">
 				<map name="mapping_area">
@@ -38,10 +38,10 @@
 					<area shape="poly" alt="jeju" title="" coords="199,451,216,449,223,447,234,447,239,449,240,449,242,458,237,466,233,469,216,474,199,472,194,476,185,466,186,461,193,457" 
 					onmouseover="changeimg('<%=request.getContextPath() %>/image/map/jeju.png')" onmouseout="changeimg('<%=request.getContextPath() %>/image/map/koreaMap.png')" onclick="mapping_searchLandmark(this)" target="" />
 				</map>
-				<button type="button" onclick="goTop()">맨 위로 ↑</button>
 			</div>
 		</div>
-		<div id="mapping_landmark_list">1</div>
+		<div id="mapping_landmark_list"></div>
+		<button type="button" id="goTop_btn" onclick="goTop()">맨 위로 ↑</button>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>

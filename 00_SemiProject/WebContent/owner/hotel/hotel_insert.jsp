@@ -37,7 +37,7 @@
 							연락처
 						</th>
 						<td colspan="2">
-							<input type="text" name="phone" placeholder="010">-<input type="text" name="phone" placeholder="0000">-<input type="text" name="phone" placeholder="0000">
+							<input type="text" name="phone" placeholder="010">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000">
 						</td>
 					</tr>
 					<tr>
@@ -117,42 +117,42 @@
 							해쉬 태그
 						</th>
 						<td colspan="2">
-							<input type="text" name="hashtag"><br>
-							<input type="text" name="hashtag"><br>
-							<input type="text" name="hashtag">
+							<input type="text" name="hashtag" id="hashtag"><br>
+							<input type="text" name="hashtag" id="hashtag"><br>
+							<input type="text" name="hashtag" id="hashtag">
 						</td>
 					</tr>
-					<tr>
+					<tr align="left">
 						<th>
-							<input type="checkbox" name="wifi" id="wifi"><label for="wifi">와이파이</label>
+							<input type="checkbox" name="wifi" id="wifi">&nbsp;<label for="wifi">와이파이</label>
 						</th>
 						<th>
-							<input type="checkbox" name="park" id="park"><label for="park">주차</label>
+							<input type="checkbox" name="park" id="park">&nbsp;<label for="park">주차</label>
 						</th>
 						<th>
-							<input type="checkbox" name="tub" id="tub"><label for="tub">욕조</label>
-						</th>
-					</tr>
-					<tr>
-						<th>
-							<input type="checkbox" name="pool" id="pool"><label for="pool">수영장</label>
-						</th>
-						<th>
-							<input type="checkbox" name="rest" id="rest"><label for="rest">식당</label>
-						</th>
-						<th>
-							<input type="checkbox" name="fit" id="fit"><label for="fit">헬스장</label>
+							<input type="checkbox" name="tub" id="tub">&nbsp;<label for="tub">욕조</label>
 						</th>
 					</tr>
-					<tr>
+					<tr align="left">
 						<th>
-							<input type="checkbox" name="bar" id="bar"><label for="bar">바</label>
+							<input type="checkbox" name="pool" id="pool">&nbsp;<label for="pool">수영장</label>
 						</th>
 						<th>
-							<input type="checkbox" name="tera" id="tera"><label for="tera">테라스</label>
+							<input type="checkbox" name="rest" id="rest">&nbsp;<label for="rest">식당</label>
 						</th>
 						<th>
-							<input type="checkbox" name="sau" id="sau"><label for="sau">사우나</label>
+							<input type="checkbox" name="fit" id="fit">&nbsp;<label for="fit">헬스장</label>
+						</th>
+					</tr>
+					<tr align="left">
+						<th>
+							<input type="checkbox" name="bar" id="bar">&nbsp;<label for="bar">바</label>
+						</th>
+						<th>
+							<input type="checkbox" name="tera" id="tera">&nbsp;<label for="tera">테라스</label>
+						</th>
+						<th>
+							<input type="checkbox" name="sau" id="sau">&nbsp;<label for="sau">사우나</label>
 						</th>
 					</tr>
 					<tr>
@@ -172,7 +172,6 @@
 				</div>
 			</form>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

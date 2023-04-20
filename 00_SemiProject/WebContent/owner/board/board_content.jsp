@@ -59,8 +59,8 @@
 	   				</td>
 	   			</tr>
 	   			<tr>
-	   				<th colspan="2">
-	   					-문의내역-
+	   				<th colspan="6">
+	   					문의내용
 	   				</th>
 	   			</tr>
 	   			<tr>
@@ -71,10 +71,10 @@
 	   			</tr>
 	   		</table>
 	   		<div>
-	   			<table>
+	   			<table id="answer">
 	   				<tr>
-	   					<th>${owner.getOwner_name() }</th>
-	   					<th><input type="text" name="title"></th>
+	   					<th colspan="2">${owner.getOwner_name() }</th>
+	   					<th colspan="4"><input type="text" name="title" placeholder="제목 입력"></th>
 	   				</tr>
 	   				<tr>
 	   					<td colspan="2">
@@ -84,7 +84,6 @@
 	   			</table>
    			</div>
 		</div>
-		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
 </html>

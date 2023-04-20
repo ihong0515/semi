@@ -1,30 +1,50 @@
 @charset "UTF-8";
 
-#container{
+#container {
 	width: 800px;
-	margin: 50px auto;
+	margin: auto;
 	text-align: center;
 }
-#content{
+#content {
 	margin: 100px auto;
 	width: 400px;
 }
-#login input{
-	height: 50px;
-	margin-bottom: 20px;
-	font-size: 20px;
-	padding: 5px 10px;
-	box-sizing: border-box;
+#title {
+	margin-bottom: 50px;
 }
-#search{
+#login input {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 40px;
+	width: 300px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border-style: none;
+	border-bottom-style: solid;
+	border-bottom-color: #C3C3C3;
+}
+#search {
 	display: flex;
 	justify-content: space-between;
-	width: 270px;
+	width: 300px;
 	margin: auto;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
-#btn input{
-	margin-bottom: 20px;
-	width: 100px;
-	height: 50px;
+#search a {
+	text-decoration: none;
+	font-size: 13px;
+	color: black;
+}
+#btn input {
+	margin-bottom: 10px;
+	height: 40px;
+	width: 300px;
+	border-style: none;
+	cursor: pointer;
+}
+#btn input:hover {
+	background: black;
+	color: white;
 }

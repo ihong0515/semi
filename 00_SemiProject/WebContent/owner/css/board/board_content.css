@@ -9,3 +9,12 @@
 	margin: 100px auto;
 	width: 600px;
 }
+#content table,
+#content tr,
+#content td,
+#content th{
+	border: 1px solid black;
+}
+#answer{
+	margin-top: 20px;
+}
