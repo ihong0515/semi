@@ -230,7 +230,7 @@ private static OwnerDAO instance;
 					+ "hotel_people_min = ?, "
 					+ "hotel_people_max = ?, "
 					+ "hotel_star = ?, "
-					+ "hotel_hashtag = ?, "
+					+ "hotel_hashtag = ? "
 					+ "where hotel_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getHotel_name());

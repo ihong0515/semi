@@ -3,6 +3,7 @@ package com.action.owner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +25,13 @@ public class OwnerRoomUpdateOkAction implements Action {
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("\\WEB-INF\\classes\\com\\controller\\mapping.properties"));
-		prop.load(fis);
+		prop.load(new InputStreamReader(fis));
 		fis.close();
 		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\hotel";
+		
+		System.out.println(System.getenv("USERPROFILE"));
+		System.out.println(saveFolder);
 		
 		int fileSize = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
