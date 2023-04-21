@@ -27,7 +27,7 @@
 							<a href="javascript:openSearchPage('<%=request.getContextPath() %>/owner/manage/pwd_search.jsp')">비밀번호 찾기</a>
 						</span>
 						<span>
-							<a href="javascript:openSearchPage('<%=request.getContextPath() %>/owner_join.do')">회원가입</a>
+							<a class = "join_page" href="javascript:openSearchPage('<%=request.getContextPath() %>/owner_join.do')">회원가입</a>
 						</span>
 					</p>
 					<input type="submit" value="로그인">
