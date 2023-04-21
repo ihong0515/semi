@@ -35,7 +35,7 @@ public class HotelSearchDetailAction implements Action {
 		
 		ArrayList<HotelDTO> detail_List = HotelDAO.getInstance().getHotelDetailList(price_min, price_max, people, list, point, bed);
 		
-		request.setAttribute("List", detail_List);
+		request.setAttribute("Hotel_List", detail_List);
 		
 		forward.setRedirect(false);
 		forward.setPath("hotel/hotel_list.jsp");

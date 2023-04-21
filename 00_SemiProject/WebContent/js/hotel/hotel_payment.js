@@ -48,10 +48,6 @@ function check_payment() {
 		$('.servies_terms').focus();
 		alert('공급업체 서비스 약관을 읽고 동의하세요.');
 		return false;
-	}else if(!$('.tex_terms[type="checkbox"]').is(":checked")){
-		$('.tex_terms').focus();
-		alert('세금 명세 약관을 읽고 동의하세요.');
-		return false;
 	}else if($('#userCard').val()==""){
 		$('#userCard').focus();
 		alert('카드를 선택하세요.');

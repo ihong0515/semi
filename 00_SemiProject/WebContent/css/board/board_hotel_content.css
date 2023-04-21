@@ -7,7 +7,7 @@
 #content {
    min-height: 100%;
    list-style: none;
-   margin: auto;
+   margin: 100px auto;
    align-content: center;
    font-size: 12px;
 }

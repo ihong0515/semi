@@ -81,181 +81,6 @@
 						</div>
 					</div>
 				</div>
-				<div id="hotel_detail">
-					<div class="title_txt">
-						<strong>호텔 정보</strong>
-					</div>
-					<table>
-						<tr>
-							<th>설립 연도</th>
-							<td>${hoDTO.getHotel_establish() }</td>
-						</tr>
-						<tr>
-							<th>객실 수</th>
-							<td>${hoDTO.getHotel_room_count() }</td>
-						</tr>
-						<tr>
-							<th>연락처</th>
-							<td>${hoDTO.getHotel_phone() }</td>
-						</tr>
-						<tr>
-							<th>Email</th>
-							<td>${hoDTO.getHotel_email() }</td>
-						</tr>
-						<tr>
-							<th>Address</th>
-							<td>${hoDTO.getHotel_addr() }</td>
-						</tr>
-						<tr>
-							<th>호텔 정보</th>
-							<td>${hoDTO.getHotel_info() }</td>
-						</tr>
-					</table>
-					<div id="hotel_board">
-						<input type="button" value="호텔 1:1 문의하기" id="hotel_board_btn" onclick="board_open()">
-						<div id="write_overlay">
-							<div id="write_window">
-								<div id="write_head">
-									<span id="write_head_x" onclick="board_close()">닫기 X</span>
-								</div>
-								<div id="write_title">
-									호텔 1:1 문의 작성
-								</div>
-								<div id="write_body">
-									<table>
-										<tr>
-											<th>제목</th>
-											<td><input type="text" placeholder="제목을 입력하세요."></td>
-										</tr>
-										<tr>
-											<th>문의내용</th>
-											<td><textarea placeholder="문의 내용을 입력하세요."></textarea></td>
-										</tr>
-									</table>
-								</div>
-								<div id="write_foot">
-									<input type="button" value="문의하기" onclick="board_write(${hoDTO.getHotel_no() })">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="hotel_icon">
-					<div class="title_txt">
-						<strong>호텔 편의시설</strong>
-					</div>
-					<table>
-						<c:if test="${hpDTO.isHp_wifi() }">
-							<tr>
-								<th>
-									<i class="fa fa-wifi" aria-hidden="true"></i>
-									<span class="hp_categoty">WiFi</span>
-								</th>
-								<td>
-									<span class="hp_detail">Wi-Fi(무료)</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_tub() }">
-							<tr>
-								<th>
-									<i class="fa fa-bath" aria-hidden="true"></i>
-									<span class="hp_categoty">욕실시설</span>
-								</th>
-								<td>
-									<span class="hp_detail">욕조</span>
-									<span class="hp_detail">비데</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_pool() }">
-							<tr>
-								<th>
-									<i class="fa fa-wifi" aria-hidden="true"></i>
-									<span class="hp_categoty">수영장</span>
-								</th>
-								<td>
-									<span class="hp_detail">수영장</span>
-									<span class="hp_detail">수영장 썬베드</span>
-									<span class="hp_detail">수영장 카바나 이용(유료)</span>
-									<span class="hp_detail">어린이 수영장, 유아풀</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_restaurant() }">
-							<tr>
-								<th>
-									<i class="fa fa-cutlery" aria-hidden="true"></i>
-									<span class="hp_categoty">레스토랑</span>
-								</th>
-								<td>
-									<span class="hp_detail">바비큐 그릴</span>
-									<span class="hp_detail">스낵바/델리</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_parking() }">
-							<tr>
-								<th>
-									<i class="fa fa-car" aria-hidden="true"></i>
-									<span class="hp_categoty">주차</span>
-								</th>
-								<td>
-									<span class="hp_detail">주차장(무료)</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_fitness() }">
-							<tr>
-								<th>
-									<i class="fa fa-cutlery" aria-hidden="true"></i>
-									<span class="hp_categoty">피트니스 센터</span>
-								</th>
-								<td>
-									<span class="hp_detail">피트니스</span>
-									<span class="hp_detail">필라테스</span>
-									<span class="hp_detail">요가</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_bar() }">
-							<tr>
-								<th>
-									<i class="fa fa-beer" aria-hidden="true"></i>
-									<span class="hp_categoty">미니바</span>
-								</th>
-								<td>
-									<span class="hp_detail">무료생수</span>
-									<span class="hp_detail">미니바</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_terrace() }">
-							<tr>
-								<th>
-									<i class="fa fa-cutlery" aria-hidden="true"></i>
-									<span class="hp_categoty">발코니/테라스</span>
-								</th>
-								<td>
-									<span class="hp_detail">발코니/테라스</span>
-								</td>
-							</tr>
-						</c:if>
-						<c:if test="${hpDTO.isHp_sauna() }">
-							<tr>
-								<th>
-									<i class="fa fa-cutlery" aria-hidden="true"></i>
-									<span class="hp_categoty">스파/웰빙</span>
-								</th>
-								<td>
-									<span class="hp_detail">사우나</span>
-									<span class="hp_detail">마사지룸</span>
-									<span class="hp_detail">스파</span>
-								</td>
-							</tr>
-						</c:if>
-					</table>
-				</div>
 				<div id="room_info">
 					<div class="title_txt">
 						<strong>전체 객실</strong>
@@ -290,6 +115,181 @@
 				</div>
 			</div>
 			</c:if>
+			<div id="hotel_detail">
+				<div class="title_txt">
+					<strong>호텔 정보</strong>
+				</div>
+				<table>
+					<tr>
+						<th>설립 연도</th>
+						<td>${hoDTO.getHotel_establish() }</td>
+					</tr>
+					<tr>
+						<th>객실 수</th>
+						<td>${hoDTO.getHotel_room_count() }</td>
+					</tr>
+					<tr>
+						<th>연락처</th>
+						<td>${hoDTO.getHotel_phone() }</td>
+					</tr>
+					<tr>
+						<th>Email</th>
+						<td>${hoDTO.getHotel_email() }</td>
+					</tr>
+					<tr>
+						<th>Address</th>
+						<td>${hoDTO.getHotel_addr() }</td>
+					</tr>
+					<tr>
+						<th>호텔 정보</th>
+						<td>${hoDTO.getHotel_info() }</td>
+					</tr>
+				</table>
+				<div id="hotel_board">
+					<input type="button" value="호텔 1:1 문의하기" id="hotel_board_btn" onclick="board_open()">
+					<div id="write_overlay">
+						<div id="write_window">
+							<div id="write_head">
+								<span id="write_head_x" onclick="board_close()">닫기 X</span>
+							</div>
+							<div id="write_title">
+								호텔 1:1 문의 작성
+							</div>
+							<div id="write_body">
+								<table>
+									<tr>
+										<th>제목</th>
+										<td><input type="text" placeholder="제목을 입력하세요."></td>
+									</tr>
+									<tr>
+										<th>문의내용</th>
+										<td><textarea placeholder="문의 내용을 입력하세요."></textarea></td>
+									</tr>
+								</table>
+							</div>
+							<div id="write_foot">
+								<input type="button" value="문의하기" onclick="board_write(${hoDTO.getHotel_no() })">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="hotel_icon">
+				<div class="title_txt">
+					<strong>호텔 편의시설</strong>
+				</div>
+				<table>
+					<c:if test="${hpDTO.isHp_wifi() }">
+						<tr>
+							<th>
+								<i class="fa fa-wifi" aria-hidden="true"></i>
+								<span class="hp_categoty">WiFi</span>
+							</th>
+							<td>
+								<span class="hp_detail">Wi-Fi(무료)</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_tub() }">
+						<tr>
+							<th>
+								<i class="fa fa-bath" aria-hidden="true"></i>
+								<span class="hp_categoty">욕실시설</span>
+							</th>
+							<td>
+								<span class="hp_detail">욕조</span>
+								<span class="hp_detail">비데</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_pool() }">
+						<tr>
+							<th>
+								<i class="fa fa-wifi" aria-hidden="true"></i>
+								<span class="hp_categoty">수영장</span>
+							</th>
+							<td>
+								<span class="hp_detail">수영장</span>
+								<span class="hp_detail">수영장 썬베드</span>
+								<span class="hp_detail">수영장 카바나 이용(유료)</span>
+								<span class="hp_detail">어린이 수영장, 유아풀</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_restaurant() }">
+						<tr>
+							<th>
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+								<span class="hp_categoty">레스토랑</span>
+							</th>
+							<td>
+								<span class="hp_detail">바비큐 그릴</span>
+								<span class="hp_detail">스낵바/델리</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_parking() }">
+						<tr>
+							<th>
+								<i class="fa fa-car" aria-hidden="true"></i>
+								<span class="hp_categoty">주차</span>
+							</th>
+							<td>
+								<span class="hp_detail">주차장(무료)</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_fitness() }">
+						<tr>
+							<th>
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+								<span class="hp_categoty">피트니스 센터</span>
+							</th>
+							<td>
+								<span class="hp_detail">피트니스</span>
+								<span class="hp_detail">필라테스</span>
+								<span class="hp_detail">요가</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_bar() }">
+						<tr>
+							<th>
+								<i class="fa fa-beer" aria-hidden="true"></i>
+								<span class="hp_categoty">미니바</span>
+							</th>
+							<td>
+								<span class="hp_detail">무료생수</span>
+								<span class="hp_detail">미니바</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_terrace() }">
+						<tr>
+							<th>
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+								<span class="hp_categoty">발코니/테라스</span>
+							</th>
+							<td>
+								<span class="hp_detail">발코니/테라스</span>
+							</td>
+						</tr>
+					</c:if>
+					<c:if test="${hpDTO.isHp_sauna() }">
+						<tr>
+							<th>
+								<i class="fa fa-cutlery" aria-hidden="true"></i>
+								<span class="hp_categoty">스파/웰빙</span>
+							</th>
+							<td>
+								<span class="hp_detail">사우나</span>
+								<span class="hp_detail">마사지룸</span>
+								<span class="hp_detail">스파</span>
+							</td>
+						</tr>
+					</c:if>
+				</table>
+			</div>
 			<div id="hotel_review">
 				<div class="title_txt">
 					<strong>호텔 리뷰</strong>
