@@ -33,12 +33,31 @@ public class HotelSearchDetailAction implements Action {
 			bed = request.getParameter("bed").trim();
 		}
 		
-		ArrayList<HotelDTO> detail_List = HotelDAO.getInstance().getHotelDetailList(price_min, price_max, people, list, point, bed);
+		ArrayList<HotelDTO> detail_List = HotelDAO.getInstance().getHotelDetailList(price_min, price_max, people, list, point);
 		
-		request.setAttribute("Hotel_List", detail_List);
-		
-		forward.setRedirect(false);
-		forward.setPath("hotel/hotel_list.jsp");
-		return forward;
+		if(bed!=null) {
+			ArrayList<HotelDTO> realList = new ArrayList<HotelDTO>();
+			
+			ArrayList<Integer> bedlist = HotelDAO.getInstance().getHotelBedList(bed);
+			
+			for(HotelDTO d : detail_List) {
+				for(int b : bedlist) {
+					if(d.getHotel_no() == b) {
+						realList.add(d);
+					}
+				}
+			}
+			request.setAttribute("Hotel_List", realList);
+			
+			forward.setRedirect(false);
+			forward.setPath("hotel/hotel_list.jsp");
+			return forward;
+		}else {
+			request.setAttribute("Hotel_List", detail_List);
+			
+			forward.setRedirect(false);
+			forward.setPath("hotel/hotel_list.jsp");
+			return forward;
+		}
 	}
 }

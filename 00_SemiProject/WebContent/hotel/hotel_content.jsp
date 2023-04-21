@@ -14,6 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${hoDTO.getHotel_name() }</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_content.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_content.js"></script>
@@ -87,10 +88,15 @@
 					</div>
 					<c:forEach items="${roomList }" var="roDTO">
 						<div class="room_content">
-							<div class="room_content_img">
-								<c:forEach begin="1" end="${roDTO.getRoom_photo_folder_size() }" var="i">
-									<img onclick="nextSlideImg(this)" alt="" src="<%=request.getContextPath() %>/image/hotel/${roDTO.getRoom_photo_folder() }/${i }.jpg" width="100" height="100">
-								</c:forEach>
+							<div class="room_content_img_wrap">
+								<div class="room_content_img">
+									<c:forEach begin="1" end="${roDTO.getRoom_photo_folder_size() }" var="i">
+										<img onclick="nextSlideImg(this, ${i})" alt="" src="<%=request.getContextPath() %>/image/hotel/${roDTO.getRoom_photo_folder() }/${i }.jpg" width="100" height="100">
+									</c:forEach>
+								</div>
+								<div class="room_content_img_dot">
+								<c:forEach begin="1" end="${roDTO.getRoom_photo_folder_size() }" var="i"><span onclick="nextSlideSpan(${i-1}, this)">•</span></c:forEach>
+								</div>
 							</div>
 							<div class="room_content_info">
 								<div id="room_detail">

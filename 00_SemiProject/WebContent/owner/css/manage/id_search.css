@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+html, body{
+	margin: 0;
+	padding: 0;
+}
+input:focus{
+	outline:none;
+}
+#container{
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 500px;
+}
+.search_title{
+	margin-bottom: 20px;
+}
+input[type=text]{
+	padding: 5px 10px;
+	border: none;
+	background: #F2F2F2;
+	height: 30px;
+	width: 200px;
+	margin-bottom: 10px;
+}
+input[type=button]{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	height: 30px;
+	width: 100px;
+	border-style: none;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+	margin: auto;
+	margin-top: 20px;
+}
+#result_button{
+	height: 40px;
+    margin-left: 10px;
+}
+.result_List{
+	margin-top: 20px;
+}

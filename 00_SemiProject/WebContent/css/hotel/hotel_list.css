@@ -19,6 +19,10 @@
 #bed_search{
 	font-size: 13px;
 }
+#bed_search span{
+	width: 60px;
+	display: inline-block;
+}
 #main{
 	display: flex;
 	flex-direction: column;

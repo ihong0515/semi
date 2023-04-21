@@ -15,7 +15,7 @@
 		<div id="content" align = "center">
 			<c:if test="${empty loginOwner }">
 			<form action="<%=request.getContextPath() %>/owner_login.do" method="post" onsubmit="return login_check()">
-				<h2 id="title">관리자 로그인</h2>
+				<h2 id="title">로그인</h2>
 				<div id="login">
 					<input type="text" placeholder="ID :" name="owner_id"><br>
 					<input type="password" placeholder="PWD :" name="owner_pwd">
