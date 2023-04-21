@@ -1,13 +1,40 @@
 /**
  * 
  */
+/*$(document).ready(function(){
+	$('.room_content_img_dot span').hover(function(){
+		if($(this).attr('style')=='color:red'){
+			console.log(1);
+		}else{
+			$(this).css('color', '#FB7673');
+			console.log(1);
+		}
+	},function(){
+		if($(this).attr('style')=='color:red'){
+			console.log(2);
+		}else{
+			$(this).css('color', '#fbc0bf');
+			console.log(2);
+		}
+	});
+});*/
 
-function nextSlideImg(self){
+function nextSlideSpan(i, self){
+	$(self).parent().prev().find('img').hide();
+	$(self).parent().prev().find('img').eq(i).show();
+	$(self).parent().find('span').css('color','#fbc0bf');
+	$(self).css('color','red');
+}
+
+function nextSlideImg(self, i){
 	$(self).hide();
+	$(self).parent().next().find('span').css('color','#fbc0bf');
 	if($(self).next().length==0){
 		$(self).parent().find("img:first-child").show();
+		$(self).parent().next().find('span').eq(0).css('color','red');
 	}else{
 		$(self).next().show();
+		$(self).parent().next().find('span').eq(i).css('color','red');
 	}
 }
 

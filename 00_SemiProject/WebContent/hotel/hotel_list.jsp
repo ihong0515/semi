@@ -79,16 +79,28 @@
 					<div id="bed_search">
 						<div class="search_title">침대종류</div>
 						<span>
-							<input type="radio" value="double" name="bed" class=radio_bed id="radio_bed_double">
-							<label for="radio_bed_double">더블</label>&nbsp;
-						</span>
-						<span>
-							<input type="radio" value="tween" name="bed" class=radio_bed id="radio_bed_tween">
-							<label for="radio_bed_tween">트윈</label>&nbsp;
-						</span>
-						<span>
-							<input type="radio" value="single" name="bed" class=radio_bed id="radio_bed_single">
+							<input type="radio" value="싱글" name="bed" class=radio_bed id="radio_bed_single">
 							<label for="radio_bed_single">싱글</label>
+						</span>
+						<span>
+							<input type="radio" value="더블" name="bed" class=radio_bed id="radio_bed_double">
+							<label for="radio_bed_double">더블</label>
+						</span>
+						<span>
+							<input type="radio" value="트윈" name="bed" class=radio_bed id="radio_bed_tween">
+							<label for="radio_bed_tween">트윈</label>
+						</span>
+						<span>
+							<input type="radio" value="퀸" name="bed" class=radio_bed id="radio_bed_queen">
+							<label for="radio_bed_queen">퀸</label>
+						</span>
+						<span>
+							<input type="radio" value="킹" name="bed" class=radio_bed id="radio_bed_king">
+							<label for="radio_bed_king">킹</label>
+						</span>
+						<span>
+							<input type="radio" value="트리플" name="bed" class=radio_bed id="radio_bed_triple">
+							<label for="radio_bed_triple">트리플</label>
 						</span>
 					</div>
 				</form>

@@ -26,7 +26,7 @@
 		<img src="<%=request.getContextPath()%>/image/include/logo2.png" width="200px">
 	</div>
 	<div id="coupon_content_container">
-		<div id = "coupon_content_title">Get Coupon</div>
+		<h2 id="coupon_title"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ${dto.getProm_name()}</h2>
 		<c:if test="${!empty dto}">
 		<div id="promotion_content_image">
 			<div class ="row">
@@ -35,13 +35,13 @@
 	    </div>
 	    <div id = "coupon_frame">
 			<div id="coupon_content">
-				<div class = "row">
-					<h3 id = "coupon_title"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> ${dto.getProm_name()}</h3>
+				<div class = "row coupon_content_title">
+					Get Coupon
 				</div>
-				<div class = "row">
-					<span class="coupon_sale_font">${dto.getProm_sale()}%</span>
+				<div class="row coupon_sale_font">
+					${dto.getProm_sale()}%
 				</div>
-				<div class = "row" id = "coup_result">
+				<div class="row" id="coup_result">
 					${dto.getProm_info()}
 				</div>
 			</div>
@@ -50,12 +50,12 @@
 			<input type="hidden" value="${dto.getProm_no()}" id="prom_no_val">
 			<input id="coupon_button" type="button" value="coupon" onclick="getCoupon()" >
 		</div>
-		<div id="coup_result_area" >
+		<div id="coup_result_area">
 			<p id="coup_result"></p>
 		</div>
-		<div id = "promtion_content_footer">
+		<div id="promtion_content_footer">
 			<i class="fa fa-info-circle" aria-hidden="true"></i>  유의사항
-			<div id = "coupon_terms">
+			<div id="coupon_terms">
 				<ul>
 					<li>- 등록된 상품권 중 최근 1년 이내 사용한 상품권, 유효기간이 만료된 상품권은 ‘사용 완료’에서 확인하실 수 있습니다.</li>
 					<li>- 상품권 유효기간은 발행일로부터 5년이며, 등록한 시점과는 무관합니다.</li>
