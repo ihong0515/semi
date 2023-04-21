@@ -8,13 +8,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/manage/owner_login_search.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/manage/id_search.css">
 </head>
 	<body>
 	<div id = "container">
-		<jsp:include page="../include/header.jsp" />
+	 <div style="display: none;"><jsp:include page="../include/header.jsp" /></div>
 		<div id="content" align = "center">
 			<form method="post" id="id_form">
-				<div class="search_title">Owner아이디 찾기</div>
+				<div class="search_title"><h2>Owner 아이디 찾기</h2></div>
 				<div class="search_body">
 					<span>
 						<c:if test="${empty name}">
@@ -59,7 +60,6 @@
 				</div>
 			</form>
 		</div>
-	<jsp:include page="../include/footer.jsp" />
 	</div>	
 	</body>
 </html>
