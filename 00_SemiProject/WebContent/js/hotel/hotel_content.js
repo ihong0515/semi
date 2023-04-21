@@ -24,7 +24,7 @@ function board_close(){
 }
 
 function board_write(ho_no){
-	let title = $('#write_head_title input');
+	let title = $('#write_body input');
 	let cont = $('#write_body textarea');
 	
 	if(title.val()==''){

@@ -32,7 +32,7 @@
 							<div id = "user_coupon_row">
 								<div id = "user_coupon_col">${prom_dto.getProm_name() }</div>
 								<div id = "user_coupon_col">${prom_dto.getProm_info() }</div>
-								<div id = "user_coupon_col">${coup_dto.getCoup_sale() }</div>
+								<div id = "user_coupon_col">${coup_dto.getCoup_sale() }%할인적용</div>
 								<div id = "user_coupon_col">${coup_dto.getCoup_serialno() }</div>
 								<div id = "user_coupon_col">${coup_dto.getCoup_usecheck() }</div>
 							</div>
