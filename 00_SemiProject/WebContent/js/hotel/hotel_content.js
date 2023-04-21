@@ -24,7 +24,7 @@ function board_close(){
 }
 
 function board_write(ho_no){
-	let title = $('#write_head_title input');
+	let title = $('#write_body input');
 	let cont = $('#write_body textarea');
 	
 	if(title.val()==''){
@@ -40,7 +40,7 @@ function board_write(ho_no){
 				type: "post",
 				url: contextPath+"/board_hotel_write.do",
 				data: {
-					title: $('#write_head_title input').val(),
+					title: $('#write_body input').val(),
 					content: $('#write_body textarea').val(),
 					user_no: user_no,
 					hotel_no: ho_no

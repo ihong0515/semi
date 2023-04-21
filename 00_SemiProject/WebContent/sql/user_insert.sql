@@ -1,4 +1,7 @@
-insert into owner values(1, 'gmldyd', '1234', '이희용', '010-1234-5678', 'gmldyd031@gmail.com', '920315');
-
-INSERT INTO USER1 VALUES (1, 'Admin', '1234', '관리자', '01000000000', '1900/01/01', 'semisendemail@gmail.com', '서울', '', '' ,'');
-insert into user1 values(2, 'hong', '1234', '홍재영', '010-1111-2222', '980515', 'hong@gmail.com', '서울', '', '' ,'');
+REM INSERTING into WEB.USER1
+SET DEFINE OFF;
+Insert into WEB.USER1 (USER_NO,USER_ID,USER_PWD,USER_NAME,USER_PHONE,USER_BIRTH,USER_EMAIL,USER_REGION,USER_JJIM1,USER_JJIM2,USER_JJIM3) values (2,'lee','lee1234!!','김재영','010-2223-1231','1997-6-01','kim0515@gmail.com','서울',null,null,null);
+Insert into WEB.USER1 (USER_NO,USER_ID,USER_PWD,USER_NAME,USER_PHONE,USER_BIRTH,USER_EMAIL,USER_REGION,USER_JJIM1,USER_JJIM2,USER_JJIM3) values (3,'kim','kim1234!!','권재영','010-4231-1828','1996-7-01','kwon9914@gmail.com','서울',null,null,null);
+Insert into WEB.USER1 (USER_NO,USER_ID,USER_PWD,USER_NAME,USER_PHONE,USER_BIRTH,USER_EMAIL,USER_REGION,USER_JJIM1,USER_JJIM2,USER_JJIM3) values (1,'Admin','1234','관리자','010-1234-1234','1998-5-01','semisendemail@gmail.com','서울',null,null,null);
+Insert into WEB.USER1 (USER_NO,USER_ID,USER_PWD,USER_NAME,USER_PHONE,USER_BIRTH,USER_EMAIL,USER_REGION,USER_JJIM1,USER_JJIM2,USER_JJIM3) values (4,'hong','hong1234!!','홍재영','010-2727-4343','1999-8-02','ghdwodud0515@gmail.com','서울',null,null,null);
+Insert into WEB.USER1 (USER_NO,USER_ID,USER_PWD,USER_NAME,USER_PHONE,USER_BIRTH,USER_EMAIL,USER_REGION,USER_JJIM1,USER_JJIM2,USER_JJIM3) values (5,'hwang','hwang1234!!','황지영','010-2828-4646','2000-09-03','hwang0515@gmail.com','충주',null,null,null);
