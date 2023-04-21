@@ -197,9 +197,9 @@
 }	
 #faq_main{
 	display: none;
-	width: 100%;
+	width: 200px;
 	flex-direction: column;
-	margin-right: 100px;
+	margin: 30px 300px auto auto;
 }
 #faq_title{
 	font-family: 'Red Hat Display', sans-serif;

@@ -37,6 +37,7 @@
 					<input type="hidden" value="${dto.getInqho_no() }" name="no">
 					<input type="submit" value="수정">
 					<input type="button" value="삭제" onclick="<%=request.getContextPath() %>/owner_reply_delete.do?no=${dto.getInqho_no() }">
+					<input type="button" value="목록" onclick="board_move()">
 				</div>
 			</form>
 		</div>

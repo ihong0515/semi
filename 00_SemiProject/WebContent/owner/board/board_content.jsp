@@ -84,7 +84,7 @@
 	   					<input type="hidden" value="${hotel.getHotel_no() }" name="ho_no" >
 	   					<input type="hidden" value="${dto.getInqho_group() }" name="group" >
 	   					<input type="hidden" value="${dto.getInqho_userno() }" name="user_no" >
-	   					<input type="submit" value="답글 등록">&nbsp;&nbsp;
+	   					<input type="submit" value="답글 등록">
 	   					<input type="button" value="목록" onclick="board_move()">
 	   				</div>
 	   			</div>

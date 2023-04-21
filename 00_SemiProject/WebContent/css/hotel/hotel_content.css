@@ -402,6 +402,7 @@ textarea:focus {
 	text-align: left;
 	padding: 5px;
 	font-family: 'Noto Sans KR', sans-serif!important;
+	height: 200px;
 }
 #write_body td {
 	border: 1px solid #F2F2F2;

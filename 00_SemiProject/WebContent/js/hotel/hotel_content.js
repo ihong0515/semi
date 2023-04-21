@@ -20,11 +20,13 @@ function board_open(){
 }
 
 function board_close(){
-	$('#write_overlay').hide()
+	$('#write_body input').val("");
+	$('#write_body textarea').val("");
+	$('#write_overlay').hide();
 }
 
 function board_write(ho_no){
-	let title = $('#write_head_title input');
+	let title = $('#write_body input');
 	let cont = $('#write_body textarea');
 	
 	if(title.val()==''){
@@ -40,8 +42,8 @@ function board_write(ho_no){
 				type: "post",
 				url: contextPath+"/board_hotel_write.do",
 				data: {
-					title: $('#write_head_title input').val(),
-					content: $('#write_body textarea').val(),
+					title: $(title).val(),
+					content: $(cont).val(),
 					user_no: user_no,
 					hotel_no: ho_no
 				},
@@ -49,6 +51,8 @@ function board_write(ho_no){
 				success: function(data){
 					if(data>0){
 						alert('호텔에 문의사항을 보냈습니다.');
+						title.val("");
+						cont.val("");
 						board_close();
 					}else{
 						alert('문의사항 전송 중 오류가 발생했습니다.');
