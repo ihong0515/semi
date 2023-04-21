@@ -41,76 +41,76 @@ if(checkDate!=null){
 			<div id="payment">
 				<form method="post" action="<%=request.getContextPath() %>/hotel_reserve.do" onsubmit="return check_payment()">
 					<div id="payment_hotel">
-						<div id ="payment_hotelwrap">
-							<div id ="payment_hotelwrap_cont">
+						<div id="payment_hotelwrap">
+							<div id="payment_hotelwrap_cont">
 								<div id="payment_hotel_img">
 									<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg">
 								</div>
 								<div id="payment_hotel_cont">
-									<span class = "hotel_FontHit">숙소명</span> : ${hoDTO.getHotel_name() } <c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach><br>
-									<span class = "hotel_FontHit">객실명 : </span>${roDTO.getRoom_name() }<br>
-									<span class = "hotel_FontHit"> 체크아웃 :</span> ${roDTO.getRoom_checkout()} am 전<br>
-									<i class="fa fa-user-o" aria-hidden="true"></i><span class = "hotel_FontHit">객실수용인원 : </span>${roDTO.getRoom_people_min() }~${roDTO.getRoom_people_max() }인  <i class="fa fa-bed" aria-hidden="true"></i>${roDTO.getRoom_bed() }
-									<c:if test="${roDTO.getRoom_breakfast() }"><i class="fa fa-cutlery" aria-hidden="true"></i>조식 포함</c:if>
+									<ul>
+										<li id="cont_hotel_name">
+											<strong>${hoDTO.getHotel_name() }</strong>
+											<span id="cont_hotel_star">
+												<c:forEach begin="1" end="${hoDTO.getHotel_star() }">★</c:forEach>
+											</span>
+										</li>
+										<li id="cont_romm_name">${roDTO.getRoom_name() }</li>
+										<li>
+											<span><i class="fa-solid fa-user"></i>&nbsp;성인 ${roDTO.getRoom_people_min() } - ${roDTO.getRoom_people_max() }명</span>&nbsp;&nbsp;
+											<span><i class="fa-solid fa-bed-front"></i>&nbsp;${roDTO.getRoom_bed() }침대</span>&nbsp;&nbsp;
+											<span><i class="fa-solid fa-arrows-maximize"></i>&nbsp;${roDTO.getRoom_size() }m<sup>2</sup></span>&nbsp;&nbsp;
+											<span>
+												<c:if test="${roDTO.getRoom_breakfast()=='Y' }">
+													<i class="fa-solid fa-pancakes"></i>&nbsp;조식 포함&nbsp;&nbsp;
+												</c:if>
+											</span>
+										</li>
+										<li>체크인 ${roDTO. getRoom_checkin()}:00 PM, 체크아웃 ${roDTO. getRoom_checkout()}:00 AM</li>
+									</ul>
 								</div>
 							</div>	
-							<div id="payment_hotel_date">
-								<c:if test="${!empty sessionScope.CheckDate }">
-									<c:set var="checkDate" value="${sessionScope.CheckDate }" />
-									<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
-									<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-									<input type="date" value="${checkin }" class="checkIn" name="payment_hotel_indate" >~<input type="date" value="${checkout }" class="checkOut" name="payment_hotel_outdate">
-								</c:if>
-								<c:if test="${empty sessionScope.CheckDate }">
-									<input type="date" value="" class="checkIn" name="payment_hotel_indate">~<input type="date" value="" class="checkOut" name="payment_hotel_outdate">
-								</c:if>
-								인원수 : <input type="number" name="reserv_people" min="${roDTO.getRoom_people_min() }" max="${roDTO.getRoom_people_max() }" value="${roDTO.getRoom_people_min() }">
+							<div id="payment_hotel_date_people">
+								<div id="payment_hotel_date">
+									날짜&nbsp;
+									<c:if test="${!empty sessionScope.CheckDate }">
+										<c:set var="checkDate" value="${sessionScope.CheckDate }" />
+										<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
+										<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
+										<input type="date" value="${checkin }" class="checkIn checkInP" name="payment_hotel_indate" > - <input type="date" value="${checkout }" class="checkOut checkOutP" name="payment_hotel_outdate">
+									</c:if>
+									<c:if test="${empty sessionScope.CheckDate }">
+										<input type="date" value="" class="checkIn checkInP" name="payment_hotel_indate"> - <input type="date" value="" class="checkOut checkOutP" name="payment_hotel_outdate">
+									</c:if>
+								</div>
+								<div>
+									인원수&nbsp;<input type="number" name="reserv_people" min="${roDTO.getRoom_people_min() }" max="${roDTO.getRoom_people_max() }" value="${roDTO.getRoom_people_min() }">
+								</div>
 							</div>
-						</div>	
+						</div>
 						<div id="payment_hotel_userInfo">
-							<fieldset>
-								<legend>
-									성
-								</legend>
-								<input type="text" id="userFirstName" name="userFirstName">
-							</fieldset>
-							<fieldset>
-								<legend>
-									이름
-								</legend>
-								<input type="text" id="userLastName" name="userLastName">
-							</fieldset>
-							<fieldset>
-								<legend>
-									이메일 주소
-								</legend>
-								<c:if test="${empty usDTO }">
-								<input type="text" placeholder="로그인이 필요합니다." readonly="readonly">
-								</c:if>
-								<c:if test="${!empty usDTO }">
-								<input type="text" value="${usDTO.getUser_email() }" readonly="readonly">
-								</c:if>
-							</fieldset>
-							<fieldset>
-								<legend>
-									휴대폰 번호
-								</legend>
-								<select class = "userPhone_head" name="userPhone_head">
-									<option value="010">010</option>
-									<option value="011">011</option>
-									<option value="017">017</option>
-									<option value="019">019</option>
-								</select>
-								<input type="text" placeholder="0000-0000" id="userPhone_body" name="userPhone_body" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="8">
-							</fieldset>
+							<input type="text" class="userInfo_wrapper" id="userFirstName" name="userFirstName" placeholder="성">
+							<input type="text" class="userInfo_wrapper" id="userLastName" name="userLastName" placeholder="이름">
+							<c:if test="${empty usDTO }">
+								<input type="text" class="userInfo_wrapper" placeholder="로그인이 필요합니다." readonly="readonly">
+							</c:if>
+							<c:if test="${!empty usDTO }">
+								<input type="text" class="userInfo_wrapper" value="${usDTO.getUser_email() }" readonly="readonly">
+							</c:if>
+							<select class="userPhone_head" name="userPhone_head">
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="017">017</option>
+								<option value="019">019</option>
+							</select>
+							<input type="text" placeholder="0000-0000" class="userInfo_wrapper" id="userPhone_body" name="userPhone_body" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="8">
 						</div>
 						<div id="payment_hotel_userReq">
-							<fieldset>
-								<legend>
+							<div>
+								<div>
 									요청 사항 (선택사항)
-								</legend>
+								</div>
 								<textarea rows="10" cols="80" placeholder="호텔에 요청하실 사항이 있으면 적어주세요." name="payment_hotel_userReq"></textarea>
-							</fieldset>
+							</div>
 						</div>
 						<div id="payment_hotel_promotion">
 							<h3>혜택 적용</h3>

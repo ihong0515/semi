@@ -7,65 +7,128 @@
    min-height: 100%;
    font-family: 'Noto Sans KR', sans-serif;
    list-style: none;
-   margin: 100px auto;
+   margin: 50px auto;
    align-content: center;
-   font-size: 13px;
+   font-size: 14px;
+   padding: 30px;
 }
-
 .hotel_FontHit{
 	font-size: 13px;
 	font-weight: bold;
 }
 #payment_hotel > div{
-	
 	margin-bottom: 50px;
 	text-align: left;
-	background-color: #FAF8F8;	
 }
 #payment h1 {
 	text-align: center;
 	margin-bottom: 20px;
 }
-#payment_hotelwrap{
+#cont_hotel_star {
+	color: #F2D06B;
+	font-size: 15px;
+	vertical-align: 3px;
+}
+#payment_hotelwrap, 
+#payment_hotel_userReq, 
+#payment_hotel_promotion,
+#payment_price{
 	display:flex;
 	flex-direction: column;
+	border: none;
+	border-radius: 8px;
+	background: #FAF8F8;
 }
-#payment_hotel_date{
-	text-align: center;
-}
-#payment_hotelwrap_cont{
+#payment_hotel_userInfo{
 	display:flex;
 	flex-direction: row;
-	justify-content: flex-start;
-	padding-bottom: 10px;
-	padding-top: 10px;
+	border: none;
+	border-radius: 8px;
+	border: 3px solid #FB7673;
+	background: #FADEDE;
+	padding-top: 16px;
+	justify-content: center;
 	flex-wrap: wrap;
+	position: relative;
 }
-#payment_hotelwrap_cont > div{
-	width : 40%; height:50%;
+#payment_hotel_date_people{
+	margin: 0 16px;
+	padding: 16px 0;
+	display: flex;
+	flex-direction: row;
 }
-#payment_hotel_img{
-	vertical-align: middle;
+#payment_hotel_date{
+	border-right: 1px solid #DADFE6;
+}
+#payment_hotel_date_people div{
+	padding-left: 10px;
+    line-height: 30px;
+    padding-right: 30px;
+}
+.checkInP, .checkOutP {
+	text-align: center!important;
+	margin: 0 5px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#payment_hotel_date_people input[type="number"]{
+	height: 30px;
+	border: 1px solid #ccc;
+    vertical-align: top;
+    width: 50px;
+    margin: 0 5px;
+    text-align: center;
+}
+#payment_hotelwrap_cont{
+	display: flex;
+	margin: 0 16px;
+	padding: 16px 0;
+	border-bottom: 1px dashed #DADFE6;
+}
+.userInfo_wrapper{
+	margin: 0 8px;
+	margin-bottom: 16px;
+	width: 346px;
+	height: 40px;
+	padding: 0 8px;
+	border: 1px solid #E5E5E5;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+.userInfo_wrapper:focus{
+	border-color: #FB7673;
+	outline: none;
+}
+.userPhone_head{
+	position: absolute;
+	top: 81px;
+	left: 385px;
+	border: none;
+}
+.userPhone_head:focus{
+	outline: none;
+}
+#userPhone_body{
+	padding-left: 61px;
+}
+#cont_hotel_name{
+	font-size: 20px;
+	margin-bottom: 16px;
+}
+#payment_hotel_cont{
+	font-size: 14px;
+}
+#payment_hotel_cont li{
+	margin-bottom: 10px;
 }
 #payment_hotel_img img{
-	width: 80%;
-	height: 80%; 
+	width: 135px;
+	height: 135px;
 	justify-content: center;
-	margin-left: 10px;
+	margin-right: 16px;
 }
 #payment_price{
 	background-color: #c0c0c0;
 	color:black;
-}
-#payment_hotel_userInfo{
-	display: flex;
-	flex-direction: row;
-	justify-content:center;
-	flex-wrap: wrap;
-	padding-left: 10px;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top:15px;
 }
 #payment_hotel_userInfo > fieldset{
 	width:45%;
@@ -92,18 +155,7 @@
 	font-size: 16px;
 	font-weight: normal;
 }
-#userPhone_body{
-	width: 275px !important;
-	margin-left: 5px
-}
-.userPhone_head{
-	width : 20%;
-	height: 100%;
-	font-size: medium;
-	border: 0;
-}
 #payment_hotel_userInfo legend{
-	
 	margin-left :20px;
 	font-size: 13px;
 }
