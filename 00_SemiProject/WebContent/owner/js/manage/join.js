@@ -92,7 +92,7 @@ function joinFormCheck() {
 	for(let i=0;i<3;i++){
 		if($(bn).eq(i).val()==''){
 			$("#owner_business_check").show();
-			$("#owner_business_check").html('<font color="red">사업자번호를 입력해주세요.</font>');
+			$("#owner_business_check").html('<font color="red">사업자 번호를 입력해주세요.</font>');
 			$(bn).eq(i).focus();
 			return false;
 		}
