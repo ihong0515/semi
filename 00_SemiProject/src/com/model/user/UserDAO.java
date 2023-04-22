@@ -226,17 +226,21 @@ public class UserDAO {
 		return result;
 	}
 	
-	public int checkPwd(String user_pwd) {
+	public int checkUser(String user_id, String user_pwd) {
 		int result = 0;
 		
 		try {
 			connect();
-			sql = "select * from user1 where user_pwd = ?";
+			sql = "select * from user1 where user_id = ?";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, user_pwd);
+			ps.setString(1, user_id);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				result = 1;
+				if(rs.getString("user_pwd").equals(user_pwd)) {
+					result = 1;
+				}else {
+					result = -1;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

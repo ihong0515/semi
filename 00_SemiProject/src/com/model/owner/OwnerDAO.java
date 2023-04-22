@@ -226,9 +226,12 @@ private static OwnerDAO instance;
 		ArrayList<HotelDTO> list = new ArrayList<>();
 		
 		try {
-			sql = "select * from hotel where hotel_ownerno = ? order by hotel_no";
+			if(owner_no==1) {
+				sql = "select * from hotel order by hotel_no";
+			}else {
+				sql = "select * from hotel where hotel_ownerno = '"+owner_no+"' order by hotel_no";
+			}
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, owner_no);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				HotelDTO dto = new HotelDTO();
