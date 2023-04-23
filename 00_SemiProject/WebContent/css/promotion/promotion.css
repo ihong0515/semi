@@ -30,6 +30,7 @@ body{
 }
 .promotion_image{
 	margin: auto;
+	cursor: pointer;
 }
 
 
@@ -70,13 +71,11 @@ body{
   	font-size: 16px;
   	align-content: center;
   	justify-content: center;
+  	margin-top: 20px;
 }
 #coupon_title{
 	text-decoration: underline;	
 	margin-bottom: 15px;	
-}
-#coupon_content div{
-	margin-bottom: 25px;
 }
 .coupon_sale{
 	margin-bottom: 15px;
@@ -84,19 +83,18 @@ body{
 }
 .coupon_sale_font{
 	font-weight: bold;
-	font-size: 60px;
+	font-size: 80px;
 	margin-right: 10px;
 	padding: 5px 8px 5px 8px;
+	margin-top: -15px;
 }
 #coupon_content{
 	display:flex;
 	flex-direction:column;
-	margin-bottom: 0px;
-  	margin-right: 80px;
+  	margin-right: 100px;
   	height: 100%;
-}
-#coupon_content .row{
-	height: 20%;
+  	justify-content: flex-start;
+  	margin-top: 35px;
 }
 #coupon_title{
 	text-decoration: underline;	
@@ -113,16 +111,8 @@ body{
   	height: 191px;
   	font-size: 13px;
 }
-#coupon_content div{
-	margin-bottom: 25px;
-}
 .coupon_sale{
-	margin-bottom: 15px;
 	width:100%;
-}
-#coupon_content{
-	margin-bottom: 20px;
-  	margin-right: 50px;
 }
 #promtion_content_footer{
 	text-align: left;

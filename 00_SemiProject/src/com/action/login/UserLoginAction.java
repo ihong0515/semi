@@ -19,25 +19,22 @@ public class UserLoginAction implements Action {
 		String user_pwd = request.getParameter("pwd").trim();
 		UserDAO dao = UserDAO.getInstance();
 		
-		int idCheck = dao.checkUserId(user_id);
-		if(idCheck==-1) {
-			int pwdCheck = dao.checkPwd(user_pwd);
-			if(pwdCheck==1) {
-				UserDTO cont = dao.loginUser(user_id, user_pwd);
-				HttpSession session = request.getSession();
-				session.setAttribute("loginUser", cont);
-				
-				ActionForward forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("index.jsp");
-				return forward;
-			}else { //pwd 틀림
-				response.getWriter().println("<script>"
-						+ "alert('패스워드가 틀립니다.');"
-						+ "history.back();"
-						+ "</script>");
-				return null;
-			}
+		int check = dao.checkUser(user_id, user_pwd);
+		if(check==1) {
+			UserDTO cont = dao.loginUser(user_id, user_pwd);
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", cont);
+			
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("index.jsp");
+			return forward;
+		}else if(check==-1) {
+			response.getWriter().println("<script>"
+					+ "alert('패스워드가 틀립니다.');"
+					+ "history.back();"
+					+ "</script>");
+			return null;
 		}else { //ID 없음.
 			response.getWriter().println("<script>"
 					+ "alert('ID를 찾을 수 없습니다.');"

@@ -25,7 +25,7 @@
 							<input type="text" name="name" class="name_inp" value="${name }" readonly>
 						</c:if>
 					</span>
-					<br>
+						<br>
 					<span>
 						<c:if test="${empty mail}">
 							<input type="text" name="email" class="mail_inp" placeholder="E-mail :">

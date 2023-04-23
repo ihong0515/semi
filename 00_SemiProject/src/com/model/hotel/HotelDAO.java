@@ -301,8 +301,7 @@ public class HotelDAO {
 		return list;
 	}//hotel lowprice list end
 
-	public ArrayList<HotelDTO> getHotelDetailList(int price_min, int price_max, int people, String[] list, String point,
-			String bed) {
+	public ArrayList<HotelDTO> getHotelDetailList(int price_min, int price_max, int people, String[] list, String point) {
 		ArrayList<HotelDTO> detail_list = new ArrayList<HotelDTO>();
 		
 		try {
@@ -396,6 +395,26 @@ public class HotelDAO {
 				list.add(dto);
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+
+	public ArrayList<Integer> getHotelBedList(String bed) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		try {
+			sql = "select room_hotelno from room where room_bed = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, bed);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getInt("room_hotelno"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close();

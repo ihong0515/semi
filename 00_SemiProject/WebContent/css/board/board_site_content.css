@@ -106,6 +106,8 @@
 	color: #8F8F8F;
 	border: thin solid#C3C3C3;
 	font-size: 11px;
+	padding-left: 5px;
+	padding-right: 5px;	
 }
 #reply_write_btn input:hover{
 	border: thin solid#5E5E5E;

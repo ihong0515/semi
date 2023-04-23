@@ -163,6 +163,10 @@
 	margin: 0;
 	border-bottom: 1px solid #ddd;
 }
+.room_content_img_wrap{
+	display: flex;
+	flex-direction: column;
+}
 .room_content_img img:nth-child(n+2) {
 	display: none;
 }
@@ -171,11 +175,24 @@
 	display: flex;
 	justify-content: space-between;
 }
-.next_img {
-	font-size: 20px;
+.room_content_img_dot{
+	display: flex;
 	color: #fbc0bf;
-	margin: auto 0 auto 5px;
-	font-weight: bold;
+	justify-content: center;
+}
+.room_content_img_dot span{
+	width: 15px;
+	font-size: 20px;
+	height: 15px;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}
+/* .room_content_img_dot span:hover{
+	color: #FB7673;
+} */
+.room_content_img_dot span:nth-child(1){
+	color: red;
 }
 .room_content_info {
 	margin-left: 30px;
