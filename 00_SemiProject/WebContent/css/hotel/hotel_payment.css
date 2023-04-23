@@ -30,12 +30,10 @@
 	vertical-align: 3px;
 }
 #payment_hotelwrap, 
-#payment_hotel_userReq, 
-#payment_hotel_promotion,
-#payment_price{
+#payment_hotel_userReq{
 	display:flex;
 	flex-direction: column;
-	border: none;
+	border: 3px solid #C7B1B1;
 	border-radius: 8px;
 	background: #FAF8F8;
 }
@@ -126,61 +124,77 @@
 	justify-content: center;
 	margin-right: 16px;
 }
-#payment_price{
-	background-color: #c0c0c0;
-	color:black;
+#payment_hotel_userReq{
+    padding: 16px;
+    display: flex;
+    justify-content: center;
 }
-#payment_hotel_userInfo > fieldset{
-	width:45%;
-	height :45%;
-	margin-bottom: 20px;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	margin-left: 5px;
-	margin-right: 5px;
-	border : 1px solid black;
-}
-#payment_hotel_userInfo > fieldset input{
-	border :none;
-	width : 355px;
-	height: 36px;
-	font-size: xx-large;
-	font-weight: bold;
-	font-size:16px;
-}
-#payment_hotel_userInfo > fieldset input:focus{
-	outline : none;
-}
-#payment_hotel_userInfo > fieldset input::placeholder{
-	font-size: 16px;
-	font-weight: normal;
-}
-#payment_hotel_userInfo legend{
-	margin-left :20px;
-	font-size: 13px;
-}
-#payment_hotel_userReq fieldset{
-	border: 1px;
-	padding-left: 10px;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-top:10px;
-	margin-top:10px;
+#userReq_title{
+	margin-bottom: 10px;
+	padding-left: 5px;
 }
 #payment_hotel_userReq textarea{
 	border: 0;
 	resize: none;
-	width: 95%;
-	height: 95%;
-	margin: 10px;
+	width: 100%;
+	height: 100%;
 	box-sizing: border-box;
+	padding: 16px;
+	border-radius: 4px;
 }
 #payment_hotel_userReq textarea:focus{
 	outline: none;
 }
-#payment_hotel_promotion{
+#payment_hotel_promotion {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #C7B1B1;
+    border-radius: 8px;
+    background: #FAF8F8;
+}
+#payment_hotel_promotion span{
+    padding-right: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+#payment_hotel_promotion #prom_code_select{
+	width: 120px;
+    margin-right: 10px;
+}
+#payment_hotel_promotion #prom_code_btn{
+	width: 100px;
+}
+#payment_hotel_promotion #coupon_name{
+	color: red;
+}
+#payment_price{
+	background-color: #CACCE0;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #767994;
+    border-radius: 8px;
+    padding: 16px;
+}
+#payment_price table{
+	padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+}
+#payment_price tr{
+	height: 25px;
+}
+#payment_usercard{
 	padding-left: 10px;
-	padding-bottom: 10px;
+}
+#payment_terms{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+#payment_terms input[type="checkbox"]{
+	margin-right: 3px;
 }
 /*상단 본결제창 내용  */
 .modal-overlay {
