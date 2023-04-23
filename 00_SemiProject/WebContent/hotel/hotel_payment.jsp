@@ -106,15 +106,15 @@ if(checkDate!=null){
 						</div>
 						<div id="payment_hotel_userReq">
 							<div>
-								<div>
+								<div id="userReq_title">
 									요청 사항 (선택사항)
 								</div>
 								<textarea rows="10" cols="80" placeholder="호텔에 요청하실 사항이 있으면 적어주세요." name="payment_hotel_userReq"></textarea>
 							</div>
 						</div>
 						<div id="payment_hotel_promotion">
-							<h3>혜택 적용</h3>
-							<span>할인 코드</span><br>
+							<h3 class="title_class">예약 혜택</h3>
+							<span>할인 코드</span>
 							<select id="prom_code_select" style="width: 120px;">
 								<option value="">::::::::::::::::::::::::::</option>
 								<c:forEach items="${coupList }" var="coDTO">
@@ -131,7 +131,7 @@ if(checkDate!=null){
 							<span id="coupon_name"></span>
 						</div>
 						<div id="payment_price">
-							<h3>요금 정보</h3>
+							<h3 class="title_class">요금 정보</h3>
 							<table>
 								<tr>
 									<th>
@@ -158,6 +158,26 @@ if(checkDate!=null){
 									</td>
 								</tr>
 							</table>
+							<div id="payment_usercard">
+								${dto.getUser_name() }
+								<c:if test="${empty usDTO }">
+									<a href='<%=request.getContextPath()%>/user_login_page.do'>로그인을 하세요.</a>
+								</c:if>
+								<c:if test="${!empty usDTO }">
+									<div id="payment_usercard_select">
+										<span>결제 수단 선택 : </span>
+										<select name="userCard" id="userCard" onchange="payment_getno()">
+													<option value="">::카드선택::</option>
+												<c:forEach items="${cardList }" var="cardDTO">
+													<option value="${cardDTO.getPay_no() }">${cardDTO.getPay_name() }</option>
+												</c:forEach>
+										</select>
+									</div>
+									<div id="payment_usercard_view">
+										<p></p>
+									</div>
+								</c:if>
+							</div>
 						</div>
 					</div>
 					<div id="payment_terms">
@@ -203,26 +223,6 @@ if(checkDate!=null){
 								<input type="button" value="동의안함" onclick="modal_uncheck(this)">
 				            </div>
 				        </div>
-					</div>
-				    <div id="payment_usercard">
-						${dto.getUser_name() }
-						<c:if test="${empty usDTO }">
-							<a href='<%=request.getContextPath()%>/user_login_page.do'>로그인을 하세요.</a>
-						</c:if>
-						<c:if test="${!empty usDTO }">
-							<div id="payment_usercard_select">
-								<span>결제하실 카드를 선택하세요.</span>
-								<select name="userCard" id="userCard" onchange="payment_getno()">
-											<option value="">::카드선택::</option>
-										<c:forEach items="${cardList }" var="cardDTO">
-											<option value="${cardDTO.getPay_no() }">${cardDTO.getPay_name() }</option>
-										</c:forEach>
-								</select>
-							</div>
-							<div id="payment_usercard_view">
-								<p></p>
-							</div>
-						</c:if>
 					</div>
 					<div id="payment_submit">
 						<input id="realPrice_hidden" type="hidden" name="realPrice" value="${roDTO.getRoom_price()*inoutDay }">
