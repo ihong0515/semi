@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="user_dto" value="${sessionScope.loginUser }" />
-<c:set var="prom_dto" value="${prom_dto }" />
+<c:set var="prom_list" value="${promList }" />
+<c:set var="coup_list" value="${couponList }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,12 +27,20 @@
 						<div id = "user_coupon_col">일련번호</div> 
 						<div id = "user_coupon_col">사용여부</div>
 					</div>
-					<c:set var="list" value="${couponList }" />
-					<c:if test="${!empty list }">
-						<c:forEach items="${list }" var="coup_dto">
+					
+					<c:if test="${!empty coup_list }">
+						<c:forEach items="${coup_list }" var="coup_dto">
 							<div id = "user_coupon_row">
-								<div id = "user_coupon_col">${prom_dto.getProm_name() }</div>
-								<div id = "user_coupon_col">${prom_dto.getProm_info() }</div>
+								<c:forEach items="${prom_list }" var="prom">
+									<c:if test="${prom.getProm_no() == coup_dto.getCoup_promno() }">
+										<div id = "user_coupon_col">
+											${prom.getProm_name() }
+										</div>
+										<div id = "user_coupon_col">
+											${prom.getProm_info() }
+										</div>
+									</c:if>
+								</c:forEach>
 								<div id = "user_coupon_col">${coup_dto.getCoup_sale() }%할인적용</div>
 								<div id = "user_coupon_col">${coup_dto.getCoup_serialno() }</div>
 								<div id = "user_coupon_col">${coup_dto.getCoup_usecheck() }</div>
@@ -39,7 +48,7 @@
 						</c:forEach>
 					</c:if>
 					
-					<c:if test="${empty list }" var="coup_dto">
+					<c:if test="${empty coup_list }" var="coup_dto">
 						<div id = "user_coupon_row">
 							<div id = "user_coupon_col">
 								<i class="fa fa-question-circle" aria-hidden="true"></i><p>등록된 쿠폰이 없습니다.</p>
