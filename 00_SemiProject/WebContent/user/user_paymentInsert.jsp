@@ -33,11 +33,11 @@
 								<td>
 									<input name="pay_cardno1" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4">
 									<div class="card_number_txt">&nbsp;-&nbsp;</div>
-									<input name="pay_cardno2" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4">
+									<input type="password" name="pay_cardno2" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4">
 									<div class="card_number_txt">&nbsp;-&nbsp;</div>
 									<input type="password" name="pay_cardno3" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4">
 									<div class="card_number_txt">&nbsp;-&nbsp;</div>
-									<input type="password" name="pay_cardno4" class="moveNumber" maxlength="4">
+									<input type="text" name="pay_cardno4" class="moveNumber" maxlength="4">
 									<br>
 									<span id="pay_cardno_check"></span>
 								</td>

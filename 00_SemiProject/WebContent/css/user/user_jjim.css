@@ -34,7 +34,7 @@
 #user_jjim_row{
 	flex-direction: row;
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
 	border-bottom: thin solid#C3C3C3;
 	flex-wrap:wrap;
 	margin-top: 10px;
@@ -54,8 +54,14 @@
 #user_jjim_col:nth-child(1){
 	margin-top: 20px;
 }
+#user_jjim_col:nth-child(1) img{
+	cursor: pointer;
+}
 #user_jjim_col:nth-child(2){
-	margin-left: -150px;
+	width: 400px;
+}
+#user_jjim_col:nth-child(3){
+	margin-left: 80px;
 }
 #jjim_button{
 	margin-top: 30px;
@@ -63,6 +69,7 @@
 	border: thin solid#C3C3C3;
 	padding: 5px 10px 5px 10px;
 	color: #8F8F8F;
+	cursor: pointer;
 }
 #jjim_button:hover{
 	border: thin solid#5E5E5E;

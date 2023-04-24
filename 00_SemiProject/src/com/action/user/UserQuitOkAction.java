@@ -43,5 +43,4 @@ public class UserQuitOkAction implements Action {
 		
 		return null;
 	}
-
 }

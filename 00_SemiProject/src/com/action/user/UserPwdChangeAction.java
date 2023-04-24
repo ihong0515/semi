@@ -47,8 +47,6 @@ public class UserPwdChangeAction implements Action {
 			out.println("history.back()");
 			out.println("</script>");
 		}
-		
 		return null;
 	}
-
 }

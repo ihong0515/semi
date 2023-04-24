@@ -20,7 +20,7 @@ public class UserJjimAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	
 		int user_no = Integer.parseInt(request.getParameter("no").trim());
-		
+
 		UserDAO user_dao = UserDAO.getInstance();
 		UserDTO user_dto = user_dao.getUserContent(user_no);
 		
@@ -42,8 +42,6 @@ public class UserJjimAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("user/user_jjim.jsp");
-		
 		return forward;
 	}
-
 }
