@@ -70,7 +70,6 @@ public class ReviewInsertAction implements Action {
 					}
 					file.renameTo(new File(saveFolder+"\\"+hotel_name+"\\"+dto.getReview_writer()+"\\"+fileName));
 					dto.setReview_photo(hotel_name+"/"+dto.getReview_writer()+"/"+fileName);
-					System.out.println(saveFolder+"\\"+hotel_name+"\\"+dto.getReview_writer()+"\\"+fileName);
 				}
 				int result = ReviewDAO.getInstance().insertReviewContent(dto);
 				
