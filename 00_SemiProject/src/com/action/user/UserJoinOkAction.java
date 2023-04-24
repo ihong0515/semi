@@ -38,8 +38,6 @@ public class UserJoinOkAction implements Action {
 			
 			int check = dao.insertUser(dto);
 			
-			
-			
 			if(check > 0) {
 				dao.deleteEmailCode(user_email);
 				

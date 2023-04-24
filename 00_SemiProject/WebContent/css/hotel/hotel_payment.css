@@ -147,7 +147,7 @@
 }
 #payment_hotel_promotion {
     padding: 16px;
-    display: flex;
+    display: block;
     flex-direction: row;
     border: 3px solid #C7B1B1;
     border-radius: 8px;

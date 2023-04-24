@@ -33,14 +33,13 @@ public class UserJjimCancelAction implements Action {
 			out.println("alert('찜 취소되었습니다.')");
 			out.println("location.href='user_jjim.do?no="+dto.getUser_no()+"'");
 			out.println("</script>");
+			return null;
 		} else {
 			out.println("<script>");
 			out.println("alert('찜 취소 실패')");
 			out.println("history.back()");
 			out.println("</script>");
+			return null;
 		}
-		
-		return null;
 	}
-
 }

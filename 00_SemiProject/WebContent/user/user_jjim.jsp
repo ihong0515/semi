@@ -38,7 +38,7 @@
 									</c:if>
 								</li>
 								<li><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 최저가 <fmt:formatNumber value="${dto.getHotel_price_min() }"/>원</li>
-								<li><i class="fa fa-map-marker" aria-hidden="true"></i> ${dto.getHotel_info() }</li>
+								<li><i class="fa fa-map-marker" aria-hidden="true"></i> ${dto.getHotel_addr() }</li>
 							</ul>
 						</div>
 						<div id = "user_jjim_col"><input type="button" id = "jjim_button" value="찜 취소" onclick="check(${user_dto.getUser_no() }, ${dto.getHotel_no() })"></div>

@@ -38,5 +38,4 @@ public class UserReservCancelAction implements Action {
 		}
 		return null;
 	}
-
 }

@@ -25,5 +25,4 @@ public class UserListAction implements Action {
 		forward.setPath("user/user_list.jsp");
 		return forward;
 	}
-
 }

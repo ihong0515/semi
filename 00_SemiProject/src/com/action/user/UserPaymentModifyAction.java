@@ -30,5 +30,4 @@ public class UserPaymentModifyAction implements Action {
 		return forward;
 		
 	}
-
 }

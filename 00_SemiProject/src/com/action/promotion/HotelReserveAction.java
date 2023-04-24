@@ -39,8 +39,7 @@ public class HotelReserveAction implements Action {
 		dto.setReserv_payment(Integer.parseInt(request.getParameter("card_no").trim()));
 		dto.setReserv_ins(Integer.parseInt(request.getParameter("reserv_ins").trim()));
 		dto.setReserv_phone(request.getParameter("userPhone_head")+"-"+phonebody.substring(0,4)+"-"+phonebody.substring(4));
-		System.out.println(dto.getReserv_phone());
-
+		
 		int re = UserDAO.getInstance().insertReservContent(dto);
 		if(re>0) {
 			

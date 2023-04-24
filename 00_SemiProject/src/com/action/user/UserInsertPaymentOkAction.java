@@ -17,7 +17,6 @@ public class UserInsertPaymentOkAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
-		
 		String pay_name = request.getParameter("pay_name").trim();
 		String pay_cardno = request.getParameter("pay_cardno1")+"-"+request.getParameter("pay_cardno2")+"-"+request.getParameter("pay_cardno3")+"-"+request.getParameter("pay_cardno4");
 		String pay_cardcom = request.getParameter("pay_cardcom").trim();
@@ -49,5 +48,4 @@ public class UserInsertPaymentOkAction implements Action {
 		}
 		return forward;
 	}
-
 }
