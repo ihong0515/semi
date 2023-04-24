@@ -1,6 +1,7 @@
 package com.action.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,11 +24,11 @@ public class UserCouponAction implements Action {
 		UserDAO dao = UserDAO.getInstance();
 		SessionRenewal.renewal(request);
 		
-		List<CouponDTO> list = dao.getCouponList(user_no);
-		request.setAttribute("couponList", list);
+		List<CouponDTO> coup_list = dao.getCouponList(user_no);
+		request.setAttribute("couponList", coup_list);
 		
-		PromotionDTO prom_dto = dao.getPromContentbyuserno(user_no);
-		request.setAttribute("prom_dto", prom_dto);
+		ArrayList<PromotionDTO> prom_list = dao.getPromContentbyuserno(user_no);
+		request.setAttribute("promList", prom_list);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

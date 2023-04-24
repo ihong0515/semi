@@ -750,28 +750,29 @@ public class UserDAO {
 		return result;
 	}
 	
-	public PromotionDTO getPromContentbyuserno(int user_no) {
-		PromotionDTO dto = null;
+	public ArrayList<PromotionDTO> getPromContentbyuserno(int user_no) {
+		ArrayList<PromotionDTO> list = new ArrayList<PromotionDTO>();
 		try {
 			connect();
-			sql = "select * from promotion where prom_no = (select coup_promno from coupon where coup_userno = ?)";
+			sql = "select a.* from promotion a join (select coup_promno from coupon where coup_userno = ?) b on prom_no = coup_promno";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, user_no);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				dto =new PromotionDTO();
+				PromotionDTO dto =new PromotionDTO();
 				dto.setProm_no(rs.getInt("prom_no"));
 				dto.setProm_name(rs.getString("prom_name"));
 				dto.setProm_folder(rs.getString("prom_folder"));
 				dto.setProm_info(rs.getString("prom_info"));
 				dto.setProm_sale(rs.getInt("prom_sale"));
+				list.add(dto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
 			close();
 		}
-		return dto;
+		return list;
 	}
 	
 	public ArrayList<CouponDTO> getCouponList(int user_no) {
