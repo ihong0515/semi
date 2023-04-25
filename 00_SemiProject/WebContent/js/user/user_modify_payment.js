@@ -1,12 +1,16 @@
 $(document).ready(function(){
 	let op_cl = $('#pay_cardcom option');
+	let check = 0;
+	
 	for(let i = 0; i < $(op_cl).length;i++){
 		if($(op_cl).eq(i).val()==pay_com){
 			$(op_cl).eq(i).attr('selected', true);
-		}else{
-			$(op_cl).eq(8).attr('selected', true);
-			$('#etc').show();
+			check = 1;
 		}
+	}
+	if(check==0){
+		$(op_cl).eq(8).attr('selected', true);
+			$('#etc').show();
 	}
 });
 

@@ -50,7 +50,7 @@
 						<th>적용 쿠폰 </th>
 						<td>
 							<c:if test="${!empty promDto.getProm_name() }">
-								${promDto.getProm_name() }
+								${promDto.getProm_name() } / ${promDto.getProm_sale() }%
 							</c:if>
 							<c:if test="${empty promDto.getProm_name() }">
 								<p style="color: #C7C7C7">없음</p>
