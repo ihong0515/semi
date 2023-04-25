@@ -37,7 +37,7 @@
 							연락처
 						</th>
 						<td colspan="2">
-							<input type="text" name="phone" placeholder="010">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000">
+							<input type="text" name="phone" maxlength="3" placeholder="010">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000" maxlength="4">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000" maxlength="4">
 						</td>
 					</tr>
 					<tr>
@@ -45,7 +45,18 @@
 							지역
 						</th>
 						<td colspan="2">
-							<input type="text" name="location">
+							<select name="location">
+								<option value="서울">서울</option>
+								<option value="경기">경기</option>
+								<option value="강원">강원</option>
+								<option value="충북">충북</option>
+								<option value="충남">충남</option>
+								<option value="전북">전북</option>
+								<option value="전남">전남</option>
+								<option value="경북">경북</option>
+								<option value="경남">경남</option>
+								<option value="제주">제주</option>
+							</select>
 						</td>
 					</tr>
 					<tr>
@@ -117,9 +128,9 @@
 							해쉬 태그
 						</th>
 						<td colspan="2">
-							<input type="text" name="hashtag" id="hashtag"><br>
-							<input type="text" name="hashtag" id="hashtag"><br>
-							<input type="text" name="hashtag" id="hashtag">
+							<input type="text" name="hashtag" class="hashtag"><br>
+							<input type="text" name="hashtag" class="hashtag"><br>
+							<input type="text" name="hashtag" class="hashtag">
 						</td>
 					</tr>
 					<tr align="left">

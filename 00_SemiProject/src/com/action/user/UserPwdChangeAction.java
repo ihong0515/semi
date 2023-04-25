@@ -34,7 +34,7 @@ public class UserPwdChangeAction implements Action {
 		if(res > 0) {
 			out.println("<script>");
 			out.println("alert('비밀번호가 변경되었습니다.')");
-			out.println("location.href='user_modify.do'");
+			out.println("location.href='user_info.do'");
 			out.println("</script>");
 		} else if(res == -1) {
 			out.println("<script>");
