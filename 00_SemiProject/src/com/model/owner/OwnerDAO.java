@@ -510,7 +510,7 @@ private static OwnerDAO instance;
 					+ "hp_bar = ?, "
 					+ "hp_terrace = ?, "
 					+ "hp_sauna = ? "
-					+ "where ho_hotelno = ?";
+					+ "where hp_hotelno = ?";
 			ps = con.prepareStatement(sql);
 			for(int i = 0; i<str.length;i++) {
 				if(str[i].equals("on")) {
@@ -519,6 +519,7 @@ private static OwnerDAO instance;
 					ps.setString((i+1), "N");
 				}
 			}
+			ps.setInt(10, no);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -624,7 +625,7 @@ private static OwnerDAO instance;
 		int result = 0;
 		
 		try {
-			sql = "update owner set owner_name = ?, owner_pwd = ?, owner_phone = ?, owner_email = ?, owner_update = sysdate where owner_no = ?";
+			sql = "update owner set owner_name = ?, owner_pwd = ?, owner_phone = ?, owner_email = ? where owner_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getOwner_name());
 			ps.setString(2, dto.getOwner_pwd());

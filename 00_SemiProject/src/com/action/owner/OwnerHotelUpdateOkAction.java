@@ -30,7 +30,6 @@ public class OwnerHotelUpdateOkAction implements Action {
 		fis.close();
 		
 		String saveFolder = prop.getProperty(System.getenv("USERPROFILE").substring(3))+"\\hotel";
-		
 		int fileSize = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		
