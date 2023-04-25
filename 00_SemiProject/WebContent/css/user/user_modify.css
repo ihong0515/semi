@@ -118,6 +118,25 @@
 	font-size: 16px;
 	vertical-align: bottom;
 }
+#pwd_modify_btn{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	height: 25px;
+	width: 90px;
+	border-style: none;
+	float: left;
+	margin: 0;
+	font-size: 13px;
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+#pwd_modify_btn:hover {
+	background: #F2F2F2;
+	color: black;
+}
 #pwd_td {
 	border-style: none !important;
 }
@@ -176,4 +195,3 @@
 	text-align: center;
 	font-family: 'Noto Sans KR', sans-serif !important;
 	font-size: 16px;
-}
