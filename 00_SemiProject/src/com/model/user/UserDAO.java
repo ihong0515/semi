@@ -119,39 +119,6 @@ public class UserDAO {
 		return dto;
 	}
 	
-	public List<UserDTO> getUserList() {
-		List<UserDTO> list = new ArrayList<UserDTO>();
-		try {
-			connect();
-			sql = "select * from user1 order by user_no";
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				UserDTO dto = new UserDTO();
-				dto.setUser_no(rs.getInt("user_no"));
-				dto.setUser_name(rs.getString("user_name"));
-				dto.setUser_phone(rs.getString("user_phone"));
-				dto.setUser_birth(rs.getString("user_birth"));
-				dto.setUser_email(rs.getString("user_email"));
-				dto.setUser_region(rs.getString("user_region"));
-				dto.setUser_pwd(rs.getString("user_pwd"));
-				dto.setUser_id(rs.getString("user_id"));
-				int[] jL = new int[3];
-				jL[0] = rs.getInt("user_jjim1");
-				jL[1] = rs.getInt("user_jjim2");
-				jL[2] = rs.getInt("user_jjim3");
-				dto.setUser_jjimList(jL);
-				list.add(dto);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return list;
-	}
-	
 	public UserDTO loginUser(String id, String pwd) {
 		UserDTO dto = null;
 		
@@ -730,9 +697,9 @@ public class UserDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				sql = "update user1 set ";
-				if(rs.getInt(1)==0) {
+				if(rs.getInt(1)==0||rs.getInt(1)==hotel_no) {
 					sql += "user_jjim1 = '"+hotel_no+"' ";
-				}else if(rs.getInt(2)==0) {
+				}else if(rs.getInt(2)==0||rs.getInt(2)==hotel_no) {
 					sql += "user_jjim2 = '"+hotel_no+"' ";
 				}else {
 					sql += "user_jjim3 = '"+hotel_no+"' ";

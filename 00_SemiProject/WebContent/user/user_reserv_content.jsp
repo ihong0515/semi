@@ -44,7 +44,7 @@
 					</tr>
 					<tr>
 						<th>원가</th>
-						<td>${dto.getReserv_nomalprice() }</td>
+						<td><fmt:formatNumber value="${dto.getReserv_nomalprice() }"/> 원</td>
 					</tr>
 					<tr>
 						<th>적용 쿠폰 </th>
@@ -59,7 +59,7 @@
 					</tr>
 					<tr>
 						<th>결제 금액</th>
-						<td>${dto.getReserv_realprice() }</td>
+						<td><fmt:formatNumber value="${dto.getReserv_realprice() }"/> 원</td>
 					</tr>
 				</table>
 			</div>

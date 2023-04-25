@@ -25,7 +25,7 @@ function getReserv(self){
 				str += "<li style='font-size: 16px'>" + $(this).find("reserv_roomname").text()+"</li>";
 				str += "<li style='font-size: 16px'>체크인: " + $(this).find("reserv_start").text()+"</li>";
 				str += "<li style='font-size: 16px'>체크아웃: " + $(this).find("reserv_end").text()+"</li></ul></div>";
-				str += "<div id='btn_div'><strong>₩ " + resultPrice + "</strong>";
+				str += "<div id='btn_div'><strong>" + resultPrice + " 원</strong>";
 				str += "<button onclick=\'location.href=\""+contextPath+"/user_reserv_content.do?reserv_no="+$(this).find("reserv_no").text()+"\"\'>예약 세부 정보</button></div></div><br><br>";
 				count++;
 			});

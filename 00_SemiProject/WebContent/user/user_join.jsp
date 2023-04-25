@@ -23,7 +23,7 @@
 					<tr>
 						<th>아이디</th>
 						<td>
-							<input type="text" name="user_id" id="user_id" placeholder="ID" onblur="checkId(this)" onkeyup="idKorCheck(this)">
+							<input type="text" name="user_id" id="user_id" placeholder="ID" onblur="checkId()" onkeyup="idKorCheck(this)">
 							<input type="hidden" name="idcheckfin" value="idUncheck">
 							<br>
 							<span id="idcheck"></span>

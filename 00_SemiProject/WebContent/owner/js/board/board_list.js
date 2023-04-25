@@ -60,6 +60,6 @@ function get_hotel_cont(self){
 	}
 }
 
-function move_board(no,step){
+function move_board(no){
 	location.href=contextPath+"/owner_board_content.do?no="+no;
 }

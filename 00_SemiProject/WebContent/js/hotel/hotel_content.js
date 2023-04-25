@@ -1,23 +1,6 @@
 /**
  * 
  */
-/*$(document).ready(function(){
-	$('.room_content_img_dot span').hover(function(){
-		if($(this).attr('style')=='color:red'){
-			console.log(1);
-		}else{
-			$(this).css('color', '#FB7673');
-			console.log(1);
-		}
-	},function(){
-		if($(this).attr('style')=='color:red'){
-			console.log(2);
-		}else{
-			$(this).css('color', '#fbc0bf');
-			console.log(2);
-		}
-	});
-});*/
 
 function nextSlideSpan(i, self){
 	$(self).parent().prev().find('img').hide();
