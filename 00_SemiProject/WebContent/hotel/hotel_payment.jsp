@@ -138,7 +138,7 @@ if(checkDate!=null){
 										<fmt:formatNumber value="${roDTO.getRoom_price() }" type="currency"/> X ${inoutDay }박
 									</th>
 									<td>
-										<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />원
+										<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />
 									</td>
 								</tr>
 								<tr>
@@ -154,7 +154,7 @@ if(checkDate!=null){
 										바로 결제
 									</th>
 									<td id="realPrice">
-										<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />원
+										<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />
 									</td>
 								</tr>
 							</table>

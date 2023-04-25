@@ -24,7 +24,11 @@ function check_pwd(){
 			f.email.focus();
 			return false;
 		}else{
-			return true;
+			if(confirm('회원 정보를 수정하시겠습니까.')){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}else{
 		$('#pwd_result').html("");

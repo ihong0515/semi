@@ -50,7 +50,6 @@
 							지역
 						</th>
 						<td>
-							<input name="location" id="loc">
 							<select name="location">
 								<option value="서울">서울</option>
 								<option value="경기">경기</option>

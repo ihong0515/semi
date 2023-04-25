@@ -146,7 +146,7 @@
 									<c:forEach begin="1" end="${dto.getHotel_star() }"><span id = "hotel_star">★</span></c:forEach>
 									 <br>
 										평점 : ${dto.getHotel_point() }/10 <br>
-										<span id = "hotel_min_pirce">최저가 : ${dto.getHotel_price_min() }원</span>
+										<span id = "hotel_min_pirce">최저가 : <fmt:formatNumber value="${dto.getHotel_price_min() }"/>원</span>
 									</div>
 									<input id="hotel_reserve_button" type="button" onclick="location.href='<%=request.getContextPath() %>/hotel_get_Content.do?hotel_no=${dto.getHotel_no() }'" value="예약하기">
 								</div>
