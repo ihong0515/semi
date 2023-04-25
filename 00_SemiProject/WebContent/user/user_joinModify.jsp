@@ -21,6 +21,7 @@
 			<div id="modify_table">
 				<h2>회원 정보 수정</h2>
 				<form method="post" action="<%=request.getContextPath() %>/user_modify_ok.do" onsubmit="return modifyFormCheck()">
+					<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
 					<table>
 						<tr> 
 							<th>이름</th>
@@ -35,40 +36,6 @@
 							<td id="pwd_td">
 								<div id="btnWrap">
 									<input type="button" id="pwd_modify_btn" value="비밀번호 변경" onclick="show_modal()">
-								</div>
-								<div id="modal_wrap">
-									<div id="myModal" class="myModal">
-										<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
-										<h2>비밀번호 변경</h2>
-										<div id="modal_content" align="center">
-											<table>
-												<tr class="modal_content_wrap">
-													<th>현재 비밀번호</th>
-													<td><input type="password" name="now_pwd" id="now_pwd"></td>
-												</tr>
-												<tr class="modal_content_wrap">
-													<th>변경할 비밀번호</th>
-													<td>
-														<input type="password" name="new_pwd" id="new_pwd" onchange="pwdInput()">
-														<span id="pwdcheck"></span>
-													</td>
-												</tr>
-												<tr class="modal_content_wrap">
-													<th>변경할 비밀번호 재확인</th>
-													<td>
-														<input type="password" name="re_new_pwd" id="re_new_pwd" onchange="pwdInput()">
-														<span id="repwdcheck"></span>
-													</td>
-												</tr>
-												<tr class="modal_btn_wrap">
-													<td colspan="2" align="center">
-														<input type="submit" id="modal_btn_submit" value="비밀번호 변경" onclick="javascript: form.action='<%=request.getContextPath()%>/user_pwdChange.do'">
-														<input type="button" id="modal_btn_close" value="닫기" onClick="close_modal()">
-													</td>
-												</tr>
-											</table>
-										</div>
-									</div>
 								</div>
 							</td>
 						</tr>
@@ -115,6 +82,42 @@
 					<div id="modify_button_div">
 						<input type="submit" id="submit" class="modify_button" value="수정하기">
 						<input type="reset" class="modify_button" value="다시 작성하기">
+					</div>
+				</form>
+				<form action="<%=request.getContextPath()%>/user_pwdChange.do">
+					<div id="modal_wrap">
+						<div id="myModal" class="myModal">
+							<input type="hidden" name="user_no" value="${user_dto.getUser_no() }">
+							<h2>비밀번호 변경</h2>
+							<div id="modal_content" align="center">
+								<table>
+									<tr class="modal_content_wrap">
+										<th>현재 비밀번호</th>
+										<td><input type="password" name="now_pwd" id="now_pwd"></td>
+									</tr>
+									<tr class="modal_content_wrap">
+										<th>변경할 비밀번호</th>
+										<td>
+											<input type="password" name="new_pwd" id="new_pwd" onchange="pwdInput()">
+											<span id="pwdcheck"></span>
+										</td>
+									</tr>
+									<tr class="modal_content_wrap">
+										<th>변경할 비밀번호 재확인</th>
+										<td>
+											<input type="password" name="re_new_pwd" id="re_new_pwd" onchange="pwdInput()">
+											<span id="repwdcheck"></span>
+										</td>
+									</tr>
+									<tr class="modal_btn_wrap">
+										<td colspan="2" align="center">
+											<input type="submit" id="modal_btn_submit" value="비밀번호 변경">
+											<input type="button" id="modal_btn_close" value="닫기" onClick="close_modal()">
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
