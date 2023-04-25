@@ -20,53 +20,53 @@
 				<table>
 					<tr>
 						<th>
-							<c:if test="${dto.isHp_wifi() }"><input type="checkbox" checked name="wifi"></c:if>
-							<c:if test="${!dto.isHp_wifi() }"><input type="checkbox" name="wifi"></c:if>
-							와이파이
+							<c:if test="${dto.isHp_wifi() }"><input type="checkbox" checked name="wifi" id="wifi"></c:if>
+							<c:if test="${!dto.isHp_wifi() }"><input type="checkbox" name="wifi" id="wifi"></c:if>
+							<label for="wifi">와이파이</label>
 						</th>
 						<th>
-							<c:if test="${dto.isHp_parking() }"><input type="checkbox" checked name="park"></c:if>
-							<c:if test="${!dto.isHp_parking() }"><input type="checkbox" name="park"></c:if>
-							주차
+							<c:if test="${dto.isHp_parking() }"><input type="checkbox" checked name="park" id="park"></c:if>
+							<c:if test="${!dto.isHp_parking() }"><input type="checkbox" name="park" id="park"></c:if>
+							<label for="park">주차</label>
 						</th>
 						<th>
-							<c:if test="${dto.isHp_tub() }"><input type="checkbox" checked name="tub"></c:if>
-							<c:if test="${!dto.isHp_tub() }"><input type="checkbox" name="tub"></c:if>
-							욕조
-						</th>
-					</tr>
-					<tr>
-						<th>
-							<c:if test="${dto.isHp_pool() }"><input type="checkbox" checked name="pool"></c:if>
-							<c:if test="${!dto.isHp_pool() }"><input type="checkbox" name="pool"></c:if>
-							수영장
-						</th>
-						<th>
-							<c:if test="${dto.isHp_restaurant() }"><input type="checkbox" checked name="rest"></c:if>
-							<c:if test="${!dto.isHp_restaurant() }"><input type="checkbox" name="rest"></c:if>
-							식당
-						</th>
-						<th>
-							<c:if test="${dto.isHp_fitness() }"><input type="checkbox" checked name="fit"></c:if>
-							<c:if test="${!dto.isHp_fitness() }"><input type="checkbox" name="fit"></c:if>
-							헬스장
+							<c:if test="${dto.isHp_tub() }"><input type="checkbox" checked name="tub" id="tub"></c:if>
+							<c:if test="${!dto.isHp_tub() }"><input type="checkbox" name="tub" id="tub"></c:if>
+							<label for="tub">욕조</label>
 						</th>
 					</tr>
 					<tr>
 						<th>
-							<c:if test="${dto.isHp_bar() }"><input type="checkbox" checked name="bar"></c:if>
-							<c:if test="${!dto.isHp_bar() }"><input type="checkbox" name="bar"></c:if>
-							바
+							<c:if test="${dto.isHp_pool() }"><input type="checkbox" checked name="pool" id="pool"></c:if>
+							<c:if test="${!dto.isHp_pool() }"><input type="checkbox" name="pool" id="pool"></c:if>
+							<label for="pool">수영장</label>
 						</th>
 						<th>
-							<c:if test="${dto.isHp_terrace() }"><input type="checkbox" checked name="tera"></c:if>
-							<c:if test="${!dto.isHp_terrace() }"><input type="checkbox" name="tera"></c:if>
-							테라스
+							<c:if test="${dto.isHp_restaurant() }"><input type="checkbox" checked name="rest" id="rest"></c:if>
+							<c:if test="${!dto.isHp_restaurant() }"><input type="checkbox" name="rest" id="rest"></c:if>
+							<label for="rest">식당</label>
 						</th>
 						<th>
-							<c:if test="${dto.isHp_sauna() }"><input type="checkbox" checked name="sau"></c:if>
-							<c:if test="${!dto.isHp_sauna() }"><input type="checkbox" name="sau"></c:if>
-							사우나
+							<c:if test="${dto.isHp_fitness() }"><input type="checkbox" checked name="fit" id="fit"></c:if>
+							<c:if test="${!dto.isHp_fitness() }"><input type="checkbox" name="fit" id="fit"></c:if>
+							<label for="fit">헬스장</label>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<c:if test="${dto.isHp_bar() }"><input type="checkbox" checked name="bar" id="bar"></c:if>
+							<c:if test="${!dto.isHp_bar() }"><input type="checkbox" name="bar" id="bar"></c:if>
+							<label for="bar">바</label>
+						</th>
+						<th>
+							<c:if test="${dto.isHp_terrace() }"><input type="checkbox" checked name="tera" id="tera"></c:if>
+							<c:if test="${!dto.isHp_terrace() }"><input type="checkbox" name="tera" id="tera"></c:if>
+							<label for="tera">테라스</label>
+						</th>
+						<th>
+							<c:if test="${dto.isHp_sauna() }"><input type="checkbox" checked name="sau" id="sau"></c:if>
+							<c:if test="${!dto.isHp_sauna() }"><input type="checkbox" name="sau" id="sau"></c:if>
+							<label for="sau">사우나</label>
 						</th>
 					</tr>
 				</table>

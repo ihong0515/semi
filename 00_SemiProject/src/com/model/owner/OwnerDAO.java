@@ -510,15 +510,16 @@ private static OwnerDAO instance;
 					+ "hp_bar = ?, "
 					+ "hp_terrace = ?, "
 					+ "hp_sauna = ? "
-					+ "where ho_hotelno = ?";
+					+ "where hp_hotelno = ?";
 			ps = con.prepareStatement(sql);
 			for(int i = 0; i<str.length;i++) {
-				if(str[i].equals("on")) {
-					ps.setString((i+1), "Y");
+				if(str[i]==null) {
+					ps.setInt((i+1), 0);
 				}else {
-					ps.setString((i+1), "N");
+					ps.setInt((i+1), 1);
 				}
 			}
+			ps.setInt(10, no);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

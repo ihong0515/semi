@@ -377,7 +377,9 @@ textarea:focus {
 	padding: 10px;
 	width: 200px;
 }
-
+#visit_hotel_cont img{
+	cursor: pointer;
+}
 #hotel_board{
 	position: relative;
 }
