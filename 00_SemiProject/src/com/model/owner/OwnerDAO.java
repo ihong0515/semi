@@ -624,7 +624,7 @@ private static OwnerDAO instance;
 		int result = 0;
 		
 		try {
-			sql = "update owner set owner_name = ?, owner_pwd = ?, owner_phone = ?, owner_email = ?, owner_update = sysdate where owner_no = ?";
+			sql = "update owner set owner_name = ?, owner_pwd = ?, owner_phone = ?, owner_email = ? where owner_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto.getOwner_name());
 			ps.setString(2, dto.getOwner_pwd());
