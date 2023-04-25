@@ -29,12 +29,12 @@ int ran_num=(int)((Math.random()*7)+1);
 						<li><input type="button" class="Starlocation" id="starlocation-active" value="서울" onclick="starClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="Starlocation" value="경기" onclick="starClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="Starlocation" value="강원" onclick="starClick(this); serchHotelList(this);"></li>
-						<li><input type="button" class="Starlocation" value="전남" onclick="starClick(this); serchHotelList(this);"></li>
-						<li><input type="button" class="Starlocation" value="전북" onclick="starClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="Starlocation" value="충북" onclick="starClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="Starlocation" value="충남" onclick="starClick(this); serchHotelList(this);"></li>
-						<li><input type="button" class="Starlocation" value="경남" onclick="starClick(this); serchHotelList(this);"></li>
+						<li><input type="button" class="Starlocation" value="전북" onclick="starClick(this); serchHotelList(this);"></li>
+						<li><input type="button" class="Starlocation" value="전남" onclick="starClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="Starlocation" value="경북" onclick="starClick(this); serchHotelList(this);"></li>
+						<li><input type="button" class="Starlocation" value="경남" onclick="starClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="Starlocation" value="제주" onclick="starClick(this); serchHotelList(this);"></li>
 					</ul>
 				</nav>
@@ -54,12 +54,12 @@ int ran_num=(int)((Math.random()*7)+1);
 						<li><input type="button" class="lowPricelocation" id="lowPricelocation-active" value="서울" onclick="lowClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="lowPricelocation" value="경기" onclick="lowClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="lowPricelocation" value="강원" onclick="lowClick(this); serchHotelList(this);"></li>
-						<li><input type="button" class="lowPricelocation" value="전남" onclick="lowClick(this); serchHotelList(this);"></li>
-						<li><input type="button" class="lowPricelocation" value="전북" onclick="lowClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="lowPricelocation" value="충북" onclick="lowClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="lowPricelocation" value="충남" onclick="lowClick(this); serchHotelList(this);"></li>
-						<li><input type="button" class="lowPricelocation" value="경남" onclick="lowClick(this); serchHotelList(this);"></li>
+						<li><input type="button" class="lowPricelocation" value="전북" onclick="lowClick(this); serchHotelList(this);"></li>
+						<li><input type="button" class="lowPricelocation" value="전남" onclick="lowClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="lowPricelocation" value="경북" onclick="lowClick(this); serchHotelList(this);"></li>
+						<li><input type="button" class="lowPricelocation" value="경남" onclick="lowClick(this); serchHotelList(this);"></li>
 						<li><input type="button" class="lowPricelocation" value="제주" onclick="lowClick(this); serchHotelList(this);"></li>
 					</ul>
 				</nav>

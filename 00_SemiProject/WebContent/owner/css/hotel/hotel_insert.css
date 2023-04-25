@@ -46,8 +46,12 @@ table input[name=phone]{
 table input[type=checkbox]{
 	width: 12px;
 }
-#hashtag{
+table select{
+	border: 0;
+}
+.hashtag{
 	margin-bottom: 5px;
+	border-bottom: 1px solid #c0c0c0;
 }
 label{
 	height: 40px;
