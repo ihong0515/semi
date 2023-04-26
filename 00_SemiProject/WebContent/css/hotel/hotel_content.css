@@ -492,19 +492,16 @@ textarea:focus {
 	padding: 4px 12px;
 	border-radius: 4px;
 }
-
 /* 별점 구현 */
 .rating_box {
   display: flex;
 }
-
 .rating {
   position: relative!important;
   color: #ddd;
   font-size: 20px;
   text-align: center;
 }
-
 #starInput {
   position: absolute;
   left: 0;
@@ -514,7 +511,6 @@ textarea:focus {
   opacity: 0;
   cursor: pointer;
 }
-
 .rating_star {
   width: 0;
   color: #ffc107;
