@@ -71,7 +71,7 @@ function payment_getno(){
 		success: function(data){
 			let cardno = $(data).find("pay_cardno").text();
 			let pay_no = $(data).find("pay_no").text();
-			let txt = "카드번호 : "+cardno.slice(0,4)+"-****-****-"+cardno.slice(12)+" 할부 : <input type='number' min='1' name='reserv_ins' style='width:30px;'>";
+			let txt = "카드번호 : "+cardno.slice(0,4)+"-****-****-"+cardno.slice(12)+" / 할부 : <input type='number' value='1' min='1' name='reserv_ins' style='width:30px;'>";
 			txt += "<br>카드사 : "+ $(data).find("pay_cardcom").text();
 			
 			$('#payment_usercard_view p').html(txt);
