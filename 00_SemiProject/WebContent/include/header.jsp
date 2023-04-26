@@ -48,6 +48,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 				<c:if test="${!empty dto}">
 					<a href="javascript:openMypage()" id="mypage">mypage</a>
 					<a href="javascript:logout()" id="logout">logout</a>
+					
 					<ul class="submenu">
 						<li><a href="<%=request.getContextPath() %>/user_info.do">회원 정보 수정</a></li>
 						<li><a href="<%=request.getContextPath() %>/user_payment.do">내 결제수단</a></li>

@@ -35,7 +35,7 @@ public class BoardSiteGetListAction implements Action {
 		
 		int startNo = (page *rowsize) - (rowsize - 1); //시작번호
 		int endNo = (page*rowsize);  //끝번호
-		
+		int startBoard = totalRecord - ((page-1)*rowsize);
 		ArrayList<Inquiry_SiteDTO> list = BoardDAO.getInstance().getSitePageBoardList(startNo, endNo);
 		
 		String board_list = "<board_list>";
@@ -58,7 +58,8 @@ public class BoardSiteGetListAction implements Action {
 		}
 		board_list += "<pagenation>"
 				+ "<page>"+page+"</page>"
-				+ "<allPage>"+allPage+"</allPage>";
+				+ "<allPage>"+allPage+"</allPage>"
+				+ "<startBoard>"+startBoard+"</startBoard>";
 		board_list += "</pagenation>";
 		board_list += "</board_list>";
 		response.getWriter().println(board_list);

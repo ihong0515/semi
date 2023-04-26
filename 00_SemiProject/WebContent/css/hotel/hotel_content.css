@@ -95,7 +95,7 @@
 	width: 100%;
 }
 #hotel_info_detail_price #left {
-	width: 50%;
+	width: 45%;
 	float: left;
 }
 #hotel_info_detail_price #left #txt1 {
@@ -108,7 +108,7 @@
 	color: #888;
 }
 #hotel_info_detail_price #right {
-	width: 50%;
+	width: 55%;
 	float: right;
 	text-align: right;
 }
@@ -137,6 +137,10 @@
 	text-align: left;
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+#hotel_detail th,
+#hotel_detail td{
+	padding-bottom: 10px;
 }
 #hotel_detail th {
 	width: 100px;
@@ -385,13 +389,14 @@ textarea:focus {
 }
 #write_overlay{
 	display: none;
-	position: absolute;
-	left: 20%;
-	top: -304px;
+	position: fixed;
+	left: 35%;
+	top: 25%;
 	width: 500px;
 	height: auto;
 	border: 5px solid black;
 	background: white;
+	z-index: 5;
 }
 #write_window{
 	margin: auto;

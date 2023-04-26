@@ -118,12 +118,12 @@
 				<div id="agree_container">
 					<div class="agree_q">
 						<input type="checkbox" id="cbx_chkAll" onclick="checkFalse()">
-						<label><b>사용자 약관 전체 동의</b></label>
+						<label for="cbx_chkAll"><b>사용자 약관 전체 동의</b></label>
 					</div>
 					<hr id="hr">
 					<div class="agree_q">
 						<input type="checkbox" name="chk" id="required_1" onclick="checkTrue()">
-						<label>서비스 이용 약관 동의(필수)</label>
+						<label for="required_1">서비스 이용 약관 동의(필수)</label>
 						<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 						<div class="detail">
 							<jsp:include page="../terms/payment/service_terms" />
@@ -131,7 +131,7 @@
 					</div>
 					<div class="agree_q">
 						<input type="checkbox" name="chk" id="required_2" onclick="checkTrue()">
-						<label>개인정보 처리방침 동의(필수)</label>
+						<label for="required_2">개인정보 처리방침 동의(필수)</label>
 						<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 						<div class="detail">
 						 	<jsp:include page="../terms/user/info_terms" />
@@ -139,23 +139,23 @@
 					</div>
 					<div class="agree_q">
 						<input type="checkbox" name="chk" id="required_3" onclick="checkTrue()">
-						<label>만 14세 이상 확인(필수)</label>
+						<label for="required_3">만 14세 이상 확인(필수)</label>
 						<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 						<div class="detail">
 							<jsp:include page="../terms/user/kid_terms" />
 						</div>
 					</div>
 					<div class="agree_q">
-						<input type="checkbox" name="chk" onclick="checkTrue()">
-						<label>평생회원제 동의(선택)</label>
+						<input type="checkbox" id="required_4" name="chk" onclick="checkTrue()">
+						<label for="required_4">평생회원제 동의(선택)</label>
 						<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 						<div class="detail">
 							<jsp:include page="../terms/user/member_terms" />
 						</div>
 					</div>
 					<div class="agree_q">
-						<input type="checkbox" name="chk" onclick="checkTrue()">
-						<label>쿠폰, 이벤트 등 혜택 알림 동의(선택)</label>
+						<input type="checkbox" id="required_5" name="chk" onclick="checkTrue()">
+						<label for="required_5">쿠폰, 이벤트 등 혜택 알림 동의(선택)</label>
 						<span class="main" onclick="agreeShow(this)"><i class="fa-solid fa-chevron-down"></i></span>
 						<div class="detail">
 							<jsp:include page="../terms/user/coupon_terms" />

@@ -108,6 +108,8 @@ function open_menu(self){
 	$(self).next().animate({
 		width: 'show'
 	}, 200);
+	$('#select_hotel option:eq(0)').prop('selected','selected');
+	$('#room_list option:eq(0)').prop('selected','selected');
 }
 function close_menu(self){
 	$(self).parent().animate({

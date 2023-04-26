@@ -305,7 +305,7 @@ public class HotelDAO {
 		ArrayList<HotelDTO> detail_list = new ArrayList<HotelDTO>();
 		
 		try {
-			sql = "select * from hotel where hotel_price_min >= '"+price_min+"' and hotel_price_max <= '"+price_max+"'";
+			sql = "select * from hotel where hotel_price_min >= '"+price_min+"' and hotel_price_min <= '"+price_max+"'";
 			if(people!=0) {
 				sql += " and hotel_people_min <= '"+people+"' and hotel_people_max >= '"+people+"'";
 			}

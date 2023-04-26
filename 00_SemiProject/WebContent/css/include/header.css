@@ -79,7 +79,6 @@ html, body {
 }
 #header_navi_home_log a {
 	float: right;
-	flex: 1;
 	height: 20px;
 	vertical-align: middle;
 	margin-left: 30px;
@@ -95,15 +94,17 @@ html, body {
 .submenu {
 	position: absolute;
 	display: none;
-	background: #E3E3E3;
+	background: #fff;
 	height: 200px;
 	flex-direction: column;
-	top: 25px;
+	top: 36px;
     right: 0;
     height: auto;
     width: 100px;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 10px;
+	border-radius: 4px;
+	box-shadow: 0px 0px 2px 0px #000;
 }
 .submenu li {
 	padding: 3px;

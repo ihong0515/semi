@@ -118,6 +118,9 @@
 #agree_container {
 	margin-left: 143px;
 	margin-right: 143px;
+}
+#agree_container input[type=checkbox],
+#agree_container label{
 	cursor: pointer;
 }
 .agree_q {
@@ -125,6 +128,7 @@
 }
 .agree_q i {
 	float: right;
+	cursor: pointer;
 }
 #submit {
 	box-sizing: border-box;
