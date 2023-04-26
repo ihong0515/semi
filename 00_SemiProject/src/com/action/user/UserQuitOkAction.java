@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.action.Action;
 import com.action.ActionForward;
@@ -21,6 +22,9 @@ public class UserQuitOkAction implements Action {
 		UserDAO dao = UserDAO.getInstance();
 		
 		int check = dao.quitUser(user_no, user_pwd);
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
 		PrintWriter out = response.getWriter();
 		
