@@ -16,6 +16,20 @@ function modifyFormCheck() {
 		$('#user_phone_end').val('').focus();
 		return false;
 	} 
+	if($('#user_phone_mid').val().length < 4) {
+		$("#phonecheck").text("");
+		$("#phonecheck").show();
+		$("#phonecheck").append('<font color="red">전화번호를 4자리를 모두 입력해주세요.</font>');
+		$('#user_phone_mid').val('').focus();
+		return false;
+	} 
+	if($('#user_phone_end').val().length < 4) {
+		$("#phonecheck").text("");
+		$("#phonecheck").show();
+		$("#phonecheck").append('<font color="red">전화번호를 4자리를 모두 입력해주세요.</font>');
+		$('#user_phone_end').val('').focus();
+		return false;
+	} 
 	if($('#user_birth').val() == "") {
 		$("#birthcheck").text("");
 		$("#birthcheck").show();

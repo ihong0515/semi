@@ -112,12 +112,12 @@
 	padding: 5px;
 	height: 40px;
 	width: 400px;
-	border-style: none;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-color: #C3C3C3;
 	font-size: 16px;
 	vertical-align: bottom;
+}
+#modify_table #name_td, #id_td, #pwd_td, #user_birth, #user_region, #email_td {
+	border-style: none;
+	border-bottom: solid 1px #C3C3C3;
 }
 #pwd_modify_btn{
 	box-sizing: border-box;
@@ -175,25 +175,26 @@
 	font-family: 'Noto Sans KR', sans-serif;
 	width: 400px;
 	border-style: none;
+	border-bottom: solid 1px #C3C3C3;
 	text-align: left;
 	font-size: 16px;
 	vertical-align: bottom;
 	cursor: pointer;
 }
+#user_phone{
+	border-bottom: 1px solid #C3C3C3;
+    height: 25px;
+    padding-left: 5px;
+}
 .user_phone_txt {
 	width: auto !important;
-	height: 29px;
-	border-style: none !important;
 	float: left;
-	line-height: 29px;
 	text-align: center;
 }
 .phone_number {
 	width: 50px !important;
-	height: 29px;
-	border-style: none !important;
+	border-style: none;
 	float: left;
-	line-height: 29px;
 	text-align: center;
 	font-family: 'Noto Sans KR', sans-serif !important;
 	font-size: 16px;

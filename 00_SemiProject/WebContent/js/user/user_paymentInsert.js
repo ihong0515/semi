@@ -26,59 +26,31 @@ function modifyPaymentFormCheck() {
 		$('#pay_name').val('').focus();
 		return false;
 	}
-	if($('#pay_cardno1').val() == "") {
+	if($('#pay_cardno1').val() == "" || $('#pay_cardno1').val().length < 4) {
 		$("#pay_cardno_check").text("");
 		$("#pay_cardno_check").show();
 		$("#pay_cardno_check").append('<font color="red">카드 번호를 모두 입력해주세요.</font>');
 		$('#pay_cardno1').val('').focus();
 		return false;
 	} 
-	if($('#pay_cardno1').val().length < 4) {
-		$("#pay_cardno_check").text("");
-		$("#pay_cardno_check").show();
-		$("#pay_cardno_check").append('<font color="red">카드 번호 4자리를 모두 입력해주세요.</font>');
-		$('#pay_cardno1').val('').focus();
-		return false;
-	} 
-	if($('#pay_cardno2').val() == "") {
+	if($('#pay_cardno2').val() == "" || $('#pay_cardno2').val().length < 4) {
 		$("#pay_cardno_check").text("");
 		$("#pay_cardno_check").show();
 		$("#pay_cardno_check").append('<font color="red">카드 번호를 모두 입력해주세요.</font>');
 		$('#pay_cardno2').val('').focus();
 		return false;
 	} 
-	if($('#pay_cardno2').val().length < 4) {
-		$("#pay_cardno_check").text("");
-		$("#pay_cardno_check").show();
-		$("#pay_cardno_check").append('<font color="red">카드 번호 4자리를 모두 입력해주세요.</font>');
-		$('#pay_cardno2').val('').focus();
-		return false;
-	} 
-	if($('#pay_cardno3').val() == "") {
+	if($('#pay_cardno3').val() == "" || $('#pay_cardno3').val().length < 4) {
 		$("#pay_cardno_check").text("");
 		$("#pay_cardno_check").show();
 		$("#pay_cardno_check").append('<font color="red">카드 번호를 모두 입력해주세요.</font>');
 		$('#pay_cardno3').val('').focus();
 		return false;
 	} 
-	if($('#pay_cardno3').val().length < 4) {
-		$("#pay_cardno_check").text("");
-		$("#pay_cardno_check").show();
-		$("#pay_cardno_check").append('<font color="red">카드 번호 4자리를 모두 입력해주세요.</font>');
-		$('#pay_cardno3').val('').focus();
-		return false;
-	} 
-	if($('#pay_cardno4').val() == "") {
+	if($('#pay_cardno4').val() == "" || $('#pay_cardno4').val().length < 4) {
 		$("#pay_cardno_check").text("");
 		$("#pay_cardno_check").show();
 		$("#pay_cardno_check").append('<font color="red">카드 번호를 모두 입력해주세요.</font>');
-		$('#pay_cardno4').val('').focus();
-		return false;
-	} 
-	if($('#pay_cardno4').val().length < 4) {
-		$("#pay_cardno_check").text("");
-		$("#pay_cardno_check").show();
-		$("#pay_cardno_check").append('<font color="red">카드 번호 4자리를 모두 입력해주세요.</font>');
 		$('#pay_cardno4').val('').focus();
 		return false;
 	} 

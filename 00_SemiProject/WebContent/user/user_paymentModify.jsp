@@ -64,7 +64,7 @@
 									<option value="롯데카드">롯데카드</option>
 									<option value="etc" id="etc_option">직접입력</option>
 							    </select>
-							    <input id="etc" placeholder="직접입력" style="display: none;" onchange="etc_func()">
+							    <input id="etc" placeholder="직접입력" style="display: none;" onchange="etc_func()" value="${pay_dto.getPay_cardcom() }">
 								<br>
 								<span id="pay_cardcom_check"></span>
 							</td>
