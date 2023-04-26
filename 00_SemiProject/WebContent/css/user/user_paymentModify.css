@@ -49,13 +49,10 @@
 	width: 300px;
 	padding: 5px;
 	border-style: none;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-color: #C3C3C3;
 	font-size: 16px;
 	vertical-align: bottom;
 }
-#modifyPayment_table #pay_name, #pay_cardcom, #pay_cvc, #pay_pwd, #pay_date {
+#modifyPayment_table #pay_name,  #pay_cardno, #pay_cardcom, #pay_cvc, #pay_pwd, #pay_date {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -63,6 +60,9 @@
 	height: 40px;
 	padding: 5px;
 	border-style: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #C3C3C3;
 	text-align: left;
 	font-size: 13px;
 }
@@ -71,6 +71,9 @@
 }
 #modifyPayment_table #pay_pwd {
 	width: 60px;
+}
+#pay_cardcom{
+	width: 100px;
 }
 .card_number_txt {
 	width: auto !important;
@@ -95,20 +98,20 @@
 	-webkit-box-sizing: border-box;
 	font-family: 'Noto Sans KR', sans-serif;
 	height: 30px;
-	width: 200px;
 	border-style: none;
 	font-size: 13px;
 	color: black;
+	margin-left: 10px;
 	padding-left: 10px;
 	background: #F2F2F2;
 }
-#modifyPayment_table #submit_button_div {
+#modifyPayment_table #pay_submit_button_div {
 	width: 495px;
 	height: 70px;
 	align-content: stretch;
 	margin: auto;
 }
-#modifyPayment_table #submit_button {
+#modifyPayment_table #pay_submit_button {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -123,7 +126,7 @@
 	cursor: pointer;
 	margin: 10px auto;
 }
-#modifyPayment_table #submit_button:hover {
+#modifyPayment_table #pay_submit_button:hover {
 	background: #F2F2F2;
 	color: black;
 }

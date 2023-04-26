@@ -32,6 +32,7 @@ html, body {
 	-webkit-box-sizing: border-box;
 	text-align: center;
 	font-family: 'Noto Sans KR', sans-serif;
+	cursor: pointer;
 }
 #header input:focus, #header select:focus {
 	outline:none;

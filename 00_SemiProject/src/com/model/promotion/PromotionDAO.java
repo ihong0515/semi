@@ -204,6 +204,8 @@ public class PromotionDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				coup_serial = couponCheck();
+			}else {
+				coup_serial += "<font style='font-size:9px'><br>보유쿠폰함을 확인하세요.</font>";
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

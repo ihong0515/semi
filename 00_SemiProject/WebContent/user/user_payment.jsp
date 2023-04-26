@@ -28,7 +28,19 @@
 							</tr>
 							<tr>
 								<th>카드 번호</th>
-								<td>${pay_dto.getPay_cardno() }</td>
+								<td>
+									${pay_dto.getPay_cardno().substring(0,4) }
+									&nbsp;-&nbsp;
+									${pay_dto.getPay_cardno().substring(5,9) }
+									&nbsp;-&nbsp;
+									<c:forEach begin="1" end="4">
+										*
+									</c:forEach>
+									&nbsp;-&nbsp;
+									<c:forEach begin="1" end="4">
+										*
+									</c:forEach>
+								</td>
 							</tr>
 							<tr>
 								<th>카드사</th>

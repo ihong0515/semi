@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Owner 비밀번호 찾기</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/manage/owner_login_search.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/manage/pwd_search.css">
 </head>

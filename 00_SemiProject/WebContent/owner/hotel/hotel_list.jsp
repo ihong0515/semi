@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔목록</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel/hotel_list.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/hotel_list.css">
 </head>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔등록페이지</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/hotel_insert.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel/hotel_insert.js"></script>
 </head>

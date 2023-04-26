@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Owner 아이디 찾기</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/manage/owner_login_search.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/manage/id_search.css">
 </head>
