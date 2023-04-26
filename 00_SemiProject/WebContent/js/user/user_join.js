@@ -237,7 +237,7 @@ function emailSend() {
 				}
 			},
 			error: function(){
-				alert('이메일 전송 중 오류 발생....');
+				alert('이메일 전송 중 시스템 오류');
 			}
 		});
 	}
@@ -266,7 +266,7 @@ function emailCheck() {
 				}
 			},
 			error: function(){
-				alert('오류 발생....');
+				alert('이메일 확인 중 시스템 오류');
 			}
 		});
 	}

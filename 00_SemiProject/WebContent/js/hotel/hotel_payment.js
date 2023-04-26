@@ -78,7 +78,7 @@ function payment_getno(){
 			$('#card_no').val(pay_no);
 		},
 		error: function(){
-			alert('카드 가져오기 실패..');
+			alert('카드 가져오는 중 시스템 오류');
 		}
 	});
 }
@@ -116,8 +116,8 @@ function saleCheck() {
 					$('#realPrice_hidden').val(price);
 				});
 			},
-			error: function(data){
-				alert('쿠폰 등록 실패..');
+			error: function(){
+				alert('쿠폰 등록 중 시스템 오류');
 			}
 		});
 	}

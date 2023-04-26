@@ -40,7 +40,7 @@ function mapping_searchLandmark(e) {
 			$('#mapping_landmark_list').append(table);
 		},
 		error: function(){
-			alert('오류 발생');
+			alert('명소 가져오는 중 시스템 오류');
 		}
 	});
 }

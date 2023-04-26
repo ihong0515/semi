@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>회원 결제 수단 정보</title>
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_payment.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_paymentInsert.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_payment.css" rel="stylesheet">
 </head>
 <body>
@@ -73,7 +73,7 @@
 							<tr>
 								<td colspan="2">
 									<input type="button" id="modify_btn" value="결제수단 수정" onclick="location.href='user_paymentModify.do?pay_no=${pay_dto.getPay_no()}'">
-									<input type="button" id="delete_btn" value="결제수단 삭제" onclick="check(${pay_dto.getPay_userno()}, ${pay_dto.getPay_no()})">
+									<input type="button" id="delete_btn" value="결제수단 삭제" onclick="check(${pay_dto.getPay_no()})">
 								</td>
 							</tr>
 						</c:forEach>

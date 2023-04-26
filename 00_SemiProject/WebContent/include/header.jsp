@@ -49,12 +49,12 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 					<a href="javascript:openMypage()" id="mypage">mypage</a>
 					<a href="javascript:logout()" id="logout">logout</a>
 					<ul class="submenu">
-						<li><a href="<%=request.getContextPath() %>/user_info.do?no=${dto.getUser_no() }">회원 정보 수정</a></li>
-						<li><a href="<%=request.getContextPath() %>/user_payment.do?no=${dto.getUser_no() }">내 결제수단</a></li>
-						<li><a href="<%=request.getContextPath() %>/user_reservation.do?no=${dto.getUser_no() }">예약 내역</a></li>
-						<li><a href="<%=request.getContextPath() %>/user_jjim.do?no=${dto.getUser_no() }">찜 목록</a></li>
+						<li><a href="<%=request.getContextPath() %>/user_info.do">회원 정보 수정</a></li>
+						<li><a href="<%=request.getContextPath() %>/user_payment.do">내 결제수단</a></li>
+						<li><a href="<%=request.getContextPath() %>/user_reservation.do">예약 내역</a></li>
+						<li><a href="<%=request.getContextPath() %>/user_jjim.do">찜 목록</a></li>
 						<li><a href="<%=request.getContextPath() %>/user_board_main.do">1:1 문의 내역</a></li>
-						<li><a href="<%=request.getContextPath() %>/user_coupon.do?no=${dto.getUser_no() }">보유 쿠폰</a></li>
+						<li><a href="<%=request.getContextPath() %>/user_coupon.do">보유 쿠폰</a></li>
 					</ul>
 				</c:if>
 			</div>
@@ -87,12 +87,12 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 					<c:set var="checkDate" value="${sessionScope.CheckDate }" />
 					<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
 					<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-					<input type="date" value="${checkin }" class="checkIn" name="checkinDate">&nbsp;
+					<input type="date" value="${checkin }" class="checkIn" name="checkinDate" onchange="mindateset(this)">&nbsp;
 					<i class="fa-sharp fa-solid fa-arrow-right"></i>&nbsp;
 					<input type="date" value="${checkout }" class="checkOut" name="checkoutDate">&nbsp;
 				</c:if>
 				<c:if test="${empty sessionScope.CheckDate }">
-					<input type="date" value="" class="checkIn" name="checkinDate">&nbsp;
+					<input type="date" value="" class="checkIn" name="checkinDate" onchange="mindateset(this)">&nbsp;
 					<i class="fa-sharp fa-solid fa-arrow-right"></i>&nbsp;
 					<input type="date" value="" class="checkOut" name="checkoutDate">&nbsp;
 				</c:if>

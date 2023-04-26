@@ -630,7 +630,6 @@ public class UserDAO {
 		return result;
 	}
 	
-	
 	public int insertPayment(PaymentDTO dto, int user_no) {
 		int result = 0, count = 0;
 		try {

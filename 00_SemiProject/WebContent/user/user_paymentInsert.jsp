@@ -18,7 +18,7 @@
     		<jsp:include page="../user/user_mypage_header.jsp"/>
 				<div id="newPayment_table">
 		    		<h2>새 결제수단 등록</h2>
-					<form method="post" action="<%=request.getContextPath()%>/user_insertPaymentOk.do?user_no=${user_dto.getUser_no()}" onsubmit="return modifyPaymentFormCheck()">
+					<form method="post" action="<%=request.getContextPath()%>/user_insertPaymentOk.do" onsubmit="return modifyPaymentFormCheck()">
 			    		<table>
 							<tr>
 								<th>카드 이름</th>

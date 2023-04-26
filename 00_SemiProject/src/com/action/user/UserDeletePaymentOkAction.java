@@ -15,8 +15,6 @@ public class UserDeletePaymentOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
 		int pay_no = Integer.parseInt(request.getParameter("pay_no").trim());
 		
 		UserDAO dao = UserDAO.getInstance();
@@ -28,7 +26,7 @@ public class UserDeletePaymentOkAction implements Action {
 		if(res > 0) {
 			out.println("<script>");
 			out.println("alert('해당 결제수단이 삭제 되었습니다.')");
-			out.println("location.href='user_payment.do?no="+user_no+"'");
+			out.println("location.href='user_payment.do'");
 			out.println("</script>");
 		} else if(res == -1) {
 			out.println("<script>");
