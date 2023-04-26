@@ -10,8 +10,8 @@
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="<%=request.getContextPath() %>/js/user/user_modify.js?ver=2"></script>
-<link href="<%=request.getContextPath() %>/css/user/user_modify.css" rel="stylesheet">
+<script src="<%=request.getContextPath() %>/js/user/user_joinModify.js?ver=2"></script>
+<link href="<%=request.getContextPath() %>/css/user/user_joinModify.css" rel="stylesheet">
 </head>
 <body>
 	<div id="container">
@@ -44,9 +44,9 @@
 							<td>
 								<div id="user_phone">
 									<div class="user_phone_txt">010&nbsp;&nbsp;-&nbsp;&nbsp;</div>
-									<input type="text" name="user_phone_mid" id="user_phone_mid" class="phone_number" maxlength="4" value="${user_dto.getUser_phone().substring(4,8)}">
+									<input type="text" name="user_phone_mid" id="user_phone_mid" class="phone_number" maxlength="4" value="${user_dto.getUser_phone().substring(4,8)}" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 									<div class="user_phone_txt">&nbsp;&nbsp;-&nbsp;&nbsp;</div>
-									<input type="text" name="user_phone_end" id="user_phone_end" class="phone_number" maxlength="4" value="${user_dto.getUser_phone().substring(9)}">
+									<input type="text" name="user_phone_end" id="user_phone_end" class="phone_number" maxlength="4" value="${user_dto.getUser_phone().substring(9)}" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 								</div>
 								<span id="phonecheck"></span>
 							</td>

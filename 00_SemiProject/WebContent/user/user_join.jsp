@@ -57,10 +57,10 @@
 						<th>휴대전화</th>
 						<td>
 							<div id="user_phone">
-								<div class="user_phone_txt">010&nbsp;&nbsp;-&nbsp;&nbsp;</div>
-								<input type="text" name="user_phone_mid" id="user_phone_mid" class="phone_number" maxlength="4" placeholder="0000">
+								<div class="user_phone_txt" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">010&nbsp;&nbsp;-&nbsp;&nbsp;</div>
+								<input type="text" name="user_phone_mid" id="user_phone_mid" class="phone_number" maxlength="4" placeholder="0000" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 								<div class="user_phone_txt">&nbsp;&nbsp;-&nbsp;&nbsp;</div>
-								<input type="text" name="user_phone_end" id="user_phone_end" class="phone_number" maxlength="4" placeholder="0000">
+								<input type="text" name="user_phone_end" id="user_phone_end" class="phone_number" maxlength="4" placeholder="0000" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 							</div>
 							<span id="phonecheck"></span>
 						</td>

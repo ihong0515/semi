@@ -13,7 +13,7 @@
 <script type="text/javascript">
 	let pay_com = "${pay_dto.getPay_cardcom() }";
 </script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_modify_payment.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_paymentModify.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_paymentModify.css" rel="stylesheet">
 </head>
 <body>
@@ -38,14 +38,15 @@
 						<tr>
 							<th>카드 번호</th>
 							<td>
-								<input name="pay_cardno1" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4"  value="${pay_dto.getPay_cardno().substring(0,4) }">
-								<div class="card_number_txt">&nbsp;-&nbsp;</div>
-								<input name="pay_cardno2" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4"  value="${pay_dto.getPay_cardno().substring(5,9) }">
-								<div class="card_number_txt">&nbsp;-&nbsp;</div>
-								<input type="password" name="pay_cardno3" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4"  value="${pay_dto.getPay_cardno().substring(10,14) }">
-								<div class="card_number_txt">&nbsp;-&nbsp;</div>
-								<input type="password" name="pay_cardno4" class="moveNumber" maxlength="4"  value="${pay_dto.getPay_cardno().substring(15) }">
-								<br>
+								<div id="pay_cardno">
+									<input name="pay_cardno1" id="pay_cardno1" class="moveNumber" maxlength="4" value="${pay_dto.getPay_cardno().substring(0,4) }" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+									<div class="card_number_txt">&nbsp;-&nbsp;</div>
+									<input name="pay_cardno2" id="pay_cardno2" class="moveNumber" maxlength="4" value="${pay_dto.getPay_cardno().substring(5,9) }" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+									<div class="card_number_txt">&nbsp;-&nbsp;</div>
+									<input type="password" name="pay_cardno3" id="pay_cardno3" class="moveNumber" maxlength="4" value="${pay_dto.getPay_cardno().substring(10,14) }" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+									<div class="card_number_txt">&nbsp;-&nbsp;</div>
+									<input type="password" name="pay_cardno4" id="pay_cardno4" class="moveNumber" maxlength="4" value="${pay_dto.getPay_cardno().substring(15) }" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+								</div>
 								<span id="pay_cardno_check"></span>
 							</td>
 						</tr>
@@ -63,7 +64,7 @@
 									<option value="롯데카드">롯데카드</option>
 									<option value="etc" id="etc_option">직접입력</option>
 							    </select>
-							    <input name="etc" id="etc" placeholder="직접입력" style="display: none;">
+							    <input id="etc" placeholder="직접입력" style="display: none;" onchange="etc_func()">
 								<br>
 								<span id="pay_cardcom_check"></span>
 							</td>
@@ -71,7 +72,7 @@
 						<tr>
 							<th>CVC번호(3자리)</th>
 							<td>
-								<input type="password" name="pay_cvc" id="pay_cvc" maxlength="3" value="${pay_dto.getPay_cvc() }">
+								<input type="password" name="pay_cvc" id="pay_cvc" maxlength="3" value="${pay_dto.getPay_cvc() }" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 								<br>
 								<span id="pay_cvc_check"></span>
 							</td>
@@ -79,7 +80,7 @@
 						<tr>
 							<th>카드 비밀번호(앞 2자리)</th>
 							<td>
-								<input type="password" name="pay_pwd" id="pay_pwd" maxlength="2" value="${pay_dto.getPay_pwd() }">＊＊
+								<input type="password" name="pay_pwd" id="pay_pwd" maxlength="2" value="${pay_dto.getPay_pwd() }" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">＊＊
 								<br>
 								<span id="pay_pwd_check"></span>
 							</td>
@@ -93,8 +94,8 @@
 							</td>
 						</tr>
 					</table>
-					<div id="submit_button_div">
-						<input type="submit" id="submit_button" value="결제수단 수정">
+					<div id="pay_submit_button_div">
+						<input type="submit" id="pay_submit_button" value="결제수단 수정">
 					</div>
 				</form>
 			</div>
