@@ -204,8 +204,6 @@ public class PromotionDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				coup_serial = couponCheck();
-			}else {
-				coup_serial += "<font style='font-size:9px'><br>보유쿠폰함을 확인하세요.</font>";
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -236,6 +234,17 @@ public class PromotionDAO {
 				ps.setInt(5, user_no);
 				ps.executeUpdate();
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void updateCouponUseAble(int reserv_coupno) {
+		try {
+			sql = "update coupon set coup_usecheck = 'N' where coup_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, reserv_coupno);
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

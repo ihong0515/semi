@@ -37,7 +37,7 @@ function getReserv(self){
 			}
 		},
 		error: function() {
-			$("#reserv_content").text("오류 발생");
+			$("#reserv_content").text("예약내역 가져오는 중 시스템 오류");
 		}
 	});
 }

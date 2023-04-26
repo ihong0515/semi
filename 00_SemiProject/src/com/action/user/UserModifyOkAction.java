@@ -38,7 +38,7 @@ public class UserModifyOkAction implements Action {
 		if(check > 0) {
 			out.println("<script>");
 			out.println("alert('회원정보 수정 성공')");
-			out.println("location.href='user_info.do?no="+dto.getUser_no()+"'");
+			out.println("location.href='user_info.do'");
 			out.println("</script>");
 		} else {
 			out.println("<script>");

@@ -56,7 +56,7 @@ function reply_getList(){
 			
 		},
 		error: function(){
-			alert('댓글 불러오기 실패....');
+			alert('댓글 가져오는 중 시스템 오류');
 		}
 	});
 }
