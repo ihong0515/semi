@@ -91,7 +91,7 @@
 						<tr>
 							<td colspan="2">
 								<div id="cancle_btn">
-									<button onclick="location.href=''">예약 취소 및 환불을 요청합니다.</button>
+									<button onclick="location.href='<%=request.getContextPath()%>/user_reserv_cancel.do?reserv_no=${dto.getReserv_no() }'">예약 취소 및 환불을 요청합니다.</button>
 								</div>
 							</td>
 						</tr>
