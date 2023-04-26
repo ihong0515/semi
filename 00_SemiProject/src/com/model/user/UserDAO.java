@@ -1021,4 +1021,23 @@ public class UserDAO {
 		}
 		return result;
 	}
+	
+	public int checkPayName(String payName) {
+		int result = 0;
+		try {
+			connect();
+			sql = "select * from payment where pay_name = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, payName);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				result = -1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
 }

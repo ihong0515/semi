@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>회원 결제 수단 정보</title>
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_payment.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_paymentInsert.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_payment.css" rel="stylesheet">
 </head>
 <body>
