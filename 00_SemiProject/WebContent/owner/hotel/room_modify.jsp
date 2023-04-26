@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>객실정보변경</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel/room_modify.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/room_modify.css">
 </head>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Owner회원가입</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/manage/join.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/manage/join.css">
 </head>

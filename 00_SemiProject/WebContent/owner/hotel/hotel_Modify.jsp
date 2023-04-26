@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔 정보 수정 페이지</title>
 <script type="text/javascript">
 	let loc = '${dto.getHotel_location() }';
 </script>

@@ -74,7 +74,6 @@ body{
   	margin-top: 20px;
 }
 #coupon_title{
-	text-decoration: underline;	
 	margin-bottom: 15px;	
 }
 .coupon_sale{
@@ -95,10 +94,6 @@ body{
   	height: 100%;
   	justify-content: flex-start;
   	margin-top: 35px;
-}
-#coupon_title{
-	text-decoration: underline;	
-	margin-bottom: 15px;	
 }
 #coupon_back_image{
 	display:flex;
@@ -153,4 +148,5 @@ body{
 #coupon_button:hover{
 	background-color: #F2F2F2;
 	color : black;
+	cursor: pointer;
 }
