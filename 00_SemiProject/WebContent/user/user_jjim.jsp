@@ -41,7 +41,7 @@
 								<li><i class="fa fa-map-marker" aria-hidden="true"></i> ${dto.getHotel_addr() }</li>
 							</ul>
 						</div>
-						<div id = "user_jjim_col"><input type="button" id = "jjim_button" value="찜 취소" onclick="check(${user_dto.getUser_no() }, ${dto.getHotel_no() })"></div>
+						<div id = "user_jjim_col"><input type="button" id = "jjim_button" value="찜 취소" onclick="check(${dto.getHotel_no() })"></div>
 					</div>
 				
 					</c:forEach>

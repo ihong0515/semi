@@ -1,7 +1,7 @@
-function check(user_no, pay_no) {
+function check(pay_no) {
 	let res = confirm("정말로 삭제하시겠습니까?");
 	if(res) {
-		location.href="user_deletePaymentOk.do?user_no="+user_no+"&pay_no="+pay_no;
+		location.href="user_deletePaymentOk.do?pay_no="+pay_no;
 	}
 }
 

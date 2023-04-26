@@ -68,7 +68,7 @@ if(checkDate!=null){
 										<li>체크인 ${roDTO. getRoom_checkin()}:00 PM, 체크아웃 ${roDTO. getRoom_checkout()}:00 AM</li>
 									</ul>
 								</div>
-							</div>	
+							</div>
 							<div id="payment_hotel_date_people">
 								<div id="payment_hotel_date">
 									날짜&nbsp;
@@ -76,10 +76,10 @@ if(checkDate!=null){
 										<c:set var="checkDate" value="${sessionScope.CheckDate }" />
 										<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
 										<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-										<input type="date" value="${checkin }" class="checkIn checkInP" name="payment_hotel_indate" > - <input type="date" value="${checkout }" class="checkOut checkOutP" name="payment_hotel_outdate">
+										<input type="date" value="${checkin }" class="checkIn checkInP" name="payment_hotel_indate" onchange="mindateset(this)"> - <input type="date" value="${checkout }" class="checkOut checkOutP" name="payment_hotel_outdate">
 									</c:if>
 									<c:if test="${empty sessionScope.CheckDate }">
-										<input type="date" value="" class="checkIn checkInP" name="payment_hotel_indate"> - <input type="date" value="" class="checkOut checkOutP" name="payment_hotel_outdate">
+										<input type="date" value="" class="checkIn checkInP" name="payment_hotel_indate" onchange="mindateset(this)"> - <input type="date" value="" class="checkOut checkOutP" name="payment_hotel_outdate">
 									</c:if>
 								</div>
 								<div>

@@ -73,7 +73,7 @@
 							<tr>
 								<td colspan="2">
 									<input type="button" id="modify_btn" value="결제수단 수정" onclick="location.href='user_paymentModify.do?pay_no=${pay_dto.getPay_no()}'">
-									<input type="button" id="delete_btn" value="결제수단 삭제" onclick="check(${pay_dto.getPay_userno()}, ${pay_dto.getPay_no()})">
+									<input type="button" id="delete_btn" value="결제수단 삭제" onclick="check(${pay_dto.getPay_no()})">
 								</td>
 							</tr>
 						</c:forEach>

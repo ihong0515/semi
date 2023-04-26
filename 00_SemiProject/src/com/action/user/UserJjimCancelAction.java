@@ -16,22 +16,19 @@ public class UserJjimCancelAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-		int user_no = Integer.parseInt(request.getParameter("user_no").trim());
-		int hotel_no = Integer.parseInt(request.getParameter("hotel_no").trim());
-		
 		UserDAO dao = UserDAO.getInstance();
-		UserDTO dto = dao.getUserContent(user_no);
+		int hotel_no = Integer.parseInt(request.getParameter("hotel_no").trim());
+		UserDTO user_dto = (UserDTO)request.getSession().getAttribute("loginUser");
+		
+		int res = dao.jjimCancel(user_dto.getUser_no(), hotel_no);
 		
 		SessionRenewal.renewal(request);
-		
-		int res = dao.jjimCancel(user_no, hotel_no);
 		PrintWriter out = response.getWriter();
 		
 		if(res > 0) {
 			out.println("<script>");
 			out.println("alert('찜 취소되었습니다.')");
-			out.println("location.href='user_jjim.do?no="+dto.getUser_no()+"'");
+			out.println("location.href='user_jjim.do");
 			out.println("</script>");
 			return null;
 		} else {

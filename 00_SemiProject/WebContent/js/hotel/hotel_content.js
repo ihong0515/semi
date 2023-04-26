@@ -69,7 +69,7 @@ function board_write(ho_no){
 					}
 				},
 				error: function(){
-					alert('시스템 오류');
+					alert('문의사항 작성 중 시스템 오류');
 				}
 			});
 		}

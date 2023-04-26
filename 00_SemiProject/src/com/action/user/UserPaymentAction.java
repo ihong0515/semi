@@ -8,20 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
-import com.action.login.SessionRenewal;
 import com.model.user.PaymentDTO;
 import com.model.user.UserDAO;
+import com.model.user.UserDTO;
 
 public class UserPaymentAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-		int user_no = Integer.parseInt(request.getParameter("no").trim());
-		
+		UserDTO user_dto = (UserDTO)request.getSession().getAttribute("loginUser");
 		UserDAO user_dao = UserDAO.getInstance();
-		SessionRenewal.renewal(request);
-		ArrayList<PaymentDTO> list = user_dao.getPaymentList(user_no);
+		
+		ArrayList<PaymentDTO> list = user_dao.getPaymentList(user_dto.getUser_no());
+		
 		request.setAttribute("pay_list", list);
 		
 		ActionForward forward = new ActionForward();

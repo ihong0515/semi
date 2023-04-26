@@ -28,10 +28,10 @@ function getCoupon(){
 			},
 			datatype : "text",
 			success : function(data){
-				$('#coup_result').html(data);
+				$('#coup_result').html(data+"<font style='font-size:9px'><br>보유쿠폰함을 확인하세요.</font>");
 			},
 			error : function(){
-				alert('에러입니다.');
+				alert('쿠폰 가져오는 중 시스템 오류');
 			}
 		});
 	}
