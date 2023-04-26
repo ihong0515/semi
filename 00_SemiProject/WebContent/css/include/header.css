@@ -127,12 +127,14 @@ html, body {
     vertical-align: top;
     height: 30px;
     width: 140px;
+    cursor: pointer;
 }
 .checkIn, .checkOut {
 	border: 1px solid #ccc;
 	vertical-align: top;
 	height: 30px;
 	width: 130px;
+	cursor: pointer;
 }
 #submit_button {
 	width: 40px;
@@ -147,4 +149,18 @@ html, body {
 	vertical-align: middle;
 	height: 30px;
 	width: 280px;
+}
+#goTop_btn {
+	position: fixed;
+	bottom: 20px;
+	right: 40px;
+	font-family: 'Noto Sans KR', sans-serif;
+	border: none;
+	border-radius: 16px;
+	background: #B36075;
+	color: white;
+	padding: 12px;
+	font-weight: bold;
+	box-shadow: 0px 5px 15px gray;
+	cursor: pointer;
 }

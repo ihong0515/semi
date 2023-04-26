@@ -75,6 +75,7 @@ function insert_reply(){
 		success: function(data){
 			if(data>0){
 				reply_getList();
+				$('#reply_write_body').find('textarea').val("");
 			}else{
 				alert('댓글 등록 실패');
 			}

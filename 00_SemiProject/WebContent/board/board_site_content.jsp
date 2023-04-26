@@ -151,7 +151,6 @@
 		    			</tr>
 		    		</table>
 		    	</div>
-		    	
 		    	<div class="board_btn" style="display: none;">
 	    			<input type="submit" value="수정">&nbsp;&nbsp;
 	    			<input type="button" value="삭제" onclick="if(confirm('문의 내용을 삭제합니다.')){<%=request.getContextPath() %>/board_site_delete.do?board_no=${dto.getInqsi_no() } }else{return; }">&nbsp;&nbsp;
