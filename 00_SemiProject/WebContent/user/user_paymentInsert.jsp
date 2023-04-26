@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>새 결제 수단 추가</title>
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_payment.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/user/user_paymentInsert.js"></script>
 <link href="<%=request.getContextPath() %>/css/user/user_paymentInsert.css" rel="stylesheet">
 </head>
 <body>
@@ -18,7 +18,7 @@
     		<jsp:include page="../user/user_mypage_header.jsp"/>
 				<div id="newPayment_table">
 		    		<h2>새 결제수단 등록</h2>
-					<form method="post" action="<%=request.getContextPath()%>/user_insertPaymentOk.do?user_no=${user_dto.getUser_no()}">
+					<form method="post" action="<%=request.getContextPath()%>/user_insertPaymentOk.do?user_no=${user_dto.getUser_no()}" onsubmit="return modifyPaymentFormCheck()">
 			    		<table>
 							<tr>
 								<th>카드 이름</th>
@@ -31,14 +31,15 @@
 							<tr>
 								<th>카드 번호</th>
 								<td>
-									<input name="pay_cardno1" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4">
-									<div class="card_number_txt">&nbsp;-&nbsp;</div>
-									<input type="password" name="pay_cardno2" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4">
-									<div class="card_number_txt">&nbsp;-&nbsp;</div>
-									<input type="password" name="pay_cardno3" class="moveNumber" onKeyup="inputMoveNumber(this)" maxlength="4">
-									<div class="card_number_txt">&nbsp;-&nbsp;</div>
-									<input type="text" name="pay_cardno4" class="moveNumber" maxlength="4">
-									<br>
+									<div id="pay_cardno">
+										<input name="pay_cardno1" id="pay_cardno1" class="moveNumber" maxlength="4" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+										<div class="card_number_txt">&nbsp;-&nbsp;</div>
+										<input type="password" name="pay_cardno2"  id="pay_cardno2"class="moveNumber" maxlength="4" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+										<div class="card_number_txt">&nbsp;-&nbsp;</div>
+										<input type="password" name="pay_cardno3"  id="pay_cardno3"class="moveNumber" maxlength="4" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+										<div class="card_number_txt">&nbsp;-&nbsp;</div>
+										<input type="text" name="pay_cardno4"  id="pay_cardno4"class="moveNumber" maxlength="4" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+									</div>
 									<span id="pay_cardno_check"></span>
 								</td>
 							</tr>
@@ -64,7 +65,7 @@
 							<tr>
 								<th>CVC번호(3자리)</th>
 								<td>
-									<input type="password" name="pay_cvc" id="pay_cvc" maxlength="3">
+									<input type="password" name="pay_cvc" id="pay_cvc" maxlength="3" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 									<br>
 									<span id="pay_cvc_check"></span>
 								</td>
@@ -72,7 +73,7 @@
 							<tr>
 								<th>카드 비밀번호(앞 2자리)</th>
 								<td>
-									<input type="password" name="pay_pwd" id="pay_pwd" maxlength="2">＊＊
+									<input type="password" name="pay_pwd" id="pay_pwd" maxlength="2" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">＊＊
 									<br>
 									<span id="pay_pwd_check"></span>
 								</td>
@@ -86,8 +87,8 @@
 								</td>
 							</tr>
 						</table>
-						<div id="submit_button_div">
-							<input type="submit" id="submit_button" value="새 결제수단 등록">
+						<div id="pay_submit_button_div">
+							<input type="submit" id="pay_submit_button" value="새 결제수단 등록">
 						</div>
 					</form>
 				</div>
