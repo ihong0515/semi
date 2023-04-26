@@ -19,8 +19,8 @@ public class UserLogoutAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		 
-		forward.setRedirect(false);
-		forward.setPath("index.jsp");
+		forward.setRedirect(true);
+		forward.setPath("index_move.do");
 		return forward;
 	}
 }

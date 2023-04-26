@@ -102,6 +102,11 @@
 	padding-bottom: 3px;
 	cursor: pointer;
 }
+.page_one,
+#page_li_now_site,
+#page_li_now_hotel{
+	cursor: default;
+}
 .page_li:hover{
 	border: thin solid#5E5E5E;
 	color: #5E5E5E;
@@ -126,6 +131,7 @@
 	color: black;
 	font-size: 11px;
 	background-color: #F2F2F2;
+	cursor: pointer;
 }
 #board_write_modal_btn:hover{
 	border: thin solid#5E5E5E;
@@ -134,7 +140,7 @@
 #board_write_modal_overlay{
 	display: none;
 	position: fixed;
-	right: 250px;
+	left: 30%;
 	top: 150px;
 	background-color: #fff;
 	border: 0;
@@ -190,9 +196,9 @@
 #modal_foot input{
 	width:18%;
 	border: thin solid#C3C3C3;
-	border-radius: 5px;
 	margin: auto 10px;
 	padding-bottom: 3px;
+	cursor: pointer;
 }
 #modal_foot input:hover{
 	border: thin solid#5E5E5E;

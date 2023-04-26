@@ -746,7 +746,7 @@ public class UserDAO {
 		
 		try {
 			connect();
-			sql = "select * from coupon where coup_userno = ?";
+			sql = "select * from coupon where coup_userno = ? order by coup_usecheck, coup_no";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, user_no);
 			rs = ps.executeQuery();
@@ -1017,25 +1017,6 @@ public class UserDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		return result;
-	}
-	
-	public int checkPayName(String payName) {
-		int result = 0;
-		try {
-			connect();
-			sql = "select * from payment where pay_name = ?";
-			ps = con.prepareStatement(sql);
-			ps.setString(1, payName);
-			rs = ps.executeQuery();
-			if(rs.next()) {
-				result = -1;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
 		}
 		return result;
 	}

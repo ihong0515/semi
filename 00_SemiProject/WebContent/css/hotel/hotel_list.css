@@ -173,6 +173,11 @@
 	border: thin solid #FAF8F8;
 	box-sizing: border-box;
 }
+#sidebar_form input[type=checkbox],
+#sidebar_form input[type=radio],
+#sidebar_form label{
+	cursor: pointer;
+}
 .search_title{
 	font-weight: bold;
 	font-size:14px;

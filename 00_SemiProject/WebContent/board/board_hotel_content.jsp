@@ -161,7 +161,7 @@
 		    			</tr>
 		    		</table>
 		    	</div>
-		    	<c:if test="${empty o_dto }">
+		    	<c:if test="${empty o_dto||loginUser.getUser_no()==1 }">
 		    	<div class="board_btn" style="display: none;">
 	    			<input type="submit" value="수정">&nbsp;&nbsp;
 	    			<input type="button" value="삭제" onclick="if(confirm('문의 내용을 삭제합니다.')){delete_hotel() }else{return; }">&nbsp;&nbsp;
@@ -172,7 +172,7 @@
 	    			<input type="button" value="목록으로" onclick="location.href='<%=request.getContextPath() %>/user_board_main.do'">
 	    		</div>
 	    		</c:if>
-	    		<c:if test="${!empty o_dto }">
+	    		<c:if test="${!empty o_dto&&loginUser.getUser_no()!=1 }">
 	    		<div class="board_btn">
 	    			<input type="button" value="목록으로" onclick="location.href='<%=request.getContextPath() %>/user_board_main.do'">
 	    		</div>

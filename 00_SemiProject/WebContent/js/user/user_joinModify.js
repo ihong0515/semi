@@ -55,6 +55,9 @@ function show_modal() {
 function close_modal() {
 	$('#myModal').hide();
 	$('#modal_wrap').hide();
+	$('#modal_content').find('input[type=password]').val('');
+	$('#pwdcheck').html('');
+	$('#repwdcheck').html('');
 }
 
 function pwdInput(){
@@ -82,7 +85,7 @@ function checkPwd(pwd) {
     if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
 		$("#pwdcheck").text("");
 		$("#pwdcheck").show();
-		$("#pwdcheck").append('<font color="red">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</font>');
+		$("#pwdcheck").append('<font color="red" style="font-size:11px;">숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</font>');
 		$('#new_pwd').val('').focus();
     } else if(/(\w)\1\1\1/.test(pwd)) {
 		$("#pwdcheck").text("");

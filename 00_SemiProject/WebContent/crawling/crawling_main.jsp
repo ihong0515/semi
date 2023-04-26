@@ -51,7 +51,14 @@
 				<div class="crawling_main_content">
 					<div class="crawling_main_content_img">
 						<c:if test="${Check == 1 }">
+							<c:if test="${!empty dto.getImg() }">
 							<video src="${dto.getImg() }"  muted="muted" onmouseover="this.play()" ></video>
+							</c:if>
+							<c:if test="${empty dto.getImg() }">
+							<div style="width:256px; display: flex; justify-content: center; align-items: center;">
+								<img alt="" src="<%=request.getContextPath() %>/image/icon/youtube.jpg">
+							</div>
+							</c:if>
 						</c:if>
 						<c:if test="${Check != 1 }">
 							<img alt="" src="${dto.getImg() }">

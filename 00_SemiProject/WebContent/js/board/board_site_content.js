@@ -41,11 +41,10 @@ function reply_getList(){
 				table += "</b> / <b>";
 				table += $(this).find("reply_date").text();
 				table += "</b>";
-				table += " <input type='button' value='삭제' onclick=\"if(confirm(\'댓글을 삭제합니다.\')){delete_reply("+$(this).find("reply_no").text()+")}\">";
+				table += " <input type='button' value='삭제' onclick=\"if(confirm(\'댓글을 삭제합니다.\')){delete_reply("+$(this).find("reply_no").text()+","+$(this).find("reply_user_no").text()+")}\">";
 				table += "</p>";
-				table += "<p id = reply_view_content>";
-				table += "&nbsp;&nbsp;&nbsp;"
-				table += $(this).find("reply_content").text();
+				table += "<p id='reply_view_content'>";
+				table += $(this).find("reply_content").text().replace('\n','<br>');
 				table += "</p>";
 			});
 			if(table==""){
@@ -86,8 +85,11 @@ function insert_reply(){
 	});
 }
 
-function delete_reply(no){
-	$.ajax({
+function delete_reply(no,writer_no){
+	if(writer_no==1&&user_no!=1){
+		alert("관리자 댓글을 삭제할 수 없습니다.");
+	}else{
+		$.ajax({
 		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
 		type: "post",
 		url: "reply_Site_Delete_Content.do",
@@ -106,4 +108,5 @@ function delete_reply(no){
 			alert('댓글 삭제 중 시스템 오류');
 		}
 	});
+	}
 }

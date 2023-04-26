@@ -24,6 +24,7 @@ public class ReplySiteGetListAction implements Action {
 			
 			str += "<reply>";
 			str += "<reply_no>"+dto.getInqre_no()+"</reply_no>";
+			str += "<reply_user_no>"+dto.getInqre_userno()+"</reply_user_no>";			
 			str += "<reply_user_name>"+dao.getUserContent(dto.getInqre_userno()).getUser_name()+"</reply_user_name>";
 			str += "<reply_content>"+dto.getInqre_content()+"</reply_content>";
 			str += "<reply_date>"+dto.getInqre_date().substring(5, 10)+"</reply_date>";

@@ -44,7 +44,6 @@ public class UserQuitOkAction implements Action {
 			out.println("history.back()");
 			out.println("</script>");
 		}
-		
 		return null;
 	}
 }

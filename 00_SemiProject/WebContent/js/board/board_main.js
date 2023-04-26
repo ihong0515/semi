@@ -23,6 +23,7 @@
 			datatype: "xml",
 			success: function(data){
 				let table = "";
+				let startBoard = $(data).find("startBoard").text();
 				
 				if($(data).find("board").text()==""){
 					table = "<tr><td colspan='4' align='center'><h3>등록된 게시물이 없습니다.</h3></td></tr>";
@@ -32,7 +33,7 @@
 					$(data).find("board").each(function() {
 						table += "<tr>";
 						table += "<td>";
-						table += $(this).find("board_no").text();
+						table += startBoard;
 						table += "</td>";
 						table += "<td><a href='"+contextPath+"/board_Get_Site_Content.do?board_no="+$(this).find("board_no").text()+"'>";
 						if($(this).find("board_userno").text()==user_no||user_no=='1'){
@@ -54,6 +55,8 @@
 							table += "</td>";
 						}
 						table += "</tr>";
+						
+						startBoard--;
 					});
 					if($('#board_list tr th:eq(3)').text()=='Hotel.'){
 						$('#board_list tr th:eq(3)').remove();
@@ -67,7 +70,6 @@
 					
 					$('#board_navi_hotel').css('display', 'none');
 					$('#board_navi_site').css('display', 'flex');
-					
 					
 					$('#page_li_now_site').text(page);
 					$('#page_li_lastPage').val($(data).find("allPage").text());
@@ -172,6 +174,8 @@
 	
 	function write_modeal_close(){
 		$('#board_write_modal_overlay').hide();
+		$('#modal_head_title').find('input').val('');
+		$('#modal_body').find('textarea').val('');
 	}
 	
 	function write_check(){

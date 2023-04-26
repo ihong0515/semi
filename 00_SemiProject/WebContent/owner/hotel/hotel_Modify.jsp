@@ -10,6 +10,7 @@
 <script type="text/javascript">
 	let loc = '${dto.getHotel_location() }';
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel/hotel_modify.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/hotel_modify.css">
 </head>
@@ -50,7 +51,7 @@
 							지역
 						</th>
 						<td>
-							<select name="location">
+							<select id="location" name="location">
 								<option value="서울">서울</option>
 								<option value="경기">경기</option>
 								<option value="강원">강원</option>
