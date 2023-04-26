@@ -90,3 +90,8 @@
 #jjim_content_info li:nth-child(1){
 	color: #5E5E5E;
 }
+#none_jjim_list{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 13px;
+}

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔문의사항</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/board/board_content.css">
 </head>
 <body>

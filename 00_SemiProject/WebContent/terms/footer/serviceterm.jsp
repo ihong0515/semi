@@ -8,7 +8,10 @@
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
-# 이용약관 (Ver.1.3)
+<div id = "container">
+
+<h4>GostayCatch이용약관 (Ver.1.3)</h4>
+
 <br>
 > **최종 갱신일: 2023. 3. 27**
 <br>
@@ -108,5 +111,6 @@
 4. “플랫폼”이 회원 자격을 상실시키는 경우에는 회원 등록을 말소합니다. 이 경우 회원에게 이를 통지하고, 회원등록 말소 전에 최소한 30일 이상의 기간을 정하여 소명할 기회를 부여합니다.
 <br>
 5. “회원”이 관련 법령으로 정한 기간 동안 이용실적이 없는 경우, “플랫폼”은 자동으로 휴면 회원으로 전환하거나 탈퇴 처리합니다.
+</div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
 <script type="text/javascript">
 	const contextPath = '<%=request.getContextPath() %>';
 </script>

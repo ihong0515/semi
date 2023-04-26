@@ -8,6 +8,8 @@
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
+<div id = "container">
+<h4>GostayCatch사용약관</h4>
 <p>
 트립닷컴(TRIP.COM) 이용약관<br>
 업데이트 날짜: [2023년 4월 10일]<br><br>
@@ -545,5 +547,6 @@
 법원이나 관련 당국에서 본 약관의 일부가 법에 위반하는 것으로 판결하는 경우에도 나머지 조항은 계속 동일하에 효력을 유지합니다.<br>
 당사가 본 약관의 집행을 지체하는 경우에도 당사는 추후 언제든지 사용자를 상대로 조치를 취할 수 있습니다.<br>
 </p>
+</div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔편의기능</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/hotel_policy.css">
 </head>
 <body>

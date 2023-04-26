@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔문의사항변경</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/board/reply_modify.css">
 </head>
 <body>

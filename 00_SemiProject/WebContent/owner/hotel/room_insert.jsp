@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>객실등록페이지</title>
 <script type="text/javascript" src="<%=request.getContextPath() %>/owner/js/hotel/room_insert.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/owner/css/hotel/room_insert.css">
 </head>
