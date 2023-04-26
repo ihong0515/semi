@@ -70,6 +70,7 @@
 	color: #8F8F8F;
 	font-size: 11px;
 	background-color: white;
+	cursor: pointer;
 }
 .board_btn input:hover{
 	border: thin solid#5E5E5E;

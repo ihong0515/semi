@@ -41,66 +41,52 @@
 					<div id="star_search">
 						<div class="search_title">호텔 성급</div>
 						<span>
-							<input type="checkbox" value="2" name="star" class=check_star id="check_star_two">
-							<label for="check_star_two">2성</label>&nbsp;
+							<input type="checkbox" value="2" name="star" class=check_star id="check_star_two"><label for="check_star_two">&nbsp;2성</label>&nbsp;
 						</span>
 						<span>
-							<input type="checkbox" value="3" name="star" class=check_star id="check_star_three">
-							<label for="check_star_three">3성</label>&nbsp;
+							<input type="checkbox" value="3" name="star" class=check_star id="check_star_three"><label for="check_star_three">&nbsp;3성</label>&nbsp;
 						</span>
 						<span>
-							<input type="checkbox" value="4" name="star" class=check_star id="check_star_four">
-							<label for="check_star_four">4성</label>&nbsp;
+							<input type="checkbox" value="4" name="star" class=check_star id="check_star_four"><label for="check_star_four">&nbsp;4성</label>&nbsp;
 						</span>
 						<span>
-							<input type="checkbox" value="5" name="star" class=check_star id="check_star_five">
-							<label for="check_star_five">5성</label>
+							<input type="checkbox" value="5" name="star" class=check_star id="check_star_five"><label for="check_star_five">&nbsp;5성</label>
 						</span>
 					</div>
 					<div id="point_search">
 						<div class="search_title">투숙객평점</div>
 						<span>
-							<input type="radio" value="3" name="point" class=radio_point id="radio_point_three">
-							<label for="radio_point_three">3점+</label>&nbsp;
+							<input type="radio" value="3" name="point" class=radio_point id="radio_point_three"><label for="radio_point_three">&nbsp;3점+</label>&nbsp;
 						</span>
 						<span>
-							<input type="radio" value="5" name="point" class=radio_point id="radio_point_five">
-							<label for="radio_point_five">5점+</label>&nbsp;
+							<input type="radio" value="5" name="point" class=radio_point id="radio_point_five"><label for="radio_point_five">&nbsp;5점+</label>&nbsp;
 						</span>
 						<span>
-							<input type="radio" value="7" name="point" class=radio_point id="radio_point_seven">
-							<label for="radio_point_seven">7점+</label>&nbsp;
+							<input type="radio" value="7" name="point" class=radio_point id="radio_point_seven"><label for="radio_point_seven">&nbsp;7점+</label>&nbsp;
 						</span>
 						<span>
-							<input type="radio" value="8" name="point" class=radio_point id="radio_point_eight">
-							<label for="radio_point_eight">8점+</label>
+							<input type="radio" value="8" name="point" class=radio_point id="radio_point_eight"><label for="radio_point_eight">&nbsp;8점+</label>
 						</span>
 					</div>
 					<div id="bed_search">
 						<div class="search_title">침대종류</div>
 						<span>
-							<input type="radio" value="싱글" name="bed" class=radio_bed id="radio_bed_single">
-							<label for="radio_bed_single">싱글</label>
+							<input type="radio" value="싱글" name="bed" class=radio_bed id="radio_bed_single"><label for="radio_bed_single">&nbsp;싱글</label>
 						</span>
 						<span>
-							<input type="radio" value="더블" name="bed" class=radio_bed id="radio_bed_double">
-							<label for="radio_bed_double">더블</label>
+							<input type="radio" value="더블" name="bed" class=radio_bed id="radio_bed_double"><label for="radio_bed_double">&nbsp;더블</label>
 						</span>
 						<span>
-							<input type="radio" value="트윈" name="bed" class=radio_bed id="radio_bed_tween">
-							<label for="radio_bed_tween">트윈</label>
+							<input type="radio" value="트윈" name="bed" class=radio_bed id="radio_bed_tween"><label for="radio_bed_tween">&nbsp;트윈</label>
 						</span>
 						<span>
-							<input type="radio" value="퀸" name="bed" class=radio_bed id="radio_bed_queen">
-							<label for="radio_bed_queen">퀸</label>
+							<input type="radio" value="퀸" name="bed" class=radio_bed id="radio_bed_queen"><label for="radio_bed_queen">&nbsp;퀸</label>
 						</span>
 						<span>
-							<input type="radio" value="킹" name="bed" class=radio_bed id="radio_bed_king">
-							<label for="radio_bed_king">킹</label>
+							<input type="radio" value="킹" name="bed" class=radio_bed id="radio_bed_king"><label for="radio_bed_king">&nbsp;킹</label>
 						</span>
 						<span>
-							<input type="radio" value="트리플" name="bed" class=radio_bed id="radio_bed_triple">
-							<label for="radio_bed_triple">트리플</label>
+							<input type="radio" value="트리플" name="bed" class=radio_bed id="radio_bed_triple"><label for="radio_bed_triple">&nbsp;트리플</label>
 						</span>
 					</div>
 				</form>

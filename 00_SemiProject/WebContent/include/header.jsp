@@ -101,6 +101,7 @@ ArrayList<Date> checkDate = (ArrayList<Date>)session.getAttribute("CheckDate");
 		        <input type ="submit" class="submit_button" id="submit_button" value="검색">
 			</form>
 	 	</div><!-- header_search bar end -->
+	 	<button type="button" id="goTop_btn" onclick="goTop()">맨 위로 ↑</button>
 	</div><!--header div end  -->
 </body>
 </html>

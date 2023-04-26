@@ -49,9 +49,3 @@ function changeimg(img) {
 	let imgPath = img;
 	$('#mapping_img').attr('src', imgPath);
 }
-
-function goTop(){
-	$('body').stop().animate({
-		scrollTop:'0'
-	}, 300);
-}

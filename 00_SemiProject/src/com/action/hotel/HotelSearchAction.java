@@ -22,7 +22,7 @@ public class HotelSearchAction implements Action {
 		String hotel_keyword = request.getParameter("keyword").trim();
 		
 		ArrayList<HotelDTO> hotel_list = HotelDAO.getInstance().getHotelList(hotel_location, hotel_keyword, hotel_checkinDate, hotel_checkoutDate);
-	
+		
 		request.setAttribute("Hotel_List", hotel_list);
 		request.setAttribute("Hotel_location", hotel_location);
 		request.setAttribute("Hotel_keyword", hotel_keyword);

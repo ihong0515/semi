@@ -50,6 +50,7 @@
 	font-size: 12px;
 	width: 80px;
 	height: 32px;
+	cursor: pointer;
 }
 #hotel_list_nav input:hover{
 	border: thin solid#FAF8F8;
@@ -114,6 +115,7 @@
 	width: 120px;
 	height: 28px;
 	margin-top: 10px;
+	cursor: pointer;
 }
 #hotel_reserve_button:hover{
 	border: thin solid#FAF8F8;
@@ -158,6 +160,7 @@
 	height: 32px;
 	margin-right: 10px;
 	color: white;
+	cursor: pointer;
 }
 #sidebar_form_buttons{
 	display :flex;

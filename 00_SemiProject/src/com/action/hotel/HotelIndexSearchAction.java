@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.action.Action;
 import com.action.ActionForward;
+import com.model.board.ReviewDAO;
 import com.model.hotel.HotelDAO;
 import com.model.hotel.HotelDTO;
 import com.model.user.UserDTO;
@@ -44,6 +45,9 @@ public class HotelIndexSearchAction implements Action {
 					}
 				}
 			}
+			
+			int re_count = ReviewDAO.getInstance().getReviewList(dto.getHotel_no()).size();
+			
 			str += "<hotel>";
 			str += "<hotel_no>" + dto.getHotel_no() + "</hotel_no>";
 			str += "<hotel_photo_folder>" + dto.getHotel_photo_folder() + "</Hotel_photo_folder>";
@@ -56,6 +60,7 @@ public class HotelIndexSearchAction implements Action {
 			str += "<hotel_hashtag1>"+dto.getHotel_hashtag().get(0)+"</hotel_hashtag1>";
 			str += "<hotel_hashtag2>"+dto.getHotel_hashtag().get(1)+"</hotel_hashtag2>";
 			str += "<hotel_hashtag3>"+dto.getHotel_hashtag().get(2)+"</hotel_hashtag3>";
+			str += "<review_count>"+re_count+"</review_count>";
 			
 			str += "</hotel>";
 		}

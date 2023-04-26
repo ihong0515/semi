@@ -41,7 +41,6 @@
 			</div>
 		</div>
 		<div id="mapping_landmark_list"></div>
-		<button type="button" id="goTop_btn" onclick="goTop()">맨 위로 ↑</button>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
 </body>
