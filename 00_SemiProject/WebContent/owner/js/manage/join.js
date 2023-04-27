@@ -1,17 +1,17 @@
 /**
  * 
  */
-function checkId(e){
+function checkId(){
 	
 	$("#idcheck").hide(); // span 태그 영역 숨기기
 	
 	let ownerId = $("#owner_id").val(); // id 값 가져오기
 	
 	/* 아이디 입력 길이 체크  */
-	if($.trim(ownerId).length < 8 || $.trim(ownerId).length > 20) {
+	if($.trim(ownerId).length < 4 || $.trim(ownerId).length > 20) {
 		$("#idcheck").text(""); // span 태그 영역 초기화
 		$("#idcheck").show();
-		$("#idcheck").append('<font color="red">8 ~ 20 자리 이내의 아이디를 입력해주세요.</font>');
+		$("#idcheck").append('<font color="red">4 ~ 20 자리 이내의 아이디를 입력해주세요.</font>');
 		$("#owner_id").val('').focus();
 		return false;
 	}
@@ -40,7 +40,7 @@ function checkId(e){
 	});
 }
 
-/* 회원가입 버튼 클릭 결과 ----------------------------------------------------------------------------- */
+/* 회원가입 버튼 클릭 결과 -- */
 function joinFormCheck() {
 	if($('#owner_id').val() == "") {
 		$("#idcheck").text("");
@@ -100,8 +100,6 @@ function joinFormCheck() {
 }
 
 function pwdInput(){
-	/* 비밀번호 유효성 검사 */
-	checkPwd($('#owner_pwd').val());
 	
 	let pwd = $('#owner_pwd').val();
 	let repwd = $('#owner_repwd').val();
@@ -118,22 +116,4 @@ function pwdInput(){
 			$('#owner_repwd').val('').focus();
 		}
 	}
-}
-
-function checkPwd(pwd) {
-    if(!/^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/.test(pwd)) {            
-		$("#pwdcheck").text("");
-		$("#pwdcheck").show();
-		$("#pwdcheck").append('<font color="red">숫자+영문자 조합으로 8자리 이상 사용해야 합니다.</font>');
-		$('#owner_pwd').val('').focus();
-    } else if(/(\w)\1\1\1/.test(pwd)) {
-		$("#pwdcheck").text("");
-		$("#pwdcheck").show();
-		$("#pwdcheck").append('<font color="red">같은 문자를 4번 이상 사용하실 수 없습니다.</font>');
-		$('#owner_pwd').val('').focus();
-	} else {
-		$("#pwdcheck").text("");
-		$("#pwdcheck").show();
-		$("#pwdcheck").append('<font color="blue">사용가능한 비밀번호입니다.</font>');
-    }
 }
