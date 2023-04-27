@@ -2,6 +2,83 @@
  * 
  */
 
+	function my_board_getList(d){
+		$('#faq_main').hide();
+		$('#board_main').show();
+		
+		let page = $('#page_li_now_site').text();
+		if(d!=null){
+			page=parseInt(page)+parseInt(d);
+		}else{
+			page = 1;
+		}
+		
+		$('#board_write_btn').show();
+		$('#board_mycontent_btn').show();
+		
+		$.ajax({
+			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+			type: "post",
+			url: "board_Site_Get_My_List.do",
+			data:{page: page},
+			datatype: "xml",
+			success: function(data){
+				let table = "";
+				let startBoard = $(data).find("startBoard").text();
+				
+				if($(data).find("board").text()==""){
+					table = "<tr><td colspan='4' align='center'><h3>등록된 게시물이 없습니다.</h3></td></tr>";
+					$('#board_list tr:gt(0)').remove();
+					$('#board_list tr:eq(0)').after(table);
+				}else{
+					$(data).find("board").each(function() {
+						table += "<tr>";
+						table += "<td>";
+						table += startBoard;
+						table += "</td>";
+						table += "<td><a href='"+contextPath+"/board_Get_Site_Content.do?board_no="+$(this).find("board_no").text()+"'>";
+						table += $(this).find("board_title").text();
+						table += "</a></td>";
+						table += "<td>";
+						table += $(this).find("board_writer").text();
+						table += "</td>";
+						if($(this).find("board_update").text()=='null'){
+							table += "<td>";
+							table += $(this).find("board_date").text();
+							table += "</td>";
+						}else{
+							table += "<td>";
+							table += $(this).find("board_update").text();
+							table += "</td>";
+						}
+						table += "</tr>";
+						
+						startBoard--;
+					});
+					if($('#board_list tr th:eq(3)').text()=='Hotel.'){
+						$('#board_list tr th:eq(3)').remove();
+					}
+					$('#board_list tr:gt(0)').remove();
+					$('#board_list tr:eq(0)').after(table);
+					
+					if($(data).find("page").text()!=''){
+						page = $(data).find("page").text();
+					}
+					
+					$('#board_navi_hotel').css('display', 'none');
+					$('#board_navi_site').css('display', 'none');
+					$('#board_navi_my').css('display', 'flex');
+					
+					$('#page_li_now_my').text(page);
+					$('#page_li_lastPage').val($(data).find("allPage").text());
+				}
+			},
+			error: function(){
+				alert('게시글 불러오는 중 시스템 오류');
+			}
+		});
+	}
+
 	function site_board_getList(d) {
 		$('#faq_main').hide();
 		$('#board_main').show();
@@ -14,6 +91,7 @@
 		}
 		
 		$('#board_write_btn').show();
+		$('#board_mycontent_btn').show();
 		
 		$.ajax({
 			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
@@ -68,6 +146,7 @@
 						page = $(data).find("page").text();
 					}
 					
+					$('#board_navi_my').css('display', 'none');
 					$('#board_navi_hotel').css('display', 'none');
 					$('#board_navi_site').css('display', 'flex');
 					
@@ -146,6 +225,7 @@
 							$('#board_list tr th:eq(2)').after("<th style='width: 100px;'>Hotel.</th>");
 						}
 						
+						$('#board_navi_my').css('display', 'none');
 						$('#board_navi_site').css('display', 'none');
 						$('#board_navi_hotel').css('display', 'flex');
 						

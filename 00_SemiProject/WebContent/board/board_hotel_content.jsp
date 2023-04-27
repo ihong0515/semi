@@ -31,46 +31,40 @@
 		    	<div id="board_main">
 		    		<table class="board_list">
 		    			<tr>
-		    				<th style="width: 40px;">
-		    					No.
-		    				</th>
-		    				<td> 
-		    					${dto.getInqho_no() }
-		    				</td>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					작성자
 		    				</th>
-		    				<td style="width: 100px;"> 
+		    				<td> 
 		    					${dto.getInqho_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqho_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqho_date().substring(0,10) }
 		    				</td>
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqho_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqho_update().substring(0,10) }
 		    				</td>
 		    				</c:if>
 		    			</tr>
 		    			<tr>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					제목
 		    				</th>
-		    				<td colspan="2" style="width: 200px;"> 
+		    				<td> 
 		    					${dto.getInqho_title() }
 		    				</td>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					hotel
 		    				</th>
-		    				<td colspan="2">
+		    				<td style="width: 150px;">
 		    					${hoDto.getHotel_name() }
 		    				</td>
 		    			</tr>
@@ -80,7 +74,7 @@
 		    				</th>
 		    			</tr>
 		    			<tr>
-		    				<td class="board_list_content" colspan="6">
+		    				<td class="board_list_content" colspan="4">
 		    					<c:if test="${!empty o_dto }">
 		    					<% pageContext.setAttribute("newLine", "\r\n"); %>
 								${fn:replace(o_dto.getInqho_content(), newLine, '<br/>')}
@@ -101,51 +95,45 @@
 		    		</table>
 		    		<table class="board_list" id="modify_board_list">
 		    			<tr>
-		    				<td colspan="6"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+		    				<td colspan="4"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 		    				&nbsp;변경사항을 입력해주세요.&nbsp;
 		    				<i class="fa fa-exclamation-circle" aria-hidden="true"></i></td>
 		    			</tr>
 		    			<tr>
-		    				<th style="width: 40px;">
-		    					No.
-		    				</th>
-		    				<td> 
-		    					${dto.getInqho_no() }
-		    				</td>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					작성자
 		    				</th>
-		    				<td style="width: 100px;"> 
+		    				<td> 
 		    					${dto.getInqho_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqho_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqho_date().substring(0,10) }
 		    				</td>
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqho_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqho_update().substring(0,10) }
 		    				</td>
 		    				</c:if>
 		    			</tr>
 		    			<tr>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					제목
 		    				</th>
-		    				<td colspan="2" style="width: 200px;">
+		    				<td>
 		    					<input type="text" name="hotel_title" value="${dto.getInqho_title() }">
 		    				</td>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					hotel
 		    				</th>
-		    				<td colspan="2">
+		    				<td style="width: 150px;">
 		    					${hoDto.getHotel_name() }
 		    				</td>
 		    			</tr>
@@ -155,7 +143,7 @@
 		    				</th>
 		    			</tr>
 		    			<tr>
-		    				<td class="board_list_content" colspan="6">
+		    				<td class="board_list_content" colspan="4">
 			    				<textarea cols="" rows="" name="hotel_content">${dto.getInqho_content() }</textarea>
 		    				</td>
 		    			</tr>

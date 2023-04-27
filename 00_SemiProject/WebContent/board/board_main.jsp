@@ -48,6 +48,7 @@
 	    		</table>
 	    		<div id="board_navi">
 	    			<div id="board_write_btn" style="display: none;">
+	    				<input type="button" id="board_mycontent_btn" onclick="my_board_getList()" value="내글보기">
 		    			<input id="board_write_modal_btn" type="button" value="문의하기" onclick="if(confirm('사이트에 문의사항을 작성하시겠습니까.')){write_modeal_open(); } else{return false; }">
 		    			<div id="board_write_modal_overlay">
 		    				<div id="board_write_modal_window">
@@ -104,6 +105,23 @@
 						</li>
 						<li class="page_li" onclick="click_a(this)">
 							<a class="page-link" href="javascript:hotel_board_getList('+10')">&#187;</a>
+						</li>
+					</ul>
+					<ul class='board_navi_page' id="board_navi_my">
+		    			<li class="page_li" onclick="click_a(this)">
+							<a class="page-link" href="javascript:my_board_getList()">&#171;</a>
+						</li>
+						<li class="page_li" onclick="click_a(this)">
+							<a class="page-link" href="javascript:my_board_getList('-1')">&#60;</a>
+						</li>
+						<li class="page_li page_one" onclick="click_a(this)">
+							<a class="page-link" id="page_li_now_my">1</a>
+						</li>
+						<li class="page_li" onclick="click_a(this)">
+							<a class="page-link" href="javascript:my_board_getList('+1')">&#62;</a>
+						</li>
+						<li class="page_li" onclick="click_a(this)">
+							<a class="page-link" href="javascript:my_board_getList('+10')">&#187;</a>
 						</li>
 					</ul>
 	    		</div>

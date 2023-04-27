@@ -10,6 +10,18 @@ function insert_check(){
 		alert('주소를 입력하세요.');
 		f.addr.focus();
 		return false;
+	}else if($('#phone_head').val()==''){
+		alert('연락처를 입력하세요.');
+		$('#phone_head').focus();
+		return false;
+	}else if($('#phone_middle').val()==''){
+		alert('연락처를 입력하세요.');
+		$('#phone_middle').focus();
+		return false;
+	}else if($('#phone_foot').val()==''){
+		alert('연락처를 입력하세요.');
+		$('#phone_foot').focus();
+		return false;
 	}else if(f.location.value==''){
 		alert('지역을 입력하세요.');
 		f.location.focus();
@@ -45,6 +57,18 @@ function insert_check(){
 	}else if(f.star.value==''){
 		alert('호텔 성급을 입력하세요.');
 		f.star.focus();
+		return false;
+	}else if($('.hashtag:eq(0)').val()==''){
+		alert('해쉬태그를 입력하세요.');
+		$('.hashtag:eq(0)').focus();
+		return false;
+	}else if($('.hashtag:eq(1)').val()==''){
+		alert('해쉬태그를 입력하세요.');
+		$('.hashtag:eq(1)').focus();
+		return false;
+	}else if($('.hashtag:eq(2)').val()==''){
+		alert('해쉬태그를 입력하세요.');
+		$('.hashtag:eq(2)').focus();
 		return false;
 	}else if(f.info.value==''){
 		alert('호텔 정보를 입력하세요.');
