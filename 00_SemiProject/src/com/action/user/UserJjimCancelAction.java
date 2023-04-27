@@ -28,7 +28,7 @@ public class UserJjimCancelAction implements Action {
 		if(res > 0) {
 			out.println("<script>");
 			out.println("alert('찜 취소되었습니다.')");
-			out.println("location.href='user_jjim.do");
+			out.println("location.href='user_jjim.do'");
 			out.println("</script>");
 			return null;
 		} else {

@@ -38,7 +38,7 @@
 						table += "</td>";
 						table += "<td><a href='"+contextPath+"/board_Get_Site_Content.do?board_no="+$(this).find("board_no").text()+"'>";
 						table += $(this).find("board_title").text();
-						table += "</a></td>";
+						table += "["+$(this).find("board_reply_count").text()+"]</a></td>";
 						table += "<td>";
 						table += $(this).find("board_writer").text();
 						table += "</td>";
@@ -118,6 +118,9 @@
 							table += $(this).find("board_title").text();
 						}else{
 							table += "<비밀 글입니다.>";
+						}
+						if($(this).find("board_reply_count").text()!=0){
+							table += "&nbsp;&nbsp;["+$(this).find("board_reply_count").text()+"]";
 						}
 						table += "</a></td>";
 						table += "<td>";

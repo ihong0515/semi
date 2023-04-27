@@ -22,11 +22,6 @@ public class ImageZipControll {
 		ZipEntry zipentry = null;
 
 		try {
-			// zipFileName을 통해서 폴더 만들기
-			if (makeFolder(zipUnzipPath)) {
-				
-			}
-
 			// 파일 스트림
 			fis = new FileInputStream(zipFile);
 
@@ -74,28 +69,6 @@ public class ImageZipControll {
 		zipFile.delete();
 		
 		return isChk;
-	}
-	
-	private boolean makeFolder(String folder) {
-		if (folder.length() < 0) {
-			return false;
-		}
-
-		String path = folder; // 폴더 경로
-		File Folder = new File(path);
-
-		// 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
-		if (!Folder.exists()) {
-			try {
-				Folder.mkdir(); // 폴더 생성합니다.
-				
-			} catch (Exception e) {
-				e.getStackTrace();
-			}
-		} else {
-			
-		}
-		return true;
 	}
 	
 	private void createFile(File file, ZipInputStream zis) throws Throwable {

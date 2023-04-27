@@ -41,9 +41,12 @@ public class BoardSiteGetListAction implements Action {
 		String board_list = "<board_list>";
 		
 		for(Inquiry_SiteDTO dto : list) {
+			int reply_count = BoardDAO.getInstance().getSiteReplyList(dto.getInqsi_no()).size();
+			
 			board_list += "<board>"
 					+ "<board_no>"+dto.getInqsi_no()+"</board_no>"
 					+ "<board_writer>"+dto.getInqsi_writer()+"</board_writer>"
+					+ "<board_reply_count>"+reply_count+"</board_reply_count>"
 					+ "<board_title>"+dto.getInqsi_title()+"</board_title>"
 					+ "<board_content>"+dto.getInqsi_content()+"</board_content>"
 					+ "<board_date>"+dto.getInqsi_date().substring(5, 10)+"</board_date>";

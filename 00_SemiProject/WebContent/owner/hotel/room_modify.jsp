@@ -22,7 +22,7 @@
 							룸 이름
 						</th>
 						<td>
-							<input type="text" value="${dto.getRoom_name() }" name="name">
+							<input type="text" value="${dto.getRoom_name() }" name="name" readonly="readonly">
 						</td>
 					</tr>
 					<tr>
@@ -91,7 +91,7 @@
 					</tr>
 					<tr>
 						<th colspan="2">
-							사진 파일을 압축파일로 첨부하세요.
+							사진 파일을 압축파일로 첨부하세요. (최소 3장, 최대 10MB)
 						</th>
 					</tr>
 					<tr>
