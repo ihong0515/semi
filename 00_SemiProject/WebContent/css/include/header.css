@@ -152,6 +152,12 @@ html, body {
 	height: 30px;
 	width: 280px;
 }
+.fa-heart-o:before,
+.fa-heart:before{
+	/* color: #F4D2D5; */
+	color: #FB7673;
+	/* color: red; */
+}
 #goTop_btn {
 	position: fixed;
 	bottom: 20px;

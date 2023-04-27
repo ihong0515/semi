@@ -472,6 +472,7 @@ textarea:focus {
 	padding: 5px;
 	background: black;
 	color:white;
+	cursor: pointer;
 }
 #hotel_icon table {
 	border-collapse: separate;

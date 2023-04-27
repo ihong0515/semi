@@ -10,7 +10,9 @@
 </head>
 <body>
 	<div id="container">
-		<jsp:include page="../include/header.jsp" />
+		<div style="display: none;">
+			<jsp:include page="../include/header.jsp" />
+		</div>
 		<div id = "content" align = "center">
 			<h1>Owner회원가입</h1>
 			<form method="post" name="joinForm" id="joinForm" action="<%=request.getContextPath()%>/owner_Join_ok.do" onsubmit="return joinFormCheck()">
@@ -18,7 +20,7 @@
 					<tr>
 						<th>아이디 입력</th>
 						<td>
-							<input type = "text" name = "owner_id" id = "owner_id" onblur="checkId(this)" >
+							<input type = "text" name = "owner_id" id = "owner_id" onblur="checkId()" >
 							<input type="hidden" name="idcheckfin" value="idUncheck">
 							<br>
 							<span id="idcheck"></span>
@@ -42,7 +44,7 @@
 					<tr>	
 						<th>사업자명</th>
 						<td>
-							<input type="text" name="owner_name" id="owner_name" placeholder="홍사장">
+							<input type="text" name="owner_name" id="owner_name" placeholder="사업자이름">
 							<br>
 							<span id="namecheck"></span>
 						</td>

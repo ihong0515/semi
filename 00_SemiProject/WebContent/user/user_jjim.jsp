@@ -49,7 +49,7 @@
 					<c:if test="${empty hotelList }">
 						<ul id = "none_jjim_list">
 							<li>
-								<i class="fa fa-question-circle" aria-hidden="true"></i><p>찜한 호텔이 없습니다.</p>
+								<i class="fa fa-question-circle" aria-hidden="true"></i>찜한 호텔이 없습니다.
 							</li>
 						</ul>
 					</c:if>
