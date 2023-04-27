@@ -535,11 +535,11 @@ private static OwnerDAO instance;
 			sql = "insert into hotelpolicy values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, hotel_no);
-			for(int i=0;i<str.length;i++) {
-				if(str[i].equals("on")) {
-					ps.setString((i+2), "Y");
+			for(int i = 0; i<str.length;i++) {
+				if(str[i]==null) {
+					ps.setInt((i+2), 0);
 				}else {
-					ps.setString((i+2), "N");
+					ps.setInt((i+2), 1);
 				}
 			}
 			ps.executeUpdate();

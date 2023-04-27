@@ -42,7 +42,6 @@ public class OwnerRoomInsertOkAction implements Action {
 		dto.setRoom_breakfast(multi.getParameter("bf").trim());
 		String name = multi.getParameter("name").trim();
 		dto.setRoom_name(name);
-		dto.setRoom_photo_folder(name);
 		dto.setRoom_bed(multi.getParameter("bed").trim());
 		dto.setRoom_checkin(multi.getParameter("in").trim());
 		dto.setRoom_checkout(multi.getParameter("out").trim());
@@ -54,6 +53,7 @@ public class OwnerRoomInsertOkAction implements Action {
 		HotelDTO hotel = HotelDAO.getInstance().getHotelContent(ho_no);
 		
 		saveFolder += "/"+hotel.getHotel_photo_folder()+"/"+name;
+		dto.setRoom_photo_folder(hotel.getHotel_photo_folder()+"/"+name);
 		
 		File dir = new File(saveFolder);
 		if(!dir.exists()) {

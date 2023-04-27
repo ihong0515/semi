@@ -132,6 +132,27 @@ public class BoardDAO {
 		}
 		return count;
 	}
+	
+	//getSiteBoardCount() 해당 유저글의 갯수만 가져오는 OverLoading
+	public int getSiteBoardCount(int user_no) {
+		int count = 0;
+		
+		try {
+			openConn();
+			sql = "select count(*) from inquiry_site where inqsi_userno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeConn();
+		}
+		return count;
+	}
 
 	public ArrayList<Inquiry_SiteDTO> getSitePageBoardList(int startNo, int endNo) {
 		ArrayList<Inquiry_SiteDTO> list = new ArrayList<Inquiry_SiteDTO>();
@@ -145,6 +166,40 @@ public class BoardDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, startNo);
 			ps.setInt(2, endNo);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Inquiry_SiteDTO dto = new Inquiry_SiteDTO();
+				dto.setInqsi_no(rs.getInt("inqsi_no"));
+				dto.setInqsi_writer(rs.getString("inqsi_writer"));
+				dto.setInqsi_title(rs.getString("inqsi_title"));
+				dto.setInqsi_content(rs.getString("inqsi_content"));
+				dto.setInqsi_date(rs.getString("inqsi_date"));
+				dto.setInqsi_update(rs.getString("inqsi_update"));
+				dto.setInqsi_userno(rs.getInt("inqsi_userno"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			closeConn();
+		}
+		return list;
+	}
+	
+	//getSitePageBoardList() 해당 유저글만 가져오는 OverLoding
+	public ArrayList<Inquiry_SiteDTO> getSitePageBoardList(int startNo, int endNo, int user_no) {
+ArrayList<Inquiry_SiteDTO> list = new ArrayList<Inquiry_SiteDTO>();
+		
+		try {
+			openConn();
+			sql = "select * from " + 
+					"(select row_number() over(order by inqsi_no desc) rnum, " + 
+					"b.* from inquiry_site b where b.inqsi_userno = ?) " + 
+					"where rnum between ? and ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, user_no);
+			ps.setInt(2, startNo);
+			ps.setInt(3, endNo);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				Inquiry_SiteDTO dto = new Inquiry_SiteDTO();

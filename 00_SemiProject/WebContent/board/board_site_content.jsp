@@ -26,40 +26,34 @@
 		    	<div id="board_main">
 		    		<table class="board_list">
 		    			<tr>
-		    				<th style="width: 40px;">
-		    					No.
-		    				</th>
-		    				<td> 
-		    					${dto.getInqsi_no() }
-		    				</td>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					작성자
 		    				</th>
-		    				<td style="width: 100px;"> 
+		    				<td>
 		    					${dto.getInqsi_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqsi_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqsi_date().substring(0,10) }
 		    				</td>
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqsi_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqsi_update().substring(0,10) }
 		    				</td>
 		    				</c:if>
 		    			</tr>
 		    			<tr>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					제목
 		    				</th>
-		    				<td colspan="5" style="width: 200px;"> 
+		    				<td colspan="3"> 
 		    					${dto.getInqsi_title() }
 		    				</td>
 		    			</tr>
@@ -69,13 +63,13 @@
 		    				</th>
 		    			</tr>
 		    			<tr>
-		    				<td class="board_list_content" colspan="6">
+		    				<td class="board_list_content" colspan="4">
 			    				<% pageContext.setAttribute("newLine", "\r\n"); %>
 								${fn:replace(dto.getInqsi_content(), newLine, '<br/>')}
 		    				</td>
 		    			</tr>
 		    			<tr>
-		    				<td colspan="6">
+		    				<td colspan="4">
 		    					<div id="board_reply">
 		    					<p id = "reply_title"><b><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;comment</b></p>
 		    						<div id="reply_view">
@@ -97,36 +91,30 @@
 		    		</table>
 		    		<table class="board_list" id="modify_board_list">
 		    			<tr>
-		    				<td colspan="6"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+		    				<td colspan="4"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 		    				&nbsp;변경사항을 입력해주세요.&nbsp;
 		    				<i class="fa fa-exclamation-circle" aria-hidden="true"></i></td>
 		    			</tr>
 		    			<tr>
-		    				<th style="width: 40px;">
-		    					No.
-		    				</th>
-		    				<td> 
-		    					${dto.getInqsi_no() }
-		    				</td>
-		    				<th>
+		    				<th style="width: 100px;">
 		    					작성자
 		    				</th>
-		    				<td style="width: 100px;"> 
+		    				<td> 
 		    					${dto.getInqsi_writer() }
 		    				</td>
 		    				<c:if test="${empty dto.getInqsi_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					작성일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqsi_date().substring(0,10) }
 		    				</td>
 		    				</c:if>
 		    				<c:if test="${!empty dto.getInqsi_update() }">
-		    				<th style="width: 50px;">
+		    				<th style="width: 100px;">
 		    					갱신일&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
 		    				</th>
-		    				<td>
+		    				<td style="width: 150px;">
 		    					${dto.getInqsi_update().substring(0,10) }
 		    				</td>
 		    				</c:if>
@@ -135,7 +123,7 @@
 		    				<th>
 		    					제목
 		    				</th>
-		    				<td colspan="5" style="width: 200px;"> 
+		    				<td colspan="3"> 
 		    					<input type="text" name="site_title" value="${dto.getInqsi_title() }">
 		    				</td>
 		    			</tr>
@@ -145,7 +133,7 @@
 		    				</th>
 		    			</tr>
 		    			<tr>
-		    				<td class="board_list_content" colspan="6">
+		    				<td class="board_list_content" colspan="4">
 			    				<textarea cols="" rows="" name="site_content">${dto.getInqsi_content() }</textarea>
 		    				</td>
 		    			</tr>

@@ -37,7 +37,7 @@
 							연락처
 						</th>
 						<td colspan="2">
-							<input type="text" name="phone" maxlength="3" placeholder="010">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000" maxlength="4">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000" maxlength="4">
+							<input type="text" name="phone" maxlength="3" value="010" id="phone_head">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000" maxlength="4" id="phone_middle">&nbsp;-&nbsp;<input type="text" name="phone" placeholder="0000" maxlength="4" id="phone_foot">
 						</td>
 					</tr>
 					<tr>
