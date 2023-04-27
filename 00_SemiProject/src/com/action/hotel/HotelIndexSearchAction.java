@@ -26,7 +26,7 @@ public class HotelIndexSearchAction implements Action {
 		PrintWriter out = response.getWriter();
 		
 		if(type.equals("Starlocation")) {
-			list = HotelDAO.getInstance().getHotelIndexSearch(location, "hotel_star desc");
+			list = HotelDAO.getInstance().getHotelIndexSearch(location, "hotel_point desc");
 		}else {
 			list = HotelDAO.getInstance().getHotelIndexSearch(location, "hotel_price_min asc");
 		}
@@ -36,7 +36,9 @@ public class HotelIndexSearchAction implements Action {
 			user = (UserDTO)request.getSession().getAttribute("loginUser");
 		}
 		String str = "<hotels>";
-		for(HotelDTO dto : list) {
+		for(int j = 0; j<3; j++) {
+			HotelDTO dto = list.get(j);
+			
 			int jjim_check = -1;
 			if(user!=null){
 				for(int i : user.getUser_jjimList()) {

@@ -30,9 +30,9 @@
 						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/main.jpg" width="320" height="320">
 					</div>
 					<div id="hotel_info_small_img">
-						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/room1/1.jpg" width="100" height="100">
-						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/room1/2.jpg" width="100" height="100">
-						<img alt="" src="<%=request.getContextPath() %>/image/hotel/${hoDTO.getHotel_photo_folder() }/room1/3.jpg" width="100" height="100">
+						<c:forEach begin="1" end="3" var="i">
+							<img alt="" src="<%=request.getContextPath() %>/image/hotel/${roomList.get(0).getRoom_photo_folder() }/${i }.jpg" width="100" height="100">
+						</c:forEach>
 					</div>
 					<div id="hotel_info_detail">
 						<span id="hotel_info_detail_star_txt">${hoDTO.getHotel_star() }성급</span>
