@@ -52,7 +52,7 @@
 					<tr>	
 						<th>사업자연락처</th>
 						<td>
-							<input type="text" name="owner_phone"  class="phone_number" maxlength="3" placeholder="000">
+							<input type="text" name="owner_phone"  class="phone_number" maxlength="3" value="010">
 							-
 							<input type="text" name="owner_phone" class="phone_number" maxlength="4" placeholder="0000">
 							-

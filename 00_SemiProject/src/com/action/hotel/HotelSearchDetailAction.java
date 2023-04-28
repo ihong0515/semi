@@ -41,10 +41,14 @@ public class HotelSearchDetailAction implements Action {
 			ArrayList<Integer> bedlist = HotelDAO.getInstance().getHotelBedList(bed);
 			
 			for(HotelDTO d : detail_List) {
+				int check_bed = 0;
 				for(int b : bedlist) {
 					if(d.getHotel_no() == b) {
-						realList.add(d);
+						check_bed = 1;
 					}
+				}
+				if(check_bed==1) {
+					realList.add(d);
 				}
 			}
 			request.setAttribute("Hotel_List", realList);

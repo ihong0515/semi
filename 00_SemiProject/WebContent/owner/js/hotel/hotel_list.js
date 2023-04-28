@@ -52,8 +52,8 @@ function open_room_list(self){
 				$('#room_btn').attr('onclick', '');
 				$('#room_btn').attr('onclick', "location.href='"+contextPath+"/owner_room_insert.do?ho_no="+$(data).find("ho_no").text()+"'");
 				$('#room_list option:eq(0)').after(str);
-				close_menu('#room_x');
-				close_menu('#hotel_x');
+				
+				$('#select_hotel option:eq(0)').prop('selected','selected');
 			},
 			error: function(){
 				alert('시스템 오류 발생');
@@ -65,8 +65,6 @@ function open_room_list(self){
 function open_room_content(self){
 	let no = $(self).val();
 	
-	close_menu('#room_x');
-	close_menu('#hotel_x');
 	$('#content_title').hide();
 	$('.result_tb').hide();
 	$('.result_tb').eq(1).show();
@@ -94,8 +92,7 @@ function open_room_content(self){
 				$('.info_insert_room').eq(7).text($(data).find("out").text());
 				$('.info_insert_room').eq(8).text($(data).find("bf").text());
 				
-				close_menu('#room_x');
-				close_menu('#hotel_x');
+				$('#room_list option:eq(0)').prop('selected','selected');
 			},
 			error: function(){
 				alert('시스템 오류 발생');
@@ -108,9 +105,8 @@ function open_menu(self){
 	$(self).next().animate({
 		width: 'show'
 	}, 200);
-	$('#select_hotel option:eq(0)').prop('selected','selected');
-	$('#room_list option:eq(0)').prop('selected','selected');
 }
+
 function close_menu(self){
 	$(self).parent().animate({
 		width: 'hide'
