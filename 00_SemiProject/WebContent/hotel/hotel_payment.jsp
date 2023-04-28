@@ -234,7 +234,7 @@ if(checkDate!=null){
 						<input type="hidden" name="coup_no" id="coup_no">
 						<input type="hidden" name="prom_no" id="prom_no">
 						<input type="hidden" name="user_no" value="${usDTO.getUser_no() }">
-						<input type="hidden" name="inoutDay" value="${inoutDay }">
+						<input type="hidden" id="inoutDay_hide" name="inoutDay" value="${inoutDay }">
 						<input type="hidden" name="hotel_name" value="${hoDTO.getHotel_name() }">
 						<input type="hidden" name="hotel_no" value="${hoDTO.getHotel_no() }">
 						<input type="hidden" name="room_name" value="${roDTO.getRoom_name() }">

@@ -94,6 +94,8 @@ function saleCheck() {
 		let resultPrice = pri.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 		$('#realPrice').text("₩"+resultPrice);
 		$('#realPrice_hidden').val(pri);
+		$('#coup_no').val('');
+		$('#prom_no').val('');
 	}else{
 		$.ajax({
 			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
@@ -153,5 +155,5 @@ function inoutChange(self){
 	$('#salePrice').text("₩"+result_sale_Pri);
 	$('#realPrice_hidden').val(result_Pri);
 	$('#nomalPrice_hidden').val(ori_pri);
-	
+	$('#inoutDay_hide').val(inoutdays);
 }

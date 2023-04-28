@@ -148,6 +148,40 @@ public class HotelDAO {
 		}
 		return list;
 	}
+	
+	//호텔에 대한 모든 룸리스트 출력하는 메서드 OverLoding
+	public ArrayList<RoomDTO> getRoomList(int no) {
+		ArrayList<RoomDTO> list = new ArrayList<>();
+		
+		try {
+			sql = "select * from room where room_hotelno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				RoomDTO dto = new RoomDTO();
+				dto.setRoom_no(rs.getInt("room_no"));
+				dto.setRoom_hotelno(rs.getInt("room_hotelno"));
+				dto.setRoom_name(rs.getString("room_name"));
+				dto.setRoom_price(rs.getInt("room_price"));
+				dto.setRoom_bed(rs.getString("room_bed"));
+				dto.setRoom_size(rs.getString("room_size"));
+				dto.setRoom_people_min(rs.getInt("room_people_min"));
+				dto.setRoom_people_max(rs.getInt("room_people_max"));
+				dto.setRoom_photo_folder(rs.getString("room_photo_folder"));
+				dto.setRoom_photo_folder_size(rs.getInt("room_photo_folder_size"));
+				dto.setRoom_checkin(rs.getString("room_checkin"));
+				dto.setRoom_checkout(rs.getString("room_checkout"));
+				dto.setRoom_breakfast(rs.getString("room_breakfast"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
 
 	public HotelDTO getHotelContent(int hotel_no) {
 		HotelDTO dto = null;

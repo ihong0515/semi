@@ -9,6 +9,7 @@
 <c:set var="reviewList" value="${ReviewList }"/>
 <c:set var="user" value="${sessionScope.loginUser }"/>
 <c:set var="reservList" value="${Re_list }" />
+<c:set var="realRoomList" value="${RealRoomList }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -318,20 +319,20 @@
 												<td>${reDTO.getReview_checkindate().substring(5,10) }</td>
 											</tr>
 											<tr>
-												<c:forEach items="${roomList }" var="roDTO">
-													<c:if test="${roDTO.getRoom_no() == reDTO.getReview_roomno() }">
-														<th><i class="fa fa-bed" aria-hidden="true"></i></th>
-														<td>${roDTO.getRoom_name() }</td>
-													</c:if>
-												</c:forEach>
-											</tr>
-											<tr>
 												<th>작성일</th>
 												<td>${reDTO.getReview_date().substring(2,10) }</td>
 											</tr>
 											<tr>
 												<th>평점</th>
 												<td>${reDTO.getReview_point() }/10</td>
+											</tr>
+											<tr>
+												<c:forEach items="${realRoomList }" var="roDTO">
+													<c:if test="${roDTO.getRoom_no() == reDTO.getReview_roomno() }">
+														<th><i class="fa fa-bed" aria-hidden="true"></i></th>
+														<td>${roDTO.getRoom_name() }</td>
+													</c:if>
+												</c:forEach>
 											</tr>
 										</table>
 									</div>
@@ -388,8 +389,17 @@
 									<th>객실 종류</th>
 									<td>
 										<select id="review_reservno" name="review_reservno">
+											<option value="">:::::::</option>
 											<c:forEach items="${reservList }" var="dto">
+												<c:set var="i_check" value="${0 }" />
+												<c:forEach items="${reviewList }" var="reDTO">
+												<c:if test="${dto.getReserv_no() == reDTO.getReview_reservno() }">
+													<c:set var="i_check" value="${1 }" />
+												</c:if>
+												</c:forEach>
+												<c:if test="${i_check == 0}">
 												<option value="${dto.getReserv_no() }">${dto.getReserv_roomname() }</option>
+												</c:if>
 											</c:forEach>
 										</select>
 									</td>
