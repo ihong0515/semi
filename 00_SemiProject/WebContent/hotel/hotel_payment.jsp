@@ -29,7 +29,7 @@ if(checkDate!=null){
 <title>${hoDTO.getHotel_name() } 결제 페이지</title>
 <link href="<%=request.getContextPath() %>/image/icon/title.png" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript">
-	let check_price_param = '${roDTO.getRoom_price() * inoutDay}';
+	let room_price_val = '${roDTO.getRoom_price() }';
 </script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/js/hotel/hotel_payment.js"></script>
 <link href="<%=request.getContextPath() %>/css/hotel/hotel_payment.css" rel="stylesheet">
@@ -76,10 +76,10 @@ if(checkDate!=null){
 										<c:set var="checkDate" value="${sessionScope.CheckDate }" />
 										<fmt:formatDate value="${checkDate.get(0) }" var="checkin" pattern="yyyy-MM-dd" />
 										<fmt:formatDate value="${checkDate.get(1) }" var="checkout" pattern="yyyy-MM-dd" />
-										<input type="date" value="${checkin }" class="checkIn checkInP" name="payment_hotel_indate" onchange="mindateset(this)"> - <input type="date" value="${checkout }" class="checkOut checkOutP" name="payment_hotel_outdate">
+										<input type="date" value="${checkin }" class="checkIn checkInP" name="payment_hotel_indate" onchange="mindateset(this)"> - <input type="date" value="${checkout }" class="checkOut checkOutP" name="payment_hotel_outdate" onchange="inoutChange(this)">
 									</c:if>
 									<c:if test="${empty sessionScope.CheckDate }">
-										<input type="date" value="" class="checkIn checkInP" name="payment_hotel_indate" onchange="mindateset(this)"> - <input type="date" value="" class="checkOut checkOutP" name="payment_hotel_outdate">
+										<input type="date" value="" class="checkIn checkInP" name="payment_hotel_indate" onchange="mindateset(this)"> - <input type="date" value="" class="checkOut checkOutP" name="payment_hotel_outdate" onchange="inoutChange(this)">
 									</c:if>
 								</div>
 								<div>
@@ -116,7 +116,7 @@ if(checkDate!=null){
 							<h3 class="title_class">예약 혜택</h3>
 							<span>할인 코드</span>
 							<select id="prom_code_select" style="width: 120px;">
-								<option value="">::::::::::::::::::::::::::</option>
+								<option value="basic">::::::::::::::::::::::::::</option>
 								<c:forEach items="${coupList }" var="coDTO">
 								<option value="${coDTO.getCoup_no() }">
 								<c:forEach items="${promList }" var="prDTO">
@@ -135,9 +135,9 @@ if(checkDate!=null){
 							<table>
 								<tr>
 									<th>
-										<fmt:formatNumber value="${roDTO.getRoom_price() }" type="currency"/> X ${inoutDay }박
+										<fmt:formatNumber value="${roDTO.getRoom_price() }" type="currency"/> X <span id="inoutDay_text">${inoutDay }</span>박
 									</th>
-									<td>
+									<td id="original_price">
 										<fmt:formatNumber value="${roDTO.getRoom_price()*inoutDay }" type="currency" />
 									</td>
 								</tr>
@@ -158,6 +158,9 @@ if(checkDate!=null){
 									</td>
 								</tr>
 							</table>
+							<input type="hidden" value="${roDTO.getRoom_price() * inoutDay}" id="ori_pri_hide">
+							<input type="hidden" value="0" readonly="readonly" id="saleP_hide">
+							<input type="hidden" value="0" readonly="readonly" id="sales_hide">
 							<div id="payment_usercard">
 								${dto.getUser_name() }
 								<c:if test="${empty usDTO }">
@@ -225,8 +228,8 @@ if(checkDate!=null){
 				        </div>
 					</div>
 					<div id="payment_submit">
-						<input id="realPrice_hidden" type="hidden" name="realPrice" value="${roDTO.getRoom_price()*inoutDay }">
-						<input type="hidden" name="nomalPrice" value="${roDTO.getRoom_price()*inoutDay }">
+						<input type="hidden" id="realPrice_hidden" name="realPrice" value="${roDTO.getRoom_price()*inoutDay }">
+						<input type="hidden" id="nomalPrice_hidden" name="nomalPrice" value="${roDTO.getRoom_price()*inoutDay }">
 						<input type="hidden" id="card_no" name="card_no" value="0">
 						<input type="hidden" name="coup_no" id="coup_no">
 						<input type="hidden" name="prom_no" id="prom_no">

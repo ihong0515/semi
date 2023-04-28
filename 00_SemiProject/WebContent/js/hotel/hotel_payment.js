@@ -85,8 +85,15 @@ function payment_getno(){
 
 function saleCheck() {
 	let coup_no_val = $('#prom_code_select').val();
-	if(coup_no_val==''){
-		alert('쿠폰번호를 선택하세요.');
+	if(coup_no_val=='basic'){
+		$('#coupon_name').text('쿠폰 미적용');
+		$('#salePrice').text('0');
+		$('#saleP_hide').val('0');
+		$('#sales_hide').val('0');
+		let pri = $('#ori_pri_hide').val();
+		let resultPrice = pri.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		$('#realPrice').text("₩"+resultPrice);
+		$('#realPrice_hidden').val(pri);
 	}else{
 		$.ajax({
 			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
@@ -94,7 +101,7 @@ function saleCheck() {
 			url: "coupon_get_SalePrice.do",
 			data: {
 				coup_no: coup_no_val,
-				price: check_price_param
+				price: $('#ori_pri_hide').val()
 			},
 			datatype: "xml",
 			success: function(data){
@@ -111,9 +118,11 @@ function saleCheck() {
 					$('#coupon_name').text(name +" / "+ sale+" % 할인");
 					$('#salePrice').text("₩"+resultSale);
 					$('#realPrice').text("₩"+resultPrice);
+					$('#saleP_hide').val(saleP);
 					$('#coup_no').val($("coup_no", this).text());
 					$('#prom_no').val($("prom_no", this).text());
 					$('#realPrice_hidden').val(price);
+					$('#sales_hide').val(sale);
 				});
 			},
 			error: function(){
@@ -121,5 +130,28 @@ function saleCheck() {
 			}
 		});
 	}
+}
+function inoutChange(self){
+	let outdays = $(self).val();
+	let indays = $('.checkInP').val();
+	
+	let result = new Date(outdays).getTime() - new Date(indays).getTime();
+	let inoutdays = result/1000/60/60/24;
+	
+	let ori_pri = room_price_val*inoutdays;
+	let sale_pri = ori_pri * ($('#sales_hide').val()/100);
+	let result_Pri = ori_pri - sale_pri;
+	
+	let result_Ori_Pri = ori_pri.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	let result_real_Pri = result_Pri.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	let result_sale_Pri = sale_pri.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	
+	$('#ori_pri_hide').val(ori_pri);
+	$('#inoutDay_text').text(inoutdays);
+	$('#original_price').text("₩"+result_Ori_Pri);
+	$('#realPrice').text("₩"+result_real_Pri);
+	$('#salePrice').text("₩"+result_sale_Pri);
+	$('#realPrice_hidden').val(result_Pri);
+	$('#nomalPrice_hidden').val(ori_pri);
 	
 }
