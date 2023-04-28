@@ -77,12 +77,17 @@ function board_write(ho_no){
 }
 
 function review_check(){
-	if($('#review_content').val()==''){
-		alert('리뷰 내용을 작성하세요.');
-		$('#review_content').focus();
+	if($('#review_reservno').val()==''){
+		alert('이용하신 객실을 선택하세요.');
 		return false;
 	}else{
-		confirm('리뷰를 등록하시겠습니까?');
+		if($('#review_content').val()==''){
+			alert('리뷰 내용을 작성하세요.');
+			$('#review_content').focus();
+			return false;
+		}else{
+			confirm('리뷰를 등록하시겠습니까?');
+		}
 	}
 }
 
