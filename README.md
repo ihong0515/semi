@@ -15,37 +15,17 @@
 이희용(조장)
 <br>
 김서윤(조원)
-<br>
+
 홍재영(조원)
 
 
 # 📑 요구사항 정의서
-![image](https://github.com/harim-000/JEJU_TREE/assets/81612425/720dcf4f-dade-42d4-907e-192337d2c70a)
+<br>![goCatchStay요구사항정의서](https://github.com/ihong0515/semi/assets/128394675/f4b32b30-daa7-42f2-aafa-2ab91ce6817d)
  
 # 💡 ERD Diagram<br>
-<img width="543" alt="jeju_tree_erd" src="https://github.com/harim-000/JEJU_TREE/assets/81612425/2a300a51-0de5-4f47-bacd-0b4121b00af6">
-
-
-# 👀 기능 구조
-![image](https://github.com/harim-000/JEJU_TREE/assets/81612425/dc0e18e2-a25a-4c9f-b888-f7ce9c2bd204)
+![goCatchStayERD](https://github.com/ihong0515/semi/assets/128394675/6c570a2a-f4a6-4a94-9a14-a2cc34a86a58)
 
 # ✈️ 기능 소개
- ![기능설명도](https://github.com/harim-000/JEJU_TREE/assets/128435396/51822db8-77a3-40fa-82b8-78eb321eb259)
+ ![goCatchStayFlowChart](https://github.com/ihong0515/semi/assets/128394675/d750004a-9709-41b8-be28-d90fd3e66782)
 
- 
-# ✈️ 시연(데모 링크 or 배포링크)
- 
-
-# 🔎 reference(API 주소 등등)
-TMAP API 👉  https://tmapapi.sktelecom.com
- <br>
-채널톡 API 👉 https://channel.io/ko
- <br>
-토스트 캘린더 API 👉 https://github.com/nhn/tui.calendar
- <br>
-공공데이터 👉 https://www.data.go.kr/ 
- <br>
-Kakao developers API 👉 https://developers.kakao.com/ 
- <br>
-Weather API 👉 https://openweathermap.org/api
 
